@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
+@theme {
+  --color-passarinha-terracotta: #c85028;
+  --color-passarinha-terracotta-dark: #a63f1d;
+  --color-passarinha-green: #2e6f40;
+  --color-passarinha-green-dark: #235431;
+  --color-passarinha-yellow: #e5a823;
+  --color-passarinha-yellow-dark: #b88313;
+  --color-passarinha-blue: #1b7a82;
+  --color-passarinha-blue-dark: #145e64;
+  --color-passarinha-purple: #583259;
+  --color-passarinha-purple-dark: #412442;
+  --color-passarinha-sand: #f7f4ea;
+  --color-passarinha-sand-warm: #eee8d5;
+  --color-passarinha-dark: #22211e;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #f7f4ea;
+  --foreground: #22211e;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Suavidade na rolagem */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Detalhes lúdicos para botões estilo Coletivo Foca */
+.btn-foca {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-foca:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-foca:active {
+  transform: translateY(0);
 }

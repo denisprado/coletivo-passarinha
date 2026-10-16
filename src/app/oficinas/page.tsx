@@ -1,0 +1,136 @@
+import React from "react";
+import Link from "next/link";
+import { WORKSHOPS } from "@/data/siteData";
+import {
+  Hammer,
+  MessageCircle,
+  ExternalLink,
+  CheckCircle2,
+  Users,
+  Sparkles,
+  Download,
+} from "lucide-react";
+
+export const metadata = {
+  title: "Oficinas & Práticas Formativas | Coletivo Passarinha",
+  description:
+    "Oficinas de Arte-Educação Ambiental: Ateliê Jogar Dentro, Ecobrinquedoteca Jogar Dentro e Orquestra de Pandeiros.",
+};
+
+export default function OficinasPage() {
+  return (
+    <main className="w-full">
+      {/* Header */}
+      <section className="bg-[#1b7a82] text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#e5a823]">
+        <div className="max-w-5xl mx-auto text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-[#e5a823]">
+            <Hammer className="w-4 h-4" /> Arte-Educação & Meio Ambiente
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight">
+            Nossas Oficinas
+          </h1>
+          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed">
+            Experiências de experimentação, criação coletiva e aprendizagem através do
+            reaproveitamento de materiais, do livre brincar e da percussão brasileira.
+          </p>
+        </div>
+      </section>
+
+      {/* Lista Completa de Oficinas */}
+      <section className="bg-[#faf7f0] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-16">
+          {WORKSHOPS.map((workshop, idx) => (
+            <div
+              key={workshop.id}
+              className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-[#e2d8c3] space-y-8 hover:shadow-lg transition-all"
+            >
+              {/* Topo do Card */}
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span
+                    className="text-xs font-black uppercase px-3.5 py-1 rounded-full text-white"
+                    style={{ backgroundColor: workshop.accentColor }}
+                  >
+                    Oficina {idx + 1}
+                  </span>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#2e6f40]">
+                    <Users className="w-4 h-4" />
+                    <span>Público: {workshop.targetAudience}</span>
+                  </div>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl font-black text-[#22211e]">
+                  {workshop.title}
+                </h2>
+                <p className="text-base sm:text-lg font-bold text-[#c85028]">
+                  {workshop.subtitle}
+                </p>
+              </div>
+
+              {/* Frase Conceito em Destaque */}
+              <blockquote className="bg-[#faf7f0] p-6 rounded-2xl border-l-4 border-[#c85028] text-base sm:text-lg italic text-[#22211e]/90 font-medium">
+                “{workshop.concept}”
+              </blockquote>
+
+              {/* Texto Descritivo Completo */}
+              <div className="space-y-4 text-base text-[#22211e]/85 leading-relaxed">
+                {workshop.fullDescription.map((paragraph, pIdx) => (
+                  <p key={pIdx}>{paragraph}</p>
+                ))}
+              </div>
+
+              {/* Destaques e Diferenciais */}
+              {workshop.highlights && (
+                <div className="bg-[#2e6f40]/5 p-6 rounded-2xl border border-[#2e6f40]/20 space-y-3">
+                  <h3 className="text-xs font-black uppercase tracking-wider text-[#2e6f40] flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" /> Destaques & Circulação da Proposta
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-[#22211e]/85">
+                    {workshop.highlights.map((h, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#2e6f40] shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Ações e Contato */}
+              <div className="pt-4 border-t border-[#e2d8c3] flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={workshop.whatsappContact}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-foca bg-[#2e6f40] hover:bg-[#235431] text-white text-xs py-2.5 px-5"
+                  >
+                    <MessageCircle className="w-4 h-4" /> Falar no WhatsApp (Sassa)
+                  </a>
+                  <Link
+                    href={`/contato?interesse=${encodeURIComponent(workshop.title)}`}
+                    className="btn-foca bg-[#c85028] hover:bg-[#a63f1d] text-white text-xs py-2.5 px-5"
+                  >
+                    Solicitar Proposta por E-mail
+                  </Link>
+                </div>
+
+                {workshop.portfolioUrl && (
+                  <a
+                    href={workshop.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-[#1b7a82] hover:text-[#c85028] inline-flex items-center gap-1 transition-colors"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Ver Portfólio & Release</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
