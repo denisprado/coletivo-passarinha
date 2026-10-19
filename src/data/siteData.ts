@@ -58,6 +58,13 @@ export interface HistoryMilestone {
   tag?: string;
 }
 
+// Nova paleta oficial da Passarinha:
+// 1. #F21B54 (Vermelho Cereja)
+// 2. #F22294 (Rosa Magenta)
+// 3. #F2BF27 (Amarelo Sol)
+// 4. #F28F16 (Laranja Vibrante)
+// 5. #02BF9B (Verde Turquesa)
+
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "sarah-gregorio",
@@ -66,7 +73,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Designer de formação, produtora e gestora cultural por vocação e arte-educadora ambiental por paixão, gosta de misturar linguagens, inventar possibilidades e encontrar arte onde muita gente só vê materiais descartados. É especialista em Gestão Estratégica do Design e Gestão da Inovação, e atualmente pesquisa as relações entre arte, cultura e práticas de baixo impacto socioambiental no Mestrado Profissional em Artes da UFC e IFCE.\n\nCo-fundadora do Coletivo Interdisciplinar Passarinha, vive entre projetos culturais, oficinas, brinquedos, histórias e experiências que aproximam arte, educação e meio ambiente. Gosta de colocar ideias em movimento, conectar pessoas e transformar inquietações em projetos — de preferência, com espaço para experimentar e um pouco de bagunça criativa.",
     portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
     curriculoUrl: "#",
-    avatarColor: "bg-[#c85028]",
+    avatarColor: "bg-[#F21B54]",
   },
   {
     id: "maria-thome",
@@ -75,7 +82,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Maria Carolina Thomé é musicista interiorana que encontrou nos ritmos populares brasileiros uma forma de se encantar pela vida. Formou-se professora de música, especializou-se em percussão popular e investigou aspectos do seu ensino tornando-se mestra.\n\nAtualmente, em sua pesquisa de doutorado, investiga a relação humana com a música, especialmente no ensino da percussão popular na formação de professores. É uma das forças criativas por trás da Orquestra de Pandeiros e das composições do coletivo.",
     portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
     curriculoUrl: "#",
-    avatarColor: "bg-[#2e6f40]",
+    avatarColor: "bg-[#02BF9B]",
   },
   {
     id: "pamella-villanova",
@@ -84,7 +91,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Atriz, pesquisadora e arte-educadora apaixonada pela cultura popular brasileira, pelo teatro itinerante e pelo brincar livre. Integra as ações da Passarinha com jogos teatrais, cortejos e vivências pedagógicas que acolhem crianças de zero a cem anos.",
     portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
     curriculoUrl: "#",
-    avatarColor: "bg-[#e5a823]",
+    avatarColor: "bg-[#F2BF27]",
   },
   {
     id: "dudu-ferraz",
@@ -93,7 +100,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Ator, palhaço e pesquisador do movimento. Explora a comicidade física, a expressividade dos corpos e a poética do descarte e da imaginação. Com presença viva nas criações cênicas e audiovisuais do coletivo.",
     portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
     curriculoUrl: "#",
-    avatarColor: "bg-[#1b7a82]",
+    avatarColor: "bg-[#F22294]",
   },
 ];
 
@@ -113,7 +120,7 @@ export const SHOWS: Show[] = [
     duration: "50 min",
     ageRating: "Livre",
     category: "Contação & Música",
-    accentColor: "#c85028",
+    accentColor: "#F21B54",
   },
   {
     id: "plastico",
@@ -130,7 +137,7 @@ export const SHOWS: Show[] = [
     duration: "45 min",
     ageRating: "Livre",
     category: "Teatro & Meio Ambiente",
-    accentColor: "#2e6f40",
+    accentColor: "#02BF9B",
   },
   {
     id: "fora-de-onde",
@@ -147,7 +154,7 @@ export const SHOWS: Show[] = [
     duration: "50 min",
     ageRating: "Livre",
     category: "Teatro e Ecologia",
-    accentColor: "#1b7a82",
+    accentColor: "#F28F16",
   },
   {
     id: "show-nascente",
@@ -164,7 +171,7 @@ export const SHOWS: Show[] = [
     duration: "60 min",
     ageRating: "Livre",
     category: "Música Popular",
-    accentColor: "#e5a823",
+    accentColor: "#F2BF27",
   },
   {
     id: "historias-do-bosque-dos-guarantas",
@@ -180,7 +187,7 @@ export const SHOWS: Show[] = [
     duration: "45 min",
     ageRating: "Livre",
     category: "Patrimônio & Território",
-    accentColor: "#583259",
+    accentColor: "#F22294",
   },
   {
     id: "nosso-canto",
@@ -196,7 +203,7 @@ export const SHOWS: Show[] = [
     duration: "40 min",
     ageRating: "Livre",
     category: "Música & Coral",
-    accentColor: "#c85028",
+    accentColor: "#F21B54",
   },
 ];
 
@@ -223,7 +230,7 @@ export const WORKSHOPS: Workshop[] = [
     targetAudience: "Crianças de todas as idades, educadores e famílias",
     whatsappContact: "https://wa.me/5519999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Ateliê%20Jogar%20Dentro",
     portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
-    accentColor: "#c85028",
+    accentColor: "#F21B54",
   },
   {
     id: "ecobrinquedoteca-jogar-dentro",
@@ -248,7 +255,7 @@ export const WORKSHOPS: Workshop[] = [
     targetAudience: "Comunidades, escolas infantis, praças públicas e espaços culturais",
     whatsappContact: "https://wa.me/5519999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Ecobrinquedoteca%20Jogar%20Dentro",
     portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
-    accentColor: "#2e6f40",
+    accentColor: "#02BF9B",
   },
   {
     id: "orquestra-de-pandeiros",
@@ -271,7 +278,7 @@ export const WORKSHOPS: Workshop[] = [
     targetAudience: "Jovens, adultos, pessoas idosas (50+), educadores musicais e entusiastas",
     whatsappContact: "https://wa.me/5519999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Orquestra%20de%20Pandeiros",
     portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
-    accentColor: "#e5a823",
+    accentColor: "#F28F16",
   },
 ];
 
@@ -289,7 +296,7 @@ export const AUDIOVISUAL_WORKS: AudiovisualWork[] = [
       { label: "Classificação", value: "Livre" },
     ],
     videoUrl: "https://www.youtube.com/results?search_query=coletivo+passarinha+a+caixa+magica",
-    accentColor: "#583259",
+    accentColor: "#F21B54",
   },
   {
     id: "fora-de-onde-video",
@@ -302,7 +309,7 @@ export const AUDIOVISUAL_WORKS: AudiovisualWork[] = [
       { label: "Classificação", value: "Livre" },
     ],
     videoUrl: "https://www.youtube.com/results?search_query=coletivo+passarinha+fora+de+onde",
-    accentColor: "#1b7a82",
+    accentColor: "#02BF9B",
   },
   {
     id: "o-que-se-passa-no-formigueiro",
@@ -314,7 +321,7 @@ export const AUDIOVISUAL_WORKS: AudiovisualWork[] = [
       { label: "Classificação", value: "Livre" },
     ],
     videoUrl: "https://www.youtube.com/results?search_query=coletivo+passarinha+o+que+se+passa+no+formigueiro",
-    accentColor: "#c85028",
+    accentColor: "#F2BF27",
   },
 ];
 

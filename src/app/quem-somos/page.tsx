@@ -8,7 +8,6 @@ import {
   ExternalLink,
   Download,
   MapPin,
-  Heart,
   FileText,
 } from "lucide-react";
 
@@ -22,7 +21,7 @@ export default function QuemSomosPage() {
   return (
     <main className="w-full">
       {/* Header da Página */}
-      <section className="bg-[#c85028] text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#e5a823]">
+      <section className="bg-[#F21B54] text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F2BF27]">
         <div className="max-w-5xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-white">
             <Users className="w-4 h-4" /> Nossa Trajetória
@@ -30,7 +29,7 @@ export default function QuemSomosPage() {
           <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight">
             Quem Somos
           </h1>
-          <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-medium">
             Somos artistas da cena, música, design e permacultura. Há mais de uma década,
             realizamos ações de arte-educação ambiental em projetos itinerantes e conservando
             relações vivas com os territórios.
@@ -39,10 +38,10 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Manifesto / Apresentação */}
-      <section className="bg-[#faf7f0] py-16 px-4 sm:px-6 lg:px-8 border-b border-[#e2d8c3]">
+      <section className="bg-[#FAF7F0] py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F2BF27]/30">
         <div className="max-w-4xl mx-auto space-y-6">
-          <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-[#e2d8c3] space-y-4 text-base sm:text-lg text-[#22211e]/90 leading-relaxed">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#c85028] uppercase">
+          <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-[#F2BF27]/30 space-y-4 text-base sm:text-lg text-[#22211E]/90 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#F21B54] uppercase">
               Para Crianças de Zero a Cem Anos
             </h2>
             <p>
@@ -60,7 +59,7 @@ export default function QuemSomosPage() {
                 href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#c85028] hover:bg-[#a63f1d] text-white text-sm"
+                className="btn-foca bg-[#F21B54] hover:bg-[#d61346] text-white text-sm"
               >
                 <Download className="w-4 h-4" /> Acessar Portfólio Geral (Drive)
               </a>
@@ -68,9 +67,9 @@ export default function QuemSomosPage() {
                 href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-white hover:bg-neutral-100 text-[#22211e] border border-[#e2d8c3] text-sm"
+                className="btn-foca bg-white hover:bg-neutral-100 text-[#22211E] border-2 border-[#02BF9B] text-sm"
               >
-                <FileText className="w-4 h-4 text-[#2e6f40]" /> Ver Clipping de Imprensa
+                <FileText className="w-4 h-4 text-[#02BF9B]" /> Ver Clipping de Imprensa
               </a>
             </div>
           </div>
@@ -78,16 +77,16 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Equipe / As Passarinhas */}
-      <section className="bg-[#2e6f40] text-white py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#e5a823]">
+      <section className="bg-[#02BF9B] text-white py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F2BF27]">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-[#e5a823]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-[#F2BF27]">
               <Sparkles className="w-4 h-4" /> Criadoras & Pesquisadoras
             </div>
             <h2 className="text-3xl sm:text-4xl font-black uppercase">
               As Passarinhas
             </h2>
-            <p className="text-white/80 max-w-xl mx-auto text-sm sm:text-base">
+            <p className="text-white/90 max-w-xl mx-auto text-sm sm:text-base">
               Conheça as pessoas que colocam as ideias para voar, misturando linguagens, música,
               teatro, palhaçaria e educação ambiental.
             </p>
@@ -97,7 +96,7 @@ export default function QuemSomosPage() {
             {TEAM_MEMBERS.map((member) => (
               <div
                 key={member.id}
-                className="bg-white text-[#22211e] rounded-3xl p-8 shadow-xl border-2 border-white/20 flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all"
+                className="bg-white text-[#22211E] rounded-3xl p-8 shadow-xl border-2 border-white/40 flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all"
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -107,27 +106,27 @@ export default function QuemSomosPage() {
                       {member.name.charAt(0)}
                     </div>
                     <div>
-                      <h3 className="text-xl font-black text-[#22211e]">
+                      <h3 className="text-xl font-black text-[#22211E]">
                         {member.name}
                       </h3>
-                      <p className="text-xs font-bold text-[#c85028] uppercase tracking-wider">
+                      <p className="text-xs font-bold text-[#F21B54] uppercase tracking-wider">
                         {member.role}
                       </p>
                     </div>
                   </div>
 
-                  <div className="text-sm text-[#22211e]/85 leading-relaxed space-y-2 whitespace-pre-line">
+                  <div className="text-sm text-[#22211E]/85 leading-relaxed space-y-2 whitespace-pre-line">
                     {member.bio}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#e2d8c3] flex flex-wrap items-center gap-3">
+                <div className="pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-3">
                   {member.portfolioUrl && (
                     <a
                       href={member.portfolioUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-bold text-[#2e6f40] hover:text-[#c85028] inline-flex items-center gap-1 transition-colors"
+                      className="text-xs font-bold text-[#02BF9B] hover:text-[#F21B54] inline-flex items-center gap-1 transition-colors"
                     >
                       <span>Portfólio</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -136,7 +135,7 @@ export default function QuemSomosPage() {
                   {member.curriculoUrl && (
                     <a
                       href={member.curriculoUrl}
-                      className="text-xs font-bold text-[#583259] hover:text-[#c85028] inline-flex items-center gap-1 transition-colors"
+                      className="text-xs font-bold text-[#F28F16] hover:text-[#F21B54] inline-flex items-center gap-1 transition-colors"
                     >
                       <span>Currículo Lattes</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -150,45 +149,45 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Linha do Tempo / Histórico */}
-      <section className="bg-[#faf7f0] py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#FAF7F0] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e5a823]/20 text-[#22211e] text-xs font-bold uppercase tracking-wider">
-              <Calendar className="w-4 h-4 text-[#c85028]" /> Linha do Tempo
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2BF27]/20 text-[#22211E] text-xs font-bold uppercase tracking-wider">
+              <Calendar className="w-4 h-4 text-[#F28F16]" /> Linha do Tempo
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#22211e] uppercase">
+            <h2 className="text-3xl sm:text-4xl font-black text-[#22211E] uppercase">
               Histórico das Nossas Ações (2014 – Presente)
             </h2>
-            <p className="text-[#22211e]/75 text-sm sm:text-base">
+            <p className="text-[#22211E]/75 text-sm sm:text-base">
               Uma década de itinerâncias, pesquisas com a comunidade, editais públicos e criação artística.
             </p>
           </div>
 
-          <div className="relative border-l-4 border-[#c85028] ml-4 sm:ml-8 space-y-10 pl-6 sm:pl-10">
+          <div className="relative border-l-4 border-[#F28F16] ml-4 sm:ml-8 space-y-10 pl-6 sm:pl-10">
             {TIMELINE.map((item, index) => (
               <div key={index} className="relative group">
                 {/* Marcador */}
-                <div className="absolute -left-[35px] sm:-left-[51px] top-1.5 w-6 h-6 rounded-full bg-[#faf7f0] border-4 border-[#c85028] group-hover:scale-125 group-hover:bg-[#e5a823] transition-all" />
+                <div className="absolute -left-[35px] sm:-left-[51px] top-1.5 w-6 h-6 rounded-full bg-[#FAF7F0] border-4 border-[#F28F16] group-hover:scale-125 group-hover:bg-[#F2BF27] transition-all" />
 
-                <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-[#e2d8c3] space-y-3">
+                <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-[#F2BF27]/30 space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-xl sm:text-2xl font-black text-[#c85028]">
+                    <span className="text-xl sm:text-2xl font-black text-[#F21B54]">
                       {item.year}
                     </span>
                     {item.tag && (
-                      <span className="bg-[#2e6f40]/10 text-[#2e6f40] text-xs font-bold px-3 py-1 rounded-full">
+                      <span className="bg-[#02BF9B]/10 text-[#02BF9B] text-xs font-bold px-3 py-1 rounded-full">
                         {item.tag}
                       </span>
                     )}
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#22211e]">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#22211E]">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-[#22211e]/80 leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#22211E]/80 leading-relaxed">
                     {item.description}
                   </p>
                   {item.location && (
-                    <div className="flex items-center gap-1 text-xs text-[#583259] font-medium pt-1">
+                    <div className="flex items-center gap-1 text-xs text-[#F28F16] font-semibold pt-1">
                       <MapPin className="w-3.5 h-3.5" />
                       <span>{item.location}</span>
                     </div>

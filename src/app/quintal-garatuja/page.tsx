@@ -23,26 +23,26 @@ export default function QuintalGaratujaPage() {
   return (
     <main className="w-full">
       {/* Header */}
-      <section className="bg-[#2e6f40] text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#e5a823]">
+      <section className="bg-[#02BF9B] text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F2BF27]">
         <div className="max-w-5xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-[#e5a823]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-[#F2BF27]">
             <Home className="w-4 h-4" /> Sede em Campinas / SP
           </div>
           <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight">
             Ponto de Cultura Quintal Garatuja
           </h1>
-          <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-medium">
             Um ninho de criação artística, formação e convivência comunitária no coração de Campinas.
           </p>
         </div>
       </section>
 
       {/* Conteúdo Principal */}
-      <section className="bg-[#faf7f0] py-16 px-4 sm:px-6 lg:px-8 border-b border-[#e2d8c3]">
+      <section className="bg-[#FAF7F0] py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F2BF27]/30">
         <div className="max-w-4xl mx-auto space-y-10">
           {/* Box de Apresentação */}
-          <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-[#e2d8c3] space-y-6 text-base sm:text-lg text-[#22211e]/90 leading-relaxed">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#2e6f40] uppercase">
+          <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-[#F2BF27]/30 space-y-6 text-base sm:text-lg text-[#22211E]/90 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#02BF9B] uppercase">
               O Quintal como Espaço de Encontro
             </h2>
             <p>
@@ -57,28 +57,28 @@ export default function QuintalGaratujaPage() {
               teatro, a música, as brincadeiras tradicionais e a educação ambiental.
             </p>
 
-            <div className="bg-[#faf7f0] p-6 rounded-2xl border-l-4 border-[#2e6f40] space-y-2">
-              <h3 className="font-bold text-[#2e6f40] text-lg">
+            <div className="bg-[#FAF7F0] p-6 rounded-2xl border-l-4 border-[#02BF9B] space-y-2">
+              <h3 className="font-bold text-[#02BF9B] text-lg">
                 Pesquisas e Eixos de Ação do Garatuja:
               </h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#22211e]/85 pt-2">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#22211E]/85 pt-2">
                 <li className="flex items-center gap-2">
-                  <Theater className="w-4 h-4 text-[#c85028]" /> Formação Teatral & Mediação
+                  <Theater className="w-4 h-4 text-[#F21B54]" /> Formação Teatral & Mediação
                 </li>
                 <li className="flex items-center gap-2">
-                  <Trees className="w-4 h-4 text-[#2e6f40]" /> Educação Ambiental & Permacultura
+                  <Trees className="w-4 h-4 text-[#02BF9B]" /> Educação Ambiental & Permacultura
                 </li>
                 <li className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#e5a823]" /> Difusão Musical Popular
+                  <Sparkles className="w-4 h-4 text-[#F2BF27]" /> Difusão Musical Popular
                 </li>
                 <li className="flex items-center gap-2">
-                  <Heart className="w-4 h-4 text-[#c85028]" /> Acessibilidade Cultural
+                  <Heart className="w-4 h-4 text-[#F21B54]" /> Acessibilidade Cultural
                 </li>
                 <li className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-[#1b7a82]" /> Fortalecimento de Redes de Artistas
+                  <Users className="w-4 h-4 text-[#F28F16]" /> Fortalecimento de Redes de Artistas
                 </li>
                 <li className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#583259]" /> Memória Local & Bosque dos Guarantãs
+                  <MapPin className="w-4 h-4 text-[#F22294]" /> Memória Local & Bosque dos Guarantãs
                 </li>
               </ul>
             </div>
@@ -91,12 +91,12 @@ export default function QuintalGaratujaPage() {
             </p>
 
             {/* Links Rápidos */}
-            <div className="pt-4 flex flex-wrap items-center gap-4 border-t border-[#e2d8c3]">
+            <div className="pt-4 flex flex-wrap items-center gap-4 border-t border-[#F2BF27]/30">
               <a
                 href="https://www.instagram.com/quintalgaratuja"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#2e6f40] hover:bg-[#235431] text-white text-sm"
+                className="btn-foca bg-[#02BF9B] hover:bg-[#029e80] text-white text-sm"
               >
                 <InstagramIcon className="w-4 h-4" /> Seguir @quintalgaratuja
               </a>
@@ -104,17 +104,17 @@ export default function QuintalGaratujaPage() {
                 href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-white hover:bg-neutral-100 text-[#22211e] border border-[#e2d8c3] text-sm"
+                className="btn-foca bg-white hover:bg-neutral-100 text-[#22211E] border-2 border-[#F28F16] text-sm"
               >
-                <Download className="w-4 h-4 text-[#c85028]" /> Portfólio do Espaço
+                <Download className="w-4 h-4 text-[#F28F16]" /> Portfólio do Espaço
               </a>
               <a
                 href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-white hover:bg-neutral-100 text-[#22211e] border border-[#e2d8c3] text-sm"
+                className="btn-foca bg-white hover:bg-neutral-100 text-[#22211E] border-2 border-[#F2BF27] text-sm"
               >
-                <FileText className="w-4 h-4 text-[#e5a823]" /> Clipping
+                <FileText className="w-4 h-4 text-[#F2BF27]" /> Clipping
               </a>
             </div>
           </div>

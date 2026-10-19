@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-passarinha-terracotta: #c85028;
-  --color-passarinha-terracotta-dark: #a63f1d;
-  --color-passarinha-green: #2e6f40;
-  --color-passarinha-green-dark: #235431;
-  --color-passarinha-yellow: #e5a823;
-  --color-passarinha-yellow-dark: #b88313;
-  --color-passarinha-blue: #1b7a82;
-  --color-passarinha-blue-dark: #145e64;
-  --color-passarinha-purple: #583259;
-  --color-passarinha-purple-dark: #412442;
-  --color-passarinha-sand: #f7f4ea;
-  --color-passarinha-sand-warm: #eee8d5;
-  --color-passarinha-dark: #22211e;
+  --color-passarinha-red: #F21B54;
+  --color-passarinha-magenta: #F22294;
+  --color-passarinha-yellow: #F2BF27;
+  --color-passarinha-orange: #F28F16;
+  --color-passarinha-teal: #02BF9B;
+  
+  --color-passarinha-sand: #FAF7F0;
+  --color-passarinha-sand-warm: #F4EEDC;
+  --color-passarinha-dark: #22211E;
 }
 
 :root {
-  --background: #f7f4ea;
-  --foreground: #22211e;
+  --background: #FAF7F0;
+  --foreground: #22211E;
+  --color-red: #F21B54;
+  --color-magenta: #F22294;
+  --color-yellow: #F2BF27;
+  --color-orange: #F28F16;
+  --color-teal: #02BF9B;
 }
 
 body {
@@ -33,14 +34,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Detalhes lúdicos para botões estilo Coletivo Foca */
+/* Detalhes lúdicos para botões estilo pílula */
 .btn-foca {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   font-weight: 700;
-  text-transform: lowercase;
   border-radius: 9999px;
   padding: 0.75rem 1.75rem;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);

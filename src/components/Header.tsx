@@ -28,7 +28,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#faf7f0]/95 backdrop-blur-md border-b border-[#e2d8c3] shadow-sm transition-all">
+    <header className="sticky top-0 z-50 bg-[#FAF7F0]/95 backdrop-blur-md border-b-2 border-[#F2BF27]/40 shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo e Nome */}
@@ -36,7 +36,7 @@ export default function Header() {
             href="/"
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white shadow-md border border-[#e2d8c3] group-hover:scale-105 transition-transform flex items-center justify-center p-0.5">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white shadow-md border-2 border-[#F2BF27] group-hover:scale-105 transition-transform flex items-center justify-center p-0.5">
               <Image
                 src="/logo-passarinha.jpg"
                 alt="Logotipo Coletivo Passarinha"
@@ -47,10 +47,10 @@ export default function Header() {
               />
             </div>
             <div>
-              <span className="block font-black tracking-wider text-base sm:text-lg text-[#22211e] uppercase">
+              <span className="block font-black tracking-wider text-base sm:text-lg text-[#22211E] uppercase">
                 Coletivo Passarinha
               </span>
-              <span className="block text-xs font-semibold text-[#2e6f40] -mt-1 tracking-widest uppercase">
+              <span className="block text-xs font-bold text-[#02BF9B] -mt-1 tracking-widest uppercase">
                 Arte • Educação • Ambiental
               </span>
             </div>
@@ -64,10 +64,10 @@ export default function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-2 rounded-full text-sm font-semibold transition-all ${
+                  className={`px-3.5 py-2 rounded-full text-sm font-bold transition-all ${
                     active
-                      ? "bg-[#c85028] text-white shadow-sm"
-                      : "text-[#22211e] hover:bg-[#eee6d3] hover:text-[#c85028]"
+                      ? "bg-[#F21B54] text-white shadow-sm"
+                      : "text-[#22211E] hover:bg-[#F2BF27]/20 hover:text-[#F21B54]"
                   }`}
                 >
                   {link.name}
@@ -80,7 +80,7 @@ export default function Header() {
           <div className="hidden md:flex xl:hidden items-center gap-2">
             <Link
               href="/contato"
-              className="btn-foca bg-[#c85028] hover:bg-[#a63f1d] text-white text-xs px-4 py-2"
+              className="btn-foca bg-[#F21B54] hover:bg-[#d61346] text-white text-xs px-4 py-2"
             >
               Fale Conosco
             </Link>
@@ -91,7 +91,7 @@ export default function Header() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="p-2 rounded-lg text-[#22211e] hover:bg-[#eee6d3] focus:outline-none"
+              className="p-2 rounded-lg text-[#22211E] hover:bg-[#F2BF27]/20 focus:outline-none"
               aria-label="Abrir menu"
             >
               {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -102,7 +102,7 @@ export default function Header() {
 
       {/* Drawer Mobile */}
       {isOpen && (
-        <div className="xl:hidden bg-[#faf7f0] border-b border-[#e2d8c3] px-4 pt-2 pb-6 space-y-1 shadow-lg animate-in slide-in-from-top duration-200">
+        <div className="xl:hidden bg-[#FAF7F0] border-b-2 border-[#F2BF27]/40 px-4 pt-2 pb-6 space-y-1 shadow-lg animate-in slide-in-from-top duration-200">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
@@ -110,10 +110,10 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-2.5 rounded-xl text-base font-semibold transition-colors ${
+                className={`block px-4 py-2.5 rounded-xl text-base font-bold transition-colors ${
                   active
-                    ? "bg-[#c85028] text-white"
-                    : "text-[#22211e] hover:bg-[#eee6d3] hover:text-[#c85028]"
+                    ? "bg-[#F21B54] text-white"
+                    : "text-[#22211E] hover:bg-[#F2BF27]/20 hover:text-[#F21B54]"
                 }`}
               >
                 {link.name}
@@ -124,7 +124,7 @@ export default function Header() {
             <Link
               href="/contato"
               onClick={() => setIsOpen(false)}
-              className="w-full btn-foca bg-[#2e6f40] hover:bg-[#235431] text-white py-3 text-sm flex items-center justify-center gap-2"
+              className="w-full btn-foca bg-[#02BF9B] hover:bg-[#029e80] text-white py-3 text-sm flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
               Entrar em Contato / Contratar
