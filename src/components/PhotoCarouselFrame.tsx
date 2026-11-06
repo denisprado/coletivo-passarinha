@@ -45,10 +45,10 @@ export default function PhotoCarouselFrame({
 
   return (
     <div className="w-full space-y-2.5">
-      {/* Moldura rústica com cantos secos/levemente marcados e sombra sólida deslocada */}
-      <div className="relative w-full bg-[#FDF6E4] rounded-sm p-2 sm:p-2.5 border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.42)] group">
+      {/* Moldura com cantos levemente arredondados (16px externa / 10px interna) */}
+      <div className="relative w-full bg-[#FDF6E4] rounded-2xl p-2 sm:p-2.5 border border-[#3A1D40]/25 shadow-[0_14px_32px_rgba(45,18,50,0.28)] group">
         <div
-          className={`relative w-full ${aspectClass} rounded-[2px] overflow-hidden bg-[#241128]`}
+          className={`relative w-full ${aspectClass} rounded-xl overflow-hidden bg-[#241128]`}
         >
           {photos.map((photo, idx) => (
             <div
@@ -82,7 +82,7 @@ export default function PhotoCarouselFrame({
 
           {/* Selo de Logo Opcional no Canto Superior Esquerdo */}
           {badgeLogoSrc && (
-            <div className="absolute top-2.5 left-2.5 z-20 bg-[#FDF6E4] px-2.5 py-1 rounded-xs shadow-md border-2 border-[#3A1D40] w-28 h-12">
+            <div className="absolute top-2.5 left-2.5 z-20 bg-[#FDF6E4]/95 px-2.5 py-1 rounded-lg shadow-md border border-[#3A1D40]/20 w-28 h-12">
               <div className="relative w-full h-full">
                 <Image
                   src={badgeLogoSrc}
@@ -95,14 +95,14 @@ export default function PhotoCarouselFrame({
             </div>
           )}
 
-          {/* Setas rústicas quadradas */}
+          {/* Setas com arredondamento leve */}
           {photos.length > 1 && (
             <>
               <button
                 type="button"
                 onClick={prev}
                 aria-label="Foto anterior"
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-xs bg-[#FDF6E4] hover:bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-lg bg-[#FDF6E4]/95 hover:bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/25 flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -110,7 +110,7 @@ export default function PhotoCarouselFrame({
                 type="button"
                 onClick={next}
                 aria-label="Próxima foto"
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-xs bg-[#FDF6E4] hover:bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-lg bg-[#FDF6E4]/95 hover:bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/25 flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -119,7 +119,7 @@ export default function PhotoCarouselFrame({
         </div>
       </div>
 
-      {/* Faixa de Miniaturas Abertas logo abaixo para valorizar o acervo sem esconder imagens */}
+      {/* Faixa de Miniaturas Abertas logo abaixo */}
       {showThumbnails && photos.length > 1 && (
         <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 sm:gap-2">
           {photos.slice(0, 6).map((thumb, idx) => (
@@ -128,10 +128,10 @@ export default function PhotoCarouselFrame({
               type="button"
               onClick={() => setCurrent(idx)}
               aria-label={`Ver foto: ${thumb.alt}`}
-              className={`relative aspect-[4/3] rounded-xs overflow-hidden border-2 transition-all ${
+              className={`relative aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all ${
                 idx === current
-                  ? "border-[#FDBC2E] ring-2 ring-[#3A1D40] scale-[1.03] z-10"
-                  : "border-[#3A1D40]/60 opacity-75 hover:opacity-100"
+                  ? "border-[#FDBC2E] ring-2 ring-[#3A1D40]/60 scale-[1.03] z-10"
+                  : "border-[#3A1D40]/30 opacity-75 hover:opacity-100"
               }`}
             >
               <Image

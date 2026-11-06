@@ -72,12 +72,12 @@ export default function QuintalGaratujaPage() {
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             <div className="lg:col-span-4 flex flex-col items-center lg:items-start space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E] border border-[#FDBC2E]/40">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E] border border-[#FDBC2E]/40">
                 <Home className="w-4 h-4 text-[#FDBC2E]" /> Ponto de Cultura • Campinas / SP
               </div>
 
-              {/* Logotipo Oficial do Quintal Garatuja com Moldura Rústica */}
-              <div className="relative w-64 h-40 bg-[#FDF6E4] p-4 rounded-sm border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.45)]">
+              {/* Logotipo Oficial do Quintal Garatuja com Moldura Levemente Arredondada */}
+              <div className="relative w-64 h-40 bg-[#FDF6E4] p-4 rounded-2xl border border-[#3A1D40]/25 shadow-xl">
                 <Image
                   src="/images/garatuja/GARATUJA_logo_hor colorido.png"
                   alt="Logotipo Oficial Ponto de Cultura Quintal Garatuja"
@@ -140,7 +140,7 @@ export default function QuintalGaratujaPage() {
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-3 max-w-3xl">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#E91C47] text-[#FDBC2E] text-xs font-black uppercase tracking-widest border border-[#FDBC2E]/40">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#E91C47] text-[#FDBC2E] text-xs font-black uppercase tracking-widest border border-[#FDBC2E]/40">
                 <Theater className="w-4 h-4" /> Projeto de Continuidade 01
               </span>
               <div>
@@ -196,7 +196,7 @@ export default function QuintalGaratujaPage() {
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-3 max-w-3xl">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#532E5A] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#532E5A] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
                 <Music className="w-4 h-4" /> Projeto de Continuidade 02
               </span>
               <div>
@@ -254,7 +254,7 @@ export default function QuintalGaratujaPage() {
       <section className="canvas-vermelho py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="space-y-3 max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
               <Sparkles className="w-4 h-4" /> Projeto de Continuidade 03
             </span>
             <div>
@@ -306,7 +306,7 @@ export default function QuintalGaratujaPage() {
           <div className="space-y-8">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
               <div className="space-y-3 max-w-3xl">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-xs bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
                   <Trees className="w-4 h-4" /> Projeto de Continuidade 04
                 </span>
                 <div>
@@ -358,7 +358,7 @@ export default function QuintalGaratujaPage() {
           </div>
 
           {/* Bloco Rústico de Endereço e Contato do Quintal */}
-          <div className="canvas-roxo text-[#FDBC2E] p-8 sm:p-11 rounded-sm border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.5)] space-y-6">
+          <div className="canvas-roxo text-[#FDBC2E] p-8 sm:p-11 rounded-xl border border-[#3A1D40]/25 shadow-lg space-y-6">
             <h3 className="text-2xl sm:text-3xl font-black text-[#FDBC2E] uppercase">
               Endereço e Contato do Quintal
             </h3>
@@ -396,7 +396,7 @@ export default function QuintalGaratujaPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#FDF6E4] hover:text-[#FDBC2E] font-bold transition-colors"
                 >
-                  <div className="w-9 h-9 rounded-xs bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-lg bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center">
                     <InstagramIcon className="w-4 h-4" />
                   </div>
                   <span>@quintalgaratuja</span>

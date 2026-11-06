@@ -7,11 +7,6 @@ import type { SlidePhoto } from "./PhotoCarouselFrame";
 
 interface PhotoMosaicProps {
   photos: SlidePhoto[];
-  /**
-   * "editorial": 1 foto principal grande + grade aberta com as demais fotos
-   * "grid": grade aberta uniforme/assimétrica valorizando cada imagem
-   * "triptych": 3 fotos em composição de destaque
-   */
   variant?: "editorial" | "grid" | "triptych";
   frameTheme?: "cream" | "dark" | "yellow";
 }
@@ -42,10 +37,10 @@ export default function PhotoMosaic({
 
   const borderClass =
     frameTheme === "dark"
-      ? "bg-[#3A1D40] border-2 border-[#3A1D40] shadow-[6px_6px_0px_rgba(25,10,30,0.45)]"
+      ? "bg-[#3A1D40] border border-[#3A1D40]/40 shadow-lg"
       : frameTheme === "yellow"
-      ? "bg-[#FDBC2E] border-2 border-[#3A1D40] shadow-[6px_6px_0px_rgba(58,29,64,0.45)]"
-      : "bg-[#FDF6E4] border-2 border-[#3A1D40] shadow-[6px_6px_0px_rgba(58,29,64,0.4)]";
+      ? "bg-[#FDBC2E] border border-[#3A1D40]/30 shadow-lg"
+      : "bg-[#FDF6E4] border border-[#3A1D40]/25 shadow-lg";
 
   const renderTile = (
     photo: SlidePhoto,
@@ -57,10 +52,10 @@ export default function PhotoMosaic({
       key={photo.src + idx}
       type="button"
       onClick={() => setLightboxIdx(idx)}
-      className={`group relative w-full text-left rounded-sm p-1.5 sm:p-2 transition-transform duration-200 hover:-translate-y-1 ${borderClass} ${extraClass}`}
+      className={`group relative w-full text-left rounded-xl p-1.5 sm:p-2 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${borderClass} ${extraClass}`}
     >
       <div
-        className={`relative w-full ${aspectClass} overflow-hidden rounded-[2px] bg-[#241128]`}
+        className={`relative w-full ${aspectClass} overflow-hidden rounded-lg bg-[#241128]`}
       >
         <Image
           src={photo.src}
@@ -75,7 +70,7 @@ export default function PhotoMosaic({
         />
 
         {/* Ícone discreto de ampliar no canto */}
-        <div className="absolute top-2.5 right-2.5 z-10 bg-[#3A1D40]/80 text-[#FDBC2E] p-1.5 rounded-xs opacity-0 group-hover:opacity-100 transition-opacity border border-[#FDBC2E]/40">
+        <div className="absolute top-2.5 right-2.5 z-10 bg-[#3A1D40]/80 text-[#FDBC2E] p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity border border-[#FDBC2E]/40">
           <ZoomIn className="w-4 h-4" />
         </div>
 
@@ -170,7 +165,7 @@ export default function PhotoMosaic({
             type="button"
             onClick={() => setLightboxIdx(null)}
             aria-label="Fechar imagem"
-            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-sm bg-[#E91C47] text-[#FDF6E4] border-2 border-[#FDF6E4] flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
+            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-xl bg-[#E91C47] text-[#FDF6E4] border border-[#FDF6E4]/40 flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
           >
             <X className="w-6 h-6" />
           </button>
@@ -186,7 +181,7 @@ export default function PhotoMosaic({
                   );
                 }}
                 aria-label="Foto anterior"
-                className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-sm bg-[#FDBC2E] text-[#3A1D40] border-2 border-[#3A1D40] flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
+                className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/30 flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -197,7 +192,7 @@ export default function PhotoMosaic({
                   setLightboxIdx((lightboxIdx + 1) % photos.length);
                 }}
                 aria-label="Próxima foto"
-                className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-sm bg-[#FDBC2E] text-[#3A1D40] border-2 border-[#3A1D40] flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
+                className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/30 flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -205,10 +200,10 @@ export default function PhotoMosaic({
           )}
 
           <div
-            className="relative max-w-5xl w-full bg-[#FDF6E4] p-2 sm:p-3 rounded-sm border-2 border-[#FDBC2E] shadow-2xl space-y-2"
+            className="relative max-w-5xl w-full bg-[#FDF6E4] p-2 sm:p-3 rounded-xl border border-[#FDBC2E]/60 shadow-2xl space-y-2"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-[65vh] sm:h-[75vh] bg-[#1B0B1E] rounded-[2px] overflow-hidden">
+            <div className="relative w-full h-[65vh] sm:h-[75vh] bg-[#1B0B1E] rounded-lg overflow-hidden">
               <Image
                 src={photos[lightboxIdx].src}
                 alt={photos[lightboxIdx].alt}
@@ -222,7 +217,7 @@ export default function PhotoMosaic({
               <p className="text-xs sm:text-sm font-black">
                 {photos[lightboxIdx].caption || photos[lightboxIdx].alt}
               </p>
-              <span className="text-xs font-extrabold bg-[#3A1D40] text-[#FDBC2E] px-2.5 py-0.5 rounded-xs">
+              <span className="text-xs font-extrabold bg-[#3A1D40] text-[#FDBC2E] px-2.5 py-0.5 rounded-md">
                 {lightboxIdx + 1} / {photos.length}
               </span>
             </div>

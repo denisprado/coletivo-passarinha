@@ -58,7 +58,7 @@ export default function QuemSomosPage() {
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-6 max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40] border border-[#3A1D40]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40] border border-[#3A1D40]">
               <Users className="w-4 h-4" /> Desde 2014 na Estrada
             </div>
 
@@ -119,7 +119,7 @@ export default function QuemSomosPage() {
       <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
               <Sparkles className="w-4 h-4 text-[#FDBC2E]" /> Equipe & Criadores
             </div>
             <div>
@@ -144,7 +144,7 @@ export default function QuemSomosPage() {
                 <div className="space-y-5">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-5 border-b-2 border-[#3A1D40]/15 pb-5">
                     {member.photoUrl ? (
-                      <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-sm overflow-hidden border-2 border-[#3A1D40] shadow-[5px_5px_0px_#3A1D40] shrink-0 bg-[#3A1D40]">
+                      <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-xl overflow-hidden border border-[#3A1D40]/25/30 shadow-md shrink-0 bg-[#3A1D40]">
                         <Image
                           src={member.photoUrl}
                           alt={member.name}
@@ -155,13 +155,13 @@ export default function QuemSomosPage() {
                       </div>
                     ) : (
                       <div
-                        className={`w-28 h-28 rounded-sm ${member.avatarColor} text-white font-black text-2xl flex items-center justify-center border-2 border-[#3A1D40] shrink-0`}
+                        className={`w-28 h-28 rounded-xl ${member.avatarColor} text-white font-black text-2xl flex items-center justify-center border border-[#3A1D40]/30 shrink-0`}
                       >
                         {member.name.charAt(0)}
                       </div>
                     )}
                     <div className="space-y-1.5">
-                      <span className="inline-block bg-[#E91C47] text-[#FDF6E4] text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-xs">
+                      <span className="inline-block bg-[#E91C47] text-[#FDF6E4] text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md">
                         {member.role}
                       </span>
                       <h3 className="text-2xl sm:text-3xl font-black text-[#3A1D40] uppercase tracking-tight">
@@ -214,7 +214,7 @@ export default function QuemSomosPage() {
       <section className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-3">
-            <span className="inline-block bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest px-3 py-1 rounded-xs">
+            <span className="inline-block bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest px-3 py-1 rounded-lg">
               Memória Viva • 2014 a Hoje
             </span>
             <div>
@@ -233,7 +233,7 @@ export default function QuemSomosPage() {
           <div className="relative border-l-4 border-[#3A1D40] ml-3 sm:ml-6 pl-6 sm:pl-10 space-y-8">
             {TIMELINE.map((item, index) => (
               <div key={index} className="relative group">
-                <div className="absolute -left-[36px] sm:-left-[52px] top-4 w-6 h-6 rounded-xs bg-[#FDBC2E] border-2 border-[#3A1D40] shadow-[2px_2px_0px_#3A1D40]" />
+                <div className="absolute -left-[36px] sm:-left-[52px] top-4 w-6 h-6 rounded-lg bg-[#FDBC2E] border border-[#3A1D40]/25 shadow-lg" />
 
                 <div className="painel-rustico p-6 sm:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                   <div
@@ -244,11 +244,11 @@ export default function QuemSomosPage() {
                     }
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-sm font-black text-[#FDBC2E] bg-[#3A1D40] px-3.5 py-1 rounded-xs border border-[#3A1D40]">
+                      <span className="text-sm font-black text-[#FDBC2E] bg-[#3A1D40] px-3.5 py-1 rounded-lg border border-[#3A1D40]">
                         {item.year}
                       </span>
                       {item.tag && (
-                        <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider bg-[#FDBC2E]/35 px-2.5 py-0.5 rounded-xs border border-[#3A1D40]/20">
+                        <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider bg-[#FDBC2E]/35 px-2.5 py-0.5 rounded-lg border border-[#3A1D40]/20">
                           {item.tag}
                         </span>
                       )}
@@ -272,7 +272,7 @@ export default function QuemSomosPage() {
 
                   {item.photoUrl && (
                     <div className="md:col-span-5">
-                      <div className="relative aspect-[4/3] rounded-xs overflow-hidden border-2 border-[#3A1D40] shadow-[4px_4px_0px_#3A1D40]">
+                      <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[#3A1D40]/25 shadow-lg">
                         <Image
                           src={item.photoUrl}
                           alt={item.title}

@@ -11,7 +11,7 @@ export default function WhatsAppFloat() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Fale conosco no WhatsApp (19) 992510921"
-        className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-sm border-2 border-[#3A1D40] shadow-[5px_5px_0px_#241128] hover:-translate-y-0.5 transition-all duration-200"
+        className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 border border-white/30"
       >
         <div className="relative">
           <MessageCircle className="w-6 h-6 fill-white stroke-[#25D366]" />

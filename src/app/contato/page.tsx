@@ -44,7 +44,7 @@ function ContatoForm() {
     <div className="lg:col-span-7 painel-rustico p-7 sm:p-10">
       {submitted ? (
         <div className="text-center py-12 space-y-4">
-          <div className="w-16 h-16 mx-auto rounded-xs bg-[#3A1D40] text-[#FDBC2E] border-2 border-[#3A1D40] flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto rounded-lg bg-[#3A1D40] text-[#FDBC2E] border border-[#3A1D40]/25 flex items-center justify-center">
             <CheckCircle2 className="w-8 h-8" />
           </div>
           <h3 className="text-2xl font-black text-[#3A1D40] uppercase">
@@ -86,7 +86,7 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, nome: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
 
@@ -102,7 +102,7 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
           </div>
@@ -119,7 +119,7 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, telefone: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
 
@@ -132,7 +132,7 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, interesse: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-bold"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-bold"
               >
                 <option value="Espetáculo Teatral">
                   Contratação de Espetáculo
@@ -167,7 +167,7 @@ function ContatoForm() {
               onChange={(e) =>
                 setFormData({ ...formData, mensagem: e.target.value })
               }
-              className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+              className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
             ></textarea>
           </div>
 
@@ -190,7 +190,7 @@ export default function ContatoPage() {
       {/* Header em Textura Roxa Acrílica */}
       <section className="canvas-roxo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40]">
             <Mail className="w-4 h-4" /> Vamos Conversar
           </div>
           <div>
@@ -226,7 +226,7 @@ export default function ContatoPage() {
             <div className="space-y-4">
               {/* E-mail */}
               <div className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xs bg-[#E91C47] text-[#FDF6E4] border-2 border-[#3A1D40] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#E91C47] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
@@ -250,7 +250,7 @@ export default function ContatoPage() {
 
               {/* WhatsApp */}
               <div className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xs bg-[#25D366] text-white border-2 border-[#3A1D40] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#25D366] text-white border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <div>
@@ -270,7 +270,7 @@ export default function ContatoPage() {
 
               {/* Sede */}
               <div className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xs bg-[#FDBC2E] text-[#3A1D40] border-2 border-[#3A1D40] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>

@@ -1,6 +1,5 @@
 import React from "react";
-import AudioPlayer from "@/components/AudioPlayer";
-import { BookOpen, Download, Music, FileCheck } from "lucide-react";
+import { BookOpen, Download, FileCheck } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
@@ -8,7 +7,7 @@ import PhotoMosaic from "@/components/PhotoMosaic";
 export const metadata = {
   title: "A História de Aru | Permacultura em Cordel & E-book Gratuito",
   description:
-    "Os 12 princípios da Permacultura contados por Aru em cordel ilustrado com materiais reaproveitados. Baixe o e-book gratuito e ouça a trilha sonora.",
+    "Os 12 princípios da Permacultura contados por Aru em cordel ilustrado com materiais reaproveitados. Baixe o e-book gratuito e a cartilha pedagógica.",
 };
 
 export default function AruPage() {
@@ -66,14 +65,14 @@ export default function AruPage() {
 
   return (
     <main className="w-full overflow-x-hidden">
-      {/* FAIXA 1 — APRESENTAÇÃO, CORDEL MUSICADO & MURAL DE OBRAS DE ARU (Amarelo Ipê Acrílico) */}
+      {/* FAIXA 1 — APRESENTAÇÃO & MURAL DE OBRAS DE ARU (Amarelo Ipê Acrílico) */}
       <section
         id="top"
         className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-5 max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
               <BookOpen className="w-4 h-4 text-[#FDBC2E]" /> Arte-Educação Ambiental & Cordel
             </div>
             <div>
@@ -88,11 +87,6 @@ export default function AruPage() {
               ilustrados artesanalmente com materiais naturais e objetos
               descartados.
             </p>
-          </div>
-
-          {/* Player do Cordel Musicado */}
-          <div>
-            <AudioPlayer />
           </div>
 
           {/* Narrativa sobre o Projeto */}
@@ -127,7 +121,7 @@ export default function AruPage() {
               dos 12 princípios da Permacultura, sistematizados pelo ecologista
               David Holmgren.
             </p>
-            <p className="font-bold text-[#3A1D40] bg-[#FDBC2E]/40 p-4 rounded-xs border-l-4 border-[#E91C47]">
+            <p className="font-bold text-[#3A1D40] bg-[#FDBC2E]/35 p-4 rounded-xl border-l-4 border-[#E91C47]">
               Os materiais foram pensados especialmente para educadores,
               famílias e pessoas interessadas em desenvolver atividades que
               aproximem arte, educação e meio ambiente. Toda a proposta é
@@ -169,9 +163,9 @@ export default function AruPage() {
             {permaculturePrinciples.map((principle, idx) => (
               <div
                 key={idx}
-                className="bg-[#3A1D40] p-4 rounded-sm border-2 border-[#FDBC2E] shadow-[4px_4px_0px_rgba(20,8,24,0.6)] text-sm font-bold flex items-center gap-3"
+                className="bg-[#3A1D40] p-4 rounded-xl border border-[#FDBC2E]/45 shadow-md text-sm font-bold flex items-center gap-3"
               >
-                <div className="w-9 h-9 rounded-xs bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center font-black text-sm shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center font-black text-sm shrink-0">
                   {idx + 1}
                 </div>
                 <span className="text-[#FDF6E4]">
@@ -187,7 +181,7 @@ export default function AruPage() {
       <section id="materiais" className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-wider">
               <Download className="w-4 h-4" /> Acesso Gratuito
             </div>
             <div>
@@ -203,11 +197,11 @@ export default function AruPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1: E-book */}
-            <div className="painel-rustico p-6 flex flex-col justify-between space-y-5">
+            <div className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xs bg-[#E91C47] text-[#FDF6E4] border-2 border-[#3A1D40] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-[#E91C47] text-[#FDF6E4] flex items-center justify-center shadow-sm">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40] uppercase">
@@ -215,45 +209,23 @@ export default function AruPage() {
                 </h3>
                 <p className="text-xs sm:text-sm text-[#3A1D40]/90 leading-relaxed font-medium">
                   História completa em cordel com fotografias dos personagens e
-                  cenários artesanais.
+                  cenários artesanais criados pelo coletivo.
                 </p>
               </div>
               <a
                 href="https://drive.google.com/file/d/14QS_XRK87fBe8qX9wpp363YbcdZMDP3a/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-white text-xs w-full py-2.5"
+                className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-white text-xs w-full py-3"
               >
                 <Download className="w-4 h-4" /> Baixar E-book (PDF)
               </a>
             </div>
 
-            {/* Card 2: Cordel Musicado */}
-            <div className="painel-rustico p-6 flex flex-col justify-between space-y-5">
+            {/* Card 2: Cartilha / Guias Pedagógicos */}
+            <div className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xs bg-[#FDBC2E] text-[#3A1D40] border-2 border-[#3A1D40] flex items-center justify-center">
-                  <Music className="w-6 h-6" />
-                </div>
-                <h3 className="font-black text-xl text-[#3A1D40] uppercase">
-                  Cordel Musicado
-                </h3>
-                <p className="text-xs sm:text-sm text-[#3A1D40]/90 leading-relaxed font-medium">
-                  Faixas de áudio com as declamações, ritmos e canções que
-                  acompanham a história.
-                </p>
-              </div>
-              <a
-                href="#top"
-                className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#3A1D40] text-xs w-full py-2.5"
-              >
-                <Music className="w-4 h-4" /> Ouvir no Player Acima
-              </a>
-            </div>
-
-            {/* Card 3: Cartilha / Guias Pedagógicos */}
-            <div className="painel-rustico p-6 flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xs bg-[#532E5A] text-[#FDBC2E] border-2 border-[#3A1D40] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-[#532E5A] text-[#FDBC2E] flex items-center justify-center shadow-sm">
                   <FileCheck className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40] uppercase">
@@ -268,16 +240,16 @@ export default function AruPage() {
                 href="https://drive.google.com/file/d/1kt5IQ-E2RgbhHzXjRn6F2XbMCVzaXDfL/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#532E5A] hover:bg-[#3e2044] text-[#FDBC2E] text-xs w-full py-2.5"
+                className="btn-foca bg-[#532E5A] hover:bg-[#3e2044] text-[#FDBC2E] text-xs w-full py-3"
               >
                 <Download className="w-4 h-4" /> Abrir Cartilha (PDF)
               </a>
             </div>
 
-            {/* Card 4: Animações & Instagram */}
-            <div className="painel-rustico p-6 flex flex-col justify-between space-y-5">
+            {/* Card 3: Animações & Instagram */}
+            <div className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xs bg-[#F79335] text-white border-2 border-[#3A1D40] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-[#F79335] text-white flex items-center justify-center shadow-sm">
                   <InstagramIcon className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40]">
@@ -292,7 +264,7 @@ export default function AruPage() {
                 href="https://www.instagram.com/aru.permacultura"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#F79335] hover:bg-[#e07d1f] text-white text-xs w-full py-2.5"
+                className="btn-foca bg-[#F79335] hover:bg-[#e07d1f] text-white text-xs w-full py-3"
               >
                 <InstagramIcon className="w-4 h-4" /> Acessar Instagram
               </a>

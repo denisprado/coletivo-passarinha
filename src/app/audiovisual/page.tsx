@@ -37,7 +37,7 @@ export default function AudiovisualPage() {
       {/* Header em Textura Amarela Ipê Acrílica */}
       <section className="canvas-amarelo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
             <Film className="w-4 h-4 text-[#FDBC2E]" /> Cinema, Vídeo-arte & Infâncias
           </div>
           <div>
@@ -66,7 +66,7 @@ export default function AudiovisualPage() {
           >
             <div className="max-w-6xl mx-auto space-y-8">
               <div className="space-y-3">
-                <span className="inline-block text-xs font-black uppercase px-3.5 py-1 rounded-xs tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
+                <span className="inline-block text-xs font-black uppercase px-3.5 py-1 rounded-lg tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
                   Produção Audiovisual 0{idx + 1}
                 </span>
                 <div>
@@ -86,8 +86,8 @@ export default function AudiovisualPage() {
 
               {/* Player do YouTube Embutido com Moldura Rústica (quando houver) */}
               {work.youtubeId && (
-                <div className="bg-[#FDF6E4] p-2 sm:p-3 rounded-sm border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.45)]">
-                  <div className="relative w-full aspect-video rounded-[2px] overflow-hidden bg-[#241128]">
+                <div className="bg-[#FDF6E4] p-2 sm:p-3 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                  <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-[#241128]">
                     <iframe
                       src={`https://www.youtube-nocookie.com/embed/${work.youtubeId}`}
                       title={work.title}
@@ -126,7 +126,7 @@ export default function AudiovisualPage() {
                     </p>
                   </div>
 
-                  <div className="lg:col-span-5 bg-[#FDBC2E]/30 p-5 rounded-xs border-l-4 border-[#E91C47] space-y-1.5">
+                  <div className="lg:col-span-5 bg-[#FDBC2E]/30 p-5 rounded-lg border-l-4 border-[#E91C47] space-y-1.5">
                     <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
                       Contexto & Realização
                     </h3>
@@ -145,7 +145,7 @@ export default function AudiovisualPage() {
                     {work.technicalSheet.map((item, i) => (
                       <div
                         key={i}
-                        className="p-3 bg-[#FDBC2E]/25 rounded-xs border border-[#3A1D40]/30"
+                        className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/30"
                       >
                         <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                           {item.label}

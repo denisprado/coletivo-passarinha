@@ -441,7 +441,7 @@ export default function HomePage() {
       <section className="canvas-roxo py-12 px-4 border-t-4 border-[#FDBC2E]">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16 shrink-0 bg-[#FDF6E4] p-1.5 rounded-sm border-2 border-[#3A1D40] shadow-[4px_4px_0px_rgba(25,10,30,0.45)]">
+            <div className="relative w-16 h-16 shrink-0 bg-[#FDF6E4] p-1.5 rounded-xl border border-[#3A1D40]/25 shadow-md">
               <Image
                 src="/brand/passarinha-ave.webp"
                 alt="Ave Passarinha"

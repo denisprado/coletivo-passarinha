@@ -63,7 +63,7 @@ export default function EspetaculosPage() {
       {/* Header em Textura Roxa Acrílica */}
       <section className="canvas-roxo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40] border border-[#3A1D40]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40] border border-[#3A1D40]">
             <Theater className="w-4 h-4" /> Criações Cênico-Musicais
           </div>
           <div>
@@ -97,19 +97,19 @@ export default function EspetaculosPage() {
               {/* Cabeçalho do Espetáculo */}
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="text-xs font-black uppercase px-3.5 py-1 rounded-xs tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
+                  <span className="text-xs font-black uppercase px-3.5 py-1 rounded-lg tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
                     {show.category}
                   </span>
 
                   <div className="flex flex-wrap items-center gap-2 text-xs text-[#3A1D40] font-black">
                     {show.duration && (
-                      <span className="flex items-center gap-1 bg-[#FDF6E4] px-3 py-1 rounded-xs border-2 border-[#3A1D40] shadow-[2px_2px_0px_#3A1D40]">
+                      <span className="flex items-center gap-1 bg-[#FDF6E4] px-3 py-1 rounded-lg border border-[#3A1D40]/25 shadow-lg">
                         <Clock className="w-3.5 h-3.5 text-[#E91C47]" />{" "}
                         {show.duration}
                       </span>
                     )}
                     {show.ageRating && (
-                      <span className="bg-[#FDF6E4] px-3 py-1 rounded-xs border-2 border-[#3A1D40] shadow-[2px_2px_0px_#3A1D40]">
+                      <span className="bg-[#FDF6E4] px-3 py-1 rounded-lg border border-[#3A1D40]/25 shadow-lg">
                         Classificação: {show.ageRating}
                       </span>
                     )}
@@ -118,7 +118,7 @@ export default function EspetaculosPage() {
 
                 <div className="flex flex-wrap items-center gap-5">
                   {show.logoUrl && (
-                    <div className="relative w-24 h-16 bg-[#FDF6E4] p-2 rounded-sm border-2 border-[#3A1D40] shadow-[4px_4px_0px_#3A1D40] shrink-0">
+                    <div className="relative w-24 h-16 bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg shrink-0">
                       <Image
                         src={show.logoUrl}
                         alt={`Logo ${show.title}`}
@@ -191,8 +191,8 @@ export default function EspetaculosPage() {
                 {/* Foto Principal Grande ao lado da Sinopse */}
                 {heroPhoto && (
                   <div className="lg:col-span-5">
-                    <div className="bg-[#FDF6E4] p-2 rounded-sm border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.45)]">
-                      <div className="relative aspect-[4/3] rounded-[2px] overflow-hidden bg-[#241128]">
+                    <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                      <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#241128]">
                         <Image
                           src={heroPhoto.src}
                           alt={heroPhoto.alt}
@@ -238,7 +238,7 @@ export default function EspetaculosPage() {
                   {show.technicalSheet.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-[#FDBC2E]/25 p-3 rounded-xs border border-[#3A1D40]/30 flex flex-col gap-0.5"
+                      className="bg-[#FDBC2E]/25 p-3 rounded-lg border border-[#3A1D40]/30 flex flex-col gap-0.5"
                     >
                       <span className="font-black text-[#E91C47] text-[11px] uppercase">
                         {item.label}
@@ -268,7 +268,7 @@ export default function EspetaculosPage() {
                       >
                         <div className="space-y-4">
                           {ep.photoUrl && (
-                            <div className="relative w-full aspect-[16/10] rounded-xs overflow-hidden border-2 border-[#3A1D40] shadow-[4px_4px_0px_#3A1D40]">
+                            <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-[#3A1D40]/25 shadow-lg">
                               <Image
                                 src={ep.photoUrl}
                                 alt={ep.name}
@@ -283,7 +283,7 @@ export default function EspetaculosPage() {
                             <h4 className="text-xl font-black text-[#E91C47] uppercase">
                               {ep.name}
                             </h4>
-                            <span className="text-xs font-black text-[#FDBC2E] bg-[#3A1D40] px-3 py-1 rounded-xs">
+                            <span className="text-xs font-black text-[#FDBC2E] bg-[#3A1D40] px-3 py-1 rounded-lg">
                               {ep.duration}
                             </span>
                           </div>

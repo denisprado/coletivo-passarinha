@@ -150,9 +150,9 @@ export default function Header() {
                     >
                       <Link
                         href={item.href}
-                        className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-xs text-[15px] tracking-wide transition-all ${
+                        className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-[15px] tracking-wide transition-all ${
                           active
-                            ? "bg-[#532E5A] text-[#FDBC2E] font-bold border border-[#3A1D40] shadow-[2px_2px_0px_#3A1D40]"
+                            ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
                             : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
                         }`}
                       >
@@ -166,7 +166,7 @@ export default function Header() {
 
                       {isDropOpen && (
                         <div className="absolute left-0 pt-1.5 w-68 z-50">
-                          <div className="rounded-sm bg-[#532E5A] text-[#FDF6E4] shadow-[6px_6px_0px_#241128] border-2 border-[#3A1D40] py-2 overflow-hidden">
+                          <div className="rounded-xl bg-[#532E5A] text-[#FDF6E4] shadow-xl border border-[#3A1D40]/40 py-2 overflow-hidden">
                             <div className="px-4 py-1.5 border-b border-[#FDF6E4]/20 text-[11px] font-bold uppercase tracking-widest text-[#FDBC2E]">
                               {item.name}
                             </div>
@@ -191,9 +191,9 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`px-3 py-1.5 rounded-xs text-[15px] tracking-wide transition-all ${
+                    className={`px-3 py-1.5 rounded-lg text-[15px] tracking-wide transition-all ${
                       active
-                        ? "bg-[#532E5A] text-[#FDBC2E] font-bold border border-[#3A1D40] shadow-[2px_2px_0px_#3A1D40]"
+                        ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
                         : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
                     }`}
                   >

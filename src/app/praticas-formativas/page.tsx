@@ -39,7 +39,7 @@ export default function PraticasFormativasPage() {
       {/* Header em Textura Vermelha Acrílica + Pincelada Amarela Inclinada */}
       <section className="canvas-vermelho py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
             <Hammer className="w-4 h-4 text-[#FDBC2E]" /> Formação, Criação Coletiva & Aprendizagem
           </div>
           <div>
@@ -77,7 +77,7 @@ export default function PraticasFormativasPage() {
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex flex-wrap items-center gap-4">
                     {workshop.logoUrl && (
-                      <div className="relative w-20 h-20 rounded-sm bg-[#FDF6E4] p-2 border-2 border-[#3A1D40] shadow-[4px_4px_0px_#3A1D40] shrink-0">
+                      <div className="relative w-20 h-20 rounded-xl bg-[#FDF6E4] p-2 border border-[#3A1D40]/25 shadow-lg shrink-0">
                         <Image
                           src={workshop.logoUrl}
                           alt={`Logo ${workshop.title}`}
@@ -107,7 +107,7 @@ export default function PraticasFormativasPage() {
                     </div>
                   </div>
 
-                  <span className="text-xs font-black uppercase px-3.5 py-1.5 rounded-xs tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
+                  <span className="text-xs font-black uppercase px-3.5 py-1.5 rounded-lg tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
                     Oficina / Vivência
                   </span>
                 </div>
