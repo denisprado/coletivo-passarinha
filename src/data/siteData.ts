@@ -3,8 +3,9 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  instagramUrl?: string;
+  spotifyUrl?: string;
   portfolioUrl?: string;
-  curriculoUrl?: string;
   avatarColor: string;
 }
 
@@ -14,6 +15,15 @@ export interface Show {
   subtitle?: string;
   synopsis: string;
   releaseText: string;
+  episodes?: {
+    name: string;
+    duration: string;
+    ageRating: string;
+    assemblyTime: string;
+    disassemblyTime: string;
+    technicalRequirements: string[];
+    technicalSheet: { label: string; value: string }[];
+  }[];
   technicalSheet: {
     label: string;
     value: string;
@@ -22,6 +32,13 @@ export interface Show {
   ageRating?: string;
   category: string;
   accentColor: string;
+  videoUrl?: string;
+  contacts?: {
+    name: string;
+    email: string;
+    phone: string;
+    role: string;
+  }[];
 }
 
 export interface Workshop {
@@ -32,9 +49,14 @@ export interface Workshop {
   fullDescription: string[];
   highlights?: string[];
   targetAudience: string;
+  audienceLimit?: string;
+  principles?: string[];
   whatsappContact: string;
+  instagramUrl?: string;
   portfolioUrl?: string;
   accentColor: string;
+  logoUrl?: string;
+  photoUrl?: string;
 }
 
 export interface AudiovisualWork {
@@ -46,8 +68,10 @@ export interface AudiovisualWork {
     label: string;
     value: string;
   }[];
+  youtubeId?: string;
   videoUrl?: string;
   accentColor: string;
+  photoUrl?: string;
 }
 
 export interface HistoryMilestone {
@@ -56,14 +80,15 @@ export interface HistoryMilestone {
   description: string;
   location?: string;
   tag?: string;
+  photoUrl?: string;
 }
 
-// Nova paleta oficial da Passarinha:
-// 1. #F21B54 (Vermelho Cereja)
-// 2. #F22294 (Rosa Magenta)
-// 3. #F2BF27 (Amarelo Sol)
-// 4. #F28F16 (Laranja Vibrante)
-// 5. #02BF9B (Verde Turquesa)
+// 5 Cores Oficiais da Marca:
+// 1. #F21B54 (Carmim / Pitanga)
+// 2. #F22294 (Rosa Hibisco / Magenta)
+// 3. #F2BF27 (Amarelo Ouro Solar)
+// 4. #F28F16 (Tangerina / Laranja Caju)
+// 5. #02BF9B (Verde Mata / Turquesa)
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
@@ -71,51 +96,121 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Sarah Gregorio",
     role: "Co-fundadora, Designer & Arte-educadora",
     bio: "Designer de formação, produtora e gestora cultural por vocação e arte-educadora ambiental por paixão, gosta de misturar linguagens, inventar possibilidades e encontrar arte onde muita gente só vê materiais descartados. É especialista em Gestão Estratégica do Design e Gestão da Inovação, e atualmente pesquisa as relações entre arte, cultura e práticas de baixo impacto socioambiental no Mestrado Profissional em Artes da UFC e IFCE.\n\nCo-fundadora do Coletivo Interdisciplinar Passarinha, vive entre projetos culturais, oficinas, brinquedos, histórias e experiências que aproximam arte, educação e meio ambiente. Gosta de colocar ideias em movimento, conectar pessoas e transformar inquietações em projetos — de preferência, com espaço para experimentar e um pouco de bagunça criativa.",
-    portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
-    curriculoUrl: "#",
     avatarColor: "bg-[#F21B54]",
-  },
-  {
-    id: "maria-thome",
-    name: "Maria Thomé",
-    role: "Musicista, Educadora Musical & Pesquisadora",
-    bio: "Maria Carolina Thomé é musicista interiorana que encontrou nos ritmos populares brasileiros uma forma de se encantar pela vida. Formou-se professora de música, especializou-se em percussão popular e investigou aspectos do seu ensino tornando-se mestra.\n\nAtualmente, em sua pesquisa de doutorado, investiga a relação humana com a música, especialmente no ensino da percussão popular na formação de professores. É uma das forças criativas por trás da Orquestra de Pandeiros e das composições do coletivo.",
-    portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
-    curriculoUrl: "#",
-    avatarColor: "bg-[#02BF9B]",
   },
   {
     id: "pamella-villanova",
     name: "Pâmella Villanova",
-    role: "Artista da Cena & Educadora",
-    bio: "Atriz, pesquisadora e arte-educadora apaixonada pela cultura popular brasileira, pelo teatro itinerante e pelo brincar livre. Integra as ações da Passarinha com jogos teatrais, cortejos e vivências pedagógicas que acolhem crianças de zero a cem anos.",
-    portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
-    curriculoUrl: "#",
+    role: "Artista da Cena, Pesquisadora & Dramaturga",
+    bio: "Atriz, pesquisadora e arte-educadora apaixonada pela cultura popular brasileira, pelo teatro itinerante e pelo brincar livre. Criadora e pesquisadora do espetáculo 'Plástico, um mito contemporâneo' e das vivências cênicas da Passarinha, integrando jogos teatrais, dramaturgia e reflexão ecológica profunda que acolhe crianças e adultos.",
+    instagramUrl: "https://www.instagram.com/pam.villanova",
     avatarColor: "bg-[#F2BF27]",
+  },
+  {
+    id: "maria-thome",
+    name: "Maria Thomé",
+    role: "Musicista, Educadora Musical & Percussionista",
+    bio: "Maria Carolina Thomé é musicista e pesquisadora interiorana que encontrou nos ritmos populares brasileiros uma forma de se encantar pela vida. Formou-se professora de música, especializou-se em percussão popular e investigou aspectos do seu ensino tornando-se mestra pela UNICAMP. Atualmente, em sua pesquisa de doutorado, investiga a relação humana com a música e com o ensino da percussão popular na formação de professores. É a idealizadora e coordenadora da Orquestra de Pandeiros.",
+    instagramUrl: "https://www.instagram.com/orquestra.pandeiros",
+    avatarColor: "bg-[#02BF9B]",
   },
   {
     id: "dudu-ferraz",
     name: "Dudu Ferraz",
-    role: "Artista da Cena & Palhaçaria",
-    bio: "Ator, palhaço e pesquisador do movimento. Explora a comicidade física, a expressividade dos corpos e a poética do descarte e da imaginação. Com presença viva nas criações cênicas e audiovisuais do coletivo.",
-    portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
-    curriculoUrl: "#",
-    avatarColor: "bg-[#F22294]",
+    role: "Músico, Diretor Teatral, Palhaço & Produtor",
+    bio: "Músico, compositor, ator e palhaço. Com formação nas artes da cena e da música, é coautor das trilhas sonoras autorais da Passarinha e codiretor e produtor executivo dos espetáculos 'Histórias que a Passarinha me contou' e 'Plástico, um mito contemporâneo'. Explora a comicidade física, o som dos objetos e a poética do encontro.",
+    spotifyUrl: "https://open.spotify.com/search/Dudu%20Ferraz",
+    avatarColor: "bg-[#F28F16]",
   },
 ];
 
 export const SHOWS: Show[] = [
   {
-    id: "historias-da-passarinha",
-    title: "Histórias da Passarinha",
-    subtitle: "Música, contação de histórias e brincadeiras tradicionais",
-    synopsis: "Juntando contação de histórias, música autoral ao vivo e convites para brincar, a Passarinha leva ao público um espetáculo caloroso que desperta a imaginação de todas as idades.",
-    releaseText: "Desde 2018, a obra já circulou por diversos SESCs do interior paulista, escolas, praças públicas, festivais pelos estados do Ceará e Piauí, e inclusive na cidade de Cali, na Colômbia. Cada apresentação é um convite para desacelerar, ouvir e cantar junto.",
+    id: "plastico-um-mito-contemporaneo",
+    title: "Plástico, um mito contemporâneo",
+    subtitle: "Espetáculo de teatro-fórum sobre consumo, descarte e transformação",
+    synopsis: "O que acontece quando o que descartamos ganha voz e corpo em cena? Plástico é uma experimentação cênico-musical que problematiza o consumo desenfreado e a urgência socioambiental do nosso tempo através de uma narrativa poética e de teatro-fórum que envolve o público diretamente.",
+    releaseText: "Desde sua estreia em 2023, mais de 6 mil pessoas já assistiram ao espetáculo. Utilizando adereços, cenários e instrumentos confeccionados com materiais descartados e reaproveitados, o espetáculo desafia o olhar do espectador para a sociedade do descarte por meio da poesia, do humor e da potência visual, com total acessibilidade em Libras.",
     technicalSheet: [
-      { label: "Criação e Atuação", value: "Coletivo Interdisciplinar Passarinha" },
-      { label: "Linguagem", value: "Contação de Histórias, Música e Palhaçaria" },
+      { label: "Pesquisa e Criação", value: "Pamella Villanova" },
+      { label: "Assistência de Direção e Dramaturgia", value: "Dudu Ferraz" },
+      { label: "Figurino", value: "Sarah Gregório e Coletivo Passarinha" },
+      { label: "Linguagem", value: "Teatro-fórum, Música e Arte Socioambiental" },
+      { label: "Acessibilidade", value: "Tradução e Interpretação em Libras disponível" },
       { label: "Classificação", value: "Livre (Recomendado para todas as idades)" },
-      { label: "Duração", value: "50 minutos" },
+    ],
+    videoUrl: "https://www.instagram.com/p/DYkglu_DTpk/",
+    category: "Teatro & Meio Ambiente",
+    accentColor: "#02BF9B",
+    contacts: [
+      {
+        name: "Pamella Villanova",
+        role: "Pesquisa & Criação",
+        email: "pamellavillanova@gmail.com",
+        phone: "+55 19 99251-0921",
+      },
+      {
+        name: "Dudu Ferraz",
+        role: "Vendas & Produção Executiva",
+        email: "luizeduardo.rferraz@gmail.com",
+        phone: "+55 19 99684-2051",
+      },
+    ],
+  },
+  {
+    id: "historias-que-a-passarinha-me-contou",
+    title: "Histórias que a Passarinha me contou",
+    subtitle: "Música, contação de histórias e brincadeiras tradicionais",
+    synopsis: "Juntando contação de histórias, música autoral ao vivo e convites para brincar, a Passarinha leva ao público um espetáculo caloroso que desperta a imaginação em dois episódios temáticos: Episódio Terra e Episódio Água.",
+    releaseText: "A obra já circulou por diversos SESCs do interior paulista, escolas, praças públicas, festivais pelos estados do Ceará e Piauí, e também na cidade de Cali, na Colômbia. Uma vivência afetiva e formativa para todas as gerações.",
+    episodes: [
+      {
+        name: "Episódio Terra",
+        duration: "50 minutos",
+        ageRating: "Livre",
+        assemblyTime: "1 hora",
+        disassemblyTime: "40 minutos",
+        technicalRequirements: [
+          "Pode acontecer em diversos ambientes (teatros, praças, escolas, áreas abertas)",
+          "Espaço cênico mínimo adequado para movimentação dos atores",
+          "Sistema de som compatível com a capacidade do espaço",
+        ],
+        technicalSheet: [
+          { label: "Concepção, Criação e Atuação", value: "Pamella Villanova e Dudu Ferraz" },
+          { label: "Composição da Trilha Sonora", value: "Dudu Ferraz e Pamella Villanova" },
+          { label: "Produção", value: "Coletivo Passarinha e Quintal Garatuja" },
+          { label: "Gravação de Vídeo", value: "Nina Pires" },
+          { label: "Gravação e Mixagem de Áudio", value: "Pedro Florio" },
+          { label: "Fotos", value: "Nina Pires e Mauro Machado" },
+          { label: "Figurino", value: "Graciete Mary dos Santos" },
+          { label: "Iluminação", value: "Pamella Villanova e Monica Lovato" },
+        ],
+      },
+      {
+        name: "Episódio Água",
+        duration: "50 minutos (20 min histórias + 30 min brincadeiras)",
+        ageRating: "Livre",
+        assemblyTime: "40 minutos",
+        disassemblyTime: "30 minutos",
+        technicalRequirements: [
+          "Palco mínimo de 3m²",
+          "2 microfones headset",
+          "1 entrada P10 para violão",
+          "Equipamento de som compatível com espaço e quantidade de público",
+          "Não necessita de estrutura complexa de iluminação",
+        ],
+        technicalSheet: [
+          { label: "Concepção, Criação e Atuação", value: "Pâmella Villanova e Dudu Ferraz" },
+          { label: "Adereços e Brinquedos", value: "Coletivo Passarinha" },
+          { label: "Fotos", value: "Mauro Machado" },
+        ],
+      },
+    ],
+    technicalSheet: [
+      { label: "Criação e Atuação", value: "Pamella Villanova e Dudu Ferraz" },
+      { label: "Trilha Sonora", value: "Autoral e ao vivo" },
+      { label: "Classificação", value: "Livre" },
+      { label: "Duração Total", value: "50 minutos cada episódio" },
     ],
     duration: "50 min",
     ageRating: "Livre",
@@ -123,87 +218,38 @@ export const SHOWS: Show[] = [
     accentColor: "#F21B54",
   },
   {
-    id: "plastico",
-    title: "Plástico",
-    subtitle: "Uma poética cênica sobre consumo, descarte e transformação",
-    synopsis: "O que acontece quando o que descartamos ganha voz e corpo em cena? Plástico é uma experimentação cênico-musical que problematiza o consumo desenfreado e a urgência socioambiental do nosso tempo.",
-    releaseText: "Utilizando adereços, cenários e instrumentos confeccionados com materiais descartados e reutilizados, o espetáculo desafia o olhar do espectador para a sociedade do descarte por meio da poesia, do humor e da potência visual.",
+    id: "historias-do-bosque-dos-guarantas",
+    title: "Histórias do Bosque dos Guarantãs",
+    subtitle: "Um passeio turístico, cultural e ambiental",
+    synopsis: "Uma caminhada e espetáculo poético pelo Bosque dos Guarantãs em Campinas/SP, revelando a conexão entre a natureza urbana, as árvores centenárias e a memória afetiva dos moradores da região.",
+    releaseText: "Fruto das pesquisas territoriais e ambientais desenvolvidas pelo Coletivo Passarinha e Quintal Garatuja junto à comunidade do bairro Nova Europa, articulando placas educativas, contação de histórias e valorização da biodiversidade local.",
     technicalSheet: [
-      { label: "Concepção", value: "Coletivo Passarinha" },
-      { label: "Trilha Sonora", value: "Autoral e instrumentos de reaproveitamento" },
+      { label: "Pesquisa Territorial e Criação", value: "Coletivo Passarinha & Quintal Garatuja" },
+      { label: "Formato", value: "Passeio turístico interativo e contação cênica" },
       { label: "Classificação", value: "Livre" },
-      { label: "Duração", value: "45 minutos" },
+      { label: "Local de Origem", value: "Bosque dos Guarantãs (Campinas / SP)" },
     ],
-    duration: "45 min",
+    duration: "60 min",
     ageRating: "Livre",
-    category: "Teatro & Meio Ambiente",
-    accentColor: "#02BF9B",
-  },
-  {
-    id: "fora-de-onde",
-    title: "Fora de Onde?",
-    subtitle: "Questionando as fronteiras do descartável e do pertencer",
-    synopsis: "Quando dizemos que jogamos algo 'fora', para onde esse fora realmente vai? Uma narrativa instigante que desconstrói a ilusão do descarte.",
-    releaseText: "Inspirado nas pesquisas da Permacultura e nas vivências da Estação Permacultural Móvel, 'Fora de Onde?' transforma a reflexão ecológica em uma divertida e profunda viagem de descobertas.",
-    technicalSheet: [
-      { label: "Direção & Roteiro", value: "Coletivo Interdisciplinar Passarinha" },
-      { label: "Elenco", value: "Passarinhas" },
-      { label: "Classificação", value: "Livre" },
-      { label: "Duração", value: "50 minutos" },
-    ],
-    duration: "50 min",
-    ageRating: "Livre",
-    category: "Teatro e Ecologia",
-    accentColor: "#F28F16",
+    category: "Patrimônio & Território",
+    accentColor: "#F2BF27",
   },
   {
     id: "show-nascente",
     title: "Show Nascente",
     subtitle: "Concerto de ritmos populares, vozes e percussão brasileira",
-    synopsis: "Um encontro musical vibrante que bebe na fonte dos ritmos tradicionais brasileiros: cirandas, cocos, marchinhas e cantigas autorais que colocam todo mundo para dançar.",
-    releaseText: "Com arranjos ricos em pandeiro, instrumentos de percussão e vozes harmonizadas, o Show Nascente celebra a vida, as águas e a força coletiva das canções de nossa terra.",
+    synopsis: "Um encontro musical vibrante que celebra as águas, a infância e os ritmos tradicionais brasileiros: cirandas, cocos, marchinhas e canções autorais que convidam todo mundo a cantar e dançar junto.",
+    releaseText: "Com arranjos ricos em pandeiro, percussão brasileira e vozes femininas e masculinas entrelaçadas, o Show Nascente brota como um rio de afetos e sonoridades que encantam públicos de todas as idades.",
     technicalSheet: [
       { label: "Direção Musical", value: "Maria Carolina Thomé" },
-      { label: "Músicas", value: "Autorais e cancioneiro popular" },
+      { label: "Arranjos e Percussão", value: "Maria Thomé e Dudu Ferraz" },
       { label: "Classificação", value: "Livre" },
       { label: "Duração", value: "60 minutos" },
     ],
     duration: "60 min",
     ageRating: "Livre",
     category: "Música Popular",
-    accentColor: "#F2BF27",
-  },
-  {
-    id: "historias-do-bosque-dos-guarantas",
-    title: "Histórias do Bosque dos Guarantãs",
-    subtitle: "O patrimônio natural e imaterial de Campinas em cena",
-    synopsis: "Uma homenagem poética à memória arbórea e histórica do Bosque dos Guarantãs em Campinas/SP, revelando a conexão entre a natureza urbana e as histórias dos moradores locais.",
-    releaseText: "Fruto das pesquisas territoriais desenvolvidas junto ao Ponto de Cultura Quintal Garatuja, o espetáculo fortalece o sentimento de pertencimento e preservação dos patrimônios naturais comunitários.",
-    technicalSheet: [
-      { label: "Pesquisa e Dramaturgia", value: "Ponto de Cultura Quintal Garatuja & Passarinha" },
-      { label: "Classificação", value: "Livre" },
-      { label: "Duração", value: "45 minutos" },
-    ],
-    duration: "45 min",
-    ageRating: "Livre",
-    category: "Patrimônio & Território",
-    accentColor: "#F22294",
-  },
-  {
-    id: "nosso-canto",
-    title: "Nosso Canto",
-    subtitle: "Vozes, poéticas e encontros comunitários",
-    synopsis: "Espetáculo de canto coral e percussão afetiva que integra o público na construção de paisagens sonoras acolhedoras.",
-    releaseText: "Um trabalho sensível que celebra as vozes e a memória cantada dos territórios por onde a Passarinha passa.",
-    technicalSheet: [
-      { label: "Criação", value: "Coletivo Passarinha" },
-      { label: "Classificação", value: "Livre" },
-      { label: "Duração", value: "40 minutos" },
-    ],
-    duration: "40 min",
-    ageRating: "Livre",
-    category: "Música & Coral",
-    accentColor: "#F21B54",
+    accentColor: "#F28F16",
   },
 ];
 
@@ -223,13 +269,12 @@ export const WORKSHOPS: Workshop[] = [
     ],
     highlights: [
       "Mais de 800 peças criadas no Reciclarnaval no SESC Campinas",
-      "Reaproveitamento de plásticos difíceis de reciclar",
-      "Confecção de figurinos, instrumentos e brinquedos",
-      "Totalmente adaptável a escolas, festivais e centros culturais",
+      "Reaproveitamento de plásticos e laminados de difícil reciclagem",
+      "Criação autônoma de fantasias, adereços e brinquedos sonoros",
+      "Totalmente adaptável para escolas, festivais, SESCs e feiras culturais",
     ],
-    targetAudience: "Crianças de todas as idades, educadores e famílias",
-    whatsappContact: "https://wa.me/5519999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Ateliê%20Jogar%20Dentro",
-    portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
+    targetAudience: "Crianças de todas as idades, famílias, educadoras e artistas",
+    whatsappContact: "https://wa.me/5588981085939?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20oficina%20Ateli%C3%AA%20Jogar%20Dentro.",
     accentColor: "#F21B54",
   },
   {
@@ -247,38 +292,40 @@ export const WORKSHOPS: Workshop[] = [
       "Porque brincar também é uma forma de imaginar e construir outros mundos."
     ],
     highlights: [
-      "Contemplada pelo PROMIC em Londrina/PR e Política Nacional Aldir Blanc (PNAB 2025)",
+      "Contemplada pelo PROMIC em Londrina/PR e Política Nacional Aldir Blanc (PNAB)",
       "Circulação em festivais como ECOH, Dobra de Arte Impressa e Festerê do MARL",
-      "Acervo de brinquedos ecológicos e jogos com elementos naturais",
-      "Acessibilidade e inclusão intergeracional",
+      "Acervo exclusivo de jogos de madeira, materiais naturais e recicláveis ressignificados",
+      "Acessibilidade e inclusão intergeracional (crianças, famílias e idosos)",
     ],
     targetAudience: "Comunidades, escolas infantis, praças públicas e espaços culturais",
-    whatsappContact: "https://wa.me/5519999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Ecobrinquedoteca%20Jogar%20Dentro",
-    portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
+    whatsappContact: "https://wa.me/5588981085939?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Ecobrinquedoteca%20Jogar%20Dentro.",
     accentColor: "#02BF9B",
   },
   {
     id: "orquestra-de-pandeiros",
     title: "Orquestra de Pandeiros",
-    subtitle: "Educação musical coletiva e intergeracional",
+    subtitle: "Educação musical coletiva e prática intergeracional",
     concept: "O pandeiro de couro como instrumento de encontro, escuta, afeto e convivência coletiva.",
     fullDescription: [
       "A Orquestra de Pandeiros é uma ação artístico-pedagógica que promove a educação musical por meio do pandeiro, tendo como princípio a prática coletiva, a escuta, a criação e o fortalecimento dos vínculos comunitários. De caráter intergeracional, o projeto acolhe participantes com ou sem experiência musical, utilizando o pandeiro de couro e outros instrumentos de percussão como ferramentas de musicalização, expressão artística e convivência.",
-      "Idealizada em 2021, a iniciativa realizou suas primeiras edições em 2022 por meio do Programa Municipal de Incentivo à Cultura (PROMIC), de Londrina/PR, surgindo como uma resposta ao desejo de reconstrução dos encontros presenciais e da prática musical coletiva após a pandemia de COVID-19.",
+      "Idealizada em 2021 por Maria Carolina Thomé, a iniciativa realizou suas primeiras edições em 2022 por meio do Programa Municipal de Incentivo à Cultura (PROMIC), de Londrina/PR, surgindo como uma resposta ao desejo de reconstrução dos encontros presenciais e da prática musical coletiva após a pandemia de COVID-19.",
       "Em 2023, a Orquestra de Pandeiros ampliou sua atuação ao tornar-se objeto de pesquisa no curso de Mestrado em Música da UNICAMP, integrando o Programa UniversIDADE (50+). A investigação aborda as relações entre afetividade, aprendizagem e envolvimento musical de pessoas adultas e idosas, reafirmando o projeto como um espaço de pesquisa, formação e produção artística.",
       "Atualmente, a Orquestra de Pandeiros desenvolve uma atuação itinerante, realizando oficinas, apresentações e ações formativas em festivais, pontos de cultura, universidades e congressos de educação musical.",
       "Entre os espaços que já receberam o projeto estão o CultSP (Itararé/SP), o Ponto de Cultura Quintal Garatuja (Campinas/SP), o Festival Obaxirê (Maringá/PR), congressos da ABEM (Associação Brasileira de Educação Musical), a Universidade Estadual de Londrina (UEL) e o Grupo deCanta (Campinas/SP)."
     ],
-    highlights: [
-      "Objeto de pesquisa acadêmica no Mestrado em Música da UNICAMP",
-      "Programa UniversIDADE (50+) e prática intergeracional",
-      "Circulação em congressos nacionais e internacionais da ABEM",
-      "Aberto a qualquer pessoa, sem necessidade de experiência prévia",
+    principles: [
+      "Prática Coletiva e Escuta Ativa",
+      "Acolhimento Intergeracional (Sem limite de idade)",
+      "Não requer conhecimento musical prévio",
+      "Valorização do pandeiro de couro e da rítmica brasileira",
     ],
-    targetAudience: "Jovens, adultos, pessoas idosas (50+), educadores musicais e entusiastas",
-    whatsappContact: "https://wa.me/5519999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Orquestra%20de%20Pandeiros",
-    portfolioUrl: "https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y",
+    audienceLimit: "Recomenda-se o número máximo de 25 participantes por turma para garantir o acompanhamento pedagógico e afetivo.",
+    targetAudience: "Pessoas jovens, adultas e idosas (50+), educadoras musicais e qualquer pessoa interessada em ritmos populares.",
+    whatsappContact: "https://wa.me/5518996115002?text=Ol%C3%A1%20Maria!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20para%20contratar%20a%20Orquestra%20de%20Pandeiros.",
+    instagramUrl: "https://www.instagram.com/orquestra.pandeiros",
     accentColor: "#F28F16",
+    logoUrl: "/images/image12.png",
+    photoUrl: "/images/image6.jpg",
   },
 ];
 
@@ -287,40 +334,44 @@ export const AUDIOVISUAL_WORKS: AudiovisualWork[] = [
     id: "caixa-magica",
     title: "A Caixa Mágica",
     synopsis: "Uma palhaça e um palhaço abrem sua caixa mágica e, com a ajuda da Mãozinha, brincam com a ressignificação de objetos, explorando criativamente suas infinitas possibilidades antes do descarte. Tudo começa quando Pirulita e Pouca Sombra percebem que estão passando tanto tempo no celular que se esqueceram de brincar! Assustados com essa descoberta, decidem encontrar uma solução: usar o próprio celular para ajudar todo mundo a ficar longe dele!",
-    context: "A Caixa Mágica integrou o 'Brincando na Rede' (2021), mostra cultural on-line contemplada pelo Edital Ações em Rede da Prefeitura Municipal de Campinas, que reuniu nove grupos artísticos em uma plataforma virtual gratuita, voltada especialmente a crianças, famílias e escolas de educação infantil.",
+    context: "A Caixa Mágica integrou o 'Brincando na Rede' (2021), mostra cultural on-line contemplada pelo Edital Ações em Rede da Prefeitura Municipal de Campinas, reunindo nove grupos artísticos em uma plataforma virtual gratuita voltada especialmente a crianças, famílias e escolas.",
     technicalSheet: [
       { label: "Texto, Direção, Produção e Edição", value: "Coletivo Passarinha" },
-      { label: "Elenco", value: "Sarah Gregorio (Mãozinha), Maria Carolina Thomé (Pirulita), Miguel Matoso (Pouca Sombra)" },
+      { label: "Elenco", value: "Sarah Gregorio (mãozinha), Maria Carolina Thomé (Pirulita), Miguel Matoso (Pouca Sombra)" },
       { label: "Intérprete de Libras", value: "Karina Zonzini" },
-      { label: "Duração", value: "Curta-metragem (15 min)" },
       { label: "Classificação", value: "Livre" },
     ],
-    videoUrl: "https://www.youtube.com/results?search_query=coletivo+passarinha+a+caixa+magica",
     accentColor: "#F21B54",
   },
   {
-    id: "fora-de-onde-video",
-    title: "Fora de Onde? (Versão Audiovisual)",
-    synopsis: "Adaptação audiovisual da pesquisa do coletivo sobre consumo, resíduos sólidos e o mito de jogar algo 'fora'. Uma narrativa visualmente inventiva criada com materiais reaproveitados.",
-    context: "Produzido durante as experimentações da Estação Permacultural Móvel e pesquisas do Quintal Garatuja.",
+    id: "fora-de-onde",
+    title: "Fora de onde?",
+    synopsis: "Quando jogamos algo fora, fora de onde? Um vídeo reflexivo e bem-humorado que coloca em xeque a ideia de que o lixo desaparece após o descarte, abrindo caminho para a reinvenção poética de objetos.",
+    context: "Produção audiovisual concebida a partir das investigações ambientais e teatrais do Coletivo Passarinha e do Ponto de Cultura Quintal Garatuja.",
     technicalSheet: [
-      { label: "Realização", value: "Coletivo Interdisciplinar Passarinha" },
-      { label: "Linguagem", value: "Vídeo-arte / Narrativa Lúdica" },
+      { label: "Criação, Direção e Edição", value: "Pamella Villanova" },
+      { label: "Assistência de Direção e Roteiro", value: "Dudu Ferraz" },
+      { label: "Fotografia", value: "Mauro Machado" },
       { label: "Classificação", value: "Livre" },
     ],
-    videoUrl: "https://www.youtube.com/results?search_query=coletivo+passarinha+fora+de+onde",
+    youtubeId: "mnlxnn_4HPg",
+    videoUrl: "https://www.youtube.com/watch?v=mnlxnn_4HPg&t=2411s",
     accentColor: "#02BF9B",
   },
   {
     id: "o-que-se-passa-no-formigueiro",
-    title: "O Que se Passa no Formigueiro?",
-    synopsis: "Um mergulho poético e bem-humorado no microcosmo do formigueiro, observando a cooperação, o trabalho em comunidade e a sabedoria da natureza.",
-    context: "Trabalho audiovisual que integra o repertório investigativo do coletivo sobre relações socioambientais e coletividade.",
+    title: "O que se passa no formigueiro?",
+    synopsis: "Inspirado na obra 'Rainha Maximilliana Atta', de Ana Primavesi, este trabalho audiovisual mergulha no microcosmo do solo, na agroecologia e no papel das formigas saúvas na natureza. Uma reflexão bem-humorada sobre como a sociedade vê 'a praga' e como a natureza busca o equilíbrio ecológico.",
+    context: "Realizado com acessibilidade em Libras e registros no Quintal Garatuja, integrando arte, ciência e consciência da terra.",
     technicalSheet: [
-      { label: "Direção & Animação", value: "Coletivo Passarinha" },
+      { label: "Concepção e Realização", value: "Pamella Villanova e Dudu Ferraz" },
+      { label: "Inspiração", value: "'Rainha Maximilliana Atta', de Ana Primavesi" },
+      { label: "Intérprete de Libras", value: "Karina Zonzini" },
+      { label: "Captação de Imagens", value: "Quintal Garatuja, Guilherme Cruz e Neader Eringuer" },
       { label: "Classificação", value: "Livre" },
     ],
-    videoUrl: "https://www.youtube.com/results?search_query=coletivo+passarinha+o+que+se+passa+no+formigueiro",
+    youtubeId: "FkMBMPGgpHw",
+    videoUrl: "https://www.youtube.com/watch?v=FkMBMPGgpHw",
     accentColor: "#F2BF27",
   },
 ];
@@ -328,72 +379,65 @@ export const AUDIOVISUAL_WORKS: AudiovisualWork[] = [
 export const TIMELINE: HistoryMilestone[] = [
   {
     year: "2014",
-    title: "Fundação do Coletivo & Grafite na Praça",
-    description: "Primeira ação pública em Campinas/SP com o evento 'Grafite na Praça', intervenção artística preparatória para a jornada que começaria no ano seguinte.",
-    location: "Campinas/SP",
-    tag: "Origem",
+    title: "Início Itinerante & Grafite na Praça",
+    description: "O Coletivo Passarinha iniciou sua trajetória quando suas fundadoras partiram de Campinas/SP em direção ao Nordeste, promovendo ações artísticas e pedagógicas de intercâmbio cultural e ambiental.",
+    location: "Campinas/SP e Estrada",
+    tag: "Fundação",
   },
   {
     year: "2015",
-    title: "Estação Permacultural Móvel (Kombi Safari 1980)",
-    description: "A Passarinha colocou na estrada sua Kombi Safari equipada com energia solar, forno solar, minhocário, banheiro seco e tecnologias de baixo impacto. Mais de 40 ações artísticas e pedagógicas independentes pelo Nordeste (Bahia, Pernambuco, Rio Grande do Norte), estruturando as primeiras oficinas 'Jogar Dentro'.",
-    location: "Circulação Nordeste (BA, PE, RN)",
+    title: "Estação Permacultural Móvel (Kombi Safari)",
+    description: "De janeiro a novembro de 2015, foram realizadas mais de 40 ações artísticas e pedagógicas de forma independente pelas cidades por onde a Passarinha passou. Práticas de palhaçaria, brincadeiras e reutilização de materiais estruturaram as primeiras oficinas 'Jogar Dentro'.",
+    location: "Bahia, Pernambuco, Rio Grande do Norte",
     tag: "Circulação",
   },
   {
     year: "2016",
-    title: "Oficinas Cortejo (Lei Rouanet) & Gestão do Quintal Garatuja",
-    description: "Quatro oficinas de cortejo com instrumentos feitos de reaproveitamento na comunidade quilombola Córrego de Ubaranas (Aracati/CE), Sussuí (Palmital/SP), Porecatu (PR) e Vila Cultural ALMA (Londrina/PR). No mesmo ano, a Passarinha assume a gestão do Ponto de Cultura Quintal Garatuja em Campinas/SP.",
-    location: "CE, SP, PR",
-    tag: "Território & Comunidade",
+    title: "Oficinas Cortejo & Gestão do Quintal Garatuja",
+    description: "Quatro oficinas de cortejo com instrumentos de materiais reaproveitados em comunidades no Ceará (Aracati), São Paulo (Sussuí) e Paraná (Londrina). No mesmo ano, a Passarinha assume a gestão do Ponto de Cultura Quintal Garatuja em Campinas/SP.",
+    location: "CE, SP e PR",
+    tag: "Ponto de Cultura",
   },
   {
     year: "2017 - 2018",
-    title: "Ações Formativas no Ceará & Circulação de Histórias",
-    description: "Parcerias com a CREDE 4 e IFCE Camocim com atividades voluntárias de arte-educação ambiental. Estreia da circulação do espetáculo 'Histórias que a Passarinha me contou' por SESCs de SP, Ceará, Piauí e Cali (Colômbia).",
-    location: "CE, PI, SP e Colômbia",
-    tag: "Educação & Internacional",
+    title: "Circulação de 'Histórias que a Passarinha me contou'",
+    description: "Estreia e circulação do espetáculo por diversos SESCs do interior paulista, escolas, praças, festivais no Ceará, Piauí e também na cidade de Cali, Colômbia.",
+    location: "SP, CE, PI e Colômbia",
+    tag: "Circulação Internacional",
   },
   {
     year: "2019",
     title: "Lei Cultura Viva - Ponto de Cultura Quintal Garatuja",
-    description: "Mais de 30 ações de teatro e brincadeiras articulando escolas municipais, rede de Pontos de Cultura e coletivos parceiros no território vizinho em Campinas/SP.",
+    description: "Mais de 30 ações de teatro e brincadeiras no território do bairro Nova Europa em Campinas, fortalecendo a rede de Pontos de Cultura e a arte-educação local.",
     location: "Campinas/SP",
-    tag: "Ponto de Cultura",
+    tag: "Cultura Viva",
   },
   {
     year: "2020",
-    title: "Residência Passarinhas no FEVERESTIVAL",
-    description: "Residência artística do Festival Internacional de Teatro de Campinas em parceria com escola municipal de Educação Infantil, pesquisando poéticas do descarte e ressignificação de recicláveis.",
+    title: "Residência no FEVERESTIVAL & Pesquisas Online",
+    description: "Residência artística no Festival Internacional de Teatro de Campinas em parceria com escola municipal, pesquisando a poética do descarte e ressignificação de recicláveis.",
     location: "Campinas/SP",
     tag: "Festival Internacional",
   },
   {
     year: "2021 - 2022",
-    title: "Criação da Orquestra de Pandeiros (PROMIC Londrina)",
-    description: "Ação artístico-pedagógica intergeracional de educação musical por meio do pandeiro de couro, criada no pós-pandemia para reatar a experiência coletiva e musical presencial.",
-    location: "Londrina/PR",
-    tag: "Música Intergeracional",
+    title: "Criação da Orquestra de Pandeiros & A Caixa Mágica",
+    description: "Criação da Orquestra de Pandeiros pelo PROMIC de Londrina/PR e produção da mostra audiovisual 'A Caixa Mágica' com intérprete de Libras.",
+    location: "Londrina/PR e Campinas/SP",
+    tag: "Música & Audiovisual",
   },
   {
     year: "2023",
-    title: "Orquestra de Pandeiros & Pesquisa no Mestrado da UNICAMP",
-    description: "O projeto integra o Programa UniversIDADE (50+) da UNICAMP, investigando o ensino de percussão e a afetividade em pessoas adultas e idosas. Apresentações em congressos nacionais e internacionais da ABEM.",
-    location: "Campinas/SP e Ouro Preto/MG",
-    tag: "Pesquisa Acadêmica",
+    title: "Estreia de 'Plástico' & Mestrado na UNICAMP",
+    description: "Estreia do espetáculo 'Plástico, um mito contemporâneo' (+6 mil espectadores) e pesquisa acadêmica de mestrado na UNICAMP com o Programa UniversIDADE (50+).",
+    location: "Campinas/SP e circulação",
+    tag: "Teatro & Pesquisa",
   },
   {
-    year: "2024",
-    title: "Reciclarnaval no SESC Campinas & Ecobrinquedoteca",
-    description: "Ateliê de fantasias de material reaproveitado produzindo mais de 800 peças no SESC Campinas. Formalização da Ecobrinquedoteca Jogar Dentro na Escola Municipal Carlos Kraemer em Londrina/PR.",
-    location: "Campinas/SP e Londrina/PR",
-    tag: "Cultura do Brincar",
-  },
-  {
-    year: "2025 - Presente",
-    title: "Ecobrinquedoteca na Política Nacional Aldir Blanc (PNAB)",
-    description: "Circulação da Ecobrinquedoteca por eventos culturais abertos (ECOH, Dobra de Arte Impressa, Festerê do MARL) e consolidação do projeto 'A História de Aru' com os 12 princípios da Permacultura.",
-    location: "Londrina/PR e Circulação Nacional",
-    tag: "PNAB & Futuro",
+    year: "2024 - 2025",
+    title: "Reciclarnaval & Política Nacional Aldir Blanc (PNAB)",
+    description: "Mais de 800 peças criadas no Ateliê Jogar Dentro no SESC Campinas. Circulação da Ecobrinquedoteca e do projeto 'A História de Aru' com os 12 princípios da permacultura.",
+    location: "Circulação Nacional",
+    tag: "PNAB & Atualidade",
   },
 ];

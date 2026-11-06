@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Heart } from "lucide-react";
+import { Mail, MapPin, Heart, MessageCircle } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 
 export default function Footer() {
@@ -31,8 +31,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-[#FAF7F0]/80 leading-relaxed">
-              Arte, educação ambiental e cultura popular desde 2014. Criações cênicas,
-              oficinas itinerantes, brinquedos de resíduos reaproveitados e permacultura.
+              Desde 2014, o Coletivo Passarinha atua como uma plataforma de criação,
+              articulação e circulação artística, conectando linguagens, saberes, pessoas e territórios.
             </p>
             <div className="flex items-center gap-2 text-xs text-[#F2BF27]">
               <MapPin className="w-4 h-4 shrink-0" />
@@ -47,8 +47,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-[#FAF7F0]/80">
               <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  • Início
+                </Link>
+              </li>
+              <li>
                 <Link href="/quem-somos" className="hover:text-white transition-colors">
-                  • Quem Somos & Histórico
+                  • Quem Somos
                 </Link>
               </li>
               <li>
@@ -58,22 +63,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/aru" className="hover:text-white transition-colors">
-                  • A História de Aru (E-book)
+                  • A História de Aru
                 </Link>
               </li>
               <li>
                 <Link href="/espetaculos" className="hover:text-white transition-colors">
-                  • Espetáculos Cênicos
+                  • Espetáculos
                 </Link>
               </li>
               <li>
-                <Link href="/oficinas" className="hover:text-white transition-colors">
-                  • Oficinas & Ecobrinquedoteca
+                <Link href="/praticas-formativas" className="hover:text-white transition-colors">
+                  • Práticas Formativas
                 </Link>
               </li>
               <li>
                 <Link href="/audiovisual" className="hover:text-white transition-colors">
-                  • Produções Audiovisuais
+                  • Audiovisual
                 </Link>
               </li>
             </ul>
@@ -120,31 +125,53 @@ export default function Footer() {
                 </div>
                 <span>@aru.permacultura</span>
               </a>
+
+              <a
+                href="https://www.instagram.com/orquestra.pandeiros"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-[#FAF7F0]/90 hover:text-[#F22294] transition-colors group"
+              >
+                <div className="w-7 h-7 rounded-full bg-[#FAF7F0]/10 flex items-center justify-center group-hover:bg-[#F22294] text-white transition-colors">
+                  <InstagramIcon className="w-4 h-4" />
+                </div>
+                <span>@orquestra.pandeiros</span>
+              </a>
             </div>
           </div>
 
           {/* Coluna 4: Contato Direto */}
           <div className="space-y-3">
             <h4 className="font-bold text-sm tracking-wider uppercase text-[#F2BF27]">
-              Contato & Contratação
+              E-mails & Contratação
             </h4>
-            <p className="text-xs text-[#FAF7F0]/70">
-              Disponível para festivais, escolas, SESCs, semanas do meio ambiente e eventos comunitários.
-            </p>
-            <a
-              href="mailto:coletivopassarinha@gmail.com"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-[#F21B54] transition-colors"
-            >
-              <Mail className="w-4 h-4 text-[#F2BF27]" />
-              <span>coletivopassarinha@gmail.com</span>
-            </a>
-            <div className="pt-2">
-              <Link
-                href="/contato"
-                className="btn-foca bg-[#F21B54] hover:bg-[#d61346] text-white text-xs w-full py-2.5"
+            <div className="space-y-2 text-xs">
+              <a
+                href="mailto:coletivopassarinha@gmail.com"
+                className="flex items-center gap-2 text-white hover:text-[#F21B54] transition-colors"
               >
-                Solicitar Proposta
-              </Link>
+                <Mail className="w-4 h-4 text-[#F2BF27] shrink-0" />
+                <span>coletivopassarinha@gmail.com</span>
+              </a>
+              <a
+                href="mailto:garatuja.decultura@gmail.com"
+                className="flex items-center gap-2 text-white hover:text-[#02BF9B] transition-colors"
+              >
+                <Mail className="w-4 h-4 text-[#02BF9B] shrink-0" />
+                <span>garatuja.decultura@gmail.com</span>
+              </a>
+            </div>
+
+            <div className="pt-2">
+              <a
+                href="https://wa.me/5519992510921?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Coletivo%20Passarinha."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs w-full py-2.5 flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                WhatsApp: (19) 99251-0921
+              </a>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://coletivopassarinha.com.br"),
   title: "Coletivo Interdisciplinar Passarinha | Arte, Educação e Meio Ambiente",
   description:
-    "Desde 2014, o Coletivo Passarinha promove ações que transbordam as fronteiras das disciplinas: teatro, música, oficinas, brinquedos reaproveitados, permacultura e pesquisas socioambientais.",
+    "Desde 2014, o Coletivo Passarinha atua como uma plataforma de criação, articulação e circulação artística, conectando linguagens, saberes, pessoas e territórios.",
   keywords: [
     "Coletivo Passarinha",
     "Arte Educação Ambiental",
@@ -27,7 +28,8 @@ export const metadata: Metadata = {
     "Orquestra de Pandeiros",
     "Ecobrinquedoteca",
     "Campinas",
-    "Teatro Infantil",
+    "Teatro",
+    "Música Brasileira",
   ],
   authors: [{ name: "Coletivo Interdisciplinar Passarinha" }],
   icons: {
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Coletivo Interdisciplinar Passarinha | Arte, Educação e Meio Ambiente",
     description:
-      "Plataforma de criações e circulação de arte que de propósito se mistura com as urgências socioambientais do nosso tempo.",
+      "Plataforma de criação, articulação e circulação artística conectando linguagens, saberes e territórios.",
     images: [{ url: "/logo-passarinha.jpg" }],
   },
 };
@@ -53,6 +55,7 @@ export default function RootLayout({
         <Header />
         <div className="flex-1">{children}</div>
         <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   );

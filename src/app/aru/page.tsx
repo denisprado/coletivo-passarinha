@@ -39,12 +39,11 @@ export default function AruPage() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-[#FAF7F0]">
             <BookOpen className="w-4 h-4" /> Arte-Educação Ambiental & Cordel
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white">
             A História de Aru
           </h1>
-          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-medium">
-            Os 12 princípios da Permacultura contados em versos de cordel, ilustrados
-            artesanalmente com materiais naturais e objetos descartados.
+          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-semibold">
+            Os 12 princípios da Permacultura contados em versos de cordel, ilustrados artesanalmente com materiais naturais e objetos descartados.
           </p>
         </div>
       </section>
@@ -59,39 +58,24 @@ export default function AruPage() {
       {/* Sobre o Projeto */}
       <section className="bg-[#FAF7F0] py-14 px-4 sm:px-6 lg:px-8 border-b border-[#F2BF27]/30">
         <div className="max-w-4xl mx-auto space-y-8">
-          <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-[#F2BF27]/30 space-y-6 text-base sm:text-lg text-[#22211E]/90 leading-relaxed">
+          <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-[#F2BF27]/30 space-y-6 text-base sm:text-lg text-[#22211E]/90 leading-relaxed font-medium">
             <h2 className="text-2xl sm:text-3xl font-black text-[#F28F16] uppercase">
               A Jornada de Aru e a Sabedoria da Terra
             </h2>
             <p>
-              <strong>A História de Aru</strong> é um projeto de arte-educação ambiental que
-              apresenta os 12 princípios da Permacultura por meio de uma história em cordel, escrita
-              originalmente por <strong>Paulo Roberto Amaral Lencioni</strong> e adaptada para cordel
-              por <strong>Mari Rebelo</strong> e <strong>Sarah Gregorio</strong>.
+              <strong>A História de Aru</strong> é um projeto de arte-educação ambiental que apresenta os 12 princípios da Permacultura por meio de uma história em cordel, escrita originalmente por <strong>Paulo Roberto Amaral Lencioni</strong> e adaptada para cordel por <strong>Mari Rebelo</strong> e <strong>Sarah Gregorio</strong>.
             </p>
             <p>
-              O projeto nasceu da vontade de experimentar possibilidades de criação artística com
-              materiais naturais e objetos que seriam descartados. A partir desses materiais, foram
-              criados personagens, cenários e elementos que dão forma visual à história de Aru,
-              explorando texturas, cores, volumes e outras possibilidades estéticas.
+              O projeto nasceu da vontade de experimentar possibilidades de criação artística com materiais naturais e objetos que seriam descartados. A partir desses materiais, foram criados personagens, cenários e elementos que dão forma visual à história de Aru, explorando texturas, cores, volumes e outras possibilidades estéticas.
             </p>
             <p>
-              Aru é uma jovem que aprende observando o mundo ao seu redor. Ao longo de sua jornada,
-              encontra diferentes povoados, conhece outros modos de viver e descobre formas de lidar
-              com questões como o uso da água, a produção de alimentos, o aproveitamento dos recursos,
-              a diversidade e a vida em comunidade. Cada experiência apresenta um dos 12 princípios da
-              Permacultura, sistematizados pelo ecologista David Holmgren.
+              Aru é uma jovem que aprende observando o mundo ao seu redor. Ao longo de sua jornada, encontra diferentes povoados, conhece outros modos de viver e descobre formas de lidar com questões como o uso da água, a produção de alimentos, o aproveitamento dos recursos, a diversidade e a vida em comunidade. Cada experiência apresenta um dos 12 princípios da Permacultura, sistematizados pelo ecologista David Holmgren.
             </p>
             <p>
-              A história é o ponto de partida para a criação de diferentes materiais que ajudam a
-              explorar esses conhecimentos. O projeto reúne e-book ilustrado, cordel musicado, materiais
-              didáticos, propostas de atividades e jogos, imagens e animações, organizados para apoiar
-              experiências de arte-educação ambiental.
+              A história é o ponto de partida para a criação de diferentes materiais que ajudam a explorar esses conhecimentos. O projeto reúne e-book ilustrado, cordel musicado, materiais didáticos, propostas de atividades e jogos, imagens e animações, organizados para apoiar experiências de arte-educação ambiental.
             </p>
             <p className="font-bold text-[#02BF9B]">
-              Os materiais foram pensados especialmente para educadores, famílias e pessoas interessadas
-              em desenvolver atividades que aproximem arte, educação e meio ambiente. Toda a proposta é
-              disponibilizada gratuitamente na internet!
+              Os materiais foram pensados especialmente para educadores, famílias e pessoas interessadas em desenvolver atividades que aproximem arte, educação e meio ambiente. Toda a proposta é disponibilizada gratuitamente na internet!
             </p>
           </div>
         </div>
@@ -133,7 +117,7 @@ export default function AruPage() {
               <Download className="w-4 h-4" /> Acesso Gratuito
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-[#22211E] uppercase">
-              Baixe os Materiais do Projeto
+              Acesse os Materiais do Projeto
             </h2>
             <p className="text-[#22211E]/75 max-w-2xl mx-auto text-sm sm:text-base font-medium">
               Recursos abertos para educadores, escolas e famílias levarem a Permacultura e a arte para a sala de aula ou comunidade.
@@ -155,7 +139,7 @@ export default function AruPage() {
                 </p>
               </div>
               <a
-                href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
+                href="https://drive.google.com/drive/folders/1cosjnmOBDCyzC8yrb3Ei9rGRwXZmrA4p"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-foca bg-[#F21B54] hover:bg-[#d61346] text-white text-xs w-full py-2.5"
@@ -178,12 +162,10 @@ export default function AruPage() {
                 </p>
               </div>
               <a
-                href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#top"
                 className="btn-foca bg-[#F2BF27] hover:bg-[#d9a818] text-[#22211E] text-xs w-full py-2.5"
               >
-                <Download className="w-4 h-4" /> Baixar Áudios (MP3)
+                <Music className="w-4 h-4" /> Ouvir no Player Acima
               </a>
             </div>
 
@@ -200,14 +182,12 @@ export default function AruPage() {
                   Propostas práticas de atividades, rodas de conversa e jogos socioambientais.
                 </p>
               </div>
-              <a
-                href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contato?interesse=Materiais+Pedagogicos+Aru"
                 className="btn-foca bg-[#02BF9B] hover:bg-[#029e80] text-white text-xs w-full py-2.5"
               >
-                <Download className="w-4 h-4" /> Baixar Guias Didáticos
-              </a>
+                <Download className="w-4 h-4" /> Solicitar Guias
+              </Link>
             </div>
 
             {/* Card 4: Animações & Instagram */}
@@ -232,6 +212,19 @@ export default function AruPage() {
                 <InstagramIcon className="w-4 h-4" /> Acessar Instagram
               </a>
             </div>
+          </div>
+
+          {/* Selo PNAB / Política Nacional Aldir Blanc */}
+          <div className="bg-white p-6 rounded-3xl border-2 border-[#F2BF27] text-center space-y-2 shadow-sm">
+            <span className="text-[11px] font-black uppercase tracking-widest text-[#F21B54] block">
+              Incentivo Cultural
+            </span>
+            <p className="text-sm font-bold text-[#22211E]">
+              Projeto viabilizado com recursos da Política Nacional Aldir Blanc de Fomento à Cultura (PNAB)
+            </p>
+            <p className="text-xs text-[#22211E]/70 font-medium">
+              Ministério da Cultura • Governo Federal • Brasil, União e Reconstrução
+            </p>
           </div>
         </div>
       </section>

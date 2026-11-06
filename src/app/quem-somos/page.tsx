@@ -1,15 +1,17 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { TEAM_MEMBERS, TIMELINE } from "@/data/siteData";
 import {
   Users,
   Calendar,
   Sparkles,
   ExternalLink,
-  Download,
   MapPin,
-  FileText,
+  Heart,
+  Music,
 } from "lucide-react";
+import InstagramIcon from "@/components/InstagramIcon";
 
 export const metadata = {
   title: "Quem Somos & Histórico | Coletivo Passarinha",
@@ -23,72 +25,53 @@ export default function QuemSomosPage() {
       {/* Header da Página */}
       <section className="bg-[#F21B54] text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F2BF27]">
         <div className="max-w-5xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-white">
-            <Users className="w-4 h-4" /> Nossa Trajetória
+          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/20 text-xs font-black uppercase tracking-wider text-white">
+            <Users className="w-4 h-4 text-[#F2BF27]" /> Quem Somos
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight">
-            Quem Somos
+          <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+            Coletivo Passarinha
           </h1>
-          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-medium">
-            Somos artistas da cena, música, design e permacultura. Há mais de uma década,
-            realizamos ações de arte-educação ambiental em projetos itinerantes e conservando
-            relações vivas com os territórios.
+          <p className="text-base sm:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-semibold">
+            Plataforma de criação, articulação e circulação artística, conectando linguagens, saberes, pessoas e territórios desde 2014.
           </p>
         </div>
       </section>
 
-      {/* Manifesto / Apresentação */}
+      {/* Manifesto e Apresentação Oficial */}
       <section className="bg-[#FAF7F0] py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F2BF27]/30">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-[#F2BF27]/30 space-y-4 text-base sm:text-lg text-[#22211E]/90 leading-relaxed">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border-2 border-[#F2BF27]/40 space-y-6 text-base sm:text-lg text-[#22211E]/90 leading-relaxed font-medium">
             <h2 className="text-2xl sm:text-3xl font-black text-[#F21B54] uppercase">
-              Para Crianças de Zero a Cem Anos
+              Arte, Educação Ambiental & Território
             </h2>
             <p>
-              Trabalhamos com e para pessoas de todas as idades. Também discutimos bastante sobre as
-              problemáticas relacionadas ao lixo e essa sociedade do consumo e do descarte — que nos
-              apavora, mas também nos mobiliza a criar!
+              Somos o <strong>Coletivo Interdisciplinar Passarinha</strong>, artistas da cena, música, design e permacultura. Há anos, realizamos ações de arte educação ambiental em projetos itinerantes e também conservando relações com territórios.
             </p>
             <p>
-              Fundado em 2014, o <strong>Coletivo Passarinha</strong> promoveu sua primeira ação em
-              Campinas/SP: o evento <em>“Grafite na praça”</em>, uma intervenção artística como
-              preparação para a jornada que ganharia as estradas do Brasil a bordo de uma Kombi Safari.
+              Promovemos práticas artísticas e discutimos urgências socioambientais relacionadas a essa sociedade do consumo e do descarte — que nos mobiliza a criar outras poéticas e modos de estar no mundo.
             </p>
-            <div className="pt-4 flex flex-wrap gap-4">
-              <a
-                href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-foca bg-[#F21B54] hover:bg-[#d61346] text-white text-sm"
-              >
-                <Download className="w-4 h-4" /> Acessar Portfólio Geral (Drive)
-              </a>
-              <a
-                href="https://drive.google.com/drive/folders/1kFoF2oxH-wlFktXUD7yhyQoL7Kjft55Y"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-foca bg-white hover:bg-neutral-100 text-[#22211E] border-2 border-[#02BF9B] text-sm"
-              >
-                <FileText className="w-4 h-4 text-[#02BF9B]" /> Ver Clipping de Imprensa
-              </a>
-            </div>
+            <p>
+              O Coletivo Passarinha trabalha em várias frentes e em diferentes lugares. Somos uma plataforma de criação e circulação, que tem a inclusão e atenção às problemáticas socioambientais como temáticas transversais. Temos interesse em costurar nossas práticas de arte e cultura com os lugares e pessoas que cruzamos. Fazemos arte educação ambiental desde 2014.
+            </p>
+            <p className="text-sm sm:text-base text-[#22211E]/80 bg-[#FAF7F0] p-6 rounded-2xl border-l-4 border-[#02BF9B]">
+              Trabalhamos em parceria com instituições públicas e particulares, com Pontos de Cultura e outros espaços culturais. Já realizamos projetos com apoio de esferas federais, estaduais, municipais e de alianças internacionais, sempre entregando excelência em todas as ações realizadas.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Equipe / As Passarinhas */}
+      {/* As Passarinhas / Integrantes */}
       <section className="bg-[#02BF9B] text-white py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F2BF27]">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider text-[#F2BF27]">
-              <Sparkles className="w-4 h-4" /> Criadoras & Pesquisadoras
+              <Sparkles className="w-4 h-4" /> Equipe & Criadoras
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase">
+            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white">
               As Passarinhas
             </h2>
-            <p className="text-white/90 max-w-xl mx-auto text-sm sm:text-base">
-              Conheça as pessoas que colocam as ideias para voar, misturando linguagens, música,
-              teatro, palhaçaria e educação ambiental.
+            <p className="text-white/90 max-w-xl mx-auto text-sm sm:text-base font-medium">
+              Conheça as artistas e pesquisadoras que dão vida aos projetos, espetáculos e práticas formativas do coletivo.
             </p>
           </div>
 
@@ -101,44 +84,49 @@ export default function QuemSomosPage() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <div
-                      className={`w-16 h-16 rounded-2xl ${member.avatarColor} text-white flex items-center justify-center font-black text-2xl shadow-md shrink-0`}
+                      className={`w-14 h-14 rounded-2xl ${member.avatarColor} text-white font-black text-xl flex items-center justify-center shadow-md`}
                     >
                       {member.name.charAt(0)}
                     </div>
                     <div>
-                      <h3 className="text-xl font-black text-[#22211E]">
+                      <h3 className="text-xl sm:text-2xl font-black text-[#22211E]">
                         {member.name}
                       </h3>
-                      <p className="text-xs font-bold text-[#F21B54] uppercase tracking-wider">
+                      <p className="text-xs font-bold text-[#F28F16] uppercase tracking-wider">
                         {member.role}
                       </p>
                     </div>
                   </div>
 
-                  <div className="text-sm text-[#22211E]/85 leading-relaxed space-y-2 whitespace-pre-line">
+                  <p className="text-sm text-[#22211E]/85 leading-relaxed whitespace-pre-line font-medium">
                     {member.bio}
-                  </div>
+                  </p>
                 </div>
 
-                <div className="pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-3">
-                  {member.portfolioUrl && (
+                {/* Links Sociais / Portfólio do Integrante */}
+                <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
+                  {member.instagramUrl && (
                     <a
-                      href={member.portfolioUrl}
+                      href={member.instagramUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-bold text-[#02BF9B] hover:text-[#F21B54] inline-flex items-center gap-1 transition-colors"
+                      className="btn-foca bg-[#FAF7F0] hover:bg-gray-100 text-[#22211E] text-xs py-2 px-4 border border-gray-200 flex items-center gap-2"
                     >
-                      <span>Portfólio</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <InstagramIcon className="w-3.5 h-3.5 text-[#F21B54]" />
+                      <span>Instagram</span>
+                      <ExternalLink className="w-3 h-3 text-gray-400" />
                     </a>
                   )}
-                  {member.curriculoUrl && (
+                  {member.spotifyUrl && (
                     <a
-                      href={member.curriculoUrl}
-                      className="text-xs font-bold text-[#F28F16] hover:text-[#F21B54] inline-flex items-center gap-1 transition-colors"
+                      href={member.spotifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-foca bg-[#FAF7F0] hover:bg-gray-100 text-[#22211E] text-xs py-2 px-4 border border-gray-200 flex items-center gap-2"
                     >
-                      <span>Currículo Lattes</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <Music className="w-3.5 h-3.5 text-[#1DB954]" />
+                      <span>Spotify</span>
+                      <ExternalLink className="w-3 h-3 text-gray-400" />
                     </a>
                   )}
                 </div>
@@ -148,46 +136,49 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* Linha do Tempo / Histórico */}
-      <section className="bg-[#FAF7F0] py-20 px-4 sm:px-6 lg:px-8">
+      {/* Linha do Tempo e Histórico com Fotos */}
+      <section className="bg-[#FAF7F0] py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#22211E]">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2BF27]/20 text-[#22211E] text-xs font-bold uppercase tracking-wider">
-              <Calendar className="w-4 h-4 text-[#F28F16]" /> Linha do Tempo
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#22211E] uppercase">
-              Histórico das Nossas Ações (2014 – Presente)
+            <span className="text-xs font-black uppercase tracking-widest text-[#F28F16]">
+              Desde 2014 na Estrada
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#22211E]">
+              Histórico & Linha do Tempo
             </h2>
-            <p className="text-[#22211E]/75 text-sm sm:text-base">
-              Uma década de itinerâncias, pesquisas com a comunidade, editais públicos e criação artística.
+            <p className="text-[#22211E]/80 max-w-xl mx-auto text-sm sm:text-base font-medium">
+              A trajetória do Coletivo Passarinha conectando saberes pelo Brasil.
             </p>
           </div>
 
-          <div className="relative border-l-4 border-[#F28F16] ml-4 sm:ml-8 space-y-10 pl-6 sm:pl-10">
+          <div className="relative border-l-4 border-[#F2BF27] ml-4 sm:ml-8 pl-6 sm:pl-8 space-y-12">
             {TIMELINE.map((item, index) => (
               <div key={index} className="relative group">
                 {/* Marcador */}
-                <div className="absolute -left-[35px] sm:-left-[51px] top-1.5 w-6 h-6 rounded-full bg-[#FAF7F0] border-4 border-[#F28F16] group-hover:scale-125 group-hover:bg-[#F2BF27] transition-all" />
+                <div className="absolute -left-[35px] sm:-left-[43px] top-1.5 w-6 h-6 rounded-full bg-[#F21B54] border-4 border-white shadow-md group-hover:scale-125 transition-transform" />
 
-                <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-[#F2BF27]/30 space-y-3">
+                <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#F2BF27]/30 space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-xl sm:text-2xl font-black text-[#F21B54]">
+                    <span className="text-sm font-black text-[#F21B54] bg-[#FAF7F0] px-3 py-1 rounded-full border border-[#F21B54]/20">
                       {item.year}
                     </span>
                     {item.tag && (
-                      <span className="bg-[#02BF9B]/10 text-[#02BF9B] text-xs font-bold px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold text-[#02BF9B] uppercase tracking-wider">
                         {item.tag}
                       </span>
                     )}
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#22211E]">
+
+                  <h3 className="text-xl font-black text-[#22211E]">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-[#22211E]/80 leading-relaxed">
+
+                  <p className="text-sm text-[#22211E]/80 leading-relaxed font-medium">
                     {item.description}
                   </p>
+
                   {item.location && (
-                    <div className="flex items-center gap-1 text-xs text-[#F28F16] font-semibold pt-1">
+                    <div className="flex items-center gap-1.5 text-xs text-[#F28F16] font-bold pt-1">
                       <MapPin className="w-3.5 h-3.5" />
                       <span>{item.location}</span>
                     </div>
