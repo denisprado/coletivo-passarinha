@@ -8,6 +8,7 @@ export interface SlidePhoto {
   src: string;
   alt: string;
   caption?: string;
+  fit?: "cover" | "contain";
 }
 
 interface PhotoCarouselFrameProps {
@@ -22,7 +23,7 @@ export default function PhotoCarouselFrame({
   photos,
   badgeLogoSrc,
   badgeLogoAlt = "",
-  intervalMs = 4200,
+  intervalMs = 4000,
   aspectClass = "aspect-[4/3]",
 }: PhotoCarouselFrameProps) {
   const [current, setCurrent] = useState(0);
@@ -41,15 +42,17 @@ export default function PhotoCarouselFrame({
   const next = () => setCurrent((c) => (c + 1) % photos.length);
 
   return (
-    <div className="relative w-full bg-white rounded-[36px] sm:rounded-[44px] p-2.5 sm:p-3.5 shadow-[0_20px_45px_rgba(45,18,50,0.26)] group">
+    <div className="relative w-full bg-white rounded-[32px] sm:rounded-[44px] p-2.5 sm:p-3.5 shadow-[0_20px_45px_rgba(45,18,50,0.26)] group">
       <div
-        className={`relative w-full ${aspectClass} rounded-[28px] sm:rounded-[34px] overflow-hidden bg-[#532E5A]/10`}
+        className={`relative w-full ${aspectClass} rounded-[24px] sm:rounded-[34px] overflow-hidden bg-[#FDF6E4]`}
       >
         {photos.map((photo, idx) => (
           <div
             key={photo.src + idx}
             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              idx === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+              idx === current
+                ? "opacity-100 z-10"
+                : "opacity-0 z-0 pointer-events-none"
             }`}
           >
             <Image
@@ -57,11 +60,14 @@ export default function PhotoCarouselFrame({
               alt={photo.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              className={`${
+                photo.fit === "contain"
+                  ? "object-contain p-2 bg-[#FDF6E4]"
+                  : "object-cover"
+              } transition-transform duration-700 group-hover:scale-[1.03]`}
             />
-            {/* Gradiente suave inferior para legenda */}
             {photo.caption && (
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#3A1D40]/85 via-[#3A1D40]/35 to-transparent pt-10 pb-3.5 px-5">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#3A1D40]/90 via-[#3A1D40]/40 to-transparent pt-10 pb-3.5 px-5">
                 <p className="text-xs sm:text-sm font-bold text-[#FDF6E4] tracking-wide drop-shadow">
                   {photo.caption}
                 </p>
@@ -85,14 +91,14 @@ export default function PhotoCarouselFrame({
           </div>
         )}
 
-        {/* Setas sutis se houver mais de 1 foto */}
+        {/* Setas e indicadores quando houver mais de 1 foto */}
         {photos.length > 1 && (
           <>
             <button
               type="button"
               onClick={prev}
               aria-label="Foto anterior"
-              className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 hover:bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-all"
+              className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/90 hover:bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shadow-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -100,21 +106,22 @@ export default function PhotoCarouselFrame({
               type="button"
               onClick={next}
               aria-label="Próxima foto"
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 hover:bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-all"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/90 hover:bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shadow-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
 
-            {/* Indicadores */}
-            <div className="absolute top-3.5 right-4 z-20 flex items-center gap-1.5 bg-[#3A1D40]/45 backdrop-blur-xs px-2.5 py-1 rounded-full">
+            <div className="absolute top-3 right-3.5 z-20 flex items-center gap-1.5 bg-[#3A1D40]/55 backdrop-blur-xs px-2.5 py-1 rounded-full max-w-[75%] overflow-hidden">
               {photos.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setCurrent(idx)}
                   aria-label={`Ir para foto ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    idx === current ? "w-5 bg-[#FDBC2E]" : "w-2 bg-white/70 hover:bg-white"
+                  className={`h-2 rounded-full transition-all shrink-0 ${
+                    idx === current
+                      ? "w-5 bg-[#FDBC2E]"
+                      : "w-2 bg-white/75 hover:bg-white"
                   }`}
                 />
               ))}

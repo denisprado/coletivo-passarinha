@@ -59,26 +59,41 @@ export default function HomePage() {
       {/* FAIXA 2 — PONTO DE CULTURA QUINTAL GARATUJA (Laranja Acrílico) */}
       <section className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Moldura Branca Arredondada à Esquerda */}
+          {/* Fotos da Pasta: Ponto de Cultura Quintal Garatuja/GARATUJA */}
           <div className="lg:col-span-5">
             <PhotoCarouselFrame
               badgeLogoSrc="/images/garatuja/GARATUJA_logo_hor colorido.png"
               badgeLogoAlt="Logo Ponto de Cultura Quintal Garatuja"
               photos={[
                 {
-                  src: "/images/image8.jpg",
-                  alt: "Criança explorando estrutura sonora de panelas reaproveitadas no Quintal Garatuja",
-                  caption: "Experimentação sonora e brincar livre no Quintal Garatuja",
+                  src: "/photos/garatuja/principal-tc-silva.webp",
+                  alt: "TC Silva no Ponto de Cultura Quintal Garatuja",
+                  caption: "TC Silva — Encontros culturais no Quintal Garatuja",
                 },
                 {
-                  src: "/images/image5.jpg",
-                  alt: "Apresentação cênica no Ponto de Cultura Quintal Garatuja",
-                  caption: "Encontros cênicos e mostras abertas em Campinas/SP",
+                  src: "/photos/garatuja/principal-ultimo-tipo.webp",
+                  alt: "Grupo Último Tipo no Quintal Garatuja",
+                  caption: "Teatro popular e convivência comunitária em Campinas/SP",
                 },
                 {
-                  src: "/images/image1.jpg",
-                  alt: "Vivência comunitária com crianças e artistas sobre tapete colorido de retalhos",
-                  caption: "Convivência intergeracional, arte e território desde 2016",
+                  src: "/photos/garatuja/principal-coro-cenico.webp",
+                  alt: "Coro Cênico no Quintal Garatuja",
+                  caption: "Coro Cênico — Criação coletiva e vozes no território",
+                },
+                {
+                  src: "/photos/garatuja/principal-aya.webp",
+                  alt: "Apresentação AYA no Quintal Garatuja",
+                  caption: "Música, ancestralidade e cultura viva desde 2016",
+                },
+                {
+                  src: "/photos/garatuja/principal-primeiro-evento.webp",
+                  alt: "Primeiro evento do Quintal Garatuja (Foto: Gabriela Zanardi)",
+                  caption: "Artistas e comunidade — Foto: Gabriela Zanardi",
+                },
+                {
+                  src: "/photos/garatuja/principal-grupo-grito.webp",
+                  alt: "Grupo Grito no Quintal Garatuja",
+                  caption: "Intercâmbio entre grupos e Pontos de Cultura",
                 },
               ]}
             />
@@ -157,19 +172,37 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Moldura Branca Arredondada à Direita */}
+          {/* Fotos Reais dos Personagens e Elementos de Aru */}
           <div className="lg:col-span-5 order-1 lg:order-2">
             <PhotoCarouselFrame
               photos={[
                 {
-                  src: "/images/image9.jpg",
-                  alt: "Esteira circular de palha com sementes, favas naturais e objetos reaproveitados",
-                  caption: "Materiais naturais, sementes e objetos ressignificados",
+                  src: "/photos/aru/aru-cenario-1.webp",
+                  alt: "Animal artesanal de A História de Aru criado com tecidos, sementes e fibras naturais",
+                  caption: "Personagens criados com fibras naturais e materiais reaproveitados",
                 },
                 {
-                  src: "/images/image7.jpg",
-                  alt: "Criação artesanal com papelão, tampinhas e materiais descartados",
-                  caption: "Poéticas visuais a partir do reaproveitamento criativo",
+                  src: "/photos/aru/povoado-1.webp",
+                  alt: "Personagem do Povoado de Aru feito com folhas, sementes e tampinhas",
+                  caption: "Povoado de Aru — Sementes, folhas secas e tampinhas ressignificadas",
+                  fit: "contain",
+                },
+                {
+                  src: "/photos/aru/aru-cenario-2.webp",
+                  alt: "Ilustração tridimensional de A História de Aru",
+                  caption: "Os 12 princípios da Permacultura contados em cordel ilustrado",
+                },
+                {
+                  src: "/photos/aru/povoado-2.webp",
+                  alt: "Rosto artesanal de personagem de A História de Aru",
+                  caption: "Arte-educação ambiental gratuita para escolas e famílias",
+                  fit: "contain",
+                },
+                {
+                  src: "/photos/aru/aru-1.webp",
+                  alt: "Aru — personagem central criada com elementos da natureza e recicláveis",
+                  caption: "Aru — Poética visual da terra e do reaproveitamento",
+                  fit: "contain",
                 },
               ]}
             />
@@ -177,33 +210,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 4 — ESPETÁCULOS (Roxo Acrílico + Pincelada em Ponte sobre a Foto) */}
+      {/* FAIXA 4 — ESPETÁCULOS (Roxo Acrílico + Pasta PÁGINA INICIAL/FAIXA ESPETÁCULOS) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Moldura Branca Arredondada à Esquerda */}
+          {/* Fotos exatas da subpasta: PÁGINA INICIAL / FAIXA ESPETÁCULOS */}
           <div className="lg:col-span-5 relative z-10">
             <PhotoCarouselFrame
               photos={[
                 {
-                  src: "/images/image3.jpg",
-                  alt: "Pamella Villanova e Dudu Ferraz atrás do tecido com fitas coloridas em Histórias que a Passarinha me contou",
-                  caption: "Histórias que a Passarinha me contou — Episódio Terra",
+                  src: "/photos/home/espetaculos-6.webp",
+                  alt: "Histórias que a Passarinha me contou — Episódio Terra (Foto: Mauro Machado)",
+                  caption: "Histórias que a Passarinha me contou — Foto: Mauro Machado",
                 },
                 {
-                  src: "/images/image4.jpg",
-                  alt: "Dudu Ferraz interagindo com crianças em mar de tiras azuis no Episódio Água",
-                  caption: "Histórias que a Passarinha me contou — Episódio Água",
+                  src: "/photos/home/espetaculos-1.webp",
+                  alt: "Cena de Plástico, um mito contemporâneo",
+                  caption: "Plástico, um mito contemporâneo — Teatro-fórum socioambiental",
                 },
                 {
-                  src: "/images/image10.jpg",
-                  alt: "Criança brincando imersa em mar de tiras azuis reaproveitadas (Foto: Camila Guinatti)",
-                  caption: "Plástico, um mito contemporâneo — Residência Cênica",
+                  src: "/photos/home/espetaculos-3.webp",
+                  alt: "Histórias do Bosque dos Guarantãs (Foto: Dalton Yatabe)",
+                  caption: "Histórias do Bosque dos Guarantãs — Foto: Dalton Yatabe",
+                },
+                {
+                  src: "/photos/home/espetaculos-7.webp",
+                  alt: "Episódio Terra (Foto: Nina Pires)",
+                  caption: "Contação de histórias e música autoral — Foto: Nina Pires",
+                },
+                {
+                  src: "/photos/home/espetaculos-2.webp",
+                  alt: "Passeio cênico no Bosque dos Guarantãs",
+                  caption: "Encontros cênicos para praças, escolas, SESCs e teatros",
+                },
+                {
+                  src: "/photos/home/espetaculos-8.webp",
+                  alt: "Arte visual de Plástico, um mito contemporâneo",
+                  caption: "Criações para públicos diversos, de crianças a adultos",
+                },
+                {
+                  src: "/photos/home/espetaculos-4.webp",
+                  alt: "Vivência teatral ao ar livre da Passarinha",
+                  caption: "Arte, imaginação e diálogo com o território",
+                },
+                {
+                  src: "/photos/home/espetaculos-5.webp",
+                  alt: "Criança interagindo em espetáculo da Passarinha",
+                  caption: "Afeto, encantamento e reflexão socioambiental",
                 },
               ]}
             />
           </div>
 
-          {/* Texto + Pincelada Carmim avançando sobre a borda da foto no Desktop */}
+          {/* Texto + Pincelada Carmim avançando sobre a borda da foto */}
           <div className="lg:col-span-7 space-y-6 relative z-20">
             <div>
               <BrushBanner
@@ -242,7 +300,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 5 — OFICINAS / PRÁTICAS FORMATIVAS (Vermelho Acrílico + Pincelada Amarela Inclinada) */}
+      {/* FAIXA 5 — OFICINAS / PRÁTICAS FORMATIVAS (Vermelho Acrílico + Pasta Inicial/PRÁTICAS FORMATIVAS) */}
       <section className="canvas-vermelho py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Texto + Pincelada Amarela Inclinada à Esquerda */}
@@ -263,12 +321,13 @@ export default function HomePage() {
               </p>
               <p>
                 Entre as propostas estão práticas de reutilização criativa de
-                materiais (<strong className="text-[#FDBC2E]">Ateliê Jogar Dentro</strong> e{" "}
+                materiais (
+                <strong className="text-[#FDBC2E]">Ateliê Jogar Dentro</strong> e{" "}
                 <strong className="text-[#FDBC2E]">Ecobrinquedoteca</strong>) e
                 vivências musicais, como a{" "}
-                <strong className="text-[#FDBC2E]">Orquestra de Pandeiros</strong>,
-                que podem acontecer em escolas, instituições culturais, eventos
-                e projetos educativos.
+                <strong className="text-[#FDBC2E]">Orquestra de Pandeiros</strong>
+                , que podem acontecer em escolas, instituições culturais,
+                eventos e projetos educativos.
               </p>
             </div>
 
@@ -282,24 +341,29 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Moldura Branca Arredondada à Direita */}
+          {/* Fotos da subpasta: Inicial / PRÁTICAS FORMATIVAS + Jogar Dentro & Ecobrinquedoteca */}
           <div className="lg:col-span-5 order-1 lg:order-2">
             <PhotoCarouselFrame
               photos={[
                 {
-                  src: "/images/image6.jpg",
-                  alt: "Turma da Orquestra de Pandeiros com Maria Thomé",
-                  caption: "Orquestra de Pandeiros — Música e Percussão Popular",
+                  src: "/photos/home/formativas-1.webp",
+                  alt: "Prática formativa coletiva da Orquestra de Pandeiros",
+                  caption: "Orquestra de Pandeiros — Educação musical intergeracional",
                 },
                 {
-                  src: "/images/image7.jpg",
-                  alt: "Fogãozinho de brinquedo construído com papelão, CDs e tampinhas",
-                  caption: "Ateliê Jogar Dentro — Criação de Brinquedos com Reutilizáveis",
+                  src: "/photos/home/formativas-2.webp",
+                  alt: "Vivência formativa conduzida pelo Coletivo Passarinha",
+                  caption: "Encontros formativos em escolas, universidades e Pontos de Cultura",
                 },
                 {
-                  src: "/images/image9.jpg",
-                  alt: "Esteira com elementos naturais e objetos reaproveitados na Ecobrinquedoteca",
-                  caption: "Ecobrinquedoteca — Espaço de Brincar Livre e Sustentável",
+                  src: "/photos/oficinas/jogar-dentro-1.webp",
+                  alt: "Experimentação criativa no Ateliê Jogar Dentro",
+                  caption: "Ateliê Jogar Dentro — Reaproveitamento criativo de materiais",
+                },
+                {
+                  src: "/photos/oficinas/ecobrinquedoteca-dobra-39.webp",
+                  alt: "Crianças e famílias na Ecobrinquedoteca Jogar Dentro",
+                  caption: "Ecobrinquedoteca — Cultura do brincar livre e sustentável",
                 },
               ]}
             />
@@ -307,27 +371,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 6 — AUDIOVISUAL (Amarelo Ipê Acrílico + Pincelada em Ponte sobre a Foto) */}
+      {/* FAIXA 6 — AUDIOVISUAL (Amarelo Ipê Acrílico + Pasta PÁGINA INICIAL/FAIXA AUDIOVISUAL) */}
       <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Moldura Branca Arredondada à Esquerda */}
+          {/* Fotos exatas da subpasta: PÁGINA INICIAL / FAIXA AUDIOVISUAL */}
           <div className="lg:col-span-5 relative z-10">
             <PhotoCarouselFrame
               photos={[
                 {
-                  src: "https://i.ytimg.com/vi/FkMBMPGgpHw/hqdefault.jpg",
-                  alt: "Frame da obra audiovisual Fora de onde? com acessibilidade em Libras",
-                  caption: "Fora de onde? — Reflexão poética com Libras",
+                  src: "/photos/home/audiovisual-deusa.webp",
+                  alt: "Deusa Reduza na produção audiovisual Fora de onde? (Foto: Mauro Machado)",
+                  caption: "Fora de onde? — Deusa Reduza (Foto: Mauro Machado)",
                 },
                 {
-                  src: "https://i.ytimg.com/vi/mnlxnn_4HPg/hqdefault.jpg",
-                  alt: "Frame da obra audiovisual O que se passa no formigueiro?",
-                  caption: "O que se passa no formigueiro? — Vídeo para infâncias",
+                  src: "/photos/home/audiovisual-formigueiro.webp",
+                  alt: "Produção audiovisual O que se passa no formigueiro?",
+                  caption: "O que se passa no formigueiro? — Agroecologia e infâncias",
                 },
                 {
-                  src: "/images/image1.jpg",
-                  alt: "Registro audiovisual comunitário do Coletivo Passarinha",
-                  caption: "A Caixa Mágica — Curta-metragem nascido no Bosque dos Guarantãs",
+                  src: "/photos/audiovisual/caixa-magica-1.webp",
+                  alt: "Curta A Caixa Mágica com Pirulita e Pouca Sombra",
+                  caption: "A Caixa Mágica — Palhaçaria e ressignificação de objetos",
                 },
               ]}
             />
@@ -373,7 +437,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Selo Sutil da Ave Passarinha antes do Rodapé */}
+      {/* Selo da Ave Passarinha antes do Rodapé */}
       <section className="bg-[#FDF6E4] py-10 px-4 border-t-4 border-[#532E5A]/15">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="flex items-center gap-4">
@@ -391,7 +455,8 @@ export default function HomePage() {
                 Quer levar a Passarinha para sua escola, evento ou festival?
               </h3>
               <p className="text-sm text-[#532E5A]/80 font-semibold">
-                Circulamos com espetáculos, oficinas e vivências socioambientais por todo o Brasil.
+                Circulamos com espetáculos, oficinas e vivências socioambientais
+                por todo o Brasil.
               </p>
             </div>
           </div>

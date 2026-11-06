@@ -63,7 +63,7 @@ export default function AudiovisualPage() {
                 </h2>
               </div>
 
-              {/* Player do YouTube Embutido se houver ID, senão Moldura Fotográfica */}
+              {/* Player do YouTube Embutido (quando houver) ou Carrossel Principal (ex: A Caixa Mágica) */}
               {work.youtubeId ? (
                 <div className="bg-[#FDF6E4] p-2.5 sm:p-3.5 rounded-[32px] border-2 border-[#FDBC2E]/40 shadow-md">
                   <div className="relative w-full aspect-video rounded-[22px] overflow-hidden bg-[#532E5A]">
@@ -76,38 +76,64 @@ export default function AudiovisualPage() {
                     />
                   </div>
                 </div>
-              ) : work.photoUrl ? (
+              ) : work.photos.length > 0 ? (
                 <PhotoCarouselFrame
                   aspectClass="aspect-video"
-                  photos={[
-                    {
-                      src: work.photoUrl,
-                      alt: work.title,
-                      caption: `${work.title} — Curta-metragem nascido no Bosque dos Guarantãs (Campinas/SP)`,
-                    },
-                  ]}
+                  photos={work.photos}
                 />
               ) : null}
 
-              {/* Sinopse */}
-              <div className="space-y-2">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
-                  Sinopse
-                </h3>
-                <p className="text-base sm:text-lg text-[#532E5A] leading-relaxed font-medium">
-                  {work.synopsis}
-                </p>
-              </div>
+              {/* Se houver vídeo + fotos de divulgação/bastidores do Drive, exibe as fotos ao lado da Sinopse */}
+              {work.youtubeId && work.photos.length > 0 ? (
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  <div className="lg:col-span-5">
+                    <PhotoCarouselFrame photos={work.photos} />
+                  </div>
+                  <div className="lg:col-span-7 space-y-6">
+                    {/* Sinopse */}
+                    <div className="space-y-2">
+                      <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                        Sinopse
+                      </h3>
+                      <p className="text-base sm:text-lg text-[#532E5A] leading-relaxed font-medium">
+                        {work.synopsis}
+                      </p>
+                    </div>
 
-              {/* Contexto de Criação */}
-              <div className="bg-[#FDF6E4] p-6 rounded-3xl border-l-4 border-[#F79335] space-y-1.5">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
-                  Contexto & Realização
-                </h3>
-                <p className="text-sm sm:text-base text-[#532E5A]/90 leading-relaxed font-medium">
-                  {work.context}
-                </p>
-              </div>
+                    {/* Contexto de Criação */}
+                    <div className="bg-[#FDF6E4] p-6 rounded-3xl border-l-4 border-[#F79335] space-y-1.5">
+                      <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                        Contexto & Realização
+                      </h3>
+                      <p className="text-sm sm:text-base text-[#532E5A]/90 leading-relaxed font-medium">
+                        {work.context}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* Sinopse */}
+                  <div className="space-y-2">
+                    <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                      Sinopse
+                    </h3>
+                    <p className="text-base sm:text-lg text-[#532E5A] leading-relaxed font-medium">
+                      {work.synopsis}
+                    </p>
+                  </div>
+
+                  {/* Contexto de Criação */}
+                  <div className="bg-[#FDF6E4] p-6 rounded-3xl border-l-4 border-[#F79335] space-y-1.5">
+                    <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                      Contexto & Realização
+                    </h3>
+                    <p className="text-sm sm:text-base text-[#532E5A]/90 leading-relaxed font-medium">
+                      {work.context}
+                    </p>
+                  </div>
+                </>
+              )}
 
               {/* Ficha Técnica */}
               <div className="space-y-3 pt-2">

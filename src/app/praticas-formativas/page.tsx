@@ -120,6 +120,26 @@ export default function PraticasFormativasPage() {
                 </div>
               </div>
 
+              {/* Segundo Carrossel Dedicado (ex: Orquestra de Pandeiros - Carrossel 2 do Drive) */}
+              {workshop.secondaryPhotos && workshop.secondaryPhotos.length > 0 && (
+                <div className="bg-[#FDF6E4]/80 p-6 sm:p-8 rounded-3xl border border-[#FDBC2E]/50 space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                      Mais Registros — Vivências, Ensaios & Apresentações
+                    </h3>
+                    <span className="text-xs font-bold text-[#532E5A]/75">
+                      Galeria 2 ({workshop.secondaryPhotos.length} fotos)
+                    </span>
+                  </div>
+                  <div className="max-w-3xl mx-auto">
+                    <PhotoCarouselFrame
+                      aspectClass="aspect-[16/10]"
+                      photos={workshop.secondaryPhotos}
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Princípios ou Destaques */}
               {workshop.principles && (
                 <div className="bg-[#FDF6E4] p-6 rounded-3xl border border-[#F79335]/40 space-y-3">

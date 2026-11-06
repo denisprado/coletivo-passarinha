@@ -95,7 +95,11 @@ export default function EspetaculosPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
                 {/* Moldura Branca de Fotos Reais */}
                 <div className="lg:col-span-5">
-                  <PhotoCarouselFrame photos={show.photos} />
+                  <PhotoCarouselFrame
+                    photos={show.photos}
+                    badgeLogoSrc={show.logoUrl}
+                    badgeLogoAlt={show.title}
+                  />
                 </div>
 
                 {/* Sinopse & Trajetória */}

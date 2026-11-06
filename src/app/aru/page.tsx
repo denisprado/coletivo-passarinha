@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import AudioPlayer from "@/components/AudioPlayer";
 import { BookOpen, Download, Music, FileCheck } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
@@ -58,7 +57,7 @@ export default function AruPage() {
         </div>
       </section>
 
-      {/* Sobre o Projeto + Moldura de Fotos */}
+      {/* Sobre o Projeto + Moldura com as Fotos Oficiais de Aru no Drive */}
       <section className="bg-[#FDF6E4] py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 bg-white p-8 sm:p-11 rounded-[36px] shadow-md border-2 border-[#FDBC2E]/50 space-y-5 text-base sm:text-lg text-[#532E5A] leading-relaxed font-medium">
@@ -105,14 +104,38 @@ export default function AruPage() {
               aspectClass="aspect-[4/4]"
               photos={[
                 {
-                  src: "/images/image9.jpg",
-                  alt: "Esteira circular com sementes naturais e objetos reaproveitados",
-                  caption: "Texturas naturais, sementes e objetos ressignificados",
+                  src: "/photos/aru/aru-1.webp",
+                  alt: "Personagem Aru criada com sementes, fibras naturais e tampinhas",
+                  caption: "Aru — Criação artesanal com elementos naturais e recicláveis",
+                  fit: "contain",
                 },
                 {
-                  src: "/images/image7.jpg",
-                  alt: "Criação tridimensional com papelão e materiais reutilizados",
-                  caption: "Experimentação estética a partir do descarte zero",
+                  src: "/photos/aru/aru-cenario-1.webp",
+                  alt: "Animal artesanal de A História de Aru",
+                  caption: "Personagens e animais criados com retalhos, sementes e fibras",
+                },
+                {
+                  src: "/photos/aru/povoado-1.webp",
+                  alt: "Habitante do Povoado de Aru",
+                  caption: "Povoado de Aru — Poéticas visuais de baixo impacto",
+                  fit: "contain",
+                },
+                {
+                  src: "/photos/aru/aru-cenario-2.webp",
+                  alt: "Composição visual de A História de Aru",
+                  caption: "Fotografias originais que ilustram o e-book em cordel",
+                },
+                {
+                  src: "/photos/aru/povoado-2.webp",
+                  alt: "Personagem artesanal com sementes e folhas secas",
+                  caption: "Diversidade de texturas, sementes e materiais ressignificados",
+                  fit: "contain",
+                },
+                {
+                  src: "/photos/aru/aru-2.webp",
+                  alt: "Máscara artesanal de Aru com búzio e sementes",
+                  caption: "Arte, educação e sabedoria da Permacultura",
+                  fit: "contain",
                 },
               ]}
             />
@@ -153,7 +176,7 @@ export default function AruPage() {
         </div>
       </section>
 
-      {/* Seção de Downloads e Materiais (com âncora #materiais) */}
+      {/* Seção de Downloads e Materiais (com links diretos para o E-book e Cartilha no Drive!) */}
       <section id="materiais" className="bg-[#FDF6E4] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="text-center space-y-3">
@@ -185,7 +208,7 @@ export default function AruPage() {
                 </p>
               </div>
               <a
-                href="https://drive.google.com/drive/folders/1cosjnmOBDCyzC8yrb3Ei9rGRwXZmrA4p"
+                href="https://drive.google.com/file/d/14QS_XRK87fBe8qX9wpp363YbcdZMDP3a/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-white text-xs w-full py-2.5"
@@ -216,26 +239,28 @@ export default function AruPage() {
               </a>
             </div>
 
-            {/* Card 3: Materiais Pedagógicos */}
+            {/* Card 3: Cartilha / Guias Pedagógicos */}
             <div className="bg-white p-6 rounded-[30px] border-2 border-[#FDBC2E]/40 shadow-md flex flex-col justify-between space-y-4 hover:-translate-y-1 transition-all">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-2xl bg-[#532E5A] text-[#FDBC2E] flex items-center justify-center shadow-md">
                   <FileCheck className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-lg text-[#532E5A]">
-                  Guias Didáticos
+                  Cartilha Pedagógica
                 </h3>
                 <p className="text-xs sm:text-sm text-[#532E5A]/80 leading-relaxed font-medium">
-                  Propostas práticas de atividades, rodas de conversa e jogos
-                  socioambientais.
+                  Cartilha de Permacultura com propostas práticas de atividades,
+                  rodas de conversa e jogos socioambientais.
                 </p>
               </div>
-              <Link
-                href="/contato?interesse=Projeto+Aru"
+              <a
+                href="https://drive.google.com/file/d/1kt5IQ-E2RgbhHzXjRn6F2XbMCVzaXDfL/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-foca bg-[#532E5A] hover:bg-[#3e2044] text-[#FDBC2E] text-xs w-full py-2.5"
               >
-                <Download className="w-4 h-4" /> Solicitar Guias
-              </Link>
+                <Download className="w-4 h-4" /> Abrir Cartilha (PDF)
+              </a>
             </div>
 
             {/* Card 4: Animações & Instagram */}

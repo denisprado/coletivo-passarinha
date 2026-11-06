@@ -41,7 +41,7 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* Manifesto e Apresentação Oficial + Moldura de Fotos */}
+      {/* Manifesto + Carrossel da Pasta Quem somos/Historico */}
       <section className="bg-[#FDF6E4] py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <div className="lg:col-span-7 bg-white p-8 sm:p-11 rounded-[36px] shadow-md border-2 border-[#FDBC2E]/50 space-y-5 text-base sm:text-lg text-[#532E5A] leading-relaxed font-medium">
@@ -80,24 +80,40 @@ export default function QuemSomosPage() {
             </p>
           </div>
 
+          {/* Carrossel com acervo histórico de Quem somos/Historico */}
           <div className="lg:col-span-5">
             <PhotoCarouselFrame
               aspectClass="aspect-[4/4]"
               photos={[
                 {
-                  src: "/images/image1.jpg",
-                  alt: "Vivência comunitária com crianças e artistas sobre tapete colorido",
-                  caption: "Encontros que costuram arte, infâncias e território",
+                  src: "/photos/historico/inicio-1.webp",
+                  alt: "Início itinerante do Coletivo Passarinha em 2014",
+                  caption: "2014 — Início itinerante e ações na estrada",
                 },
                 {
-                  src: "/images/image3.jpg",
-                  alt: "Pamella Villanova e Dudu Ferraz em apresentação cênica",
-                  caption: "Teatro, música e contação de histórias em circulação",
+                  src: "/photos/historico/permacultura-4.webp",
+                  alt: "Vivências de Permacultura da Passarinha",
+                  caption: "Permacultura, saberes da terra e educação ambiental",
                 },
                 {
-                  src: "/images/image6.jpg",
-                  alt: "Grupo da Orquestra de Pandeiros reunido",
-                  caption: "Práticas formativas e convivência intergeracional",
+                  src: "/photos/historico/oficina-cortejo-4.webp",
+                  alt: "Oficina Cortejo com instrumentos reaproveitados",
+                  caption: "Oficinas Cortejo — Música e reutilização criativa",
+                },
+                {
+                  src: "/photos/historico/jogar-dentro-1.webp",
+                  alt: "Primeiras edições do Ateliê Jogar Dentro",
+                  caption: "Ateliê Jogar Dentro — Invenção coletiva de brinquedos",
+                },
+                {
+                  src: "/photos/historico/ecobrinquedoteca-3.webp",
+                  alt: "Ecobrinquedoteca em circulação",
+                  caption: "Ecobrinquedoteca — Cultura do brincar em praças e festivais",
+                },
+                {
+                  src: "/photos/historico/reciclarnaval-1.webp",
+                  alt: "Reciclarnaval no SESC Campinas",
+                  caption: "Reciclarnaval — Mais de 800 adereços criados coletivamente",
                 },
               ]}
             />
@@ -105,7 +121,7 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* As Passarinhas / Integrantes em Textura Amarela Ipê */}
+      {/* As Passarinhas / Integrantes (Pasta Quem somos/Passarinhas) */}
       <section className="canvas-amarelo py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-4">
@@ -115,7 +131,7 @@ export default function QuemSomosPage() {
             <div>
               <BrushBanner color="crimson" shape="wave">
                 <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
-                  Quem Faz a Passarinha Voar
+                  As Passarinhas
                 </h2>
               </BrushBanner>
             </div>
@@ -134,18 +150,18 @@ export default function QuemSomosPage() {
                 <div className="space-y-5">
                   <div className="flex items-center gap-4">
                     {member.photoUrl ? (
-                      <div className="relative w-20 h-20 rounded-3xl overflow-hidden border-3 border-[#FDBC2E] shadow-md shrink-0">
+                      <div className="relative w-24 h-24 rounded-3xl overflow-hidden border-3 border-[#FDBC2E] shadow-md shrink-0">
                         <Image
                           src={member.photoUrl}
                           alt={member.name}
                           fill
-                          sizes="80px"
+                          sizes="96px"
                           className="object-cover"
                         />
                       </div>
                     ) : (
                       <div
-                        className={`w-16 h-16 rounded-2xl ${member.avatarColor} text-white font-black text-xl flex items-center justify-center shadow-md shrink-0`}
+                        className={`w-20 h-20 rounded-2xl ${member.avatarColor} text-white font-black text-xl flex items-center justify-center shadow-md shrink-0`}
                       >
                         {member.name.charAt(0)}
                       </div>
@@ -200,7 +216,7 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* Linha do Tempo e Histórico com Fotos */}
+      {/* Linha do Tempo e Histórico com Fotos Reais de Quem somos/Historico */}
       <section className="bg-[#FDF6E4] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="text-center space-y-3">
@@ -219,13 +235,14 @@ export default function QuemSomosPage() {
           <div className="relative border-l-4 border-[#FDBC2E] ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-10">
             {TIMELINE.map((item, index) => (
               <div key={index} className="relative group">
-                {/* Marcador */}
                 <div className="absolute -left-[35px] sm:-left-[51px] top-2 w-6 h-6 rounded-full bg-[#E91C47] border-4 border-[#FDF6E4] shadow-md group-hover:scale-125 transition-transform" />
 
                 <div className="bg-white p-6 sm:p-8 rounded-[32px] shadow-md border-2 border-[#FDBC2E]/40 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                   <div
                     className={
-                      item.photoUrl ? "md:col-span-7 space-y-3" : "md:col-span-12 space-y-3"
+                      item.photoUrl
+                        ? "md:col-span-7 space-y-3"
+                        : "md:col-span-12 space-y-3"
                     }
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
