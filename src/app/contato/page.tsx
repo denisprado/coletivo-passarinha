@@ -41,16 +41,16 @@ function ContatoForm() {
   };
 
   return (
-    <div className="lg:col-span-7 bg-white p-8 sm:p-11 rounded-[36px] shadow-lg border-2 border-[#FDBC2E]/50">
+    <div className="lg:col-span-7 painel-rustico p-7 sm:p-10">
       {submitted ? (
         <div className="text-center py-12 space-y-4">
-          <div className="w-16 h-16 mx-auto rounded-full bg-[#532E5A] text-[#FDBC2E] flex items-center justify-center shadow-lg">
+          <div className="w-16 h-16 mx-auto rounded-xs bg-[#3A1D40] text-[#FDBC2E] border-2 border-[#3A1D40] flex items-center justify-center">
             <CheckCircle2 className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-black text-[#532E5A] uppercase">
+          <h3 className="text-2xl font-black text-[#3A1D40] uppercase">
             Mensagem Encaminhada!
           </h3>
-          <p className="text-sm sm:text-base text-[#532E5A]/80 max-w-md mx-auto font-medium">
+          <p className="text-sm sm:text-base text-[#3A1D40]/90 max-w-md mx-auto font-medium">
             Seu aplicativo de e-mail foi aberto com os dados preenchidos para
             envio direto à nossa equipe. Em breve responderemos!
           </p>
@@ -64,10 +64,10 @@ function ContatoForm() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#532E5A] uppercase">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#3A1D40] uppercase">
               Envie uma Proposta ou Dúvida
             </h2>
-            <p className="text-xs sm:text-sm text-[#532E5A]/75 mt-1 font-medium">
+            <p className="text-xs sm:text-sm text-[#3A1D40]/85 mt-1 font-semibold">
               Preencha o formulário abaixo para nos contar sobre o seu evento,
               escola, SESC ou festival.
             </p>
@@ -75,7 +75,7 @@ function ContatoForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#532E5A]">
+              <label className="text-xs font-black uppercase text-[#3A1D40]">
                 Seu Nome *
               </label>
               <input
@@ -86,12 +86,12 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, nome: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-2xl border-2 border-[#FDBC2E]/50 focus:outline-none focus:border-[#E91C47] text-sm text-[#532E5A] font-medium"
+                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#532E5A]">
+              <label className="text-xs font-black uppercase text-[#3A1D40]">
                 E-mail para Resposta *
               </label>
               <input
@@ -102,14 +102,14 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-2xl border-2 border-[#FDBC2E]/50 focus:outline-none focus:border-[#E91C47] text-sm text-[#532E5A] font-medium"
+                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#532E5A]">
+              <label className="text-xs font-black uppercase text-[#3A1D40]">
                 Telefone / WhatsApp
               </label>
               <input
@@ -119,12 +119,12 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, telefone: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-2xl border-2 border-[#FDBC2E]/50 focus:outline-none focus:border-[#E91C47] text-sm text-[#532E5A] font-medium"
+                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#532E5A]">
+              <label className="text-xs font-black uppercase text-[#3A1D40]">
                 Área de Interesse
               </label>
               <select
@@ -132,7 +132,7 @@ function ContatoForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, interesse: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-2xl border-2 border-[#FDBC2E]/50 focus:outline-none focus:border-[#E91C47] text-sm bg-white text-[#532E5A] font-semibold"
+                className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-bold"
               >
                 <option value="Espetáculo Teatral">
                   Contratação de Espetáculo
@@ -156,7 +156,7 @@ function ContatoForm() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-black uppercase text-[#532E5A]">
+            <label className="text-xs font-black uppercase text-[#3A1D40]">
               Sua Mensagem *
             </label>
             <textarea
@@ -167,13 +167,13 @@ function ContatoForm() {
               onChange={(e) =>
                 setFormData({ ...formData, mensagem: e.target.value })
               }
-              className="w-full px-4 py-3 rounded-2xl border-2 border-[#FDBC2E]/50 focus:outline-none focus:border-[#E91C47] text-sm text-[#532E5A] font-medium"
+              className="w-full px-4 py-3 rounded-xs bg-white border-2 border-[#3A1D40] focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-sm py-3.5 flex items-center justify-center gap-2"
+            className="w-full btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-sm py-3.5"
           >
             <Send className="w-4 h-4" />
             <span>Enviar Mensagem ao Coletivo</span>
@@ -188,9 +188,9 @@ export default function ContatoPage() {
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Roxa Acrílica */}
-      <section className="canvas-roxo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#FDBC2E]">
+      <section className="canvas-roxo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#FDBC2E]/15 border border-[#FDBC2E]/40 text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40]">
             <Mail className="w-4 h-4" /> Vamos Conversar
           </div>
           <div>
@@ -208,16 +208,16 @@ export default function ContatoPage() {
         </div>
       </section>
 
-      {/* Grid de Contato */}
-      <section className="bg-[#FDF6E4] py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+      {/* Grid de Contato em Textura Amarela Ipê Acrílica */}
+      <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Informações de Contato */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-3">
-              <h2 className="text-2xl sm:text-3xl font-black text-[#532E5A] uppercase">
+          <div className="lg:col-span-5 space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#3A1D40] uppercase">
                 Canais Diretos
               </h2>
-              <p className="text-sm sm:text-base text-[#532E5A]/85 leading-relaxed font-medium">
+              <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-semibold">
                 Respondemos rapidamente por e-mail, redes sociais ou WhatsApp.
                 Escolha o canal mais prático para você!
               </p>
@@ -225,8 +225,8 @@ export default function ContatoPage() {
 
             <div className="space-y-4">
               {/* E-mail */}
-              <div className="bg-white p-5 rounded-3xl border-2 border-[#FDBC2E]/40 flex items-center gap-4 shadow-xs">
-                <div className="w-12 h-12 rounded-2xl bg-[#E91C47] text-[#FDF6E4] flex items-center justify-center shrink-0">
+              <div className="painel-rustico p-5 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xs bg-[#E91C47] text-[#FDF6E4] border-2 border-[#3A1D40] flex items-center justify-center shrink-0">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
@@ -235,13 +235,13 @@ export default function ContatoPage() {
                   </span>
                   <a
                     href="mailto:coletivopassarinha@gmail.com"
-                    className="text-sm font-bold text-[#532E5A] hover:underline block"
+                    className="text-sm font-black text-[#3A1D40] hover:underline block"
                   >
                     coletivopassarinha@gmail.com
                   </a>
                   <a
                     href="mailto:garatuja.decultura@gmail.com"
-                    className="text-xs font-semibold text-[#532E5A]/80 hover:underline block"
+                    className="text-xs font-bold text-[#3A1D40]/85 hover:underline block"
                   >
                     garatuja.decultura@gmail.com
                   </a>
@@ -249,19 +249,19 @@ export default function ContatoPage() {
               </div>
 
               {/* WhatsApp */}
-              <div className="bg-white p-5 rounded-3xl border-2 border-[#FDBC2E]/40 flex items-center gap-4 shadow-xs">
-                <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0">
+              <div className="painel-rustico p-5 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xs bg-[#25D366] text-white border-2 border-[#3A1D40] flex items-center justify-center shrink-0">
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-black text-[#532E5A] uppercase tracking-wider block">
+                  <span className="text-xs font-black text-[#3A1D40] uppercase tracking-wider block">
                     WhatsApp para Produção
                   </span>
                   <a
                     href="https://wa.me/5519992510921?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20com%20o%20Coletivo%20Passarinha."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-black text-[#532E5A] hover:text-[#E91C47]"
+                    className="text-sm font-black text-[#3A1D40] hover:text-[#E91C47]"
                   >
                     (19) 99251-0921 • Falar com a Produção
                   </a>
@@ -269,18 +269,18 @@ export default function ContatoPage() {
               </div>
 
               {/* Sede */}
-              <div className="bg-white p-5 rounded-3xl border-2 border-[#FDBC2E]/40 flex items-center gap-4 shadow-xs">
-                <div className="w-12 h-12 rounded-2xl bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shrink-0">
+              <div className="painel-rustico p-5 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xs bg-[#FDBC2E] text-[#3A1D40] border-2 border-[#3A1D40] flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-black text-[#F79335] uppercase tracking-wider block">
+                  <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider block">
                     Sede Física
                   </span>
-                  <p className="text-sm font-black text-[#532E5A]">
+                  <p className="text-sm font-black text-[#3A1D40]">
                     Ponto de Cultura Quintal Garatuja
                   </p>
-                  <p className="text-xs font-semibold text-[#532E5A]/75">
+                  <p className="text-xs font-bold text-[#3A1D40]/85">
                     Rua São Miguel Arcanjo, 1520 • Campinas / SP
                   </p>
                 </div>
@@ -288,8 +288,8 @@ export default function ContatoPage() {
             </div>
 
             {/* Redes no Instagram */}
-            <div className="bg-white p-6 rounded-3xl border-2 border-[#FDBC2E]/40 space-y-3 shadow-xs">
-              <h3 className="text-xs font-black uppercase tracking-wider text-[#532E5A]/70">
+            <div className="painel-rustico p-6 space-y-3">
+              <h3 className="text-xs font-black uppercase tracking-wider text-[#3A1D40]">
                 Acompanhe no Instagram
               </h3>
               <div className="space-y-2.5 text-xs sm:text-sm font-bold">
@@ -306,7 +306,7 @@ export default function ContatoPage() {
                   href="https://www.instagram.com/quintalgaratuja"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#532E5A] hover:underline"
+                  className="flex items-center gap-2 text-[#3A1D40] hover:underline"
                 >
                   <InstagramIcon className="w-4 h-4" /> @quintalgaratuja (Ponto
                   de Cultura)
@@ -315,7 +315,7 @@ export default function ContatoPage() {
                   href="https://www.instagram.com/aru.permacultura"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#F79335] hover:underline"
+                  className="flex items-center gap-2 text-[#E91C47] hover:underline"
                 >
                   <InstagramIcon className="w-4 h-4" /> @aru.permacultura
                   (Projeto Aru)
@@ -324,7 +324,7 @@ export default function ContatoPage() {
                   href="https://www.instagram.com/orquestra.pandeiros"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#532E5A] hover:underline"
+                  className="flex items-center gap-2 text-[#3A1D40] hover:underline"
                 >
                   <InstagramIcon className="w-4 h-4" /> @orquestra.pandeiros
                   (Orquestra de Pandeiros)
@@ -336,7 +336,7 @@ export default function ContatoPage() {
           {/* Formulário envolto em Suspense */}
           <Suspense
             fallback={
-              <div className="lg:col-span-7 bg-white p-8 rounded-[36px] animate-pulse">
+              <div className="lg:col-span-7 painel-rustico p-8 animate-pulse">
                 Carregando formulário...
               </div>
             }

@@ -17,14 +17,16 @@ interface PhotoCarouselFrameProps {
   badgeLogoAlt?: string;
   intervalMs?: number;
   aspectClass?: string;
+  showThumbnails?: boolean;
 }
 
 export default function PhotoCarouselFrame({
   photos,
   badgeLogoSrc,
   badgeLogoAlt = "",
-  intervalMs = 4000,
+  intervalMs = 4500,
   aspectClass = "aspect-[4/3]",
+  showThumbnails = true,
 }: PhotoCarouselFrameProps) {
   const [current, setCurrent] = useState(0);
 
@@ -42,93 +44,107 @@ export default function PhotoCarouselFrame({
   const next = () => setCurrent((c) => (c + 1) % photos.length);
 
   return (
-    <div className="relative w-full bg-white rounded-[32px] sm:rounded-[44px] p-2.5 sm:p-3.5 shadow-[0_20px_45px_rgba(45,18,50,0.26)] group">
-      <div
-        className={`relative w-full ${aspectClass} rounded-[24px] sm:rounded-[34px] overflow-hidden bg-[#FDF6E4]`}
-      >
-        {photos.map((photo, idx) => (
-          <div
-            key={photo.src + idx}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              idx === current
-                ? "opacity-100 z-10"
-                : "opacity-0 z-0 pointer-events-none"
-            }`}
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className={`${
-                photo.fit === "contain"
-                  ? "object-contain p-2 bg-[#FDF6E4]"
-                  : "object-cover"
-              } transition-transform duration-700 group-hover:scale-[1.03]`}
-            />
-            {photo.caption && (
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#3A1D40]/90 via-[#3A1D40]/40 to-transparent pt-10 pb-3.5 px-5">
-                <p className="text-xs sm:text-sm font-bold text-[#FDF6E4] tracking-wide drop-shadow">
-                  {photo.caption}
-                </p>
-              </div>
-            )}
-          </div>
-        ))}
-
-        {/* Selo de Logo Opcional no Canto Superior */}
-        {badgeLogoSrc && (
-          <div className="absolute top-3 left-3 z-20 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-2xl shadow-md border border-[#FDBC2E]/50 w-28 h-12">
-            <div className="relative w-full h-full">
+    <div className="w-full space-y-2.5">
+      {/* Moldura rústica com cantos secos/levemente marcados e sombra sólida deslocada */}
+      <div className="relative w-full bg-[#FDF6E4] rounded-sm p-2 sm:p-2.5 border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.42)] group">
+        <div
+          className={`relative w-full ${aspectClass} rounded-[2px] overflow-hidden bg-[#241128]`}
+        >
+          {photos.map((photo, idx) => (
+            <div
+              key={photo.src + idx}
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                idx === current
+                  ? "opacity-100 z-10"
+                  : "opacity-0 z-0 pointer-events-none"
+              }`}
+            >
               <Image
-                src={badgeLogoSrc}
-                alt={badgeLogoAlt}
+                src={photo.src}
+                alt={photo.alt}
                 fill
-                sizes="120px"
-                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className={`${
+                  photo.fit === "contain"
+                    ? "object-contain p-2 bg-[#FDF6E4]"
+                    : "object-cover"
+                } transition-transform duration-700 group-hover:scale-[1.03]`}
               />
+              {photo.caption && (
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#241128]/95 via-[#241128]/55 to-transparent pt-10 pb-3 px-4">
+                  <p className="text-xs sm:text-sm font-bold text-[#FDF6E4] tracking-wide drop-shadow">
+                    {photo.caption}
+                  </p>
+                </div>
+              )}
             </div>
-          </div>
-        )}
+          ))}
 
-        {/* Setas e indicadores quando houver mais de 1 foto */}
-        {photos.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={prev}
-              aria-label="Foto anterior"
-              className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/90 hover:bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shadow-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              aria-label="Próxima foto"
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/90 hover:bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shadow-md opacity-85 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-
-            <div className="absolute top-3 right-3.5 z-20 flex items-center gap-1.5 bg-[#3A1D40]/55 backdrop-blur-xs px-2.5 py-1 rounded-full max-w-[75%] overflow-hidden">
-              {photos.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setCurrent(idx)}
-                  aria-label={`Ir para foto ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all shrink-0 ${
-                    idx === current
-                      ? "w-5 bg-[#FDBC2E]"
-                      : "w-2 bg-white/75 hover:bg-white"
-                  }`}
+          {/* Selo de Logo Opcional no Canto Superior Esquerdo */}
+          {badgeLogoSrc && (
+            <div className="absolute top-2.5 left-2.5 z-20 bg-[#FDF6E4] px-2.5 py-1 rounded-xs shadow-md border-2 border-[#3A1D40] w-28 h-12">
+              <div className="relative w-full h-full">
+                <Image
+                  src={badgeLogoSrc}
+                  alt={badgeLogoAlt}
+                  fill
+                  sizes="120px"
+                  className="object-contain"
                 />
-              ))}
+              </div>
             </div>
-          </>
-        )}
+          )}
+
+          {/* Setas rústicas quadradas */}
+          {photos.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Foto anterior"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-xs bg-[#FDF6E4] hover:bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Próxima foto"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-xs bg-[#FDF6E4] hover:bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </>
+          )}
+        </div>
       </div>
+
+      {/* Faixa de Miniaturas Abertas logo abaixo para valorizar o acervo sem esconder imagens */}
+      {showThumbnails && photos.length > 1 && (
+        <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 sm:gap-2">
+          {photos.slice(0, 6).map((thumb, idx) => (
+            <button
+              key={thumb.src + idx}
+              type="button"
+              onClick={() => setCurrent(idx)}
+              aria-label={`Ver foto: ${thumb.alt}`}
+              className={`relative aspect-[4/3] rounded-xs overflow-hidden border-2 transition-all ${
+                idx === current
+                  ? "border-[#FDBC2E] ring-2 ring-[#3A1D40] scale-[1.03] z-10"
+                  : "border-[#3A1D40]/60 opacity-75 hover:opacity-100"
+              }`}
+            >
+              <Image
+                src={thumb.src}
+                alt={thumb.alt}
+                fill
+                sizes="90px"
+                className="object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

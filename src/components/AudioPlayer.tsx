@@ -41,7 +41,7 @@ export default function AudioPlayer() {
   };
 
   return (
-    <div className="canvas-roxo text-[#FDF6E4] rounded-3xl p-5 sm:p-6 shadow-xl border-2 border-[#FDBC2E]/60 max-w-2xl mx-auto">
+    <div className="canvas-roxo text-[#FDF6E4] rounded-sm p-5 sm:p-6 border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.45)] max-w-3xl mx-auto">
       <audio
         ref={audioRef}
         src={audioSrc}
@@ -53,15 +53,12 @@ export default function AudioPlayer() {
       <div className="flex items-center justify-between gap-4">
         <div className="relative shrink-0">
           <div
-            className={`w-14 h-14 rounded-full bg-[#FDBC2E] text-[#532E5A] flex items-center justify-center shadow-inner ${
-              isPlaying ? "animate-spin" : ""
-            }`}
-            style={{ animationDuration: "6s" }}
+            className="w-14 h-14 rounded-sm bg-[#FDBC2E] text-[#532E5A] border-2 border-[#3A1D40] flex items-center justify-center shadow-sm"
           >
             <Music className="w-7 h-7" />
           </div>
           {isPlaying && (
-            <span className="absolute -top-1 -right-1 flex h-4 w-4">
+            <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FDF6E4] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-4 w-4 bg-[#E91C47]"></span>
             </span>
@@ -70,7 +67,7 @@ export default function AudioPlayer() {
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <span className="inline-block bg-[#E91C47] text-[#FDBC2E] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider">
+            <span className="inline-block bg-[#E91C47] text-[#FDBC2E] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider border border-[#FDBC2E]/40">
               Trilha Sonora Oficial
             </span>
             <span className="text-xs text-[#FDBC2E] hidden sm:flex items-center gap-1 font-bold">
@@ -80,13 +77,13 @@ export default function AudioPlayer() {
           <h4 className="font-extrabold text-base sm:text-lg truncate text-[#FDBC2E] mt-1">
             A História de Aru — Cordel dos 12 Princípios
           </h4>
-          <p className="text-xs text-[#FDF6E4]/85 truncate">
+          <p className="text-xs text-[#FDF6E4]/90 truncate font-semibold">
             Música e ambientação poética • Coletivo Passarinha
           </p>
 
-          <div className="w-full bg-white/20 h-1.5 rounded-full mt-2.5 overflow-hidden">
+          <div className="w-full bg-[#241128] h-2 rounded-xs mt-2.5 overflow-hidden border border-[#FDBC2E]/40">
             <div
-              className="bg-[#FDBC2E] h-full rounded-full transition-all duration-200"
+              className="bg-[#FDBC2E] h-full transition-all duration-200"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -96,7 +93,7 @@ export default function AudioPlayer() {
           <button
             onClick={togglePlay}
             type="button"
-            className="w-12 h-12 rounded-full bg-[#FDBC2E] text-[#532E5A] hover:bg-white hover:scale-105 active:scale-95 transition-all flex items-center justify-center shadow-lg"
+            className="w-12 h-12 rounded-sm bg-[#FDBC2E] text-[#532E5A] border-2 border-[#3A1D40] hover:bg-[#FDF6E4] transition-all flex items-center justify-center shadow-[3px_3px_0px_#241128]"
             title={isPlaying ? "Pausar" : "Tocar"}
           >
             {isPlaying ? (

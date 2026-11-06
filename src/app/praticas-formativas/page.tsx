@@ -4,7 +4,7 @@ import { WORKSHOPS } from "@/data/siteData";
 import { Hammer, CheckCircle2, MessageCircle } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
-import PhotoCarouselFrame from "@/components/PhotoCarouselFrame";
+import PhotoMosaic from "@/components/PhotoMosaic";
 
 export const metadata = {
   title: "Oficinas & Práticas Formativas | Coletivo Passarinha",
@@ -12,13 +12,34 @@ export const metadata = {
     "Oficinas de arte-educação ambiental, reutilização de materiais, Ecobrinquedoteca e a Orquestra de Pandeiros do Coletivo Passarinha.",
 };
 
+const WORKSHOP_THEMES = [
+  {
+    canvasClass: "canvas-amarelo",
+    textPrimary: "text-[#3A1D40]",
+    bannerColor: "crimson" as const,
+    bannerText: "text-[#FDBC2E]",
+  },
+  {
+    canvasClass: "canvas-roxo",
+    textPrimary: "text-[#FDBC2E]",
+    bannerColor: "crimson" as const,
+    bannerText: "text-[#FDBC2E]",
+  },
+  {
+    canvasClass: "canvas-laranja",
+    textPrimary: "text-[#2A1230]",
+    bannerColor: "yellow" as const,
+    bannerText: "text-[#532E5A]",
+  },
+];
+
 export default function PraticasFormativasPage() {
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Vermelha Acrílica + Pincelada Amarela Inclinada */}
-      <section className="canvas-vermelho py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#FDBC2E]">
+      <section className="canvas-vermelho py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/20 text-xs font-black uppercase tracking-wider text-[#FDF6E4]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
             <Hammer className="w-4 h-4 text-[#FDBC2E]" /> Formação, Criação Coletiva & Aprendizagem
           </div>
           <div>
@@ -36,159 +57,137 @@ export default function PraticasFormativasPage() {
         </div>
       </section>
 
-      {/* Lista das 3 Práticas Formativas */}
-      <section className="bg-[#FDF6E4] py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto space-y-16">
-          {WORKSHOPS.map((workshop) => (
-            <article
-              key={workshop.id}
-              id={workshop.id}
-              className="scroll-mt-28 bg-white rounded-[38px] p-7 sm:p-12 shadow-lg border-2 border-[#FDBC2E]/50 space-y-8"
-            >
-              {/* Topo do Card */}
-              <div className="border-b border-[#532E5A]/10 pb-6 space-y-4">
+      {/* Cada Prática Formativa em sua própria Faixa Pintada Rústica + Galeria Fotográfica Aberta */}
+      {WORKSHOPS.map((workshop, wIdx) => {
+        const theme = WORKSHOP_THEMES[wIdx % WORKSHOP_THEMES.length];
+        const allPhotos = [
+          ...workshop.photos,
+          ...(workshop.secondaryPhotos || []),
+        ];
+
+        return (
+          <section
+            key={workshop.id}
+            id={workshop.id}
+            className={`scroll-mt-24 ${theme.canvasClass} py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]`}
+          >
+            <div className="max-w-6xl mx-auto space-y-10">
+              {/* Topo da Oficina */}
+              <div className="space-y-5">
                 <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    {workshop.logoUrl ? (
-                      <div className="relative w-16 h-16 rounded-2xl bg-[#FDF6E4] p-1.5 border-2 border-[#FDBC2E] overflow-hidden shadow-sm shrink-0">
+                  <div className="flex flex-wrap items-center gap-4">
+                    {workshop.logoUrl && (
+                      <div className="relative w-20 h-20 rounded-sm bg-[#FDF6E4] p-2 border-2 border-[#3A1D40] shadow-[4px_4px_0px_#3A1D40] shrink-0">
                         <Image
                           src={workshop.logoUrl}
                           alt={`Logo ${workshop.title}`}
                           fill
-                          sizes="64px"
-                          className="object-contain"
+                          sizes="80px"
+                          className="object-contain p-1"
                         />
-                      </div>
-                    ) : (
-                      <div
-                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md shrink-0"
-                        style={{
-                          backgroundColor: workshop.accentColor,
-                          color:
-                            workshop.accentColor === "#FDBC2E"
-                              ? "#532E5A"
-                              : "#FDF6E4",
-                        }}
-                      >
-                        <Hammer className="w-6 h-6" />
                       </div>
                     )}
                     <div>
-                      <h2 className="text-2xl sm:text-4xl font-black text-[#532E5A] uppercase tracking-tight">
-                        {workshop.title}
-                      </h2>
-                      <p className="text-xs sm:text-base font-bold text-[#E91C47]">
+                      <BrushBanner
+                        color={theme.bannerColor}
+                        shape="wave"
+                        className="-ml-2"
+                      >
+                        <h2
+                          className={`text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight ${theme.bannerText}`}
+                        >
+                          {workshop.title}
+                        </h2>
+                      </BrushBanner>
+                      <p
+                        className={`text-sm sm:text-lg font-black mt-1.5 ${theme.textPrimary}`}
+                      >
                         {workshop.subtitle}
                       </p>
                     </div>
                   </div>
 
-                  <span
-                    className="text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-wider"
-                    style={{
-                      backgroundColor: workshop.accentColor,
-                      color:
-                        workshop.accentColor === "#FDBC2E"
-                          ? "#532E5A"
-                          : "#FDF6E4",
-                    }}
-                  >
+                  <span className="text-xs font-black uppercase px-3.5 py-1.5 rounded-xs tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
                     Oficina / Vivência
                   </span>
                 </div>
 
                 {/* Conceito Central */}
-                <div className="bg-[#FDF6E4] p-5 rounded-2xl border-l-4 border-[#FDBC2E] text-base sm:text-lg font-bold text-[#532E5A] italic">
+                <div className="painel-rustico p-5 text-base sm:text-xl font-black text-[#3A1D40] italic border-l-8 border-l-[#E91C47]">
                   &ldquo;{workshop.concept}&rdquo;
                 </div>
               </div>
 
-              {/* Grid: Moldura de Fotos + Descrição Completa */}
+              {/* Descrição Completa + Foto de Destaque */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-                <div className="lg:col-span-5">
-                  <PhotoCarouselFrame
-                    photos={workshop.photos}
-                    badgeLogoSrc={workshop.logoUrl}
-                    badgeLogoAlt={workshop.title}
-                  />
-                </div>
-
-                <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-[#532E5A]/90 leading-relaxed font-medium">
+                <div className="lg:col-span-7 painel-rustico p-6 sm:p-8 space-y-4 text-sm sm:text-base text-[#3A1D40] leading-relaxed font-semibold">
                   {workshop.fullDescription.map((p, idx) => (
                     <p key={idx}>{p}</p>
                   ))}
                 </div>
+
+                <div className="lg:col-span-5 space-y-4">
+                  {/* Público-alvo & Limite */}
+                  <div className="painel-rustico p-6 space-y-4 text-xs sm:text-sm font-semibold text-[#3A1D40]">
+                    <div className="space-y-1">
+                      <span className="font-black uppercase text-[#E91C47] text-[11px] tracking-wider block">
+                        Público-Alvo:
+                      </span>
+                      <p className="font-bold">{workshop.targetAudience}</p>
+                    </div>
+                    {workshop.audienceLimit && (
+                      <div className="space-y-1 pt-3 border-t border-[#3A1D40]/15">
+                        <span className="font-black uppercase text-[#E91C47] text-[11px] tracking-wider block">
+                          Limite Recomendado:
+                        </span>
+                        <p className="font-bold">{workshop.audienceLimit}</p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Princípios ou Destaques */}
+                  {workshop.principles && (
+                    <div className="painel-rustico p-6 space-y-3">
+                      <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                        Princípios da Prática:
+                      </h3>
+                      <div className="grid grid-cols-1 gap-2 text-xs sm:text-sm font-bold text-[#3A1D40]">
+                        {workshop.principles.map((pr, pIdx) => (
+                          <div key={pIdx} className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-[#E91C47] shrink-0" />
+                            <span>{pr}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {workshop.highlights && (
+                    <div className="painel-rustico p-6 space-y-3">
+                      <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                        Destaques & Realizações:
+                      </h3>
+                      <ul className="space-y-2 text-xs sm:text-sm text-[#3A1D40] font-semibold">
+                        {workshop.highlights.map((h, hIdx) => (
+                          <li key={hIdx} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-[#E91C47] shrink-0 mt-0.5" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
 
-              {/* Segundo Carrossel Dedicado (ex: Orquestra de Pandeiros - Carrossel 2 do Drive) */}
-              {workshop.secondaryPhotos && workshop.secondaryPhotos.length > 0 && (
-                <div className="bg-[#FDF6E4]/80 p-6 sm:p-8 rounded-3xl border border-[#FDBC2E]/50 space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
-                      Mais Registros — Vivências, Ensaios & Apresentações
-                    </h3>
-                    <span className="text-xs font-bold text-[#532E5A]/75">
-                      Galeria 2 ({workshop.secondaryPhotos.length} fotos)
-                    </span>
-                  </div>
-                  <div className="max-w-3xl mx-auto">
-                    <PhotoCarouselFrame
-                      aspectClass="aspect-[16/10]"
-                      photos={workshop.secondaryPhotos}
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Princípios ou Destaques */}
-              {workshop.principles && (
-                <div className="bg-[#FDF6E4] p-6 rounded-3xl border border-[#F79335]/40 space-y-3">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
-                    Princípios da Prática:
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-bold text-[#532E5A]">
-                    {workshop.principles.map((pr, pIdx) => (
-                      <div key={pIdx} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#E91C47] shrink-0" />
-                        <span>{pr}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {workshop.highlights && (
-                <div className="bg-[#FDF6E4] p-6 rounded-3xl border border-[#FDBC2E]/50 space-y-3">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-[#532E5A]">
-                    Destaques & Realizações:
-                  </h3>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-[#532E5A]/90 font-medium">
-                    {workshop.highlights.map((h, hIdx) => (
-                      <li key={hIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#E91C47] shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Público-alvo & Limite */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm font-semibold text-[#532E5A] bg-[#FDF6E4]/70 p-6 rounded-3xl border border-[#FDBC2E]/40">
-                <div className="space-y-1">
-                  <span className="font-black uppercase text-[#E91C47] text-[11px] tracking-wider block">
-                    Público-Alvo:
-                  </span>
-                  <p>{workshop.targetAudience}</p>
-                </div>
-                {workshop.audienceLimit && (
-                  <div className="space-y-1">
-                    <span className="font-black uppercase text-[#F79335] text-[11px] tracking-wider block">
-                      Limite Recomendado:
-                    </span>
-                    <p>{workshop.audienceLimit}</p>
-                  </div>
-                )}
+              {/* Mural Fotográfico Aberto com todas as fotos da Oficina */}
+              <div className="space-y-3">
+                <h3
+                  className={`text-sm sm:text-base font-black uppercase tracking-wider ${theme.textPrimary}`}
+                >
+                  Registros Fotográficos da Vivência ({allPhotos.length} fotos — clique para ampliar)
+                </h3>
+                <PhotoMosaic photos={allPhotos} variant="editorial" />
               </div>
 
               {/* Ações de Contratação */}
@@ -197,7 +196,7 @@ export default function PraticasFormativasPage() {
                   href={workshop.whatsappContact}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm px-6 py-3 flex items-center gap-2"
+                  className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm px-6 py-3"
                 >
                   <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
                   Informações de Contratação no WhatsApp
@@ -208,17 +207,17 @@ export default function PraticasFormativasPage() {
                     href={workshop.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-foca bg-[#FDF6E4] hover:bg-[#FDBC2E]/30 text-[#532E5A] text-xs sm:text-sm px-5 py-3 border border-[#FDBC2E] flex items-center gap-2"
+                    className="btn-foca bg-[#FDF6E4] hover:bg-[#FDBC2E] text-[#3A1D40] text-xs sm:text-sm px-5 py-3"
                   >
                     <InstagramIcon className="w-4 h-4 text-[#E91C47]" />
                     Siga no Instagram
                   </a>
                 )}
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            </div>
+          </section>
+        );
+      })}
     </main>
   );
 }

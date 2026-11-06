@@ -2,7 +2,7 @@ import React from "react";
 import { AUDIOVISUAL_WORKS } from "@/data/siteData";
 import { Play, ExternalLink, Film } from "lucide-react";
 import BrushBanner from "@/components/BrushBanner";
-import PhotoCarouselFrame from "@/components/PhotoCarouselFrame";
+import PhotoMosaic from "@/components/PhotoMosaic";
 
 export const metadata = {
   title: "Produções Audiovisuais | Coletivo Passarinha",
@@ -10,14 +10,35 @@ export const metadata = {
     "Curta-metragem A Caixa Mágica, Fora de onde? e O que se passa no formigueiro? - criações em vídeo do Coletivo Passarinha.",
 };
 
+const AV_THEMES = [
+  {
+    canvasClass: "canvas-roxo",
+    textPrimary: "text-[#FDBC2E]",
+    bannerColor: "crimson" as const,
+    bannerText: "text-[#FDBC2E]",
+  },
+  {
+    canvasClass: "canvas-laranja",
+    textPrimary: "text-[#2A1230]",
+    bannerColor: "yellow" as const,
+    bannerText: "text-[#532E5A]",
+  },
+  {
+    canvasClass: "canvas-amarelo",
+    textPrimary: "text-[#3A1D40]",
+    bannerColor: "crimson" as const,
+    bannerText: "text-[#FDBC2E]",
+  },
+];
+
 export default function AudiovisualPage() {
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Amarela Ipê Acrílica */}
-      <section className="canvas-amarelo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#532E5A]">
+      <section className="canvas-amarelo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#532E5A]/10 text-xs font-black uppercase tracking-wider text-[#532E5A]">
-            <Film className="w-4 h-4 text-[#E91C47]" /> Cinema, Vídeo-arte & Infâncias
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xs bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
+            <Film className="w-4 h-4 text-[#FDBC2E]" /> Cinema, Vídeo-arte & Infâncias
           </div>
           <div>
             <BrushBanner color="crimson" shape="wave">
@@ -26,47 +47,47 @@ export default function AudiovisualPage() {
               </h1>
             </BrushBanner>
           </div>
-          <p className="text-base sm:text-xl text-[#532E5A] max-w-3xl mx-auto leading-relaxed font-bold">
+          <p className="text-base sm:text-xl text-[#3A1D40] max-w-3xl mx-auto leading-relaxed font-bold">
             O audiovisual como linguagem de criação artística, humor, poética
             ecológica e reflexão crítica com acessibilidade em Libras.
           </p>
         </div>
       </section>
 
-      {/* Catálogo de Vídeos */}
-      <section className="bg-[#FDF6E4] py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto space-y-16">
-          {AUDIOVISUAL_WORKS.map((work, idx) => (
-            <article
-              key={work.id}
-              className="bg-white rounded-[38px] p-7 sm:p-12 shadow-lg border-2 border-[#FDBC2E]/50 space-y-8"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#532E5A]/10 pb-4">
-                <span
-                  className="text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-wider"
-                  style={{
-                    backgroundColor: work.accentColor,
-                    color:
-                      work.accentColor === "#FDBC2E" ? "#532E5A" : "#FDF6E4",
-                  }}
-                >
-                  Produção {idx + 1}
+      {/* Cada Produção Audiovisual em sua própria Faixa Pintada Rústica */}
+      {AUDIOVISUAL_WORKS.map((work, idx) => {
+        const theme = AV_THEMES[idx % AV_THEMES.length];
+
+        return (
+          <section
+            key={work.id}
+            id={work.id}
+            className={`${theme.canvasClass} py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]`}
+          >
+            <div className="max-w-6xl mx-auto space-y-8">
+              <div className="space-y-3">
+                <span className="inline-block text-xs font-black uppercase px-3.5 py-1 rounded-xs tracking-wider bg-[#3A1D40] text-[#FDBC2E] border border-[#FDBC2E]/40">
+                  Produção Audiovisual 0{idx + 1}
                 </span>
-                <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider">
-                  Coletivo Passarinha
-                </span>
+                <div>
+                  <BrushBanner
+                    color={theme.bannerColor}
+                    shape="wave"
+                    className="-ml-2"
+                  >
+                    <h2
+                      className={`text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight ${theme.bannerText}`}
+                    >
+                      {work.title}
+                    </h2>
+                  </BrushBanner>
+                </div>
               </div>
 
-              <div>
-                <h2 className="text-2xl sm:text-4xl font-black text-[#532E5A] uppercase tracking-tight">
-                  {work.title}
-                </h2>
-              </div>
-
-              {/* Player do YouTube Embutido (quando houver) ou Carrossel Principal (ex: A Caixa Mágica) */}
-              {work.youtubeId ? (
-                <div className="bg-[#FDF6E4] p-2.5 sm:p-3.5 rounded-[32px] border-2 border-[#FDBC2E]/40 shadow-md">
-                  <div className="relative w-full aspect-video rounded-[22px] overflow-hidden bg-[#532E5A]">
+              {/* Player do YouTube Embutido com Moldura Rústica (quando houver) */}
+              {work.youtubeId && (
+                <div className="bg-[#FDF6E4] p-2 sm:p-3 rounded-sm border-2 border-[#3A1D40] shadow-[8px_8px_0px_rgba(45,18,50,0.45)]">
+                  <div className="relative w-full aspect-video rounded-[2px] overflow-hidden bg-[#241128]">
                     <iframe
                       src={`https://www.youtube-nocookie.com/embed/${work.youtubeId}`}
                       title={work.title}
@@ -76,106 +97,86 @@ export default function AudiovisualPage() {
                     />
                   </div>
                 </div>
-              ) : work.photos.length > 0 ? (
-                <PhotoCarouselFrame
-                  aspectClass="aspect-video"
-                  photos={work.photos}
-                />
-              ) : null}
+              )}
 
-              {/* Se houver vídeo + fotos de divulgação/bastidores do Drive, exibe as fotos ao lado da Sinopse */}
-              {work.youtubeId && work.photos.length > 0 ? (
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  <div className="lg:col-span-5">
-                    <PhotoCarouselFrame photos={work.photos} />
-                  </div>
-                  <div className="lg:col-span-7 space-y-6">
-                    {/* Sinopse */}
-                    <div className="space-y-2">
-                      <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
-                        Sinopse
-                      </h3>
-                      <p className="text-base sm:text-lg text-[#532E5A] leading-relaxed font-medium">
-                        {work.synopsis}
-                      </p>
-                    </div>
-
-                    {/* Contexto de Criação */}
-                    <div className="bg-[#FDF6E4] p-6 rounded-3xl border-l-4 border-[#F79335] space-y-1.5">
-                      <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
-                        Contexto & Realização
-                      </h3>
-                      <p className="text-sm sm:text-base text-[#532E5A]/90 leading-relaxed font-medium">
-                        {work.context}
-                      </p>
-                    </div>
-                  </div>
+              {/* Fotos Abertas em Destaque (Tríptico para A Caixa Mágica, ou Cartaz + Cena para os vídeos) */}
+              {work.photos.length > 0 && (
+                <div className="space-y-3">
+                  <h3
+                    className={`text-xs sm:text-sm font-black uppercase tracking-wider ${theme.textPrimary}`}
+                  >
+                    Cartaz Oficial & Registros de Cena (Clique para ampliar)
+                  </h3>
+                  <PhotoMosaic
+                    photos={work.photos}
+                    variant={work.photos.length >= 3 ? "triptych" : "grid"}
+                  />
                 </div>
-              ) : (
-                <>
-                  {/* Sinopse */}
-                  <div className="space-y-2">
+              )}
+
+              {/* Sinopse + Contexto + Ficha Técnica em Painel Rústico */}
+              <div className="painel-rustico p-6 sm:p-8 space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                  <div className="lg:col-span-7 space-y-2">
                     <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
                       Sinopse
                     </h3>
-                    <p className="text-base sm:text-lg text-[#532E5A] leading-relaxed font-medium">
+                    <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
                       {work.synopsis}
                     </p>
                   </div>
 
-                  {/* Contexto de Criação */}
-                  <div className="bg-[#FDF6E4] p-6 rounded-3xl border-l-4 border-[#F79335] space-y-1.5">
+                  <div className="lg:col-span-5 bg-[#FDBC2E]/30 p-5 rounded-xs border-l-4 border-[#E91C47] space-y-1.5">
                     <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
                       Contexto & Realização
                     </h3>
-                    <p className="text-sm sm:text-base text-[#532E5A]/90 leading-relaxed font-medium">
+                    <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
                       {work.context}
                     </p>
                   </div>
-                </>
-              )}
+                </div>
 
-              {/* Ficha Técnica */}
-              <div className="space-y-3 pt-2">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#532E5A]/70">
-                  Ficha Técnica
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#532E5A]">
-                  {work.technicalSheet.map((item, i) => (
-                    <div
-                      key={i}
-                      className="p-3.5 bg-[#FDF6E4] rounded-2xl border border-[#FDBC2E]/40"
+                {/* Ficha Técnica */}
+                <div className="space-y-3 pt-4 border-t-2 border-[#3A1D40]/15">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-[#3A1D40]/80">
+                    Ficha Técnica
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-[#3A1D40]">
+                    {work.technicalSheet.map((item, i) => (
+                      <div
+                        key={i}
+                        className="p-3 bg-[#FDBC2E]/25 rounded-xs border border-[#3A1D40]/30"
+                      >
+                        <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                          {item.label}
+                        </span>
+                        <span className="text-[#3A1D40] font-bold">
+                          {item.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {work.videoUrl && (
+                  <div className="pt-2">
+                    <a
+                      href={work.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-xs sm:text-sm py-3 px-6"
                     >
-                      <span className="font-black text-[#E91C47] block uppercase text-[11px]">
-                        {item.label}
-                      </span>
-                      <span className="text-[#532E5A] font-semibold">
-                        {item.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                      <Play className="w-4 h-4 fill-current" />
+                      <span>Assistir no YouTube</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                )}
               </div>
-
-              {/* Botão Externo se aplicável */}
-              {work.videoUrl && (
-                <div className="pt-4 border-t border-[#532E5A]/10 flex flex-wrap gap-4">
-                  <a
-                    href={work.videoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-xs sm:text-sm py-3 px-6 inline-flex items-center gap-2"
-                  >
-                    <Play className="w-4 h-4 fill-current" />
-                    <span>Assistir no YouTube</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </section>
+            </div>
+          </section>
+        );
+      })}
     </main>
   );
 }

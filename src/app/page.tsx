@@ -438,10 +438,10 @@ export default function HomePage() {
       </section>
 
       {/* Selo da Ave Passarinha antes do Rodapé */}
-      <section className="bg-[#FDF6E4] py-10 px-4 border-t-4 border-[#532E5A]/15">
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+      <section className="canvas-roxo py-12 px-4 border-t-4 border-[#FDBC2E]">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16 shrink-0">
+            <div className="relative w-16 h-16 shrink-0 bg-[#FDF6E4] p-1.5 rounded-sm border-2 border-[#3A1D40] shadow-[4px_4px_0px_rgba(25,10,30,0.45)]">
               <Image
                 src="/brand/passarinha-ave.webp"
                 alt="Ave Passarinha"
@@ -451,10 +451,10 @@ export default function HomePage() {
               />
             </div>
             <div>
-              <h3 className="text-lg sm:text-xl font-black uppercase text-[#532E5A]">
+              <h3 className="text-lg sm:text-xl font-black uppercase text-[#FDBC2E]">
                 Quer levar a Passarinha para sua escola, evento ou festival?
               </h3>
-              <p className="text-sm text-[#532E5A]/80 font-semibold">
+              <p className="text-sm text-[#FDF6E4] font-semibold">
                 Circulamos com espetáculos, oficinas e vivências socioambientais
                 por todo o Brasil.
               </p>
@@ -462,7 +462,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/contato"
-            className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-sm px-7 py-3.5 shrink-0"
+            className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#3A1D40] text-sm px-7 py-3.5 shrink-0"
           >
             Solicitar Proposta
           </Link>
