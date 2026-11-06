@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { BookOpen, Download, FileCheck } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
@@ -65,7 +66,7 @@ export default function AruPage() {
 
   return (
     <main className="w-full overflow-x-hidden">
-      {/* FAIXA 1 — APRESENTAÇÃO & MURAL DE OBRAS DE ARU (Amarelo Ipê Acrílico) */}
+      {/* FAIXA 1 — TEXTO INTEGRAL DE A HISTÓRIA DE ARU COM FOTOS INTERCALADAS (Amarelo Ipê Acrílico) */}
       <section
         id="top"
         className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
@@ -82,64 +83,125 @@ export default function AruPage() {
                 </h1>
               </BrushBanner>
             </div>
-            <p className="text-base sm:text-xl text-[#3A1D40] leading-relaxed font-bold">
-              Os 12 princípios da Permacultura contados em versos de cordel,
-              ilustrados artesanalmente com materiais naturais e objetos
-              descartados.
-            </p>
           </div>
 
-          {/* Narrativa sobre o Projeto */}
-          <div className="painel-rustico p-7 sm:p-10 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#E91C47] uppercase">
-              A Jornada de Aru e a Sabedoria da Terra
-            </h2>
-            <p>
-              <strong className="font-black">A História de Aru</strong> é um
-              projeto de arte-educação ambiental que apresenta os 12 princípios
-              da Permacultura por meio de uma história em cordel, escrita
-              originalmente por{" "}
-              <strong className="font-bold">Paulo Roberto Amaral Lencioni</strong>{" "}
-              e adaptada para cordel por{" "}
-              <strong className="font-bold">Mari Rebelo</strong> e{" "}
-              <strong className="font-bold">Sarah Gregorio</strong>.
-            </p>
-            <p>
-              O projeto nasceu da vontade de experimentar possibilidades de
-              criação artística com materiais naturais e objetos que seriam
-              descartados. A partir desses materiais, foram criados personagens,
-              cenários e elementos que dão forma visual à história de Aru,
-              explorando texturas, cores, volumes e outras possibilidades
-              estéticas.
-            </p>
-            <p>
-              Aru é uma jovem que aprende observando o mundo ao seu redor. Ao
-              longo de sua jornada, encontra diferentes povoados, conhece outros
-              modos de viver e descobre formas de lidar com questões como o uso
-              da água, a produção de alimentos, o aproveitamento dos recursos, a
-              diversidade e a vida em comunidade. Cada experiência apresenta um
-              dos 12 princípios da Permacultura, sistematizados pelo ecologista
-              David Holmgren.
-            </p>
-            <p className="font-bold text-[#3A1D40] bg-[#FDBC2E]/35 p-4 rounded-xl border-l-4 border-[#E91C47]">
-              Os materiais foram pensados especialmente para educadores,
-              famílias e pessoas interessadas em desenvolver atividades que
-              aproximem arte, educação e meio ambiente. Toda a proposta é
-              disponibilizada gratuitamente na internet!
-            </p>
+          {/* Bloco 1: Parágrafos 1, 2 e 3 + Fotos ao Lado */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <p>
+                <strong className="font-black">A História de Aru</strong> é um
+                projeto de arte-educação ambiental que apresenta os 12
+                princípios da Permacultura por meio de uma história em cordel,
+                escrita por{" "}
+                <strong className="font-bold">
+                  Paulo Roberto Amaral Lencioni
+                </strong>{" "}
+                e adaptada para cordel por{" "}
+                <strong className="font-bold">Mari Rebelo</strong> e{" "}
+                <strong className="font-bold">Sarah Gregorio</strong>.
+              </p>
+              <p>
+                O projeto nasceu da vontade de experimentar possibilidades de
+                criação artística com materiais naturais e objetos que seriam
+                descartados. A partir desses materiais, foram criados
+                personagens, cenários e elementos que dão forma visual à
+                história de Aru, explorando texturas, cores, volumes e outras
+                possibilidades estéticas.
+              </p>
+              <p>
+                Aru é uma jovem que aprende observando o mundo ao seu redor. Ao
+                longo de sua jornada, encontra diferentes povoados, conhece
+                outros modos de viver e descobre formas de lidar com questões
+                como o uso da água, a produção de alimentos, o aproveitamento
+                dos recursos, a diversidade e a vida em comunidade. Cada
+                experiência apresenta um dos 12 princípios da Permacultura,
+                sistematizados por David Holmgren.
+              </p>
+            </div>
+
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
+                  <Image
+                    src="/photos/aru/aru-cenario-1.webp"
+                    alt="Animal artesanal de A História de Aru"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
+                  <Image
+                    src="/photos/aru/aru-cenario-2.webp"
+                    alt="Composição visual de A História de Aru"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Exposição Fotográfica Aberta dos Personagens e Cenários de Aru */}
-          <div className="space-y-4">
+          {/* Bloco 2: Fotos dos Personagens à Esquerda + Parágrafos 4 e 5 à Direita */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-2 gap-4">
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-[#FDF6E4]">
+                  <Image
+                    src="/photos/aru/aru-1.webp"
+                    alt="Personagem Aru"
+                    fill
+                    sizes="260px"
+                    className="object-contain p-1"
+                  />
+                </div>
+              </div>
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-[#FDF6E4]">
+                  <Image
+                    src="/photos/aru/povoado-1.webp"
+                    alt="Habitante do Povoado de Aru"
+                    fill
+                    sizes="260px"
+                    className="object-contain p-1"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <p>
+                A história é o ponto de partida para a criação de diferentes
+                materiais que ajudam a explorar esses conhecimentos. O projeto
+                reúne e-book ilustrado, cordel musicado, materiais didáticos,
+                propostas de atividades e jogos, imagens e animações,
+                organizados para apoiar experiências de arte-educação ambiental.
+              </p>
+              <p className="font-bold text-[#3A1D40] bg-[#FDBC2E]/35 p-5 rounded-xl border-l-4 border-[#E91C47]">
+                Os materiais foram pensados especialmente para educadores,
+                famílias e pessoas interessadas em desenvolver atividades que
+                aproximem arte, educação e meio ambiente. A proposta é
+                disponibilizar gratuitamente esses recursos na internet,
+                permitindo que a história seja lida, ouvida, explorada e
+                trabalhada em diferentes contextos educativos.
+              </p>
+            </div>
+          </div>
+
+          {/* Galeria Completa para Visualização em Tela Cheia */}
+          <div className="space-y-4 pt-2">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-[#3A1D40]/30 pb-2">
               <h3 className="text-lg sm:text-2xl font-black uppercase text-[#3A1D40]">
-                Galeria de Personagens, Máscaras e Cenários de Aru
+                Galeria Completa de Personagens e Cenários de Aru
               </h3>
               <span className="text-xs font-extrabold uppercase text-[#E91C47]">
                 Clique em qualquer obra para ver em tela cheia
               </span>
             </div>
-            <PhotoMosaic photos={aruPhotos} variant="editorial" />
+            <PhotoMosaic photos={aruPhotos} variant="grid" />
           </div>
         </div>
       </section>
@@ -222,14 +284,14 @@ export default function AruPage() {
               </a>
             </div>
 
-            {/* Card 2: Cartilha / Guias Pedagógicos */}
+            {/* Card 2: Cartilha / Materiais Pedagógicos */}
             <div className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-xl bg-[#532E5A] text-[#FDBC2E] flex items-center justify-center shadow-sm">
                   <FileCheck className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40] uppercase">
-                  Cartilha Pedagógica
+                  Materiais Pedagógicos
                 </h3>
                 <p className="text-xs sm:text-sm text-[#3A1D40]/90 leading-relaxed font-medium">
                   Cartilha de Permacultura com propostas práticas de atividades,
@@ -256,8 +318,8 @@ export default function AruPage() {
                   @aru.permacultura
                 </h3>
                 <p className="text-xs sm:text-sm text-[#3A1D40]/90 leading-relaxed font-medium">
-                  Acompanhe bastidores, ilustrações, pequenos vídeos e postagens
-                  do universo de Aru.
+                  Acompanhe bastidores, ilustrações, animações e postagens do
+                  universo de Aru.
                 </p>
               </div>
               <a

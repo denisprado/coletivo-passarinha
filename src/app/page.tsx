@@ -7,7 +7,7 @@ import PhotoCarouselFrame from "@/components/PhotoCarouselFrame";
 export default function HomePage() {
   return (
     <main className="w-full overflow-x-hidden">
-      {/* FAIXA 1 — COLETIVO INTERDISCIPLINAR PASSARINHA (Roxo Acrílico) */}
+      {/* FAIXA 1 — COLETIVO INTERDISCIPLINAR PASSARINHA (Roxo Acrílico - Texto Integral da Home no Doc) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="flex flex-col items-start">
@@ -36,12 +36,22 @@ export default function HomePage() {
             <p>
               Promovemos práticas artísticas e discutimos urgências
               socioambientais relacionadas a essa sociedade do consumo e do
-              descarte — que nos mobiliza a criar outras poéticas e modos de
-              estar no mundo.
+              descarte - que nos apavora.
             </p>
             <p>
-              Atuamos como uma plataforma de criação, articulação e circulação
-              artística, conectando linguagens, saberes, pessoas e territórios.
+              O Coletivo Passarinha trabalha em várias frentes e em diferentes
+              lugares. Somos uma plataforma de criação e circulação, que tem a
+              inclusão e atenção às problemáticas socioambientais como temáticas
+              transversais. Temos interesse em costurar nossas práticas de arte
+              e cultura com os lugares e pessoas que cruzamos. Fazemos arte
+              educação ambiental desde 2014.
+            </p>
+            <p>
+              Trabalhamos em parceria com instituições públicas e particulares,
+              com Pontos de Cultura e outros espaços culturais. Já realizamos
+              projetos com apoio de esferas federais, estaduais, municipais e de
+              alianças internacionais, sempre entregando excelência em todas as
+              ações realizadas.
             </p>
           </div>
 
@@ -56,7 +66,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 2 — PONTO DE CULTURA QUINTAL GARATUJA (Laranja Acrílico) */}
+      {/* FAIXA 2 — PONTO DE CULTURA QUINTAL GARATUJA (Laranja Acrílico - Texto Integral do Doc) */}
       <section className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Fotos da Pasta: Ponto de Cultura Quintal Garatuja/GARATUJA */}
@@ -134,7 +144,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 3 — A HISTÓRIA DE ARU (Amarelo Ipê Acrílico) */}
+      {/* FAIXA 3 — A HISTÓRIA DE ARU (Amarelo Ipê Acrílico - Texto Integral do Doc) */}
       <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Texto + Pincelada Carmim à Esquerda */}
@@ -142,23 +152,20 @@ export default function HomePage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#FDBC2E] leading-tight">
-                  A História de Aru
+                  A história de Aru
                 </h2>
               </BrushBanner>
             </div>
 
             <div className="space-y-4 text-base sm:text-xl text-[#532E5A] font-semibold leading-relaxed">
               <p>
-                <strong className="font-black">A História de Aru</strong> é um
-                projeto de arte-educação ambiental que apresenta os 12
-                princípios da Permacultura por meio de uma história em cordel,
-                ilustrada com personagens e cenários criados a partir de
-                materiais naturais e objetos descartados.
-              </p>
-              <p>
-                O projeto reúne e-book ilustrado, cordel musicado, materiais
-                pedagógicos e recursos criativos disponibilizados gratuitamente
-                para educadores, escolas, famílias e projetos educativos.
+                Os 12 princípios da Permacultura contados por Aru! Uma história
+                em cordel que ganha vida por meio de ilustrações criadas
+                artesanalmente com materiais naturais e objetos descartados,
+                explorando cores, texturas e formas para construir personagens e
+                cenários. Um projeto artístico que entrelaça literatura, música
+                e arte-educação ambiental, convidando a imaginar outras formas
+                de se relacionar com o mundo.
               </p>
             </div>
 
@@ -167,7 +174,7 @@ export default function HomePage() {
                 href="/aru"
                 className="cta-editorial text-[#532E5A] text-lg sm:text-xl tracking-wide hover:opacity-80 transition-opacity"
               >
-                Acesse os materiais →
+                Conheça a História de Aru →
               </Link>
             </div>
           </div>
@@ -210,7 +217,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 4 — ESPETÁCULOS (Roxo Acrílico + Pasta PÁGINA INICIAL/FAIXA ESPETÁCULOS) */}
+      {/* FAIXA 4 — ESPETÁCULOS (Roxo Acrílico - Texto Integral do Doc) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Fotos exatas da subpasta: PÁGINA INICIAL / FAIXA ESPETÁCULOS */}
@@ -277,14 +284,11 @@ export default function HomePage() {
 
             <div className="space-y-4 text-base sm:text-xl text-[#FDBC2E] font-medium leading-relaxed">
               <p>
-                A Passarinha desenvolve espetáculos que dialogam com teatro,
-                música, histórias e experimentações artísticas para públicos
-                diversos, de crianças a adultos.
-              </p>
-              <p>
-                Suas criações exploram temas ligados à imaginação, à cultura
-                popular, às relações humanas e às questões socioambientais,
-                adaptando-se a diferentes espaços de apresentação.
+                Teatro, música, histórias e experimentações artísticas que
+                ganham vida em diferentes formatos e linguagens. A Passarinha
+                cria e apresenta espetáculos para públicos diversos, de crianças
+                a adultos, convidando cada pessoa a vivenciar o encontro com a
+                arte, a imaginação e as questões do nosso tempo.
               </p>
             </div>
 
@@ -300,7 +304,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 5 — OFICINAS / PRÁTICAS FORMATIVAS (Vermelho Acrílico + Pasta Inicial/PRÁTICAS FORMATIVAS) */}
+      {/* FAIXA 5 — PRÁTICAS FORMATIVAS (Vermelho Acrílico - Texto Integral do Doc) */}
       <section className="canvas-vermelho py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Texto + Pincelada Amarela Inclinada à Esquerda */}
@@ -308,26 +312,25 @@ export default function HomePage() {
             <div>
               <BrushBanner color="yellow" shape="tilted" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#532E5A] leading-tight">
-                  Oficinas
+                  Práticas Formativas
                 </h2>
               </BrushBanner>
             </div>
 
             <div className="space-y-4 text-base sm:text-xl text-[#FDF6E4] font-semibold leading-relaxed drop-shadow-[0_1px_2px_rgba(45,18,50,0.28)]">
               <p>
-                As oficinas da Passarinha aproximam arte, educação e meio
-                ambiente, criando espaços de experimentação, criação coletiva e
-                aprendizagem para diferentes públicos e idades.
-              </p>
-              <p>
-                Entre as propostas estão práticas de reutilização criativa de
-                materiais (
-                <strong className="text-[#FDBC2E]">Ateliê Jogar Dentro</strong> e{" "}
-                <strong className="text-[#FDBC2E]">Ecobrinquedoteca</strong>) e
-                vivências musicais, como a{" "}
+                A Passarinha desenvolve oficinas que aproximam arte, educação e
+                meio ambiente, criando experiências de experimentação, criação
+                coletiva e aprendizagem. Temos propostas já estruturadas, como o{" "}
+                <strong className="text-[#FDBC2E]">Ateliê Jogar Dentro</strong>,
+                a{" "}
+                <strong className="text-[#FDBC2E]">
+                  Ecobrinquedoteca Jogar Dentro
+                </strong>{" "}
+                e a{" "}
                 <strong className="text-[#FDBC2E]">Orquestra de Pandeiros</strong>
-                , que podem acontecer em escolas, instituições culturais,
-                eventos e projetos educativos.
+                , e também criamos e adaptamos oficinas de acordo com as
+                demandas, os públicos e os contextos de cada espaço.
               </p>
             </div>
 
@@ -336,7 +339,7 @@ export default function HomePage() {
                 href="/praticas-formativas"
                 className="cta-editorial text-[#FDBC2E] text-lg sm:text-xl tracking-wide hover:opacity-90 transition-opacity"
               >
-                Conheça nossas oficinas →
+                Conheça nossas práticas formativas →
               </Link>
             </div>
           </div>
@@ -371,7 +374,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAIXA 6 — AUDIOVISUAL (Amarelo Ipê Acrílico + Pasta PÁGINA INICIAL/FAIXA AUDIOVISUAL) */}
+      {/* FAIXA 6 — AUDIOVISUAL (Amarelo Ipê Acrílico - Texto Integral do Doc) */}
       <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Fotos exatas da subpasta: PÁGINA INICIAL / FAIXA AUDIOVISUAL */}
@@ -413,15 +416,14 @@ export default function HomePage() {
 
             <div className="space-y-4 text-base sm:text-xl text-[#532E5A] font-semibold leading-relaxed">
               <p>
-                A Passarinha também explora o audiovisual como linguagem de
-                criação artística, desenvolvendo vídeos e curtas que dialogam
-                com teatro, música, infâncias e questões socioambientais.
-              </p>
-              <p>
-                As produções reúnem narrativas poéticas, humor e reflexão
-                crítica, ampliando o alcance das pesquisas e criações do
-                coletivo para diferentes públicos e telas — incluindo recursos
-                de acessibilidade em Libras.
+                A Passarinha também já experimentou o audiovisual como linguagem
+                de criação artística. Entre essas experiências estão{" "}
+                <strong className="font-black">Caixa Mágica</strong>,{" "}
+                <strong className="font-black">Fora de onde?</strong> e{" "}
+                <strong className="font-black">
+                  O que se passa no formigueiro?
+                </strong>
+                , trabalhos que integram a trajetória do coletivo.
               </p>
             </div>
 

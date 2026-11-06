@@ -18,7 +18,7 @@ import PhotoMosaic from "@/components/PhotoMosaic";
 export const metadata = {
   title: "Ponto de Cultura Quintal Garatuja | Coletivo Passarinha",
   description:
-    "Espaço de criação artística, formação, convivência e educação ambiental com gestão do Coletivo Passarinha desde 2016 em Campinas/SP.",
+    "Sede do Coletivo Passarinha, o Garatuja é um espaço de criação, convivência, pesquisa e formação localizado no Jardim Nova Europa, em Campinas (SP).",
 };
 
 export default function QuintalGaratujaPage() {
@@ -67,16 +67,16 @@ export default function QuintalGaratujaPage() {
 
   return (
     <main className="w-full overflow-x-hidden">
-      {/* FAIXA 1 — APRESENTAÇÃO & ACERVO GERAL DO QUINTAL (Laranja Acrílico) */}
-      <section className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      {/* FAIXA 1 — TEXTO INTEGRAL (8 PARÁGRAFOS DO DOC) INTERCALADO COM FOTOS (Amarelo Ipê Acrílico conforme indicado "(fundo amarelo)" no Doc) */}
+      <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Topo: Logo + Título */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-4 flex flex-col items-center lg:items-start space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E] border border-[#FDBC2E]/40">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
                 <Home className="w-4 h-4 text-[#FDBC2E]" /> Ponto de Cultura • Campinas / SP
               </div>
 
-              {/* Logotipo Oficial do Quintal Garatuja com Moldura Levemente Arredondada */}
               <div className="relative w-64 h-40 bg-[#FDF6E4] p-4 rounded-2xl border border-[#3A1D40]/25 shadow-xl">
                 <Image
                   src="/images/garatuja/GARATUJA_logo_hor colorido.png"
@@ -89,73 +89,182 @@ export default function QuintalGaratujaPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-8 space-y-5">
+            <div className="lg:col-span-8 space-y-4">
               <div>
-                <BrushBanner color="yellow" shape="wave" className="-ml-2">
-                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
+                <BrushBanner color="crimson" shape="wave" className="-ml-2">
+                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                     Ponto de Cultura Quintal Garatuja
                   </h1>
                 </BrushBanner>
               </div>
+              <p className="text-base sm:text-xl text-[#3A1D40] font-bold leading-relaxed">
+                Sede do Coletivo Passarinha, o Garatuja é um espaço de criação,
+                convivência, pesquisa e formação localizado no Jardim Nova
+                Europa, em Campinas (SP). Reconhecido como Ponto de Cultura pela
+                Política Nacional Cultura Viva, o Quintal nasceu do desejo de
+                transformar uma casa em um território vivo de encontros, onde
+                arte, cultura, educação e meio ambiente se entrelaçam como
+                práticas de cuidado com as pessoas e com o lugar onde vivemos.
+              </p>
+            </div>
+          </div>
 
-              <div className="space-y-4 text-base sm:text-xl text-[#2A1230] font-semibold leading-relaxed">
-                <p>
-                  Desde 2016, a Passarinha faz a gestão do{" "}
-                  <strong className="font-black">
-                    Ponto de Cultura Quintal Garatuja
-                  </strong>
-                  , em Campinas/SP, um espaço de criação artística, formação e
-                  convivência. Em diálogo com a comunidade e o território,
-                  desenvolve cursos, oficinas, apresentações e projetos que
-                  aproximam teatro, música, cultura popular e educação
-                  ambiental, fortalecendo os encontros entre artistas, público e
-                  histórias locais.
-                </p>
-                <p>
-                  Em 2019, o Quintal Garatuja foi contemplado com projeto via{" "}
-                  <strong className="font-black">Lei Cultura Viva</strong>, pela
-                  Prefeitura Municipal de Campinas. Na ocasião, foram promovidas
-                  mais de 30 ações envolvendo teatro e brincadeiras, articulando
-                  escolas municipais, artistas parceiros e outros Pontos de
-                  Cultura no território vizinho.
-                </p>
+          {/* Bloco 1 de Texto Integral + Fotos Intercaladas à Direita */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <p>
+                Mais do que um espaço físico, o Quintal Garatuja é um
+                laboratório permanente de experimentação artística e cidadã.
+                Aqui, artistas, pesquisadoras, educadoras, moradoras, crianças,
+                jovens e pessoas adultas compartilham processos criativos,
+                investigações e experiências que aproximam arte e vida
+                cotidiana.
+              </p>
+              <p>
+                Nossa atuação parte do território. Desenvolvemos projetos que
+                dialogam com a memória, a paisagem, os saberes populares e as
+                histórias da comunidade, compreendendo o bairro como um espaço
+                de aprendizagem, criação e pertencimento. Caminhadas, pesquisas
+                de campo, cartografias afetivas, rodas de conversa e ações
+                comunitárias fazem parte da metodologia que construímos ao longo
+                dos anos, fortalecendo vínculos entre cultura, natureza e
+                participação social.
+              </p>
+              <p>
+                A pesquisa é um dos pilares do Quintal Garatuja. Investigamos as
+                relações entre arte, ecologia, território e sociedade,
+                desenvolvendo processos que resultam em espetáculos,
+                performances, intervenções urbanas, publicações, exposições e
+                ações educativas. Temas como a crise ambiental, os resíduos, a
+                biodiversidade, a memória dos lugares e as formas de convivência
+                aparecem como questões centrais de nossas criações, entendendo a
+                arte como estratégia de sensibilização, reflexão e
+                transformação.
+              </p>
+            </div>
+
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
+                  <Image
+                    src="/photos/garatuja/principal-quintal.webp"
+                    alt="Convivência no espaço do Quintal Garatuja"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
+                  <Image
+                    src="/photos/garatuja/principal-primeiro-evento.webp"
+                    alt="Primeiro evento do Quintal Garatuja (Foto: Gabriela Zanardi)"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Mosaico Aberto com todas as 8 fotos principais do Quintal Garatuja */}
-          <div className="space-y-4 pt-4">
+          {/* Bloco 2: Fotos Intercaladas à Esquerda + Parágrafos 5 a 8 à Direita */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
+                  <Image
+                    src="/photos/garatuja/principal-tc-silva.webp"
+                    alt="TC Silva no Quintal Garatuja"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
+                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
+                  <Image
+                    src="/photos/garatuja/principal-ultimo-tipo.webp"
+                    alt="Grupo Último Tipo no Quintal Garatuja"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <p>
+                O espaço também abriga uma programação contínua de formação.
+                Oferecemos oficinas, cursos, laboratórios, residências
+                artísticas, vivências, encontros e intercâmbios que estimulam
+                práticas colaborativas e o desenvolvimento de artistas,
+                educadoras, pesquisadoras e agentes culturais. Valorizamos
+                metodologias participativas, o aprendizado coletivo e a troca de
+                conhecimentos entre diferentes gerações e áreas do saber.
+              </p>
+              <p>
+                Ao longo de sua trajetória, o Quintal Garatuja consolidou uma
+                ampla rede de parcerias com coletivos, universidades, escolas,
+                movimentos sociais, instituições culturais e organizações
+                comunitárias, promovendo ações que fortalecem a cultura como
+                direito, a educação como prática emancipadora e o cuidado com o
+                meio ambiente como compromisso cotidiano.
+              </p>
+              <p>
+                Cultivamos um espaço onde as perguntas são tão importantes
+                quanto as respostas, onde a criação nasce do encontro e onde
+                cada projeto contribui para imaginar formas mais sensíveis,
+                sustentáveis e solidárias de habitar o mundo.
+              </p>
+              <p>
+                O Garatuja promove pesquisas em continuidade, acerca da mediação
+                cultural, da acessibilidade cultural, das urgências
+                socioambientais do nosso tempo, de práticas artísticas que unem
+                teatro e música, e na construção constante de conexões entre
+                artistas e públicos. Neste lugar em que estamos, procuramos
+                estabelecer vínculos com o território, cultivando a sensação de
+                pertencimento ao bairro, à cidade, ao nosso contexto
+                latinoamericano, e ao mundo.
+              </p>
+            </div>
+          </div>
+
+          {/* Galeria Completa da Pasta GARATUJA */}
+          <div className="space-y-4 pt-2">
             <div className="flex items-center justify-between border-b-2 border-[#3A1D40]/30 pb-2">
               <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#3A1D40]">
-                Encontros, Espetáculos e Vivências no Quintal (Clique para ampliar)
+                Galeria do Quintal Garatuja (Clique nas fotos para ampliar)
               </span>
             </div>
-            <PhotoMosaic photos={garatujaMainPhotos} variant="editorial" />
+            <PhotoMosaic photos={garatujaMainPhotos} variant="grid" />
           </div>
         </div>
       </section>
 
-      {/* FAIXA 2 — PROJETO DE CONTINUIDADE 1: SHOW DE VARIEDADES (Roxo Acrílico) */}
+      {/* FAIXA 2 — PROJETO DE CONTINUIDADE 1: SHOW DE VARIEDADES (Roxo Acrílico - Texto Integral do Doc) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-3xl">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#E91C47] text-[#FDBC2E] text-xs font-black uppercase tracking-widest border border-[#FDBC2E]/40">
-                <Theater className="w-4 h-4" /> Projeto de Continuidade 01
-              </span>
-              <div>
-                <BrushBanner color="crimson" shape="wave" className="-ml-2">
-                  <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
-                    Show de Variedades
-                  </h2>
-                </BrushBanner>
-              </div>
-              <p className="text-base sm:text-xl text-[#FDBC2E] font-medium leading-relaxed">
-                Cabaré comunitário, mostras abertas e encontros cênicos que
-                reúnem artistas da cena, música, circo e palhaçaria para
-                celebrar a arte com a vizinhança no Quintal Garatuja.
-              </p>
+          <div className="space-y-4 max-w-4xl">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#E91C47] text-[#FDBC2E] text-xs font-black uppercase tracking-widest border border-[#FDBC2E]/40">
+              <Theater className="w-4 h-4" /> Saiba mais sobre alguns projetos de continuidade
+            </span>
+            <div>
+              <BrushBanner color="crimson" shape="wave" className="-ml-2">
+                <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
+                  Show de Variedades
+                </h2>
+              </BrushBanner>
             </div>
+            <p className="text-base sm:text-xl text-[#FDBC2E] font-medium leading-relaxed">
+              Nossa curadoria cuidadosa transforma o palco em um panorama
+              cultural da cidade. Com mais de 10 edições, desde 2019, já
+              recebemos mais de 40 artistas de todas as partes do município, de
+              outros estados e também de outros países.
+            </p>
           </div>
 
           <PhotoMosaic
@@ -191,29 +300,33 @@ export default function QuintalGaratujaPage() {
         </div>
       </section>
 
-      {/* FAIXA 3 — PROJETO DE CONTINUIDADE 2: NOSSO CANTO (Amarelo Ipê Acrílico) */}
-      <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      {/* FAIXA 3 — PROJETO DE CONTINUIDADE 2: NOSSO CANTO (Laranja Acrílico - Texto Integral do Doc) */}
+      <section className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-3xl">
+            <div className="space-y-4 max-w-4xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#532E5A] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
-                <Music className="w-4 h-4" /> Projeto de Continuidade 02
+                <Music className="w-4 h-4" /> Projeto de Continuidade
               </span>
               <div>
-                <BrushBanner color="crimson" shape="wave" className="-ml-2">
-                  <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
+                <BrushBanner color="yellow" shape="wave" className="-ml-2">
+                  <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#532E5A]">
                     Nosso Canto
                   </h2>
                 </BrushBanner>
               </div>
-              <p className="text-base sm:text-xl text-[#532E5A] font-semibold leading-relaxed">
-                Projeto de canto, memória e afetividade que reúne vozes da
-                comunidade e artistas convidados para celebrar canções autorais,
-                cirandas e a música popular brasileira.
+              <p className="text-base sm:text-xl text-[#2A1230] font-semibold leading-relaxed">
+                Encontro de artistas da composição musical, com mais de 10 anos
+                de história, Nosso Canto apresenta compositoras e compositores
+                ao público, mas também favorece novas conexões. Além das
+                apresentações ao vivo de canções, o coletivo promoveu a gravação
+                do primeiro álbum Nosso Canto Volume 1, além de entrevistas em
+                podcast, disponibilização de vídeos de canções autorais e
+                difusão das composições da cidade através de playlist.
               </p>
             </div>
-            <div className="painel-rustico px-4 py-2.5 text-xs sm:text-sm font-black text-[#532E5A]">
-              Mais informações: coletivopassarinha.com/nossocanto
+            <div className="painel-rustico px-5 py-3 text-xs sm:text-sm font-black text-[#532E5A] shrink-0">
+              Para saber mais: www.coletivopassarinha.com/nossocanto
             </div>
           </div>
 
@@ -250,25 +363,46 @@ export default function QuintalGaratujaPage() {
         </div>
       </section>
 
-      {/* FAIXA 4 — PROJETO DE CONTINUIDADE 3: AÇÕES FORMATIVAS (Vermelho Acrílico) */}
+      {/* FAIXA 4 — PROJETO DE CONTINUIDADE 3: AÇÕES FORMATIVAS (Vermelho Acrílico - Texto Integral do Doc) */}
       <section className="canvas-vermelho py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-8">
-          <div className="space-y-3 max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
-              <Sparkles className="w-4 h-4" /> Projeto de Continuidade 03
-            </span>
-            <div>
-              <BrushBanner color="yellow" shape="tilted" className="-ml-2">
-                <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#532E5A]">
-                  Ações Formativas no Quintal
-                </h2>
-              </BrushBanner>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div className="space-y-4 max-w-4xl">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
+                <Sparkles className="w-4 h-4" /> Projeto de Continuidade
+              </span>
+              <div>
+                <BrushBanner color="yellow" shape="tilted" className="-ml-2">
+                  <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#532E5A]">
+                    Ações formativas
+                  </h2>
+                </BrushBanner>
+              </div>
+              <div className="space-y-3 text-base sm:text-xl text-[#FDF6E4] font-semibold leading-relaxed drop-shadow-[0_1px_2px_rgba(45,18,50,0.3)]">
+                <p>
+                  Entre os cursos oferecidos pelo Garatuja, destacam-se as
+                  oficinas de teatro: cursos livres de longa duração, que conta
+                  com equipe experiente e sensível, com uma abordagem que foca
+                  em inclusão e pertencimento.
+                </p>
+                <p>
+                  Também promovemos oficinas de curta duração, oferecendo
+                  práticas de dança, música, formação de professoras,
+                  acessibilidade cultural e primeiros socorros voltados a
+                  eventos culturais.
+                </p>
+              </div>
             </div>
-            <p className="text-base sm:text-xl text-[#FDF6E4] font-semibold leading-relaxed drop-shadow-[0_1px_2px_rgba(45,18,50,0.3)]">
-              Cursos, oficinas e vivências voltadas para educadoras, artistas,
-              crianças e comunidade em geral, abordando teatro, música,
-              reaproveitamento de materiais e rítmica popular.
-            </p>
+
+            <a
+              href="https://linktr.ee/quintalgaratuja?utm_source=linktree_profile_share&ltsid=13c4d9bd-4553-4e38-9e9f-b3d0dc1a05d0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#3A1D40] text-xs sm:text-sm shrink-0"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Inscreva-se nos Cursos Formativos
+            </a>
           </div>
 
           <PhotoMosaic
@@ -300,27 +434,38 @@ export default function QuintalGaratujaPage() {
         </div>
       </section>
 
-      {/* FAIXA 5 — NÚCLEO SOCIOAMBIENTAL + ENDEREÇO DO QUINTAL (Laranja & Roxo Acrílicos) */}
-      <section className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+      {/* FAIXA 5 — NÚCLEO SOCIOAMBIENTAL + ENDEREÇO DO QUINTAL (Amarelo & Roxo Acrílicos - Texto Integral do Doc) */}
+      <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-16">
           <div className="space-y-8">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-              <div className="space-y-3 max-w-3xl">
+              <div className="space-y-4 max-w-4xl">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
-                  <Trees className="w-4 h-4" /> Projeto de Continuidade 04
+                  <Trees className="w-4 h-4" /> Projeto de Continuidade
                 </span>
                 <div>
-                  <BrushBanner color="yellow" shape="wave" className="-ml-2">
-                    <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#532E5A]">
+                  <BrushBanner color="crimson" shape="wave" className="-ml-2">
+                    <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
                       Núcleo Socioambiental do Nova Europa e Região
                     </h2>
                   </BrushBanner>
                 </div>
-                <p className="text-base sm:text-xl text-[#2A1230] font-semibold leading-relaxed">
-                  Articulação comunitária permanente pela preservação das áreas
-                  verdes, agroecologia urbana e proteção dos mananciais e do
-                  Bosque dos Guarantãs.
-                </p>
+                <div className="space-y-3 text-base sm:text-xl text-[#3A1D40] font-semibold leading-relaxed">
+                  <p>
+                    As urgências socioambientais atravessam todas as práticas do
+                    Coletivo Passarinha. No território do Garatuja, a vizinhança
+                    vem se organizando a fim de mapear e atuar na região sul da
+                    cidade de Campinas. Assim, em 2025, nasce o Núcleo
+                    Socioambiental do Nova Europa e Região.
+                  </p>
+                  <p>
+                    Trata-se de um coletivo formado por vizinhas e vizinhos da
+                    região do Jardim Nova Europa/Campinas, a fim de proteger as
+                    áreas verdes e cursos de água da região. Vinculado ao Fórum
+                    Socioambiental de Campinas, o grupo realiza ações de
+                    preservação e cultura. O Garatuja é co-fundador do núcleo.
+                  </p>
+                </div>
               </div>
 
               <a
@@ -330,7 +475,7 @@ export default function QuintalGaratujaPage() {
                 className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm shrink-0"
               >
                 <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
-                Participar do Grupo no WhatsApp
+                Linha de Transmissão no WhatsApp
               </a>
             </div>
 
@@ -350,17 +495,17 @@ export default function QuintalGaratujaPage() {
                 {
                   src: "/photos/garatuja/nucleo-reportagem.webp",
                   alt: "Reportagem sobre a atuação do Núcleo Socioambiental",
-                  caption: "Defesa socioambiental e mobilização comunitária",
+                  caption: "Reportagens sobre a atuação do Núcleo Socioambiental",
                   fit: "contain",
                 },
               ]}
             />
           </div>
 
-          {/* Bloco Rústico de Endereço e Contato do Quintal */}
-          <div className="canvas-roxo text-[#FDBC2E] p-8 sm:p-11 rounded-xl border border-[#3A1D40]/25 shadow-lg space-y-6">
+          {/* Bloco de Endereço e Contato do Quintal */}
+          <div className="canvas-roxo text-[#FDBC2E] p-8 sm:p-11 rounded-2xl border border-[#3A1D40]/30 shadow-xl space-y-6">
             <h3 className="text-2xl sm:text-3xl font-black text-[#FDBC2E] uppercase">
-              Endereço e Contato do Quintal
+              Ponto de Cultura Quintal Garatuja
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm sm:text-base text-[#FDF6E4]">
               <div className="space-y-4">
@@ -368,13 +513,10 @@ export default function QuintalGaratujaPage() {
                   <MapPin className="w-5 h-5 text-[#FDBC2E] shrink-0 mt-1" />
                   <div>
                     <strong className="block text-[#FDBC2E] text-lg">
-                      Ponto de Cultura Quintal Garatuja
-                    </strong>
-                    <span className="font-semibold">
                       Rua São Miguel Arcanjo, 1520
-                    </span>
-                    <span className="block text-xs text-[#FDF6E4]/80 font-medium">
-                      Parque Nova Europa • Campinas / SP
+                    </strong>
+                    <span className="block text-sm text-[#FDF6E4]/90 font-semibold">
+                      Jardim Nova Europa • Campinas / SP
                     </span>
                   </div>
                 </div>
@@ -396,10 +538,10 @@ export default function QuintalGaratujaPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#FDF6E4] hover:text-[#FDBC2E] font-bold transition-colors"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40] flex items-center justify-center">
-                    <InstagramIcon className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-sm">
+                    <InstagramIcon className="w-5 h-5" />
                   </div>
-                  <span>@quintalgaratuja</span>
+                  <span>Acompanhe as últimas postagens em @quintalgaratuja</span>
                 </a>
 
                 <a
@@ -409,7 +551,7 @@ export default function QuintalGaratujaPage() {
                   className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#532E5A] text-xs sm:text-sm py-3 px-5 flex items-center justify-center gap-2"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Acessar Linktree do Garatuja
+                  Inscrições e Formulários (Linktree)
                 </a>
               </div>
             </div>
