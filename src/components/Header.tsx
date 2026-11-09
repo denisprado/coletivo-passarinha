@@ -106,22 +106,24 @@ export default function Header() {
         </div>
       )}
 
-      {/* Barra de Navegação Fixa (Sticky em todas as páginas) */}
-      <header className="sticky top-0 z-50 bg-[#FDBC2E] border-b-3 border-[#3A1D40] shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={navRef}>
+      {/* Barra de Navegação Fixa (Sticky em todas as páginas, usando 100% da largura da tela) */}
+      <header className="sticky top-0 z-50 bg-[#FDBC2E] border-b-3 border-[#3A1D40] shadow-xs w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-6 xl:px-8 2xl:px-12" ref={navRef}>
           <div
-            className={`flex items-center ${
-              isHome ? "justify-between lg:justify-center h-16" : "justify-between h-20"
+            className={`flex items-center w-full ${
+              isHome
+                ? "justify-between lg:justify-center h-16"
+                : "justify-between h-20 gap-2 xl:gap-6"
             }`}
           >
             {/* Logo Compacto (sempre visível no mobile e nas páginas internas) */}
             <Link
               href="/"
-              className={`flex items-center gap-2.5 group focus:outline-none ${
+              className={`flex items-center gap-2.5 group focus:outline-none shrink-0 ${
                 isHome ? "lg:hidden" : ""
               }`}
             >
-              <div className="relative w-36 sm:w-44 h-14">
+              <div className="relative w-32 sm:w-40 xl:w-44 h-12 xl:h-14">
                 <Image
                   src="/brand/logo-horizontal-amarelo.webp"
                   alt="Coletivo Passarinha"
@@ -133,8 +135,8 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Menu Desktop Editorial (#532E5A sobre #FDBC2E) */}
-            <nav className="hidden lg:flex items-center flex-wrap justify-center gap-x-1 xl:gap-x-3">
+            {/* Menu Desktop Editorial em toda a extensão da tela (#532E5A sobre #FDBC2E) */}
+            <nav className="hidden lg:flex items-center flex-nowrap justify-center gap-x-1 xl:gap-x-2 2xl:gap-x-3 text-center">
               {navItems.map((item) => {
                 const active = isActive(item.href);
                 const hasSub = !!item.subItems;
@@ -144,13 +146,13 @@ export default function Header() {
                   return (
                     <div
                       key={item.name}
-                      className="relative"
+                      className="relative shrink-0"
                       onMouseEnter={() => setOpenDropdown(item.name)}
                       onMouseLeave={() => setOpenDropdown(null)}
                     >
                       <Link
                         href={item.href}
-                        className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-[15px] tracking-wide transition-all ${
+                        className={`inline-flex items-center gap-1 px-2.5 xl:px-3 py-1.5 rounded-lg text-[13.5px] xl:text-[14.5px] 2xl:text-[15.5px] tracking-wide whitespace-nowrap transition-all ${
                           active
                             ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
                             : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
@@ -165,8 +167,8 @@ export default function Header() {
                       </Link>
 
                       {isDropOpen && (
-                        <div className="absolute left-0 pt-1.5 w-68 z-50">
-                          <div className="rounded-xl bg-[#532E5A] text-[#FDF6E4] shadow-xl border border-[#3A1D40]/40 py-2 overflow-hidden">
+                        <div className="absolute left-0 pt-1.5 w-72 z-50">
+                          <div className="rounded-xl bg-[#532E5A] text-[#FDF6E4] shadow-xl border border-[#3A1D40]/40 py-2 overflow-hidden text-left">
                             <div className="px-4 py-1.5 border-b border-[#FDF6E4]/20 text-[11px] font-bold uppercase tracking-widest text-[#FDBC2E]">
                               {item.name}
                             </div>
@@ -191,7 +193,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`px-3 py-1.5 rounded-lg text-[15px] tracking-wide transition-all ${
+                    className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-[13.5px] xl:text-[14.5px] 2xl:text-[15.5px] tracking-wide whitespace-nowrap shrink-0 transition-all ${
                       active
                         ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
                         : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
