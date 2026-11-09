@@ -11,10 +11,16 @@ interface PhotoMosaicProps {
   frameTheme?: "cream" | "dark" | "yellow";
 }
 
+const ORGANIC_RADIUS_CLASSES = [
+  "foto-organica-1",
+  "foto-organica-2",
+  "foto-organica-3",
+  "foto-organica-4",
+];
+
 export default function PhotoMosaic({
   photos,
   variant = "grid",
-  frameTheme = "cream",
 }: PhotoMosaicProps) {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
@@ -35,70 +41,68 @@ export default function PhotoMosaic({
 
   if (!photos || photos.length === 0) return null;
 
-  const borderClass =
-    frameTheme === "dark"
-      ? "bg-[#3A1D40] border border-[#3A1D40]/40 shadow-lg"
-      : frameTheme === "yellow"
-      ? "bg-[#FDBC2E] border border-[#3A1D40]/30 shadow-lg"
-      : "bg-[#FDF6E4] border border-[#3A1D40]/25 shadow-lg";
-
   const renderTile = (
     photo: SlidePhoto,
     idx: number,
     aspectClass: string,
     extraClass = ""
-  ) => (
-    <button
-      key={photo.src + idx}
-      type="button"
-      onClick={() => setLightboxIdx(idx)}
-      className={`group relative w-full text-left rounded-xl p-1.5 sm:p-2 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${borderClass} ${extraClass}`}
-    >
-      <div
-        className={`relative w-full ${aspectClass} overflow-hidden rounded-lg bg-[#241128]`}
+  ) => {
+    const radiusClass =
+      ORGANIC_RADIUS_CLASSES[idx % ORGANIC_RADIUS_CLASSES.length];
+
+    return (
+      <button
+        key={photo.src + idx}
+        type="button"
+        onClick={() => setLightboxIdx(idx)}
+        className={`group relative block w-full text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${radiusClass} ${extraClass}`}
       >
-        <Image
-          src={photo.src}
-          alt={photo.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className={`${
-            photo.fit === "contain"
-              ? "object-contain p-2 bg-[#FDF6E4]"
-              : "object-cover"
-          } transition-transform duration-500 group-hover:scale-105`}
-        />
+        <div
+          className={`relative w-full ${aspectClass} overflow-hidden bg-[#241128]`}
+        >
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className={`${
+              photo.fit === "contain"
+                ? "object-contain p-3 bg-[#FDF6E4]"
+                : "object-cover"
+            } transition-transform duration-500 group-hover:scale-105`}
+          />
 
-        {/* Ícone discreto de ampliar no canto */}
-        <div className="absolute top-2.5 right-2.5 z-10 bg-[#3A1D40]/80 text-[#FDBC2E] p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity border border-[#FDBC2E]/40">
-          <ZoomIn className="w-4 h-4" />
-        </div>
-
-        {/* Legenda na base da foto */}
-        {photo.caption && (
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#241128]/95 via-[#241128]/65 to-transparent pt-8 pb-2.5 px-3">
-            <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow">
-              {photo.caption}
-            </p>
+          {/* Ícone discreto de ampliar no canto */}
+          <div className="absolute top-3 right-3 z-10 bg-[#3A1D40]/85 text-[#FDBC2E] p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+            <ZoomIn className="w-4 h-4" />
           </div>
-        )}
-      </div>
-    </button>
-  );
+
+          {/* Legenda na base da foto */}
+          {photo.caption && (
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#241128]/95 via-[#241128]/65 to-transparent pt-9 pb-3 px-4">
+              <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow">
+                {photo.caption}
+              </p>
+            </div>
+          )}
+        </div>
+      </button>
+    );
+  };
 
   return (
     <>
       {variant === "triptych" && photos.length >= 3 ? (
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-stretch">
           <div className="md:col-span-7">
             {renderTile(photos[0], 0, "aspect-[16/11] h-full")}
           </div>
-          <div className="md:col-span-5 grid grid-cols-2 md:grid-cols-1 gap-4 sm:gap-5">
+          <div className="md:col-span-5 grid grid-cols-2 md:grid-cols-1 gap-5 sm:gap-6">
             {renderTile(photos[1], 1, "aspect-[16/10]")}
             {renderTile(photos[2], 2, "aspect-[16/10]")}
           </div>
           {photos.length > 3 && (
-            <div className="md:col-span-12 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+            <div className="md:col-span-12 grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-6">
               {photos.slice(3).map((p, i) =>
                 renderTile(p, i + 3, "aspect-[4/3]")
               )}
@@ -106,8 +110,8 @@ export default function PhotoMosaic({
           )}
         </div>
       ) : variant === "editorial" && photos.length >= 4 ? (
-        <div className="space-y-4 sm:space-y-5">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
+        <div className="space-y-5 sm:space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6">
             <div className="md:col-span-7">
               {renderTile(photos[0], 0, "aspect-[16/10]")}
             </div>
@@ -122,7 +126,7 @@ export default function PhotoMosaic({
                 : photos.length - 2 === 3
                 ? "sm:grid-cols-3"
                 : "sm:grid-cols-2"
-            } gap-4 sm:gap-5`}
+            } gap-5 sm:gap-6`}
           >
             {photos.slice(2).map((p, i) =>
               renderTile(
@@ -143,7 +147,7 @@ export default function PhotoMosaic({
               : photos.length === 4
               ? "sm:grid-cols-2 lg:grid-cols-4"
               : "sm:grid-cols-2 lg:grid-cols-3"
-          } gap-4 sm:gap-5`}
+          } gap-5 sm:gap-6`}
         >
           {photos.map((p, i) =>
             renderTile(
@@ -165,7 +169,7 @@ export default function PhotoMosaic({
             type="button"
             onClick={() => setLightboxIdx(null)}
             aria-label="Fechar imagem"
-            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-xl bg-[#E91C47] text-[#FDF6E4] border border-[#FDF6E4]/40 flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
+            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-xl bg-[#E91C47] text-[#FDF6E4] flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
           >
             <X className="w-6 h-6" />
           </button>
@@ -181,7 +185,7 @@ export default function PhotoMosaic({
                   );
                 }}
                 aria-label="Foto anterior"
-                className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/30 flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
+                className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -192,7 +196,7 @@ export default function PhotoMosaic({
                   setLightboxIdx((lightboxIdx + 1) % photos.length);
                 }}
                 aria-label="Próxima foto"
-                className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/30 flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
+                className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-xl bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-lg hover:bg-[#FDF6E4] transition-colors"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -200,10 +204,10 @@ export default function PhotoMosaic({
           )}
 
           <div
-            className="relative max-w-5xl w-full bg-[#FDF6E4] p-2 sm:p-3 rounded-xl border border-[#FDBC2E]/60 shadow-2xl space-y-2"
+            className="relative max-w-5xl w-full space-y-3"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-[65vh] sm:h-[75vh] bg-[#1B0B1E] rounded-lg overflow-hidden">
+            <div className="relative w-full h-[65vh] sm:h-[75vh] bg-[#1B0B1E] foto-organica-1 overflow-hidden">
               <Image
                 src={photos[lightboxIdx].src}
                 alt={photos[lightboxIdx].alt}
@@ -213,7 +217,7 @@ export default function PhotoMosaic({
                 priority
               />
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-2 px-2 py-1 text-[#3A1D40]">
+            <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-2 bg-[#FDF6E4] rounded-xl text-[#3A1D40]">
               <p className="text-xs sm:text-sm font-black">
                 {photos[lightboxIdx].caption || photos[lightboxIdx].alt}
               </p>

@@ -72,6 +72,7 @@ export default function HomePage() {
           {/* Fotos da Pasta: Ponto de Cultura Quintal Garatuja/GARATUJA */}
           <div className="lg:col-span-5">
             <PhotoCarouselFrame
+              radiusVariant={1}
               badgeLogoSrc="/images/garatuja/GARATUJA_logo_hor colorido.png"
               badgeLogoAlt="Logo Ponto de Cultura Quintal Garatuja"
               photos={[
@@ -182,6 +183,7 @@ export default function HomePage() {
           {/* Fotos Reais dos Personagens e Elementos de Aru */}
           <div className="lg:col-span-5 order-1 lg:order-2">
             <PhotoCarouselFrame
+              radiusVariant={2}
               photos={[
                 {
                   src: "/photos/aru/aru-cenario-1.webp",
@@ -223,6 +225,7 @@ export default function HomePage() {
           {/* Fotos exatas da subpasta: PÁGINA INICIAL / FAIXA ESPETÁCULOS */}
           <div className="lg:col-span-5 relative z-10">
             <PhotoCarouselFrame
+              radiusVariant={3}
               photos={[
                 {
                   src: "/photos/home/espetaculos-6.webp",
@@ -347,6 +350,7 @@ export default function HomePage() {
           {/* Fotos da subpasta: Inicial / PRÁTICAS FORMATIVAS + Jogar Dentro & Ecobrinquedoteca */}
           <div className="lg:col-span-5 order-1 lg:order-2">
             <PhotoCarouselFrame
+              radiusVariant={4}
               photos={[
                 {
                   src: "/photos/home/formativas-1.webp",
@@ -380,6 +384,7 @@ export default function HomePage() {
           {/* Fotos exatas da subpasta: PÁGINA INICIAL / FAIXA AUDIOVISUAL */}
           <div className="lg:col-span-5 relative z-10">
             <PhotoCarouselFrame
+              radiusVariant={1}
               photos={[
                 {
                   src: "/photos/home/audiovisual-deusa.webp",

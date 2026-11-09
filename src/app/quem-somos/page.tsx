@@ -289,56 +289,48 @@ export default function QuemSomosPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/historico/inicio-1.webp"
-                    alt="Kombi Safari do Coletivo Passarinha em 2014"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/historico/inicio-1.webp"
+                  alt="Kombi Safari do Coletivo Passarinha em 2014"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/historico/permacultura-4.webp"
-                    alt="Vivências de arte-educação ambiental do Coletivo Passarinha"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/historico/permacultura-4.webp"
+                  alt="Vivências de arte-educação ambiental do Coletivo Passarinha"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Bloco 2: Fotos à Esquerda + Parágrafos 5 a 8 do Doc à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/historico/oficina-cortejo-4.webp"
-                    alt="Oficinas Cortejo do Coletivo Passarinha"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-3 bg-[#241128]">
+                <Image
+                  src="/photos/historico/oficina-cortejo-4.webp"
+                  alt="Oficinas Cortejo do Coletivo Passarinha"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/historico/reciclarnaval-2.webp"
-                    alt="Reciclarnaval SESC Campinas"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-4 bg-[#241128]">
+                <Image
+                  src="/photos/historico/reciclarnaval-2.webp"
+                  alt="Reciclarnaval SESC Campinas"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 
@@ -394,7 +386,14 @@ export default function QuemSomosPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TEAM_MEMBERS.map((member) => (
+            {TEAM_MEMBERS.map((member, mIdx) => {
+              const memberRadiusClass = [
+                "foto-organica-1",
+                "foto-organica-2",
+                "foto-organica-3",
+                "foto-organica-4",
+              ][mIdx % 4];
+              return (
               <div
                 key={member.id}
                 className="painel-rustico p-6 sm:p-8 flex flex-col justify-between space-y-6"
@@ -402,7 +401,7 @@ export default function QuemSomosPage() {
                 <div className="space-y-5">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-5 border-b-2 border-[#3A1D40]/15 pb-5">
                     {member.photoUrl ? (
-                      <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-xl overflow-hidden border-2 border-[#3A1D40]/30 shadow-md shrink-0 bg-[#3A1D40]">
+                      <div className={`relative w-36 h-36 sm:w-40 sm:h-40 ${memberRadiusClass} shrink-0 bg-[#3A1D40]`}>
                         <Image
                           src={member.photoUrl}
                           alt={member.name}
@@ -413,7 +412,7 @@ export default function QuemSomosPage() {
                       </div>
                     ) : (
                       <div
-                        className={`w-28 h-28 rounded-xl ${member.avatarColor} text-white font-black text-2xl flex items-center justify-center border border-[#3A1D40]/30 shrink-0`}
+                        className={`w-28 h-28 ${memberRadiusClass} ${member.avatarColor} text-white font-black text-2xl flex items-center justify-center shrink-0`}
                       >
                         {member.name.charAt(0)}
                       </div>
@@ -463,7 +462,8 @@ export default function QuemSomosPage() {
                   </div>
                 )}
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

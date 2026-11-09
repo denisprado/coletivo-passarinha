@@ -106,28 +106,24 @@ export default function EspetaculosPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/passarinha-nina-197.webp"
-                    alt="Histórias que a Passarinha me contou (Foto: Nina Pires)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/passarinha-nina-197.webp"
+                  alt="Histórias que a Passarinha me contou (Foto: Nina Pires)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/passarinha-ccbb.webp"
-                    alt="Apresentação no CCBB (Foto: Camila Cequetin)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/passarinha-ccbb.webp"
+                  alt="Apresentação no CCBB (Foto: Camila Cequetin)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
@@ -180,7 +176,7 @@ export default function EspetaculosPage() {
                 </div>
 
                 <div className="lg:col-span-5">
-                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#3A1D40]/25 shadow-md">
+                  <div className="relative w-full aspect-[16/10] foto-organica-3 bg-[#241128]">
                     <Image
                       src="/photos/espetaculos/passarinha-teia-2.webp"
                       alt="Episódio Terra — Histórias que a Passarinha me contou"
@@ -278,7 +274,7 @@ export default function EspetaculosPage() {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-5 order-2 lg:order-1">
-                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#3A1D40]/25 shadow-md">
+                  <div className="relative w-full aspect-[16/10] foto-organica-4 bg-[#241128]">
                     <Image
                       src="/photos/espetaculos/passarinha-teia-6.webp"
                       alt="Episódio Água — Histórias que a Passarinha me contou"
@@ -522,28 +518,24 @@ export default function EspetaculosPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/plastico-dalton-028.webp"
-                    alt="Pamella Villanova em Plástico, um mito contemporâneo (Foto: Dalton Sala)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 space-y-5">
+              <div className="relative aspect-[4/3] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/plastico-dalton-028.webp"
+                  alt="Pamella Villanova em Plástico, um mito contemporâneo (Foto: Dalton Sala)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/plastico-dalton-054.webp"
-                    alt="Objetos cênicos e plásticos reaproveitados em cena (Foto: Dalton Sala)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/plastico-dalton-054.webp"
+                  alt="Objetos cênicos e plásticos reaproveitados em cena (Foto: Dalton Sala)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
@@ -663,39 +655,33 @@ export default function EspetaculosPage() {
 
           {/* HISTÓRICO COMPLETO (Todos os 6 parágrafos integrais do Doc + Fotos Intercaladas) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/plastico-luiz-50.webp"
-                    alt="Interação com o público em Plástico (Foto: Luiz Kauê)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 space-y-5">
+              <div className="relative aspect-[4/3] foto-organica-3 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/plastico-luiz-50.webp"
+                  alt="Interação com o público em Plástico (Foto: Luiz Kauê)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/plastico-cena-1.webp"
-                    alt="Cena do espetáculo Plástico, um mito contemporâneo"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[4/3] foto-organica-4 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/plastico-cena-1.webp"
+                  alt="Cena do espetáculo Plástico, um mito contemporâneo"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/plastico-cena-2.webp"
-                    alt="Teatro-fórum em Plástico, um mito contemporâneo"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[4/3] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/plastico-cena-2.webp"
+                  alt="Teatro-fórum em Plástico, um mito contemporâneo"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 
@@ -898,56 +884,48 @@ export default function EspetaculosPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/bosque-dalton-029.webp"
-                    alt="Passeio Histórias do Bosque dos Guarantãs (Foto: Dalton Sala)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/bosque-dalton-029.webp"
+                  alt="Passeio Histórias do Bosque dos Guarantãs (Foto: Dalton Sala)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/bosque-dalton-079.webp"
-                    alt="Interações com o público no Bosque dos Guarantãs (Foto: Dalton Sala)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/bosque-dalton-079.webp"
+                  alt="Interações com o público no Bosque dos Guarantãs (Foto: Dalton Sala)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Bloco 2: Fotos à Esquerda + Placas & Trajeto à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/bosque-dalton-081.webp"
-                    alt="Cenas e músicas no Bosque dos Guarantãs (Foto: Dalton Sala)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-3 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/bosque-dalton-081.webp"
+                  alt="Cenas e músicas no Bosque dos Guarantãs (Foto: Dalton Sala)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/espetaculos/bosque-plantio-41.webp"
-                    alt="Plantio comunitário e placas no Bosque dos Guarantãs"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-4 bg-[#241128]">
+                <Image
+                  src="/photos/espetaculos/bosque-plantio-41.webp"
+                  alt="Plantio comunitário e placas no Bosque dos Guarantãs"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 

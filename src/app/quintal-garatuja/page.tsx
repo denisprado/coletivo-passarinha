@@ -143,56 +143,48 @@ export default function QuintalGaratujaPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/garatuja/principal-quintal.webp"
-                    alt="Convivência no espaço do Quintal Garatuja"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/garatuja/principal-quintal.webp"
+                  alt="Convivência no espaço do Quintal Garatuja"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/garatuja/principal-primeiro-evento.webp"
-                    alt="Primeiro evento do Quintal Garatuja (Foto: Gabriela Zanardi)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/garatuja/principal-primeiro-evento.webp"
+                  alt="Primeiro evento do Quintal Garatuja (Foto: Gabriela Zanardi)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Bloco 2: Fotos Intercaladas à Esquerda + Parágrafos 5 a 8 à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/garatuja/principal-tc-silva.webp"
-                    alt="TC Silva no Quintal Garatuja"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-3 bg-[#241128]">
+                <Image
+                  src="/photos/garatuja/principal-tc-silva.webp"
+                  alt="TC Silva no Quintal Garatuja"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/garatuja/principal-ultimo-tipo.webp"
-                    alt="Grupo Último Tipo no Quintal Garatuja"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-4 bg-[#241128]">
+                <Image
+                  src="/photos/garatuja/principal-ultimo-tipo.webp"
+                  alt="Grupo Último Tipo no Quintal Garatuja"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 

@@ -101,56 +101,48 @@ export default function PraticasFormativasPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/jogar-dentro-1.webp"
-                    alt="Crianças e adultos criando no Ateliê Jogar Dentro"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/jogar-dentro-1.webp"
+                  alt="Crianças e adultos criando no Ateliê Jogar Dentro"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/jogar-dentro-2.webp"
-                    alt="Materiais reaproveitados no Ateliê Jogar Dentro"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/jogar-dentro-2.webp"
+                  alt="Materiais reaproveitados no Ateliê Jogar Dentro"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Bloco 2: Fotos 3 e 4 + Parágrafos 4, 5 e 6 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/jogar-dentro-jaque-17.webp"
-                    alt="Vivência do Ateliê Jogar Dentro (Foto: Jaqueline Vital)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-3 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/jogar-dentro-jaque-17.webp"
+                  alt="Vivência do Ateliê Jogar Dentro (Foto: Jaqueline Vital)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/jogar-dentro-jaque-32.webp"
-                    alt="Processo de criação coletiva (Foto: Jaqueline Vital)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-4 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/jogar-dentro-jaque-32.webp"
+                  alt="Processo de criação coletiva (Foto: Jaqueline Vital)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 
@@ -291,56 +283,48 @@ export default function PraticasFormativasPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/ecobrinquedoteca-dobra-39.webp"
-                    alt="Ecobrinquedoteca Jogar Dentro (Foto: Estúdio Dobra)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/ecobrinquedoteca-dobra-39.webp"
+                  alt="Ecobrinquedoteca Jogar Dentro (Foto: Estúdio Dobra)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/ecobrinquedoteca-dobra-50.webp"
-                    alt="Brinquedos artesanais na Ecobrinquedoteca (Foto: Estúdio Dobra)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/ecobrinquedoteca-dobra-50.webp"
+                  alt="Brinquedos artesanais na Ecobrinquedoteca (Foto: Estúdio Dobra)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Bloco 2: 2 Fotos à Esquerda + Parágrafos 5 a 8 à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/ecobrinquedoteca-dobra-90.webp"
-                    alt="Convivência e brincar livre na Ecobrinquedoteca (Foto: Estúdio Dobra)"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-3 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/ecobrinquedoteca-dobra-90.webp"
+                  alt="Convivência e brincar livre na Ecobrinquedoteca (Foto: Estúdio Dobra)"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/ecobrinquedoteca-ocupacao.webp"
-                    alt="Ocupação da Ecobrinquedoteca"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-4 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/ecobrinquedoteca-ocupacao.webp"
+                  alt="Ocupação da Ecobrinquedoteca"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 
@@ -408,28 +392,24 @@ export default function PraticasFormativasPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/ecobrinquedoteca-biblioteca.webp"
-                    alt="Ocupação na Biblioteca Pública"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/ecobrinquedoteca-biblioteca.webp"
+                  alt="Ocupação na Biblioteca Pública"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/oficinas/ecobrinquedoteca-1.webp"
-                    alt="Jogos e brinquedos construídos com materiais acessíveis"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/oficinas/ecobrinquedoteca-1.webp"
+                  alt="Jogos e brinquedos construídos com materiais acessíveis"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>

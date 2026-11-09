@@ -79,44 +79,38 @@ export default function AudiovisualPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/audiovisual/caixa-magica-1.webp"
-                    alt="Pirulita e Pouca Sombra no curta-metragem A Caixa Mágica"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[4/3] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/audiovisual/caixa-magica-1.webp"
+                  alt="Pirulita e Pouca Sombra no curta-metragem A Caixa Mágica"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Bloco 2: Fotos 2 e 3 + 3 Parágrafos sobre Brincando na Rede */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/audiovisual/caixa-magica-2.webp"
-                    alt="Gravação de A Caixa Mágica"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/audiovisual/caixa-magica-2.webp"
+                  alt="Gravação de A Caixa Mágica"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-xl">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/audiovisual/caixa-magica-3.webp"
-                    alt="Bastidores de A Caixa Mágica"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-3 bg-[#241128]">
+                <Image
+                  src="/photos/audiovisual/caixa-magica-3.webp"
+                  alt="Bastidores de A Caixa Mágica"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 

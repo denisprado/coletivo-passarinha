@@ -119,56 +119,48 @@ export default function AruPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/aru/aru-cenario-1.webp"
-                    alt="Animal artesanal de A História de Aru"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+              <div className="relative aspect-[16/10] foto-organica-1 bg-[#241128]">
+                <Image
+                  src="/photos/aru/aru-cenario-1.webp"
+                  alt="Animal artesanal de A História de Aru"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-[#241128]">
-                  <Image
-                    src="/photos/aru/aru-cenario-2.webp"
-                    alt="Composição visual de A História de Aru"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[16/10] foto-organica-2 bg-[#241128]">
+                <Image
+                  src="/photos/aru/aru-cenario-2.webp"
+                  alt="Composição visual de A História de Aru"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Bloco 2: Fotos dos Personagens à Esquerda + Parágrafos 4 e 5 à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-2 gap-4">
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-[#FDF6E4]">
-                  <Image
-                    src="/photos/aru/aru-1.webp"
-                    alt="Personagem Aru"
-                    fill
-                    sizes="260px"
-                    className="object-contain p-1"
-                  />
-                </div>
+            <div className="lg:col-span-5 order-2 lg:order-1 grid grid-cols-2 gap-5">
+              <div className="relative aspect-[4/5] foto-organica-3 bg-[#FDF6E4]">
+                <Image
+                  src="/photos/aru/aru-1.webp"
+                  alt="Personagem Aru"
+                  fill
+                  sizes="260px"
+                  className="object-contain p-2"
+                />
               </div>
-              <div className="bg-[#FDF6E4] p-2 rounded-xl border border-[#3A1D40]/25 shadow-lg">
-                <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-[#FDF6E4]">
-                  <Image
-                    src="/photos/aru/povoado-1.webp"
-                    alt="Habitante do Povoado de Aru"
-                    fill
-                    sizes="260px"
-                    className="object-contain p-1"
-                  />
-                </div>
+              <div className="relative aspect-[4/5] foto-organica-4 bg-[#FDF6E4]">
+                <Image
+                  src="/photos/aru/povoado-1.webp"
+                  alt="Habitante do Povoado de Aru"
+                  fill
+                  sizes="260px"
+                  className="object-contain p-2"
+                />
               </div>
             </div>
 

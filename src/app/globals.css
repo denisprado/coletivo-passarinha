@@ -133,3 +133,47 @@ html {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+/* Imagens sem bordas e com diferentes border-radius orgânicos (estilo Figma) */
+.foto-organica-1,
+.foto-organica-2,
+.foto-organica-3,
+.foto-organica-4 {
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 14px 32px rgba(25, 10, 30, 0.26);
+}
+
+.foto-organica-1 {
+  border-radius: 3.75rem 1.125rem 3.75rem 1.125rem;
+}
+
+.foto-organica-2 {
+  border-radius: 1.125rem 3.75rem 1.125rem 3.75rem;
+}
+
+.foto-organica-3 {
+  border-radius: 4rem 1.25rem 2.5rem 1rem;
+}
+
+.foto-organica-4 {
+  border-radius: 1.25rem 4rem 1rem 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .foto-organica-1 {
+    border-radius: 5.25rem 1.35rem 5.25rem 1.35rem;
+  }
+
+  .foto-organica-2 {
+    border-radius: 1.35rem 5.25rem 1.35rem 5.25rem;
+  }
+
+  .foto-organica-3 {
+    border-radius: 5.5rem 1.5rem 3.5rem 1.25rem;
+  }
+
+  .foto-organica-4 {
+    border-radius: 1.5rem 5.5rem 1.25rem 3.5rem;
+  }
+}
