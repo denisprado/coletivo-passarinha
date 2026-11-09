@@ -1,16 +1,23 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoCarouselFrame from "@/components/PhotoCarouselFrame";
+import IntroPassarinha from "@/components/IntroPassarinha";
+import PassarinhaAnimada from "@/components/PassarinhaAnimada";
 
 export default function HomePage() {
   return (
     <main className="w-full overflow-x-hidden">
+      {/* ANIMAÇÃO INICIAL (Stop-Motion / Folheado de Cordel da Passarinha) */}
+      <IntroPassarinha />
+
       {/* FAIXA 1 — COLETIVO INTERDISCIPLINAR PASSARINHA (Roxo Acrílico - Texto Integral da Home no Doc) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-5xl mx-auto space-y-8">
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <BrushBanner color="crimson" shape="wave" className="-ml-2 sm:-ml-4">
               <div className="space-y-0.5">
                 <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight text-[#FDBC2E] leading-[1.05]">
@@ -21,6 +28,11 @@ export default function HomePage() {
                 </p>
               </div>
             </BrushBanner>
+
+            {/* Passarinha batendo asas no topo da Home */}
+            <div className="hidden sm:block shrink-0">
+              <PassarinhaAnimada size="md" />
+            </div>
           </div>
 
           <div className="space-y-5 text-base sm:text-xl text-[#FDBC2E] font-medium leading-relaxed max-w-4xl">
@@ -444,20 +456,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Selo da Ave Passarinha antes do Rodapé */}
+      {/* Selo da Ave Passarinha com Bater de Asas antes do Rodapé */}
       <section className="canvas-roxo py-12 px-4 border-t-4 border-[#FDBC2E]">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16 shrink-0 bg-[#FDF6E4] p-1.5 rounded-xl border border-[#3A1D40]/25 shadow-md">
-              <Image
-                src="/brand/passarinha-ave.webp"
-                alt="Ave Passarinha"
-                fill
-                sizes="64px"
-                className="object-contain"
-              />
+          <div className="flex items-center gap-5">
+            <div className="shrink-0">
+              <PassarinhaAnimada size="sm" />
             </div>
-            <div>
+            <div className="space-y-1">
               <h3 className="text-lg sm:text-xl font-black uppercase text-[#FDBC2E]">
                 Quer levar a Passarinha para sua escola, evento ou festival?
               </h3>
@@ -465,6 +471,18 @@ export default function HomePage() {
                 Circulamos com espetáculos, oficinas e vivências socioambientais
                 por todo o Brasil.
               </p>
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    sessionStorage.removeItem("passarinha_intro_seen");
+                    window.dispatchEvent(new Event("replay-passarinha-intro"));
+                  }}
+                  className="text-xs font-bold text-[#FDBC2E]/80 hover:text-[#FDBC2E] underline underline-offset-4 cursor-pointer"
+                >
+                  ✨ Rever animação inicial de voo da Passarinha
+                </button>
+              </div>
             </div>
           </div>
           <Link

@@ -179,3 +179,72 @@ html {
     border-radius: 3.5rem 1.25rem 1rem 1rem;
   }
 }
+
+/* ==========================================================================
+   ANIMAÇÃO STOP-MOTION / CORDEL VIVO (BATER DE ASAS DA PASSARINHA)
+   ========================================================================== */
+@keyframes bateAsaCordel {
+  0% {
+    transform: rotate(0deg) scale(1, 1);
+  }
+  25% {
+    transform: rotate(-18deg) scale(0.96, 0.88) translate(-1px, 5px);
+  }
+  50% {
+    transform: rotate(-35deg) scale(0.91, 0.76) translate(-3px, 12px);
+  }
+  75% {
+    transform: rotate(-14deg) scale(0.97, 0.91) translate(-1px, 4px);
+  }
+}
+
+@keyframes bateAsaRisoTrail {
+  0% {
+    transform: rotate(3deg) scale(1.02, 1.02) translate(1px, -1px);
+    opacity: 0.22;
+  }
+  25% {
+    transform: rotate(-12deg) scale(0.98, 0.92) translate(0px, 3px);
+    opacity: 0.35;
+  }
+  50% {
+    transform: rotate(-28deg) scale(0.94, 0.82) translate(-2px, 8px);
+    opacity: 0.42;
+  }
+  75% {
+    transform: rotate(-8deg) scale(0.99, 0.94) translate(0px, 2px);
+    opacity: 0.28;
+  }
+}
+
+@keyframes vooFlutuantePassarinha {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-13px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(0.8deg);
+  }
+}
+
+.anim-asa-cordel {
+  transform-origin: 51.6% 55.8%;
+  animation: bateAsaCordel 0.42s steps(1) infinite;
+  will-change: transform;
+}
+
+.anim-asa-fantasma {
+  transform-origin: 51.6% 55.8%;
+  animation: bateAsaRisoTrail 0.42s steps(1) infinite;
+  will-change: transform, opacity;
+}
+
+.anim-voo-passarinha {
+  animation: vooFlutuantePassarinha 0.84s steps(1) infinite;
+  will-change: transform;
+}
