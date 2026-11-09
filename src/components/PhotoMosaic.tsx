@@ -58,7 +58,7 @@ export default function PhotoMosaic({
         className={`group relative block w-full text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${radiusClass} ${extraClass}`}
       >
         <div
-          className={`relative w-full ${aspectClass} overflow-hidden bg-[#241128]`}
+          className={`relative w-full ${aspectClass} overflow-hidden rounded-[inherit] bg-[#241128]`}
         >
           <Image
             src={photo.src}
@@ -79,7 +79,7 @@ export default function PhotoMosaic({
 
           {/* Legenda na base da foto com zona segura de leitura anti-corte */}
           {photo.caption && (
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-10 pb-3 pl-5 pr-8 sm:pl-6 sm:pr-9">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-11 pb-3.5 pl-6 pr-6 sm:pl-7 sm:pr-7 sm:pb-4">
               <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow line-clamp-2">
                 {photo.caption}
               </p>

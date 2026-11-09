@@ -144,39 +144,39 @@ html {
   box-shadow: 0 12px 28px rgba(25, 10, 30, 0.24);
 }
 
-/* Base Mobile: cantos inferiores suaves (max 14px) para garantir leitura de legendas sem cortes */
+/* Base Mobile: curvas orgânicas expressivas no topo e cantos inferiores seguros (10px) anti-corte de legendas */
 .foto-organica-1 {
-  border-radius: 2.5rem 0.875rem 1.75rem 0.875rem;
+  border-radius: 2.75rem 1rem 0.625rem 0.625rem;
 }
 
 .foto-organica-2 {
-  border-radius: 2.5rem 2.5rem 0.875rem 0.875rem;
+  border-radius: 1rem 2.75rem 0.625rem 0.625rem;
 }
 
 .foto-organica-3 {
-  border-radius: 0.875rem 2.5rem 1.75rem 0.875rem;
+  border-radius: 3rem 1.5rem 0.625rem 0.625rem;
 }
 
 .foto-organica-4 {
-  border-radius: 2.75rem 1rem 0.875rem 0.875rem;
+  border-radius: 1.5rem 3rem 0.625rem 0.625rem;
 }
 
-/* Telas maiores (sm / desktop): curvas expressivas nos topos, preservando cantos inferiores seguros para legendas */
+/* Telas maiores (sm / desktop): curvas amplas e fluidas no topo, preservando base 100% segura para legendas */
 @media (min-width: 640px) {
   .foto-organica-1 {
-    border-radius: 3.25rem 1rem 2.25rem 1rem;
+    border-radius: 3.75rem 1.25rem 0.625rem 0.625rem;
   }
 
   .foto-organica-2 {
-    border-radius: 3.25rem 3.25rem 1rem 1rem;
+    border-radius: 1.25rem 3.75rem 0.625rem 0.625rem;
   }
 
   .foto-organica-3 {
-    border-radius: 1rem 3.25rem 2.25rem 1rem;
+    border-radius: 4.25rem 1.75rem 0.625rem 0.625rem;
   }
 
   .foto-organica-4 {
-    border-radius: 3.5rem 1.25rem 1rem 1rem;
+    border-radius: 1.75rem 4.25rem 0.625rem 0.625rem;
   }
 }
 

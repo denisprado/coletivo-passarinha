@@ -79,24 +79,45 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Lado Direito: Fotos das Passarinhas em Cena e na Estrada */}
+          {/* Lado Direito: Carrossel Automático dos Integrantes + Foto Histórica na Estrada */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
-            <div className="relative aspect-[16/11] foto-organica-1 bg-[#241128] shadow-2xl">
-              <Image
-                src="/photos/espetaculos/passarinha-nina-197.webp"
-                alt="Artistas do Coletivo Passarinha em cena (Foto: Nina Pires)"
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-                priority
+            {/* Carrossel com cada integrante do coletivo passando automaticamente */}
+            <div className="w-full shadow-2xl">
+              <PhotoCarouselFrame
+                radiusVariant={1}
+                aspectClass="aspect-[16/11]"
+                showThumbnails={false}
+                intervalMs={3500}
+                photos={[
+                  {
+                    src: "/photos/passarinhas/sarah-avatar.webp",
+                    alt: "Sarah Gregorio — Co-fundadora, Designer & Arte-educadora",
+                    caption: "Sarah Gregorio — Designer, Produtora & Arte-educadora",
+                    position: "object-[center_20%]",
+                  },
+                  {
+                    src: "/photos/passarinhas/pamella-avatar.webp",
+                    alt: "Pâmella Villanova — Artista da Cena, Pesquisadora & Gestora",
+                    caption: "Pâmella Villanova — Artista da Cena, Pesquisadora & Gestora",
+                    position: "object-[center_20%]",
+                  },
+                  {
+                    src: "/photos/passarinhas/maria-avatar.webp",
+                    alt: "Maria Carolina Thomé — Musicista, Educadora Musical & Percussionista",
+                    caption: "Maria Carolina Thomé — Musicista & Educadora Musical",
+                    position: "object-[center_20%]",
+                  },
+                  {
+                    src: "/photos/passarinhas/dudu-avatar.webp",
+                    alt: "Dudu Ferraz — Gestor Cultural, Compositor, Músico & Cantautor",
+                    caption: "Dudu Ferraz — Gestor Cultural, Compositor & Artista Interdisciplinar",
+                    position: "object-[center_20%]",
+                  },
+                ]}
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-10 pb-3 pl-5 pr-8 sm:pl-6 sm:pr-9">
-                <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow line-clamp-2">
-                  Artistas em cena — Foto: Nina Pires
-                </p>
-              </div>
             </div>
 
+            {/* Foto da Estação Permacultural Móvel na Estrada */}
             <div className="relative aspect-[16/11] foto-organica-2 bg-[#241128] shadow-2xl">
               <Image
                 src="/photos/historico/inicio-1.webp"
@@ -105,7 +126,7 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-10 pb-3 pl-5 pr-8 sm:pl-6 sm:pr-9">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-11 pb-3.5 pl-6 pr-6 sm:pl-7 sm:pr-7 sm:pb-4">
                 <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow line-clamp-2">
                   Estação Permacultural Móvel — Na estrada desde 2014
                 </p>
