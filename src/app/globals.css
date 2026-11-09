@@ -141,39 +141,41 @@ html {
 .foto-organica-4 {
   overflow: hidden;
   border: none;
-  box-shadow: 0 14px 32px rgba(25, 10, 30, 0.26);
+  box-shadow: 0 12px 28px rgba(25, 10, 30, 0.24);
 }
 
+/* Base Mobile: cantos inferiores suaves (max 14px) para garantir leitura de legendas sem cortes */
 .foto-organica-1 {
-  border-radius: 3.75rem 1.125rem 3.75rem 1.125rem;
+  border-radius: 2.5rem 0.875rem 1.75rem 0.875rem;
 }
 
 .foto-organica-2 {
-  border-radius: 1.125rem 3.75rem 1.125rem 3.75rem;
+  border-radius: 2.5rem 2.5rem 0.875rem 0.875rem;
 }
 
 .foto-organica-3 {
-  border-radius: 4rem 1.25rem 2.5rem 1rem;
+  border-radius: 0.875rem 2.5rem 1.75rem 0.875rem;
 }
 
 .foto-organica-4 {
-  border-radius: 1.25rem 4rem 1rem 2.5rem;
+  border-radius: 2.75rem 1rem 0.875rem 0.875rem;
 }
 
+/* Telas maiores (sm / desktop): curvas expressivas nos topos, preservando cantos inferiores seguros para legendas */
 @media (min-width: 640px) {
   .foto-organica-1 {
-    border-radius: 5.25rem 1.35rem 5.25rem 1.35rem;
+    border-radius: 3.25rem 1rem 2.25rem 1rem;
   }
 
   .foto-organica-2 {
-    border-radius: 1.35rem 5.25rem 1.35rem 5.25rem;
+    border-radius: 3.25rem 3.25rem 1rem 1rem;
   }
 
   .foto-organica-3 {
-    border-radius: 5.5rem 1.5rem 3.5rem 1.25rem;
+    border-radius: 1rem 3.25rem 2.25rem 1rem;
   }
 
   .foto-organica-4 {
-    border-radius: 1.5rem 5.5rem 1.25rem 3.5rem;
+    border-radius: 3.5rem 1.25rem 1rem 1rem;
   }
 }

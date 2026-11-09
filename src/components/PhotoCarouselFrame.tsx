@@ -86,8 +86,8 @@ export default function PhotoCarouselFrame({
               } transition-transform duration-700 group-hover:scale-[1.03]`}
             />
             {photo.caption && (
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#241128]/95 via-[#241128]/55 to-transparent pt-10 pb-3.5 px-5">
-                <p className="text-xs sm:text-sm font-bold text-[#FDF6E4] tracking-wide drop-shadow">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/60 to-transparent pt-11 pb-3.5 pl-5 pr-8 sm:pl-6 sm:pr-9">
+                <p className="text-xs sm:text-sm font-bold text-[#FDF6E4] tracking-wide drop-shadow line-clamp-2">
                   {photo.caption}
                 </p>
               </div>

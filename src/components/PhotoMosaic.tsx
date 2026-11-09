@@ -77,10 +77,10 @@ export default function PhotoMosaic({
             <ZoomIn className="w-4 h-4" />
           </div>
 
-          {/* Legenda na base da foto */}
+          {/* Legenda na base da foto com zona segura de leitura anti-corte */}
           {photo.caption && (
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#241128]/95 via-[#241128]/65 to-transparent pt-9 pb-3 px-4">
-              <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-10 pb-3 pl-5 pr-8 sm:pl-6 sm:pr-9">
+              <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow line-clamp-2">
                 {photo.caption}
               </p>
             </div>
