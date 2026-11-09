@@ -14,66 +14,103 @@ export default function HomePage() {
       {/* ANIMAÇÃO INICIAL (Stop-Motion / Folheado de Cordel da Passarinha) */}
       <IntroPassarinha />
 
-      {/* FAIXA 1 — COLETIVO INTERDISCIPLINAR PASSARINHA (Roxo Acrílico - Texto Integral da Home no Doc) */}
+      {/* FAIXA 1 — COLETIVO INTERDISCIPLINAR PASSARINHA (Roxo Acrílico - Hero com Fotos das Passarinhas) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-5xl mx-auto space-y-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <BrushBanner color="crimson" shape="wave" className="-ml-2 sm:-ml-4">
-              <div className="space-y-0.5">
-                <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight text-[#FDBC2E] leading-[1.05]">
-                  Coletivo Interdisciplinar Passarinha
-                </h1>
-                <p className="text-base sm:text-xl font-bold lowercase tracking-wide text-[#FDF6E4]">
-                  arte educação ambiental
-                </p>
-              </div>
-            </BrushBanner>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Lado Esquerdo: Identidade e Texto Integral do Doc */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <BrushBanner color="crimson" shape="wave" className="-ml-2 sm:-ml-4">
+                <div className="space-y-0.5">
+                  <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight text-[#FDBC2E] leading-[1.05]">
+                    Coletivo Interdisciplinar Passarinha
+                  </h1>
+                  <p className="text-base sm:text-xl font-bold lowercase tracking-wide text-[#FDF6E4]">
+                    arte educação ambiental
+                  </p>
+                </div>
+              </BrushBanner>
 
-            {/* Passarinha batendo asas no topo da Home */}
-            <div className="hidden sm:block shrink-0">
-              <PassarinhaAnimada size="md" />
+              {/* Passarinha batendo asas no topo da Home */}
+              <div className="hidden sm:block shrink-0">
+                <PassarinhaAnimada size="md" />
+              </div>
+            </div>
+
+            <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] font-medium leading-relaxed">
+              <p>
+                Somos o{" "}
+                <strong className="font-extrabold">
+                  Coletivo Interdisciplinar Passarinha
+                </strong>
+                , artistas da cena, música, design e permacultura. Há anos,
+                realizamos ações de arte educação ambiental em projetos
+                itinerantes e também conservando relações com territórios.
+              </p>
+              <p>
+                Promovemos práticas artísticas e discutimos urgências
+                socioambientais relacionadas a essa sociedade do consumo e do
+                descarte - que nos apavora.
+              </p>
+              <p>
+                O Coletivo Passarinha trabalha em várias frentes e em diferentes
+                lugares. Somos uma plataforma de criação e circulação, que tem a
+                inclusão e atenção às problemáticas socioambientais como temáticas
+                transversais. Temos interesse em costurar nossas práticas de arte
+                e cultura com os lugares e pessoas que cruzamos. Fazemos arte
+                educação ambiental desde 2014.
+              </p>
+              <p>
+                Trabalhamos em parceria com instituições públicas e particulares,
+                com Pontos de Cultura e outros espaços culturais. Já realizamos
+                projetos com apoio de esferas federais, estaduais, municipais e de
+                alianças internacionais, sempre entregando excelência em todas as
+                ações realizadas.
+              </p>
+            </div>
+
+            <div className="flex justify-start pt-2">
+              <Link
+                href="/quem-somos"
+                className="cta-editorial text-[#FDBC2E] text-lg sm:text-xl tracking-wide hover:opacity-90 transition-opacity"
+              >
+                Conheça quem somos →
+              </Link>
             </div>
           </div>
 
-          <div className="space-y-5 text-base sm:text-xl text-[#FDBC2E] font-medium leading-relaxed max-w-4xl">
-            <p>
-              Somos o{" "}
-              <strong className="font-extrabold">
-                Coletivo Interdisciplinar Passarinha
-              </strong>
-              , artistas da cena, música, design e permacultura. Há anos,
-              realizamos ações de arte educação ambiental em projetos
-              itinerantes e também conservando relações com territórios.
-            </p>
-            <p>
-              Promovemos práticas artísticas e discutimos urgências
-              socioambientais relacionadas a essa sociedade do consumo e do
-              descarte - que nos apavora.
-            </p>
-            <p>
-              O Coletivo Passarinha trabalha em várias frentes e em diferentes
-              lugares. Somos uma plataforma de criação e circulação, que tem a
-              inclusão e atenção às problemáticas socioambientais como temáticas
-              transversais. Temos interesse em costurar nossas práticas de arte
-              e cultura com os lugares e pessoas que cruzamos. Fazemos arte
-              educação ambiental desde 2014.
-            </p>
-            <p>
-              Trabalhamos em parceria com instituições públicas e particulares,
-              com Pontos de Cultura e outros espaços culturais. Já realizamos
-              projetos com apoio de esferas federais, estaduais, municipais e de
-              alianças internacionais, sempre entregando excelência em todas as
-              ações realizadas.
-            </p>
-          </div>
+          {/* Lado Direito: Fotos das Passarinhas em Cena e na Estrada */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+            <div className="relative aspect-[16/11] foto-organica-1 bg-[#241128] shadow-2xl">
+              <Image
+                src="/photos/espetaculos/passarinha-nina-197.webp"
+                alt="Artistas do Coletivo Passarinha em cena (Foto: Nina Pires)"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-10 pb-3 pl-5 pr-8 sm:pl-6 sm:pr-9">
+                <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow line-clamp-2">
+                  Artistas em cena — Foto: Nina Pires
+                </p>
+              </div>
+            </div>
 
-          <div className="flex justify-end pt-2">
-            <Link
-              href="/quem-somos"
-              className="cta-editorial text-[#FDBC2E] text-lg sm:text-xl tracking-wide hover:opacity-90 transition-opacity"
-            >
-              Saiba mais →
-            </Link>
+            <div className="relative aspect-[16/11] foto-organica-2 bg-[#241128] shadow-2xl">
+              <Image
+                src="/photos/historico/inicio-1.webp"
+                alt="Kombi Safari do Coletivo Passarinha na estrada desde 2014"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/65 to-transparent pt-10 pb-3 pl-5 pr-8 sm:pl-6 sm:pr-9">
+                <p className="text-xs font-bold text-[#FDF6E4] leading-snug drop-shadow line-clamp-2">
+                  Estação Permacultural Móvel — Na estrada desde 2014
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
