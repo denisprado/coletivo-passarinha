@@ -1,9 +1,15 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppFloat() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/keystatic")) {
+    return null;
+  }
   return (
     <aside aria-label="Atendimento via WhatsApp" className="fixed bottom-6 right-6 z-50 group">
       <a

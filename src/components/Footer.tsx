@@ -1,8 +1,16 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/keystatic")) {
+    return null;
+  }
   return (
     <footer className="bg-[#532E5A] text-[#FDBC2E] mt-auto border-t-4 border-[#E91C47]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center space-y-6">

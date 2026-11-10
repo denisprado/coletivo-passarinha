@@ -24,6 +24,10 @@ export default function Header() {
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
 
+  if (pathname?.startsWith("/keystatic")) {
+    return null;
+  }
+
   const isHome = pathname === "/";
 
   const navItems: NavItem[] = [
