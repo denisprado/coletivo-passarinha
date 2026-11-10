@@ -379,7 +379,7 @@ export default async function QuemSomosPage() {
       </section>
 
       {/* FAIXA 2 — AS PASSARINHAS / INTEGRANTES (Amarelo Ipê Acrílico - BIOS INTEGRAIS DO DOC) */}
-      <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      <section id="equipe" className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40] scroll-mt-20">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
@@ -405,7 +405,8 @@ export default async function QuemSomosPage() {
               return (
               <div
                 key={member.id}
-                className="painel-rustico p-6 sm:p-8 flex flex-col justify-between space-y-6"
+                id={member.id}
+                className="painel-rustico p-6 sm:p-8 flex flex-col justify-between space-y-6 scroll-mt-24"
               >
                 <div className="space-y-5">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-5 border-b-2 border-[#3A1D40]/15 pb-5">
@@ -478,7 +479,7 @@ export default async function QuemSomosPage() {
       </section>
 
       {/* FAIXA 3 — HISTÓRICO COLETIVO PASSARINHA (Laranja Acrílico - TEXTO 100% INTEGRAL DO DOC COM FOTOS INTERCALADAS) */}
-      <section className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="historico" className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-3">
             <span className="inline-block bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest px-3 py-1 rounded-lg">

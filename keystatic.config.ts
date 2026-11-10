@@ -1,8 +1,5 @@
+import React from "react";
 import { config, fields, collection, singleton } from "@keystatic/core";
-
-const isGitHubStorage =
-  Boolean(process.env.KEYSTATIC_GITHUB_CLIENT_ID) ||
-  Boolean(process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG);
 
 export default config({
   storage:
@@ -14,12 +11,32 @@ export default config({
       : {
           kind: "local",
         },
+  ui: {
+    brand: {
+      name: "Coletivo Passarinha",
+      mark: () =>
+        React.createElement("img", {
+          src: "/brand/passarinha-ave.webp",
+          alt: "Coletivo Passarinha",
+          height: 28,
+          style: { objectFit: "contain" },
+        }),
+    },
+    navigation: {
+      "Criações Artísticas": ["espetaculos"],
+      "Arte Educação & Oficinas": ["praticasFormativas"],
+      "Sobre o Coletivo": ["equipe", "historico"],
+      "Configurações": ["configuracoes"],
+    },
+  },
   collections: {
     espetaculos: collection({
       label: "Espetáculos",
       slugField: "title",
       path: "src/content/espetaculos/*",
       format: { data: "json" },
+      previewUrl: "/espetaculos#{slug}",
+      columns: ["category", "duration", "ageRating"],
       schema: {
         title: fields.slug({ name: { label: "Título do Espetáculo" } }),
         subtitle: fields.text({ label: "Subtítulo / Chamada" }),
@@ -97,6 +114,8 @@ export default config({
       slugField: "title",
       path: "src/content/praticas-formativas/*",
       format: { data: "json" },
+      previewUrl: "/praticas-formativas#{slug}",
+      columns: ["targetAudience", "audienceLimit"],
       schema: {
         title: fields.slug({ name: { label: "Título da Prática / Oficina" } }),
         subtitle: fields.text({ label: "Subtítulo" }),
@@ -156,6 +175,8 @@ export default config({
       slugField: "name",
       path: "src/content/equipe/*",
       format: { data: "json" },
+      previewUrl: "/quem-somos#{slug}",
+      columns: ["role"],
       schema: {
         name: fields.slug({ name: { label: "Nome" } }),
         role: fields.text({ label: "Função / Atuação Principal" }),
@@ -180,6 +201,8 @@ export default config({
       slugField: "year",
       path: "src/content/historico/*",
       format: { data: "json" },
+      previewUrl: "/quem-somos#historico",
+      columns: ["title", "location", "tag"],
       schema: {
         year: fields.slug({
           name: { label: "Ano / Período (ex: 2014, 2018-2020)" },
@@ -205,6 +228,7 @@ export default config({
       label: "Configurações do Site e Contatos",
       path: "src/content/configuracoes",
       format: { data: "json" },
+      previewUrl: "/contato",
       schema: {
         phone: fields.text({
           label: "Telefone Principal",
