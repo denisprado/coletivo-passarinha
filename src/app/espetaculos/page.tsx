@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -14,11 +15,18 @@ import {
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import EspetaculosFilterBar from "@/components/EspetaculosFilterBar";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Espetáculos | Coletivo Passarinha",
   description:
     "Repertório cênico e musical do Coletivo Passarinha: Histórias que a Passarinha me contou, Plástico um mito contemporâneo, Show Nascente e Histórias do Bosque dos Guarantãs.",
+  openGraph: {
+    title: "Espetáculos Teatrais & Musicais | Coletivo Passarinha",
+    description:
+      "Apresentações de teatro, contação de histórias, música e palhaçaria para infâncias, escolas, festivais e todas as idades.",
+    images: [{ url: "/photos/espetaculos/passarinha-nina-197.webp" }],
+  },
 };
 
 export default function EspetaculosPage() {
@@ -46,6 +54,9 @@ export default function EspetaculosPage() {
           </p>
         </div>
       </section>
+
+      {/* Barra Interativa de Filtro Rápido de Formatos */}
+      <EspetaculosFilterBar />
 
       {/* =====================================================================
           1. HISTÓRIAS QUE A PASSARINHA ME CONTOU (Amarelo Ipê Acrílico)

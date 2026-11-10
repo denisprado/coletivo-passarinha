@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Home,
@@ -15,10 +16,16 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ponto de Cultura Quintal Garatuja | Coletivo Passarinha",
   description:
     "Sede do Coletivo Passarinha, o Garatuja é um espaço de criação, convivência, pesquisa e formação localizado no Jardim Nova Europa, em Campinas (SP).",
+  openGraph: {
+    title: "Ponto de Cultura Quintal Garatuja | Campinas/SP",
+    description:
+      "Espaço cultural comunitário, agroecológico e de convivência no Jardim Nova Europa, Campinas/SP.",
+    images: [{ url: "/photos/garatuja/principal-quintal.webp" }],
+  },
 };
 
 export default function QuintalGaratujaPage() {

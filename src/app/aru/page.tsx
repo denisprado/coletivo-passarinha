@@ -1,14 +1,21 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { BookOpen, Download, FileCheck } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "A História de Aru | Permacultura em Cordel & E-book Gratuito",
   description:
     "Os 12 princípios da Permacultura contados por Aru em cordel ilustrado com materiais reaproveitados. Baixe o e-book gratuito e a cartilha pedagógica.",
+  openGraph: {
+    title: "A História de Aru | Livro e E-book de Permacultura em Cordel",
+    description:
+      "Aprenda permacultura e sustentabilidade com histórias rimadas e artes feitas com reaproveitamento de materiais.",
+    images: [{ url: "/photos/aru/aru-capa.webp" }],
+  },
 };
 
 export default function AruPage() {

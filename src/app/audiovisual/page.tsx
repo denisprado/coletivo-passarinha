@@ -1,13 +1,20 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Play, ExternalLink, Film } from "lucide-react";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Produções Audiovisuais | Coletivo Passarinha",
   description:
     "Curta-metragem A Caixa Mágica, Fora de onde? e O que se passa no formigueiro? - criações em vídeo do Coletivo Passarinha.",
+  openGraph: {
+    title: "Produções Audiovisuais | Coletivo Passarinha",
+    description:
+      "Filmes, animações e vídeo-artes voltadas para as infâncias e a reflexão socioambiental.",
+    images: [{ url: "/photos/audiovisual/caixa-magica-cartaz.webp" }],
+  },
 };
 
 export default function AudiovisualPage() {

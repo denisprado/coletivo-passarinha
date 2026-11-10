@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import PassarinhaAnimada from "./PassarinhaAnimada";
 import BrushBanner from "./BrushBanner";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface IntroPassarinhaProps {
   autoDismissMs?: number;
@@ -12,24 +12,39 @@ interface IntroPassarinhaProps {
 export default function IntroPassarinha({
   autoDismissMs = 2800,
 }: IntroPassarinhaProps) {
-  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    // Verifica se o visitante já viu a introdução nesta sessão
-    const alreadySeen = sessionStorage.getItem("passarinha_intro_seen");
-
-    // Para teste e primeira visualização: exibe a intro se não vista
-    if (!alreadySeen) {
-      setVisible(true);
-      const timer = setTimeout(() => {
-        handleDismiss();
-      }, autoDismissMs);
-
-      return () => clearTimeout(timer);
+  const handleDismiss = useCallback(() => {
+    setFading(true);
+    try {
+      sessionStorage.setItem("passarinha_intro_seen", "true");
+    } catch {
+      // safe fallback se sessionStorage estiver bloqueado
     }
+    setTimeout(() => {
+      setVisible(false);
+    }, 700);
+  }, []);
+
+  useEffect(() => {
+    let dismissTimer: NodeJS.Timeout | null = null;
+
+    const checkTimer = setTimeout(() => {
+      let alreadySeen = false;
+      try {
+        alreadySeen = !!sessionStorage.getItem("passarinha_intro_seen");
+      } catch {
+        alreadySeen = false;
+      }
+
+      if (!alreadySeen) {
+        setVisible(true);
+        dismissTimer = setTimeout(() => {
+          handleDismiss();
+        }, autoDismissMs);
+      }
+    }, 0);
 
     // Permite escutar evento customizado para reexecutar a animação a qualquer momento
     const handleReplay = () => {
@@ -41,23 +56,14 @@ export default function IntroPassarinha({
     };
 
     window.addEventListener("replay-passarinha-intro", handleReplay);
-    return () =>
+    return () => {
+      clearTimeout(checkTimer);
+      if (dismissTimer) clearTimeout(dismissTimer);
       window.removeEventListener("replay-passarinha-intro", handleReplay);
-  }, [autoDismissMs]);
+    };
+  }, [autoDismissMs, handleDismiss]);
 
-  const handleDismiss = () => {
-    setFading(true);
-    try {
-      sessionStorage.setItem("passarinha_intro_seen", "true");
-    } catch {
-      // safe fallback se sessionStorage estiver bloqueado
-    }
-    setTimeout(() => {
-      setVisible(false);
-    }, 700);
-  };
-
-  if (!mounted || !visible) return null;
+  if (!visible) return null;
 
   return (
     <div

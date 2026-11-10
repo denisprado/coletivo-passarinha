@@ -1,14 +1,22 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Hammer, MessageCircle } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import PraticasFilterBar from "@/components/PraticasFilterBar";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Práticas Formativas & Oficinas | Coletivo Passarinha",
   description:
     "Oficinas de arte-educação ambiental, reutilização de materiais, Ateliê Jogar Dentro, Ecobrinquedoteca e a Orquestra de Pandeiros do Coletivo Passarinha.",
+  openGraph: {
+    title: "Práticas Formativas & Oficinas | Coletivo Passarinha",
+    description:
+      "Vivências de arte-educação, reaproveitamento criativo e música coletiva: Ateliê Jogar Dentro, Ecobrinquedoteca e Orquestra de Pandeiros.",
+    images: [{ url: "/photos/oficinas/pandeiros-c1-1.webp" }],
+  },
 };
 
 export default function PraticasFormativasPage() {
@@ -37,6 +45,9 @@ export default function PraticasFormativasPage() {
           </p>
         </div>
       </section>
+
+      {/* Barra Interativa de Filtro Rápido de Ações Formativas */}
+      <PraticasFilterBar />
 
       {/* =====================================================================
           1. ATELIÊ JOGAR DENTRO (Amarelo Ipê Acrílico - TEXTO INTEGRAL DO DOC)

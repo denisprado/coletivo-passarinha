@@ -1,188 +1,21 @@
-"use client";
-
-import React, { useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import {
-  Mail,
-  MapPin,
-  Send,
-  MessageCircle,
-  CheckCircle2,
-} from "lucide-react";
+import React, { Suspense } from "react";
+import type { Metadata } from "next";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
+import ContatoForm from "@/components/ContatoForm";
 
-function ContatoForm() {
-  const searchParams = useSearchParams();
-  const initialInteresse = searchParams
-    ? searchParams.get("interesse") || ""
-    : "";
-
-  const [formData, setFormData] = useState({
-    nome: "",
-    email: "",
-    telefone: "",
-    interesse: initialInteresse || "Espetáculo Teatral",
-    mensagem: "",
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(
-      `Contato pelo Site: ${formData.interesse} - ${formData.nome}`
-    );
-    const body = encodeURIComponent(
-      `Olá Coletivo Passarinha!\n\nNome: ${formData.nome}\nE-mail: ${formData.email}\nTelefone: ${formData.telefone}\nInteresse: ${formData.interesse}\n\nMensagem:\n${formData.mensagem}`
-    );
-    window.location.href = `mailto:coletivopassarinha@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  };
-
-  return (
-    <div className="lg:col-span-7 painel-rustico p-7 sm:p-10">
-      {submitted ? (
-        <div className="text-center py-12 space-y-4">
-          <div className="w-16 h-16 mx-auto rounded-lg bg-[#3A1D40] text-[#FDBC2E] border border-[#3A1D40]/25 flex items-center justify-center">
-            <CheckCircle2 className="w-8 h-8" />
-          </div>
-          <h3 className="text-2xl font-black text-[#3A1D40] uppercase">
-            Mensagem Encaminhada!
-          </h3>
-          <p className="text-sm sm:text-base text-[#3A1D40]/90 max-w-md mx-auto font-medium">
-            Seu aplicativo de e-mail foi aberto com os dados preenchidos para
-            envio direto à nossa equipe. Em breve responderemos!
-          </p>
-          <button
-            onClick={() => setSubmitted(false)}
-            className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-white text-xs py-3 px-6"
-          >
-            Enviar Outra Mensagem
-          </button>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#3A1D40] uppercase">
-              Envie uma Proposta ou Dúvida
-            </h2>
-            <p className="text-xs sm:text-sm text-[#3A1D40]/85 mt-1 font-semibold">
-              Preencha o formulário abaixo para nos contar sobre o seu evento,
-              escola, SESC ou festival.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
-                Seu Nome *
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="Como podemos te chamar?"
-                value={formData.nome}
-                onChange={(e) =>
-                  setFormData({ ...formData, nome: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
-                E-mail para Resposta *
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="seuemail@exemplo.com"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
-                Telefone / WhatsApp
-              </label>
-              <input
-                type="tel"
-                placeholder="(19) 99999-9999"
-                value={formData.telefone}
-                onChange={(e) =>
-                  setFormData({ ...formData, telefone: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
-                Área de Interesse
-              </label>
-              <select
-                value={formData.interesse}
-                onChange={(e) =>
-                  setFormData({ ...formData, interesse: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-bold"
-              >
-                <option value="Espetáculo Teatral">
-                  Contratação de Espetáculo
-                </option>
-                <option value="Ateliê Jogar Dentro">
-                  Oficina: Ateliê Jogar Dentro
-                </option>
-                <option value="Ecobrinquedoteca">
-                  Oficina: Ecobrinquedoteca
-                </option>
-                <option value="Orquestra de Pandeiros">
-                  Oficina: Orquestra de Pandeiros
-                </option>
-                <option value="Projeto Aru">Projeto A História de Aru</option>
-                <option value="Quintal Garatuja">
-                  Ponto de Cultura Quintal Garatuja
-                </option>
-                <option value="Outro Assunto">Outro Assunto / Parceria</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="space-y-1.5">
-            <label className="text-xs font-black uppercase text-[#3A1D40]">
-              Sua Mensagem *
-            </label>
-            <textarea
-              required
-              rows={4}
-              placeholder="Conte um pouco sobre as datas previstas, público esperado, localidade ou suas dúvidas..."
-              value={formData.mensagem}
-              onChange={(e) =>
-                setFormData({ ...formData, mensagem: e.target.value })
-              }
-              className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-sm py-3.5"
-          >
-            <Send className="w-4 h-4" />
-            <span>Enviar Mensagem ao Coletivo</span>
-          </button>
-        </form>
-      )}
-    </div>
-  );
-}
+export const metadata: Metadata = {
+  title: "Contato & Contratação | Coletivo Passarinha",
+  description:
+    "Solicite uma proposta para espetáculos, oficinas, vivências de arte-educação ambiental ou entre em contato com o Coletivo Passarinha e o Quintal Garatuja.",
+  openGraph: {
+    title: "Contato & Contratação | Coletivo Passarinha",
+    description:
+      "Envie sua proposta para espetáculos, oficinas ou projetos no Ponto de Cultura Quintal Garatuja.",
+    images: [{ url: "/photos/espetaculos/passarinha-nina-197.webp" }],
+  },
+};
 
 export default function ContatoPage() {
   return (
@@ -250,57 +83,60 @@ export default function ContatoPage() {
 
               {/* WhatsApp */}
               <div className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-[#25D366] text-white border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#25D366] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-black text-[#3A1D40] uppercase tracking-wider block">
-                    WhatsApp para Produção
+                  <span className="text-xs font-black text-[#25D366] uppercase tracking-wider block">
+                    WhatsApp Comercial
                   </span>
                   <a
-                    href="https://wa.me/5519992510921?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20com%20o%20Coletivo%20Passarinha."
+                    href="https://wa.me/5519992510921"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-black text-[#3A1D40] hover:text-[#E91C47]"
+                    className="text-sm font-black text-[#3A1D40] hover:underline block"
                   >
-                    (19) 99251-0921 • Falar com a Produção
+                    (19) 99251-0921
                   </a>
+                  <span className="text-xs font-semibold text-[#3A1D40]/80">
+                    Atendimento de seg a sex, 9h às 18h
+                  </span>
                 </div>
               </div>
 
-              {/* Sede */}
+              {/* Endereço */}
               <div className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-[#FDBC2E] text-[#3A1D40] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#3A1D40] text-[#FDBC2E] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
                   <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider block">
-                    Sede Física
-                  </span>
-                  <p className="text-sm font-black text-[#3A1D40]">
                     Ponto de Cultura Quintal Garatuja
+                  </span>
+                  <p className="text-sm font-bold text-[#3A1D40]">
+                    Rua São Miguel Arcanjo, 1520
                   </p>
-                  <p className="text-xs font-bold text-[#3A1D40]/85">
-                    Rua São Miguel Arcanjo, 1520 • Campinas / SP
+                  <p className="text-xs text-[#3A1D40]/85 font-medium">
+                    Jardim Nova Europa — Campinas/SP
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Redes no Instagram */}
+            {/* Redes Sociais */}
             <div className="painel-rustico p-6 space-y-3">
-              <h3 className="text-xs font-black uppercase tracking-wider text-[#3A1D40]">
-                Acompanhe no Instagram
-              </h3>
-              <div className="space-y-2.5 text-xs sm:text-sm font-bold">
+              <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider block">
+                Siga e Conecte-se
+              </span>
+              <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-black text-[#3A1D40]">
                 <a
                   href="https://www.instagram.com/coletivopassarinha"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#E91C47] hover:underline"
+                  className="flex items-center gap-2 text-[#3A1D40] hover:underline"
                 >
                   <InstagramIcon className="w-4 h-4" /> @coletivopassarinha
-                  (Coletivo Geral)
+                  (Oficial)
                 </a>
                 <a
                   href="https://www.instagram.com/quintalgaratuja"
@@ -315,7 +151,7 @@ export default function ContatoPage() {
                   href="https://www.instagram.com/aru.permacultura"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#E91C47] hover:underline"
+                  className="flex items-center gap-2 text-[#3A1D40] hover:underline"
                 >
                   <InstagramIcon className="w-4 h-4" /> @aru.permacultura
                   (Projeto Aru)

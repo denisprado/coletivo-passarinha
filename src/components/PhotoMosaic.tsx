@@ -159,9 +159,12 @@ export default function PhotoMosaic({
         </div>
       )}
 
-      {/* Lightbox em Tela Cheia ao Clicar */}
+      {/* Lightbox em Tela Cheia ao Clicar com Acessibilidade ARIA */}
       {lightboxIdx !== null && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Visualizador de fotos em tela cheia"
           className="fixed inset-0 z-50 bg-[#1B0B1E]/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
           onClick={() => setLightboxIdx(null)}
         >

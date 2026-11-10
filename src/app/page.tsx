@@ -1,12 +1,24 @@
-"use client";
-
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoCarouselFrame from "@/components/PhotoCarouselFrame";
 import IntroPassarinha from "@/components/IntroPassarinha";
 import PassarinhaAnimada from "@/components/PassarinhaAnimada";
+import ReplayIntroButton from "@/components/ReplayIntroButton";
+
+export const metadata: Metadata = {
+  title: "Coletivo Interdisciplinar Passarinha | Arte Educação Ambiental",
+  description:
+    "Plataforma de criação, articulação e circulação artística desde 2014. Espetáculos teatrais, práticas formativas, educação ambiental e cultura popular.",
+  openGraph: {
+    title: "Coletivo Interdisciplinar Passarinha | Arte Educação Ambiental",
+    description:
+      "Plataforma de criação, articulação e circulação artística desde 2014. Conectando linguagens, saberes, pessoas e territórios.",
+    images: [{ url: "/photos/espetaculos/passarinha-nina-197.webp" }],
+  },
+};
 
 export default function HomePage() {
   return (
@@ -530,16 +542,7 @@ export default function HomePage() {
                 por todo o Brasil.
               </p>
               <div className="pt-1">
-                <button
-                  type="button"
-                  onClick={() => {
-                    sessionStorage.removeItem("passarinha_intro_seen");
-                    window.dispatchEvent(new Event("replay-passarinha-intro"));
-                  }}
-                  className="text-xs font-bold text-[#FDBC2E]/80 hover:text-[#FDBC2E] underline underline-offset-4 cursor-pointer"
-                >
-                  ✨ Rever animação inicial de voo da Passarinha
-                </button>
+                <ReplayIntroButton />
               </div>
             </div>
           </div>

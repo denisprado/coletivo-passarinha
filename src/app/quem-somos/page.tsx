@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { TEAM_MEMBERS } from "@/data/siteData";
 import {
@@ -11,10 +12,16 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Quem Somos & Histórico | Coletivo Passarinha",
   description:
     "Conheça a trajetória completa do Coletivo Passarinha desde 2014, nossas pesquisas em arte, educação ambiental e as artistas e criadores integrantes.",
+  openGraph: {
+    title: "Quem Somos & Histórico | Coletivo Passarinha",
+    description:
+      "Conheça a trajetória do Coletivo Passarinha desde 2014, nossas artistas, pesquisas e atuações.",
+    images: [{ url: "/photos/historico/inicio-1.webp" }],
+  },
 };
 
 interface HistoricalBlock {
