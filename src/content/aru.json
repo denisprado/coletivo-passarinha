@@ -1,0 +1,30 @@
+{
+  "title": "A História de Aru",
+  "tagline": "Arte-Educação Ambiental & Cordel",
+  "paragraphs": [
+    "A História de Aru é um projeto de arte-educação ambiental que apresenta os 12 princípios da Permacultura por meio de uma história em cordel, escrita por Paulo Roberto Amaral Lencioni e adaptada para cordel por Mari Rebelo e Sarah Gregorio.",
+    "O projeto nasceu da vontade de experimentar possibilidades de criação artística com materiais naturais e objetos que seriam descartados. A partir desses materiais, foram criados personagens, cenários e elementos que dão forma visual à história de Aru, explorando texturas, cores, volumes e outras possibilidades estéticas.",
+    "Aru é uma jovem que aprende observando o mundo ao seu redor. Ao longo de sua jornada, encontra diferentes povoados, conhece outros modos de viver e descobre formas de lidar com questões como o uso da água, a produção de alimentos, o aproveitamento dos recursos, a diversidade e a vida em comunidade. Cada experiência apresenta um dos 12 princípios da Permacultura, sistematizados por David Holmgren.",
+    "O cordel, com suas rimas e métricas populares, aproxima esses conceitos do público de maneira acessível, lúdica e poética. A linguagem simples e imagética convida leitoras e leitores de todas as idades a refletir sobre a relação entre o ser humano e o meio ambiente, mostrando que a sustentabilidade não é uma ideia abstrata, mas uma prática possível e necessária no dia a dia.",
+    "A História de Aru é um convite para olhar para a natureza com mais atenção, reconhecer a sabedoria dos ciclos naturais e imaginar formas mais cuidadosas, justas e integradas de viver no planeta.",
+    "O projeto inclui livro impresso, e-book gratuito, audiolivro e cartilha de atividades pedagógicas voltadas para educadores, escolas e famílias."
+  ],
+  "originalAuthor": "Paulo Roberto Amaral Lencioni",
+  "cordelAdaptation": "Mari Rebelo e Sarah Gregorio",
+  "ebookUrl": "https://coletivopassarinha.com/downloads/a-historia-de-aru-ebook.pdf",
+  "cartilhaUrl": "https://coletivopassarinha.com/downloads/a-historia-de-aru-cartilha.pdf",
+  "principles": [
+    "1. Observe e Interaja",
+    "2. Capte e Armazene Energia",
+    "3. Obtenha Rendimento",
+    "4. Pratique a Auto-regulação e Aceite Feedback",
+    "5. Use e Valorize os Serviços e Recursos Renováveis",
+    "6. Não Produza Lixo (Descarte Zero)",
+    "7. Projete dos Padrões aos Detalhes",
+    "8. Integre ao Invés de Segregar",
+    "9. Use Soluções Pequenas e Lentas",
+    "10. Use e Valorize a Diversidade",
+    "11. Use as Bordas e Valorize os Elementos Marginais",
+    "12. Use Criativamente e Responda às Mudanças"
+  ]
+}

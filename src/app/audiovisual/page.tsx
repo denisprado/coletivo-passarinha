@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Play, ExternalLink, Film } from "lucide-react";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import { getAudiovisualWorks } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
   title: "Produções Audiovisuais | Coletivo Passarinha",
@@ -17,11 +18,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AudiovisualPage() {
+export default async function AudiovisualPage() {
+  const works = await getAudiovisualWorks();
+  const extraWorks = works.filter(
+    (w) =>
+      ![
+        "a-caixa-magica",
+        "caixa-magica",
+        "fora-de-onde",
+        "o-que-se-passa-no-formigueiro",
+      ].includes(w.id),
+  );
+
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Amarela Ipê Acrílica */}
-      <section className="canvas-amarelo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      <section id="apresentacao" className="scroll-mt-24 canvas-amarelo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
             <Film className="w-4 h-4 text-[#FDBC2E]" /> Cinema, Vídeo-arte & Infâncias
@@ -45,7 +57,7 @@ export default function AudiovisualPage() {
       {/* PRODUÇÃO 1 — A CAIXA MÁGICA (Roxo Acrílico - Texto Integral do Doc + Fotos Intercaladas) */}
       <section
         id="a-caixa-magica"
-        className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-24 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="space-y-3">
@@ -196,7 +208,7 @@ export default function AudiovisualPage() {
       {/* PRODUÇÃO 2 — FORA DE ONDE? (Laranja Acrílico - Texto Integral do Doc + Fotos Intercaladas) */}
       <section
         id="fora-de-onde"
-        className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-24 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="space-y-3">
@@ -334,7 +346,7 @@ export default function AudiovisualPage() {
       {/* PRODUÇÃO 3 — O QUE SE PASSA NO FORMIGUEIRO? (Amarelo Ipê Acrílico - TODAS AS SEÇÕES INTEGRAIS DO DOC!) */}
       <section
         id="o-que-se-passa-no-formigueiro"
-        className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
+        className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="space-y-3">
@@ -580,6 +592,68 @@ export default function AudiovisualPage() {
           </div>
         </div>
       </section>
+
+      {/* Produções Adicionais Cadastradas pelo CMS */}
+      {extraWorks.map((work) => (
+        <section
+          key={work.id}
+          id={work.id}
+          className="scroll-mt-24 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        >
+          <div className="max-w-6xl mx-auto space-y-8">
+            <div className="space-y-3">
+              <span className="inline-block text-xs font-black uppercase px-3.5 py-1 rounded-lg tracking-wider bg-[#3A1D40] text-[#FDBC2E]">
+                Produção Audiovisual
+              </span>
+              <div>
+                <BrushBanner color="yellow" shape="wave" className="-ml-2">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
+                    {work.title}
+                  </h2>
+                </BrushBanner>
+              </div>
+            </div>
+
+            {work.youtubeId && (
+              <div className="bg-[#FDF6E4] p-2 sm:p-3 rounded-xl border border-[#3A1D40]/25 shadow-xl">
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-[#241128]">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${work.youtubeId}`}
+                    title={work.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div className="painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed">
+              <p>{work.synopsis}</p>
+              {work.context && <p>{work.context}</p>}
+
+              {work.videoUrl && (
+                <div className="pt-3">
+                  <a
+                    href={work.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-foca bg-[#E91C47] text-[#FDF6E4] text-xs py-2.5 px-5 inline-flex items-center gap-2"
+                  >
+                    <Play className="w-4 h-4 fill-current" />
+                    <span>Assistir Vídeo</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {work.photos.length > 0 && (
+              <PhotoMosaic photos={work.photos} variant="grid" />
+            )}
+          </div>
+        </section>
+      ))}
     </main>
   );
 }

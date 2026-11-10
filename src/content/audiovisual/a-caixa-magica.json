@@ -1,0 +1,52 @@
+{
+  "title": "A Caixa Mágica",
+  "category": "Produção Audiovisual 01 • Curta-metragem",
+  "synopsis": "Uma palhaça e um palhaço abrem sua caixa mágica e, com a ajuda da Mãozinha, brincam com a ressignificação de objetos, explorando criativamente suas infinitas possibilidades antes do descarte. Tudo começa quando Pirulita e Pouca Sombra percebem que estão passando tanto tempo no celular que se esqueceram de brincar! Assustados com essa descoberta, decidem encontrar uma solução para que outras crianças não passem pelo mesmo. E qual é a ideia da dupla? Usar o próprio celular para ajudar todo mundo a ficar longe dele!",
+  "context": "A Caixa Mágica integrou o Brincando na Rede, uma mostra cultural on-line lançada em 2021, que reuniu nove grupos artísticos de Campinas em uma plataforma virtual gratuita, com conteúdos voltados especialmente a crianças, famílias e escolas de educação infantil.\n\nContemplado pelo Edital Ações em Rede, da Prefeitura Municipal de Campinas, o projeto nasceu de articulações iniciadas durante a pandemia, buscando aproximar a arte das crianças e apoiar educadoras e escolas por meio de conteúdos lúdicos e educativos.",
+  "videoUrl": "",
+  "youtubeId": "",
+  "accentColor": "#E91C47",
+  "technicalSheet": [
+    {
+      "label": "Texto, direção, produção e edição",
+      "value": "Coletivo Passarinha"
+    },
+    {
+      "label": "Elenco — Mãozinha",
+      "value": "Sarah Gregorio"
+    },
+    {
+      "label": "Elenco — Pirulita",
+      "value": "Maria Carolina Thomé"
+    },
+    {
+      "label": "Elenco — Pouca Sombra",
+      "value": "Miguel Matoso"
+    },
+    {
+      "label": "Intérprete de Libras",
+      "value": "Karina Zonzini"
+    },
+    {
+      "label": "Classificação Indicativa",
+      "value": "Livre"
+    }
+  ],
+  "photos": [
+    {
+      "src": "/photos/audiovisual/caixa-magica-1.webp",
+      "alt": "Pirulita e Pouca Sombra no curta-metragem A Caixa Mágica",
+      "caption": "A Caixa Mágica — Pirulita, Pouca Sombra e a Mãozinha"
+    },
+    {
+      "src": "/photos/audiovisual/caixa-magica-2.webp",
+      "alt": "Gravação de A Caixa Mágica com acessibilidade em Libras",
+      "caption": "Mostra Brincando na Rede — Acessibilidade em Libras"
+    },
+    {
+      "src": "/photos/audiovisual/caixa-magica-3.webp",
+      "alt": "Bastidores de A Caixa Mágica",
+      "caption": "Brincar livre e criatividade antes do descarte"
+    }
+  ]
+}

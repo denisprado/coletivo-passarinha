@@ -5,6 +5,7 @@ import { BookOpen, Download, FileCheck } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import { getAruContent } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
   title: "A História de Aru | Permacultura em Cordel & E-book Gratuito",
@@ -18,21 +19,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AruPage() {
-  const permaculturePrinciples = [
-    "1. Observe e Interaja",
-    "2. Capte e Armazene Energia",
-    "3. Obtenha Rendimento",
-    "4. Pratique a Auto-regulação e Aceite Feedback",
-    "5. Use e Valorize os Serviços e Recursos Renováveis",
-    "6. Não Produza Lixo (Descarte Zero)",
-    "7. Projete dos Padrões aos Detalhes",
-    "8. Integre ao Invés de Segregar",
-    "9. Use Soluções Pequenas e Lentas",
-    "10. Use e Valorize a Diversidade",
-    "11. Use as Bordas e Valorize os Elementos Marginais",
-    "12. Use Criativamente e Responda às Mudanças",
-  ];
+export default async function AruPage() {
+  const aruContent = await getAruContent();
+
+  const permaculturePrinciples = aruContent.principles.length
+    ? aruContent.principles
+    : [
+        "1. Observe e Interaja",
+        "2. Capte e Armazene Energia",
+        "3. Obtenha Rendimento",
+        "4. Pratique a Auto-regulação e Aceite Feedback",
+        "5. Use e Valorize os Serviços e Recursos Renováveis",
+        "6. Não Produza Lixo (Descarte Zero)",
+        "7. Projete dos Padrões aos Detalhes",
+        "8. Integre ao Invés de Segregar",
+        "9. Use Soluções Pequenas e Lentas",
+        "10. Use e Valorize a Diversidade",
+        "11. Use as Bordas e Valorize os Elementos Marginais",
+        "12. Use Criativamente e Responda às Mudanças",
+      ];
 
   const aruPhotos = [
     {
@@ -76,17 +81,17 @@ export default function AruPage() {
       {/* FAIXA 1 — TEXTO INTEGRAL DE A HISTÓRIA DE ARU COM FOTOS INTERCALADAS (Amarelo Ipê Acrílico) */}
       <section
         id="top"
-        className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-5 max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
-              <BookOpen className="w-4 h-4 text-[#FDBC2E]" /> Arte-Educação Ambiental & Cordel
+              <BookOpen className="w-4 h-4 text-[#FDBC2E]" /> {aruContent.tagline}
             </div>
             <div>
               <BrushBanner color="crimson" shape="wave">
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#FDBC2E]">
-                  A História de Aru
+                  {aruContent.title}
                 </h1>
               </BrushBanner>
             </div>
@@ -239,7 +244,7 @@ export default function AruPage() {
       </section>
 
       {/* FAIXA 3 — MATERIAIS GRATUITOS PARA DOWNLOAD (Laranja Acrílico) */}
-      <section id="materiais" className="canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="materiais" className="scroll-mt-24 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-wider">
@@ -274,7 +279,7 @@ export default function AruPage() {
                 </p>
               </div>
               <a
-                href="https://drive.google.com/file/d/14QS_XRK87fBe8qX9wpp363YbcdZMDP3a/view?usp=sharing"
+                href={aruContent.ebookUrl || "https://drive.google.com/file/d/14QS_XRK87fBe8qX9wpp363YbcdZMDP3a/view?usp=sharing"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-white text-xs w-full py-3"
@@ -298,7 +303,7 @@ export default function AruPage() {
                 </p>
               </div>
               <a
-                href="https://drive.google.com/file/d/1kt5IQ-E2RgbhHzXjRn6F2XbMCVzaXDfL/view?usp=sharing"
+                href={aruContent.cartilhaUrl || "https://drive.google.com/file/d/1kt5IQ-E2RgbhHzXjRn6F2XbMCVzaXDfL/view?usp=sharing"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-foca bg-[#532E5A] hover:bg-[#3e2044] text-[#FDBC2E] text-xs w-full py-3"

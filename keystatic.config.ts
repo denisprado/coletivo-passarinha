@@ -53,8 +53,10 @@ export default config({
         ),
     },
     navigation: {
-      "Criações Artísticas": ["espetaculos"],
+      "Páginas Principais": ["paginaInicial", "aru", "quintalGaratuja"],
+      "Criações Artísticas": ["espetaculos", "audiovisual"],
       "Arte Educação & Oficinas": ["praticasFormativas"],
+      "Ponto de Cultura Quintal Garatuja": ["projetosGaratuja"],
       "Sobre o Coletivo": ["equipe", "historico"],
       "Configurações": ["configuracoes"],
     },
@@ -194,6 +196,113 @@ export default config({
           {
             label: "Galeria de Fotos",
             itemLabel: (props) =>
+               props.fields.caption.value || props.fields.alt.value || "Foto",
+          },
+        ),
+      },
+    }),
+
+    audiovisual: collection({
+      label: "Produções Audiovisuais",
+      slugField: "title",
+      path: "src/content/audiovisual/*",
+      format: { data: "json" },
+      previewUrl: "/audiovisual#{slug}",
+      columns: ["category", "youtubeId"],
+      schema: {
+        title: fields.slug({ name: { label: "Título da Obra" } }),
+        category: fields.text({
+          label: "Formato / Categoria (ex: Curta-metragem, Longa-metragem)",
+          defaultValue: "Curta-metragem",
+        }),
+        synopsis: fields.text({ label: "Sinopse", multiline: true }),
+        context: fields.text({
+          label: "Contexto / Apresentação",
+          multiline: true,
+        }),
+        videoUrl: fields.url({ label: "Link do Vídeo (YouTube/Vimeo)" }),
+        youtubeId: fields.text({
+          label: "ID do Vídeo no YouTube (opcional, para embed)",
+        }),
+        accentColor: fields.text({
+          label: "Cor de Destaque (Hex)",
+          defaultValue: "#E91C47",
+        }),
+        technicalSheet: fields.array(
+          fields.object({
+            label: fields.text({ label: "Função / Rótulo" }),
+            value: fields.text({ label: "Nome / Crédito" }),
+          }),
+          {
+            label: "Ficha Técnica",
+            itemLabel: (props) =>
+              `${props.fields.label.value || "Item"}: ${props.fields.value.value || ""}`,
+          },
+        ),
+        photos: fields.array(
+          fields.object({
+            src: fields.image({
+              label: "Foto",
+              directory: "public/photos/cms",
+              publicPath: "/photos/cms/",
+            }),
+            alt: fields.text({ label: "Descrição da Foto (Acessibilidade)" }),
+            caption: fields.text({ label: "Legenda" }),
+          }),
+          {
+            label: "Galeria de Fotos",
+            itemLabel: (props) =>
+              props.fields.caption.value || props.fields.alt.value || "Foto",
+          },
+        ),
+      },
+    }),
+
+    projetosGaratuja: collection({
+      label: "Projetos do Quintal Garatuja",
+      slugField: "title",
+      path: "src/content/projetos-garatuja/*",
+      format: { data: "json" },
+      previewUrl: "/quintal-garatuja#{slug}",
+      columns: ["tag"],
+      schema: {
+        title: fields.slug({ name: { label: "Título do Projeto" } }),
+        tag: fields.text({
+          label: "Tag / Etiqueta",
+          defaultValue: "Projeto de Continuidade",
+        }),
+        shortDescription: fields.text({
+          label: "Chamada / Resumo Inicial",
+          multiline: true,
+        }),
+        paragraphs: fields.array(
+          fields.text({ label: "Parágrafo", multiline: true }),
+          {
+            label: "Descrição Completa (Parágrafos)",
+            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
+          },
+        ),
+        accentColor: fields.text({
+          label: "Cor de Destaque (Hex)",
+          defaultValue: "#532E5A",
+        }),
+        externalLink: fields.url({ label: "Link Externo (opcional)" }),
+        externalLinkLabel: fields.text({
+          label: "Texto do Link Externo (opcional)",
+        }),
+        photos: fields.array(
+          fields.object({
+            src: fields.image({
+              label: "Foto",
+              directory: "public/photos/cms",
+              publicPath: "/photos/cms/",
+            }),
+            alt: fields.text({ label: "Descrição da Foto" }),
+            caption: fields.text({ label: "Legenda" }),
+          }),
+          {
+            label: "Galeria de Fotos",
+            itemLabel: (props) =>
               props.fields.caption.value || props.fields.alt.value || "Foto",
           },
         ),
@@ -254,6 +363,131 @@ export default config({
   },
 
   singletons: {
+    paginaInicial: singleton({
+      label: "Página Inicial (Home)",
+      path: "src/content/pagina-inicial",
+      format: { data: "json" },
+      previewUrl: "/",
+      schema: {
+        heroTitle: fields.text({
+          label: "Título Principal do Hero",
+          defaultValue: "Coletivo Interdisciplinar Passarinha",
+        }),
+        heroSubtitle: fields.text({
+          label: "Subtítulo / Chamada",
+          defaultValue: "arte educação ambiental",
+        }),
+        introParagraphs: fields.array(
+          fields.text({ label: "Parágrafo", multiline: true }),
+          {
+            label: "Apresentação do Coletivo (Parágrafos)",
+            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
+          },
+        ),
+        ctaText: fields.text({
+          label: "Texto do Botão de Chamada",
+          defaultValue: "Conheça quem somos →",
+        }),
+      },
+    }),
+
+    quintalGaratuja: singleton({
+      label: "Ponto de Cultura Quintal Garatuja (Sede)",
+      path: "src/content/quintal-garatuja",
+      format: { data: "json" },
+      previewUrl: "/quintal-garatuja#sobre",
+      schema: {
+        title: fields.text({
+          label: "Título Principal",
+          defaultValue: "Ponto de Cultura Quintal Garatuja",
+        }),
+        tag: fields.text({
+          label: "Etiqueta / Badge",
+          defaultValue: "Ponto de Cultura • Campinas / SP",
+        }),
+        leadText: fields.text({
+          label: "Texto Destaque / Apresentação",
+          multiline: true,
+        }),
+        paragraphs: fields.array(
+          fields.text({ label: "Parágrafo", multiline: true }),
+          {
+            label: "História e Manifesto (Parágrafos)",
+            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
+          },
+        ),
+        street: fields.text({
+          label: "Rua e Número",
+          defaultValue: "Rua São Miguel Arcanjo, 1520",
+        }),
+        neighborhood: fields.text({
+          label: "Bairro e Cidade",
+          defaultValue: "Jardim Nova Europa • Campinas / SP",
+        }),
+        email: fields.text({
+          label: "E-mail de Contato",
+          defaultValue: "garatuja.decultura@gmail.com",
+        }),
+        instagram: fields.url({
+          label: "Instagram do Quintal",
+          defaultValue: "https://www.instagram.com/quintalgaratuja",
+        }),
+        linktree: fields.url({
+          label: "Linktree de Cursos e Inscrições",
+          defaultValue: "https://linktr.ee/quintalgaratuja",
+        }),
+        whatsappGroup: fields.url({
+          label: "Linha de Transmissão / Grupo no WhatsApp",
+          defaultValue: "https://chat.whatsapp.com/IE2FV0vXBLeAcPFULcxjfK",
+        }),
+      },
+    }),
+
+    aru: singleton({
+      label: "A História de Aru (Livro & Cordel)",
+      path: "src/content/aru",
+      format: { data: "json" },
+      previewUrl: "/aru",
+      schema: {
+        title: fields.text({
+          label: "Título da Obra",
+          defaultValue: "A História de Aru",
+        }),
+        tagline: fields.text({
+          label: "Etiqueta / Categoria",
+          defaultValue: "Arte-Educação Ambiental & Cordel",
+        }),
+        paragraphs: fields.array(
+          fields.text({ label: "Parágrafo", multiline: true }),
+          {
+            label: "Apresentação e Sinopse (Parágrafos)",
+            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
+          },
+        ),
+        originalAuthor: fields.text({
+          label: "Autor da História Original",
+          defaultValue: "Paulo Roberto Amaral Lencioni",
+        }),
+        cordelAdaptation: fields.text({
+          label: "Adaptação para Cordel",
+          defaultValue: "Mari Rebelo e Sarah Gregorio",
+        }),
+        ebookUrl: fields.url({
+          label: "Link de Download do E-book Gratuito",
+        }),
+        cartilhaUrl: fields.url({
+          label: "Link de Download da Cartilha Pedagógica",
+        }),
+        principles: fields.array(
+          fields.text({ label: "Princípio" }),
+          {
+            label: "12 Princípios da Permacultura",
+            itemLabel: (props) => props.value || "Princípio",
+          },
+        ),
+      },
+    }),
+
     configuracoes: singleton({
       label: "Configurações do Site e Contatos",
       path: "src/content/configuracoes",

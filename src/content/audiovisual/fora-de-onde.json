@@ -1,0 +1,44 @@
+{
+  "title": "Fora de onde?",
+  "category": "Produção Audiovisual 02 • Longa-metragem / Palestra-performance",
+  "synopsis": "Quando eu jogo alguma coisa fora, eu jogo fora de onde? Em um convite poético ao pensamento, vamos dialogar com alguns pontos de vista sobre a problemática do lixo. Como podemos perceber e lidar com esses rastros de consumo que fiz e sigo fazendo todos os dias? O que acontece com o saquinho de lixo depois que coloco na porta de casa? Qual o futuro dos descartados? Quantas histórias o lixo conta! Em interlocução com a Política Nacional de Resíduos Sólidos, lei 12.305/2010, este filme é tragédia, diversão e reflexão em uma palestra-performance.",
+  "context": "O longa metragem é parte da pesquisa de doutorado de Pamella Villanova, em Artes da Cena na Unicamp. Foi um primeiro rascunho para uma peça de teatro prevista para estrear em 2027. O filme foi feito durante a pandemia, quando os teatros estavam fechados. Participou de festivais de teatro, como o Inverno Cultural UFSJ, o festival de cinema ambiental SARANCINE e o 10º FESTCINE, no qual foi indicado a melhor filme na categoria longa metragem.",
+  "videoUrl": "https://www.youtube.com/watch?v=mnlxnn_4HPg&t=2411s",
+  "youtubeId": "mnlxnn_4HPg",
+  "accentColor": "#532E5A",
+  "technicalSheet": [
+    {
+      "label": "Criação, direção e edição",
+      "value": "Pamella Villanova"
+    },
+    {
+      "label": "Assistência de direção e de roteiro",
+      "value": "Dudu Ferraz"
+    },
+    {
+      "label": "Fotografia",
+      "value": "Mauro Machado"
+    },
+    {
+      "label": "Classificação Indicativa",
+      "value": "Livre"
+    }
+  ],
+  "photos": [
+    {
+      "src": "/photos/audiovisual/fora-de-onde-cartaz.webp",
+      "alt": "Cartaz Oficial do filme Fora de onde?",
+      "caption": "Cartaz Oficial — Fora de onde?"
+    },
+    {
+      "src": "/photos/audiovisual/fora-de-onde-cena.webp",
+      "alt": "Pamella Villanova em Fora de onde? (Foto: Mauro Machado)",
+      "caption": "Cena de Fora de onde? — Foto: Mauro Machado"
+    },
+    {
+      "src": "/photos/home/audiovisual-deusa.webp",
+      "alt": "Deusa Reduza em Fora de onde? (Foto: Mauro Machado)",
+      "caption": "Deusa Reduza — Foto: Mauro Machado"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import PhotoCarouselFrame from "@/components/PhotoCarouselFrame";
 import IntroPassarinha from "@/components/IntroPassarinha";
 import PassarinhaAnimada from "@/components/PassarinhaAnimada";
 import ReplayIntroButton from "@/components/ReplayIntroButton";
+import { getHomePageContent } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
   title: "Coletivo Interdisciplinar Passarinha | Arte Educação Ambiental",
@@ -20,7 +21,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const homeContent = await getHomePageContent();
+
   return (
     <main className="w-full overflow-x-hidden">
       {/* ANIMAÇÃO INICIAL (Stop-Motion / Folheado de Cordel da Passarinha) */}
@@ -35,10 +38,10 @@ export default function HomePage() {
               <BrushBanner color="crimson" shape="wave" className="-ml-2 sm:-ml-4">
                 <div className="space-y-0.5">
                   <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight text-[#FDBC2E] leading-[1.05]">
-                    Coletivo Interdisciplinar Passarinha
+                    {homeContent.heroTitle}
                   </h1>
                   <p className="text-base sm:text-xl font-bold lowercase tracking-wide text-[#FDF6E4]">
-                    arte educação ambiental
+                    {homeContent.heroSubtitle}
                   </p>
                 </div>
               </BrushBanner>
@@ -50,35 +53,9 @@ export default function HomePage() {
             </div>
 
             <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] font-medium leading-relaxed">
-              <p>
-                Somos o{" "}
-                <strong className="font-extrabold">
-                  Coletivo Interdisciplinar Passarinha
-                </strong>
-                , artistas da cena, música, design e permacultura. Há anos,
-                realizamos ações de arte educação ambiental em projetos
-                itinerantes e também conservando relações com territórios.
-              </p>
-              <p>
-                Promovemos práticas artísticas e discutimos urgências
-                socioambientais relacionadas a essa sociedade do consumo e do
-                descarte - que nos apavora.
-              </p>
-              <p>
-                O Coletivo Passarinha trabalha em várias frentes e em diferentes
-                lugares. Somos uma plataforma de criação e circulação, que tem a
-                inclusão e atenção às problemáticas socioambientais como temáticas
-                transversais. Temos interesse em costurar nossas práticas de arte
-                e cultura com os lugares e pessoas que cruzamos. Fazemos arte
-                educação ambiental desde 2014.
-              </p>
-              <p>
-                Trabalhamos em parceria com instituições públicas e particulares,
-                com Pontos de Cultura e outros espaços culturais. Já realizamos
-                projetos com apoio de esferas federais, estaduais, municipais e de
-                alianças internacionais, sempre entregando excelência em todas as
-                ações realizadas.
-              </p>
+              {homeContent.introParagraphs.map((paragraph, pIdx) => (
+                <p key={pIdx}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="flex justify-start pt-2">
@@ -86,7 +63,7 @@ export default function HomePage() {
                 href="/quem-somos"
                 className="cta-editorial text-[#FDBC2E] text-lg sm:text-xl tracking-wide hover:opacity-90 transition-opacity"
               >
-                Conheça quem somos →
+                {homeContent.ctaText}
               </Link>
             </div>
           </div>

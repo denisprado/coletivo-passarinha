@@ -43,7 +43,18 @@ export default function Header() {
   const navItems: NavItem[] = [
     { name: "Início", href: "/" },
     { name: "Quem somos", href: "/quem-somos" },
-    { name: "Ponto de Cultura Quintal Garatuja", href: "/quintal-garatuja" },
+    {
+      name: "Ponto de Cultura Quintal Garatuja",
+      href: "/quintal-garatuja",
+      subItems: [
+        { name: "O Quintal (Sede & Manifesto)", href: "/quintal-garatuja#sobre" },
+        { name: "Show de Variedades", href: "/quintal-garatuja#show-de-variedades" },
+        { name: "Nosso Canto", href: "/quintal-garatuja#nosso-canto" },
+        { name: "Ações Formativas", href: "/quintal-garatuja#acoes-formativas" },
+        { name: "Núcleo Socioambiental", href: "/quintal-garatuja#nucleo-socioambiental" },
+        { name: "Endereço e Contato", href: "/quintal-garatuja#contato" },
+      ],
+    },
     { name: "A história de Aru", href: "/aru" },
     {
       name: "Espetáculos",
@@ -79,7 +90,19 @@ export default function Header() {
         },
       ],
     },
-    { name: "Audiovisual", href: "/audiovisual" },
+    {
+      name: "Audiovisual",
+      href: "/audiovisual",
+      subItems: [
+        { name: "Apresentação", href: "/audiovisual#apresentacao" },
+        { name: "A Caixa Mágica", href: "/audiovisual#a-caixa-magica" },
+        { name: "Fora de onde?", href: "/audiovisual#fora-de-onde" },
+        {
+          name: "O que se passa no formigueiro?",
+          href: "/audiovisual#o-que-se-passa-no-formigueiro",
+        },
+      ],
+    },
     { name: "Contato", href: "/contato" },
   ];
 

@@ -1,0 +1,43 @@
+{
+  "title": "O que se passa no formigueiro?",
+  "category": "Produção Audiovisual 03 • Inspirado em Ana Primavesi",
+  "synopsis": "Inspirado na obra \"Rainha Maximilliana Atta\", de Ana Primavesi, este trabalho audiovisual mergulha no microcosmo do solo, na agroecologia e no papel das formigas saúvas na natureza. Uma reflexão bem-humorada sobre como a sociedade vê \"a praga\" e como a natureza busca o equilíbrio ecológico.",
+  "context": "Realizado com acessibilidade em Libras e registros no Quintal Garatuja, integrando arte, ciência e consciência da terra.",
+  "videoUrl": "https://www.youtube.com/watch?v=FkMBMPGgpHw",
+  "youtubeId": "FkMBMPGgpHw",
+  "accentColor": "#F79335",
+  "technicalSheet": [
+    {
+      "label": "Concepção e Realização",
+      "value": "Pamella Villanova e Dudu Ferraz"
+    },
+    {
+      "label": "Inspiração",
+      "value": "\"Rainha Maximilliana Atta\", de Ana Primavesi"
+    },
+    {
+      "label": "Intérprete de Libras",
+      "value": "Karina Zonzini"
+    },
+    {
+      "label": "Captação de Imagens",
+      "value": "Quintal Garatuja, Guilherme Cruz e Neader Eringuer"
+    },
+    {
+      "label": "Classificação Indicativa",
+      "value": "Livre"
+    }
+  ],
+  "photos": [
+    {
+      "src": "/photos/home/audiovisual-formigueiro.webp",
+      "alt": "Arte visual de O que se passa no formigueiro?",
+      "caption": "O que se passa no formigueiro? — Inspirado em Ana Primavesi"
+    },
+    {
+      "src": "/photos/audiovisual/formigueiro-cena.webp",
+      "alt": "Registro em vídeo de O que se passa no formigueiro? com Libras",
+      "caption": "Acessibilidade em Libras com Karina Zonzini"
+    }
+  ]
+}
