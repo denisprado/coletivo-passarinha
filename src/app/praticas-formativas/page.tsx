@@ -6,6 +6,7 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import PraticasFilterBar from "@/components/PraticasFilterBar";
+import { getWorkshops } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
   title: "Práticas Formativas & Oficinas | Coletivo Passarinha",
@@ -19,7 +20,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PraticasFormativasPage() {
+export default async function PraticasFormativasPage() {
+  const workshops = await getWorkshops();
+  const workshopMap = new Map(workshops.map((w) => [w.id, w]));
+
+  const atelieWorkshop = workshopMap.get("atelie-jogar-dentro");
+  const ecobrinquedoWorkshop = workshopMap.get("ecobrinquedoteca-jogar-dentro");
+  const pandeirosWorkshop = workshopMap.get("orquestra-de-pandeiros");
+
+  // Outras oficinas/práticas cadastradas dinamicamente no CMS
+  const extraWorkshops = workshops.filter(
+    (w) =>
+      ![
+        "atelie-jogar-dentro",
+        "ecobrinquedoteca-jogar-dentro",
+        "orquestra-de-pandeiros",
+      ].includes(w.id)
+  );
+
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Vermelha Acrílica + Pincelada Amarela Inclinada */}
@@ -721,6 +739,79 @@ export default function PraticasFormativasPage() {
           </div>
         </div>
       </section>
+
+      {/* Práticas Formativas Adicionais Cadastradas no Keystatic CMS */}
+      {extraWorkshops.length > 0 && (
+        <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="space-y-4">
+              <span className="text-xs font-black uppercase px-3.5 py-1 rounded-lg tracking-wider bg-[#FDBC2E] text-[#3A1D40]">
+                Mais Práticas Formativas & Oficinas
+              </span>
+              <div>
+                <BrushBanner color="yellow" shape="tilted" className="-ml-2">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
+                    Novas Oficinas
+                  </h2>
+                </BrushBanner>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {extraWorkshops.map((workshop) => (
+                <div
+                  key={workshop.id}
+                  id={workshop.id}
+                  className="painel-rustico p-7 sm:p-9 space-y-6 flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-black uppercase px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E]">
+                        {workshop.targetAudience}
+                      </span>
+                      {workshop.audienceLimit && (
+                        <span className="text-xs font-black text-[#3A1D40] bg-[#FDBC2E]/30 px-3 py-1 rounded-lg">
+                          Vagas: {workshop.audienceLimit}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="text-2xl font-black text-[#E91C47] uppercase">
+                      {workshop.title}
+                    </h3>
+                    {workshop.subtitle && (
+                      <p className="text-sm font-bold text-[#532E5A] italic">
+                        {workshop.subtitle}
+                      </p>
+                    )}
+                    <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed">
+                      {workshop.concept}
+                    </p>
+                  </div>
+
+                  {workshop.photos && workshop.photos.length > 0 && (
+                    <PhotoMosaic photos={workshop.photos} variant="grid" />
+                  )}
+
+                  <div className="pt-2">
+                    <a
+                      href={`https://wa.me/${workshop.whatsappContact || "5519992510921"}?text=Ol%C3%A1!%20Gostaria%20de%20uma%20proposta%20para%20a%20oficina%20${encodeURIComponent(
+                        workshop.title
+                      )}.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs px-5 py-2.5 inline-flex items-center gap-2"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                      Contratar via WhatsApp
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

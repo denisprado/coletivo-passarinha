@@ -16,6 +16,7 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import EspetaculosFilterBar from "@/components/EspetaculosFilterBar";
+import { getShows } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
   title: "Espetáculos | Coletivo Passarinha",
@@ -29,7 +30,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function EspetaculosPage() {
+export default async function EspetaculosPage() {
+  const shows = await getShows();
+  const showMap = new Map(shows.map((s) => [s.id, s]));
+
+  const passarinhaShow = showMap.get("historias-que-a-passarinha-me-contou");
+  const plasticoShow = showMap.get("plastico-um-mito-contemporaneo");
+  const nascenteShow = showMap.get("show-nascente");
+  const guarantasShow = showMap.get("historias-do-bosque-dos-guarantas");
+
+  // Outros espetáculos cadastrados dinamicamente no CMS
+  const extraShows = shows.filter(
+    (s) =>
+      ![
+        "historias-que-a-passarinha-me-contou",
+        "plastico-um-mito-contemporaneo",
+        "show-nascente",
+        "historias-do-bosque-dos-guarantas",
+      ].includes(s.id)
+  );
+
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Roxa Acrílica */}
@@ -1100,6 +1120,77 @@ export default function EspetaculosPage() {
           />
         </div>
       </section>
+
+      {/* Espetáculos Adicionais Cadastrados no Keystatic CMS */}
+      {extraShows.length > 0 && (
+        <section className="canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="space-y-4">
+              <span className="text-xs font-black uppercase px-3.5 py-1 rounded-lg tracking-wider bg-[#3A1D40] text-[#FDBC2E]">
+                Mais Espetáculos em Repertório
+              </span>
+              <div>
+                <BrushBanner color="orange" shape="wave" className="-ml-2">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#3A1D40]">
+                    Novas Criações
+                  </h2>
+                </BrushBanner>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {extraShows.map((show) => (
+                <div
+                  key={show.id}
+                  id={show.id}
+                  className="painel-rustico p-7 sm:p-9 space-y-6 flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-black uppercase px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E]">
+                        {show.category}
+                      </span>
+                      <span className="text-xs font-black text-[#3A1D40] bg-[#FDBC2E]/30 px-3 py-1 rounded-lg">
+                        {show.duration} • {show.ageRating}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-black text-[#E91C47] uppercase">
+                      {show.title}
+                    </h3>
+                    {show.subtitle && (
+                      <p className="text-sm font-bold text-[#532E5A] italic">
+                        {show.subtitle}
+                      </p>
+                    )}
+                    <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed">
+                      {show.synopsis}
+                    </p>
+                  </div>
+
+                  {show.photos && show.photos.length > 0 && (
+                    <PhotoMosaic photos={show.photos} variant="grid" />
+                  )}
+
+                  <div className="pt-2">
+                    <a
+                      href={`https://wa.me/5519992510921?text=Ol%C3%A1!%20Gostaria%20de%20uma%20proposta%20para%20o%20espet%C3%A1culo%20${encodeURIComponent(
+                        show.title
+                      )}.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs px-5 py-2.5 inline-flex items-center gap-2"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                      Solicitar via WhatsApp
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

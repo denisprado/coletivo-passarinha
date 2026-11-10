@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { TEAM_MEMBERS } from "@/data/siteData";
+import { getTeamMembers } from "@/lib/keystatic";
 import {
   Users,
   Sparkles,
@@ -237,7 +237,9 @@ const FULL_HISTORY_BLOCKS: HistoricalBlock[] = [
   },
 ];
 
-export default function QuemSomosPage() {
+export default async function QuemSomosPage() {
+  const teamMembers = await getTeamMembers();
+
   return (
     <main className="w-full overflow-x-hidden">
       {/* FAIXA 1 — TEXTO INTEGRAL DE APRESENTAÇÃO DO COLETIVO (Roxo Acrílico + Fotos Intercaladas) */}
@@ -393,7 +395,7 @@ export default function QuemSomosPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TEAM_MEMBERS.map((member, mIdx) => {
+            {teamMembers.map((member, mIdx) => {
               const memberRadiusClass = [
                 "foto-organica-1",
                 "foto-organica-2",
