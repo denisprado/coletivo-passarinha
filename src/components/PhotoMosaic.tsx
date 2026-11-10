@@ -7,7 +7,8 @@ import type { SlidePhoto } from "./PhotoCarouselFrame";
 
 interface PhotoMosaicProps {
   photos: SlidePhoto[];
-  variant?: "editorial" | "grid" | "triptych";
+  variant?: "editorial" | "grid" | "triptych" | "stacked";
+  columns?: 1 | 2 | 3 | 4;
   frameTheme?: "cream" | "dark" | "yellow";
 }
 
@@ -21,6 +22,7 @@ const ORGANIC_RADIUS_CLASSES = [
 export default function PhotoMosaic({
   photos,
   variant = "grid",
+  columns,
 }: PhotoMosaicProps) {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
@@ -90,9 +92,21 @@ export default function PhotoMosaic({
     );
   };
 
+  const isSingleColumn = variant === "stacked" || columns === 1;
+
   return (
     <>
-      {variant === "triptych" && photos.length >= 3 ? (
+      {isSingleColumn ? (
+        <div className="space-y-5 sm:space-y-6">
+          {photos.map((p, i) =>
+            renderTile(
+              p,
+              i,
+              p.fit === "contain" ? "aspect-[4/3] sm:aspect-[16/10]" : "aspect-[16/10]"
+            )
+          )}
+        </div>
+      ) : variant === "triptych" && photos.length >= 3 ? (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-stretch">
           <div className="md:col-span-7">
             {renderTile(photos[0], 0, "aspect-[16/11] h-full")}

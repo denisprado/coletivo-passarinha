@@ -318,7 +318,7 @@ export default async function AudiovisualPage() {
 
             <div className="lg:col-span-5 space-y-4">
               <PhotoMosaic
-                variant="grid"
+                variant="stacked"
                 photos={[
                   {
                     src: "/photos/audiovisual/fora-de-onde-cartaz.webp",
@@ -441,7 +441,7 @@ export default async function AudiovisualPage() {
 
             <div className="lg:col-span-5">
               <PhotoMosaic
-                variant="grid"
+                variant="stacked"
                 photos={[
                   {
                     src: "/photos/audiovisual/formigueiro-cena.webp",
