@@ -1,0 +1,55 @@
+{
+  "title": "Ateliê Jogar Dentro",
+  "subtitle": "Arte, criação e reaproveitamento de materiais",
+  "concept": "E se aquilo que seria descartado se transformasse em fantasia, figurino, adereço, instrumento musical ou brinquedo?",
+  "accentColor": "#E91C47",
+  "targetAudience": "Crianças de todas as idades, famílias, educadoras e artistas",
+  "audienceLimit": "30 pessoas",
+  "whatsappContact": "https://wa.me/5588981085939?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20oficina%20Ateli%C3%AA%20Jogar%20Dentro.",
+  "fullDescription": [
+    "O Ateliê Jogar Dentro é um espaço de experimentação e criação artística que convida os participantes a explorar as possibilidades dos materiais reaproveitados, transformando-os em objetos para brincar, imaginar, inventar personagens, criar sons e contar histórias.",
+    "O ateliê reúne materiais em diferentes estados e possibilidades de uso: alguns preservam suas características originais; outros já chegam ressignificados, recortados, combinados ou preparados para novas experimentações. Plásticos de diferentes cores e formatos, embalagens laminadas, retalhos de tecidos e outros materiais compõem um repertório aberto à investigação, no qual cada forma, textura, cor e característica pode despertar novas ideias.",
+    "A seleção dos materiais também faz parte da proposta. Damos preferência àqueles que apresentam maiores dificuldades de reciclagem, como determinados plásticos coloridos e embalagens laminadas, buscando explorar suas possibilidades de uso e criação antes que sejam descartados. Assim, o reaproveitamento se torna também uma oportunidade de refletir sobre os materiais que circulam em nosso cotidiano e sobre os destinos que damos a eles.",
+    "Mais do que ensinar a produzir objetos a partir de materiais reaproveitados, o ateliê propõe uma mudança de olhar: perceber que aquilo que parece não ter mais utilidade pode guardar outras possibilidades estéticas, lúdicas e expressivas.",
+    "Jogar dentro é mergulhar nas possibilidades dos materiais e deixar a imaginação encontrar novos caminhos."
+  ],
+  "highlights": [
+    "Mais de 800 peças criadas no Reciclarnaval no SESC Campinas",
+    "Reaproveitamento de plásticos e laminados de difícil reciclagem",
+    "Criação autônoma de fantasias, adereços e brinquedos sonoros",
+    "Totalmente adaptável para escolas, festivais, SESCs e feiras culturais"
+  ],
+  "principles": [],
+  "photos": [
+    {
+      "src": "/photos/oficinas/jogar-dentro-1.webp",
+      "alt": "Criação coletiva no Ateliê Jogar Dentro",
+      "caption": "Experimentação criativa com materiais ressignificados"
+    },
+    {
+      "src": "/photos/oficinas/jogar-dentro-2.webp",
+      "alt": "Participantes construindo brinquedos e adereços no Ateliê Jogar Dentro",
+      "caption": "Invenção de brinquedos, adereços e personagens"
+    },
+    {
+      "src": "/photos/oficinas/jogar-dentro-jaque-17.webp",
+      "alt": "Registro da oficina Ateliê Jogar Dentro (Foto: Jaqueline Vieira)",
+      "caption": "Ateliê Jogar Dentro — Foto: Jaqueline Vieira"
+    },
+    {
+      "src": "/photos/oficinas/jogar-dentro-jaque-32.webp",
+      "alt": "Detalhes de criação manual no Ateliê Jogar Dentro (Foto: Jaqueline Vieira)",
+      "caption": "Poéticas do reaproveitamento — Foto: Jaqueline Vieira"
+    },
+    {
+      "src": "/photos/oficinas/jogar-dentro-oficina-1.webp",
+      "alt": "Vivência educativa do Ateliê Jogar Dentro",
+      "caption": "Repertório aberto de formas, cores e texturas"
+    },
+    {
+      "src": "/photos/oficinas/jogar-dentro-oficina-2.webp",
+      "alt": "Brinquedos e invenções criadas no Ateliê Jogar Dentro",
+      "caption": "Mudança de olhar sobre os resíduos do cotidiano"
+    }
+  ]
+}
