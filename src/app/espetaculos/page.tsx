@@ -105,7 +105,7 @@ export default async function EspetaculosPage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
-                  Histórias que a Passarinha me contou
+                  {passarinhaShow?.title || "Histórias que a Passarinha me contou"}
                 </h2>
               </BrushBanner>
             </div>
@@ -472,7 +472,7 @@ export default async function EspetaculosPage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
-                  Plástico, um mito contemporâneo
+                  {plasticoShow?.title || "Plástico, um mito contemporâneo"}
                 </h2>
               </BrushBanner>
             </div>
@@ -874,7 +874,7 @@ export default async function EspetaculosPage() {
             <div>
               <BrushBanner color="yellow" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
-                  Histórias do Bosque dos Guarantãs
+                  {guarantasShow?.title || "Histórias do Bosque dos Guarantãs"}
                 </h2>
               </BrushBanner>
               <p className="text-lg sm:text-2xl font-black text-[#2A1230] mt-2">
@@ -1057,7 +1057,7 @@ export default async function EspetaculosPage() {
               <div>
                 <BrushBanner color="yellow" shape="wave" className="-ml-2">
                   <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
-                    Show Nascente
+                    {nascenteShow?.title || "Show Nascente"}
                   </h2>
                 </BrushBanner>
               </div>
@@ -1130,8 +1130,8 @@ export default async function EspetaculosPage() {
                 Mais Espetáculos em Repertório
               </span>
               <div>
-                <BrushBanner color="orange" shape="wave" className="-ml-2">
-                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#3A1D40]">
+                <BrushBanner color="crimson" shape="wave" className="-ml-2">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                     Novas Criações
                   </h2>
                 </BrushBanner>

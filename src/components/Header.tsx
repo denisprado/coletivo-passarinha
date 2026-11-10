@@ -24,6 +24,16 @@ export default function Header() {
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   if (pathname?.startsWith("/keystatic")) {
     return null;
   }
@@ -72,16 +82,6 @@ export default function Header() {
     { name: "Audiovisual", href: "/audiovisual" },
     { name: "Contato", href: "/contato" },
   ];
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setOpenDropdown(null);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   const isActive = (path: string) => {
     if (path === "/" && pathname === "/") return true;

@@ -83,7 +83,7 @@ export default async function PraticasFormativasPage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
-                  Ateliê Jogar Dentro
+                  {atelieWorkshop?.title || "Ateliê Jogar Dentro"}
                 </h2>
               </BrushBanner>
               <p className="text-lg sm:text-2xl font-black text-[#3A1D40] mt-2">
@@ -268,7 +268,7 @@ export default async function PraticasFormativasPage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
-                  Ecobrinquedoteca Jogar Dentro
+                  {ecobrinquedoWorkshop?.title || "Ecobrinquedoteca Jogar Dentro"}
                 </h2>
               </BrushBanner>
               <p className="text-lg sm:text-2xl font-black text-[#FDBC2E] mt-2">
@@ -522,7 +522,7 @@ export default async function PraticasFormativasPage() {
               <div>
                 <BrushBanner color="yellow" shape="wave" className="-ml-2">
                   <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
-                    Orquestra de Pandeiros
+                    {pandeirosWorkshop?.title || "Orquestra de Pandeiros"}
                   </h2>
                 </BrushBanner>
               </div>
