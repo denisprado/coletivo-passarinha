@@ -15,12 +15,42 @@ export default config({
     brand: {
       name: "Coletivo Passarinha",
       mark: () =>
-        React.createElement("img", {
-          src: "/brand/passarinha-ave.webp",
-          alt: "Coletivo Passarinha",
-          height: 28,
-          style: { objectFit: "contain" },
-        }),
+        React.createElement(
+          "div",
+          {
+            style: {
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            },
+          },
+          [
+            React.createElement("img", {
+              key: "brand-logo",
+              src: "/brand/passarinha-ave.webp",
+              alt: "Coletivo Passarinha",
+              style: {
+                height: "32px",
+                width: "auto",
+                maxHeight: "32px",
+                objectFit: "contain",
+              },
+            }),
+            React.createElement(
+              "span",
+              {
+                key: "brand-title",
+                style: {
+                  fontWeight: 700,
+                  fontSize: "15px",
+                  lineHeight: "1.2",
+                  color: "inherit",
+                },
+              },
+              "Coletivo Passarinha",
+            ),
+          ],
+        ),
     },
     navigation: {
       "Criações Artísticas": ["espetaculos"],
