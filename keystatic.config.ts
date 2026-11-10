@@ -1,17 +1,14 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
 
 const isGitHubStorage =
-  process.env.NODE_ENV === 'production' &&
-  (process.env.KEYSTATIC_STORAGE === 'github' || Boolean(process.env.KEYSTATIC_GITHUB_CLIENT_ID));
+  Boolean(process.env.KEYSTATIC_GITHUB_CLIENT_ID) ||
+  Boolean(process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG);
 
 export default config({
   storage: isGitHubStorage
     ? {
         kind: 'github',
-        repo: {
-          owner: 'denisprado',
-          name: 'coletivo-passarinha',
-        },
+        repo: 'denisprado/coletivo-passarinha',
       }
     : {
         kind: 'local',
