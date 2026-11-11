@@ -53,7 +53,7 @@ export default async function EspetaculosPage() {
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Roxa Acrílica */}
-      <section className="canvas-roxo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      <section className="canvas-roxo pt-16 pb-12 sm:pt-20 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40]">
             <Theater className="w-4 h-4" /> Criações Cênico-Musicais
@@ -73,10 +73,12 @@ export default async function EspetaculosPage() {
             imaginação e as questões do nosso tempo.
           </p>
         </div>
-      </section>
 
-      {/* Barra Interativa de Filtro Rápido de Formatos */}
-      <EspetaculosFilterBar />
+        {/* Barra Interativa de Filtro Rápido de Formatos Integrada ao Fundo Roxo */}
+        <div className="mt-8 sm:mt-10">
+          <EspetaculosFilterBar />
+        </div>
+      </section>
 
       {/* =====================================================================
           1. HISTÓRIAS QUE A PASSARINHA ME CONTOU (Amarelo Ipê Acrílico)
