@@ -7,6 +7,7 @@ import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import PraticasFilterBar from "@/components/PraticasFilterBar";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getWorkshops } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -87,10 +88,22 @@ export default async function PraticasFormativasPage() {
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                   {atelieWorkshop?.title || "Ateliê Jogar Dentro"}
+                  <AdminEditLink
+                    collection="praticasFormativas"
+                    slug="atelie-jogar-dentro"
+                    field="Título da Prática / Oficina"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
               <p className="text-lg sm:text-2xl font-black text-[#3A1D40] mt-2">
-                Arte, criação e reaproveitamento de materiais
+                {atelieWorkshop?.subtitle || "Arte, criação e reaproveitamento de materiais"}
+                <AdminEditLink
+                  collection="praticasFormativas"
+                  slug="atelie-jogar-dentro"
+                  field="Subtítulo"
+                  label="Subtítulo"
+                />
               </p>
             </div>
 
@@ -104,6 +117,14 @@ export default async function PraticasFormativasPage() {
           {/* Bloco 1: Parágrafos 1, 2 e 3 + Fotos 1 e 2 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="praticasFormativas"
+                  slug="atelie-jogar-dentro"
+                  field="Conceito, Metodologia e Apresentação"
+                  label="Editar texto"
+                />
+              </div>
               {atelieWorkshop?.content && atelieWorkshop.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={atelieWorkshop.content}
@@ -282,10 +303,22 @@ export default async function PraticasFormativasPage() {
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                   {ecobrinquedoWorkshop?.title || "Ecobrinquedoteca Jogar Dentro"}
+                  <AdminEditLink
+                    collection="praticasFormativas"
+                    slug="ecobrinquedoteca-jogar-dentro"
+                    field="Título da Prática / Oficina"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
               <p className="text-lg sm:text-2xl font-black text-[#FDBC2E] mt-2">
-                Arte Educação Ambiental
+                {ecobrinquedoWorkshop?.subtitle || "Arte Educação Ambiental"}
+                <AdminEditLink
+                  collection="praticasFormativas"
+                  slug="ecobrinquedoteca-jogar-dentro"
+                  field="Subtítulo"
+                  label="Subtítulo"
+                />
               </p>
             </div>
 
@@ -297,32 +330,50 @@ export default async function PraticasFormativasPage() {
           {/* Bloco 1: Parágrafos 1 a 4 + 2 Fotos */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
-              <p className="text-[#FDBC2E] font-semibold">
-                A Ecobrinquedoteca Jogar Dentro nasceu dessa inquietação: o que
-                acontece quando mudamos nosso olhar para aquilo que descartamos?
-                O que pode surgir quando materiais que perderam sua função
-                original encontram novas possibilidades nas mãos de quem brinca?
-              </p>
-              <p>
-                Itinerante e aberta ao encontro, a Ecobrinquedoteca reúne
-                brinquedos, jogos, materiais reaproveitados, elementos naturais
-                e brincadeiras, convidando pessoas de diferentes idades a
-                experimentar, imaginar, criar e descobrir outras formas de se
-                relacionar com os objetos, com o ambiente e com as pessoas ao
-                redor.
-              </p>
-              <p className="font-black text-[#FDBC2E] text-lg">
-                Mais do que reunir brinquedos, a Ecobrinquedoteca reúne
-                possibilidades de brincar.
-              </p>
-              <p>
-                A proposta nasce do encontro entre a Cultura do Brincar e a Arte
-                Educação Ambiental. Compreendemos o brincar como linguagem,
-                experiência artística e patrimônio cultural vivo, que se
-                transforma e se reinventa a cada encontro. Brincar é
-                experimentar o mundo, construir relações, inventar regras,
-                compartilhar descobertas e produzir sentidos coletivamente.
-              </p>
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="praticasFormativas"
+                  slug="ecobrinquedoteca-jogar-dentro"
+                  field="Conceito, Metodologia e Apresentação"
+                  label="Editar texto"
+                />
+              </div>
+              {ecobrinquedoWorkshop?.content && ecobrinquedoWorkshop.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={ecobrinquedoWorkshop.content}
+                  theme="purple"
+                  className="text-base sm:text-lg leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p className="text-[#FDBC2E] font-semibold">
+                    A Ecobrinquedoteca Jogar Dentro nasceu dessa inquietação: o que
+                    acontece quando mudamos nosso olhar para aquilo que descartamos?
+                    O que pode surgir quando materiais que perderam sua função
+                    original encontram novas possibilidades nas mãos de quem brinca?
+                  </p>
+                  <p>
+                    Itinerante e aberta ao encontro, a Ecobrinquedoteca reúne
+                    brinquedos, jogos, materiais reaproveitados, elementos naturais
+                    e brincadeiras, convidando pessoas de diferentes idades a
+                    experimentar, imaginar, criar e descobrir outras formas de se
+                    relacionar com os objetos, com o ambiente e com as pessoas ao
+                    redor.
+                  </p>
+                  <p className="font-black text-[#FDBC2E] text-lg">
+                    Mais do que reunir brinquedos, a Ecobrinquedoteca reúne
+                    possibilidades de brincar.
+                  </p>
+                  <p>
+                    A proposta nasce do encontro entre a Cultura do Brincar e a Arte
+                    Educação Ambiental. Compreendemos o brincar como linguagem,
+                    experiência artística e patrimônio cultural vivo, que se
+                    transforma e se reinventa a cada encontro. Brincar é
+                    experimentar o mundo, construir relações, inventar regras,
+                    compartilhar descobertas e produzir sentidos coletivamente.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
@@ -536,6 +587,12 @@ export default async function PraticasFormativasPage() {
                 <BrushBanner color="yellow" shape="wave" className="-ml-2">
                   <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
                     {pandeirosWorkshop?.title || "Orquestra de Pandeiros"}
+                    <AdminEditLink
+                      collection="praticasFormativas"
+                      slug="orquestra-de-pandeiros"
+                      field="Título da Prática / Oficina"
+                      label="Editar título"
+                    />
                   </h2>
                 </BrushBanner>
               </div>
@@ -546,29 +603,51 @@ export default async function PraticasFormativasPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-6 text-[#3A1D40]">
               <div className="space-y-2">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#3A1D40]">
-                  Sinopse
-                </h3>
-                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
-                  A Orquestra de Pandeiros é uma ação artístico-pedagógica de
-                  educação musical que tem como fundamento as manifestações
-                  percussivas da cultura popular brasileira e a prática musical
-                  coletiva. De caráter intergeracional, reúne pessoas com e sem
-                  experiência musical em processos de criação, escuta e
-                  aprendizagem compartilhada, tendo o pandeiro como instrumento
-                  de encontro, expressão e convivência. Idealizado em 2021, o
-                  projeto nasceu em Londrina/PR e, em 2023, tornou-se objeto de
-                  pesquisa no curso de Mestrado em Música da UNICAMP.
-                  Atualmente, desenvolve uma atuação itinerante por festivais,
-                  universidades e espaços culturais, difundindo a riqueza das
-                  tradições percussivas brasileiras e fortalecendo a música como
-                  experiência coletiva, inclusiva e transformadora.
-                </p>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-[#3A1D40]">
+                    Sinopse
+                  </h3>
+                  <AdminEditLink
+                    collection="praticasFormativas"
+                    slug="orquestra-de-pandeiros"
+                    field="Conceito, Metodologia e Apresentação"
+                    label="Editar sinopse"
+                  />
+                </div>
+                {pandeirosWorkshop?.content && pandeirosWorkshop.content.length > 0 ? (
+                  <CustomDocumentRenderer
+                    document={pandeirosWorkshop.content}
+                    theme="yellow"
+                    className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold"
+                  />
+                ) : (
+                  <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
+                    A Orquestra de Pandeiros é uma ação artístico-pedagógica de
+                    educação musical que tem como fundamento as manifestações
+                    percussivas da cultura popular brasileira e a prática musical
+                    coletiva. De caráter intergeracional, reúne pessoas com e sem
+                    experiência musical em processos de criação, escuta e
+                    aprendizagem compartilhada, tendo o pandeiro como instrumento
+                    de encontro, expressão e convivência. Idealizado em 2021, o
+                    projeto nasceu em Londrina/PR e, em 2023, tornou-se objeto de
+                    pesquisa no curso de Mestrado em Música da UNICAMP.
+                    Atualmente, desenvolve uma atuação itinerante por festivais,
+                    universidades e espaços culturais, difundindo a riqueza das
+                    tradições percussivas brasileiras e fortalecendo a música como
+                    experiência coletiva, inclusiva e transformadora.
+                  </p>
+                )}
               </div>
 
               <div className="pt-4 border-t-2 border-[#3A1D40]/25 space-y-2">
                 <h3 className="text-sm font-black uppercase tracking-wider text-[#3A1D40]">
                   Princípios
+                  <AdminEditLink
+                    collection="praticasFormativas"
+                    slug="orquestra-de-pandeiros"
+                    field="Princípios Metodológicos"
+                    label="Princípios"
+                  />
                 </h3>
                 <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
                   A Orquestra de Pandeiros fundamenta-se nas manifestações
@@ -588,16 +667,28 @@ export default async function PraticasFormativasPage() {
               <div className="painel-rustico p-6 space-y-2">
                 <h3 className="text-xs font-black uppercase tracking-wider text-[#E91C47]">
                   Para quem é a Oficina Orquestra de Pandeiros?
+                  <AdminEditLink
+                    collection="praticasFormativas"
+                    slug="orquestra-de-pandeiros"
+                    field="Público Alvo"
+                    label="Editar"
+                  />
                 </h3>
                 <p className="text-sm sm:text-base text-[#3A1D40] font-semibold">
-                  A oficina é recomendada para pessoas de todas as idades a
-                  partir dos 12 anos, com ou sem experiência musical anterior.
+                  {pandeirosWorkshop?.targetAudience ||
+                    "A oficina é recomendada para pessoas de todas as idades a partir dos 12 anos, com ou sem experiência musical anterior."}
                 </p>
               </div>
 
               <div className="painel-rustico p-6 space-y-2.5 text-sm sm:text-base text-[#3A1D40] font-medium">
                 <h3 className="text-xs font-black uppercase tracking-wider text-[#E91C47]">
                   Qual o limite de público da Oficina Orquestra de Pandeiros?
+                  <AdminEditLink
+                    collection="praticasFormativas"
+                    slug="orquestra-de-pandeiros"
+                    field="Limite de Vagas / Público"
+                    label="Editar"
+                  />
                 </h3>
                 <p>
                   Será disponibilizado pela oficineira os instrumentos para a

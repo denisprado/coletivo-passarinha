@@ -17,6 +17,7 @@ import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import EspetaculosFilterBar from "@/components/EspetaculosFilterBar";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getShows } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -109,6 +110,12 @@ export default async function EspetaculosPage() {
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                   {passarinhaShow?.title || "Histórias que a Passarinha me contou"}
+                  <AdminEditLink
+                    collection="espetaculos"
+                    slug="historias-que-a-passarinha-me-contou"
+                    field="Título do Espetáculo"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -117,6 +124,14 @@ export default async function EspetaculosPage() {
           {/* Texto Geral Integral + 2 Fotos Intercaladas */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="espetaculos"
+                  slug="historias-que-a-passarinha-me-contou"
+                  field="Apresentação, Sinopse e Rider Técnico"
+                  label="Editar texto"
+                />
+              </div>
               {passarinhaShow?.content && passarinhaShow.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={passarinhaShow.content}
@@ -486,6 +501,12 @@ export default async function EspetaculosPage() {
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                   {plasticoShow?.title || "Plástico, um mito contemporâneo"}
+                  <AdminEditLink
+                    collection="espetaculos"
+                    slug="plastico-um-mito-contemporaneo"
+                    field="Título do Espetáculo"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -494,6 +515,14 @@ export default async function EspetaculosPage() {
           {/* Sinopse + Ficha Técnica + Foto Principal */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-6 text-[#FDBC2E]">
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="espetaculos"
+                  slug="plastico-um-mito-contemporaneo"
+                  field="Apresentação, Sinopse e Rider Técnico"
+                  label="Editar texto"
+                />
+              </div>
               {plasticoShow?.content && plasticoShow.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={plasticoShow.content}
@@ -518,6 +547,12 @@ export default async function EspetaculosPage() {
               <div className="pt-4 border-t-2 border-[#FDBC2E]/30 space-y-3">
                 <h3 className="text-xs font-black uppercase tracking-widest text-[#FDBC2E]">
                   Ficha Técnica
+                  <AdminEditLink
+                    collection="espetaculos"
+                    slug="plastico-um-mito-contemporaneo"
+                    field="Ficha Técnica"
+                    label="Editar ficha"
+                  />
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   {[
@@ -896,10 +931,22 @@ export default async function EspetaculosPage() {
               <BrushBanner color="yellow" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
                   {guarantasShow?.title || "Histórias do Bosque dos Guarantãs"}
+                  <AdminEditLink
+                    collection="espetaculos"
+                    slug="historias-do-bosque-dos-guarantas"
+                    field="Título do Espetáculo"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
               <p className="text-lg sm:text-2xl font-black text-[#2A1230] mt-2">
                 Um passeio turístico, cultural e ambiental
+                <AdminEditLink
+                  collection="espetaculos"
+                  slug="historias-do-bosque-dos-guarantas"
+                  field="Subtítulo / Chamada"
+                  label="Subtítulo"
+                />
               </p>
             </div>
           </div>
@@ -907,6 +954,14 @@ export default async function EspetaculosPage() {
           {/* Bloco 1: 3 Parágrafos Iniciais + Fotos de Interações */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="espetaculos"
+                  slug="historias-do-bosque-dos-guarantas"
+                  field="Apresentação, Sinopse e Rider Técnico"
+                  label="Editar texto"
+                />
+              </div>
               {guarantasShow?.content && guarantasShow.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={guarantasShow.content}
@@ -1089,6 +1144,12 @@ export default async function EspetaculosPage() {
                 <BrushBanner color="yellow" shape="wave" className="-ml-2">
                   <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
                     {nascenteShow?.title || "Show Nascente"}
+                    <AdminEditLink
+                      collection="espetaculos"
+                      slug="show-nascente"
+                      field="Título do Espetáculo"
+                      label="Editar título"
+                    />
                   </h2>
                 </BrushBanner>
               </div>
@@ -1096,6 +1157,14 @@ export default async function EspetaculosPage() {
           </div>
 
           <div className="space-y-4 max-w-4xl text-[#FDF6E4]">
+            <div className="flex justify-end">
+              <AdminEditLink
+                collection="espetaculos"
+                slug="show-nascente"
+                field="Apresentação, Sinopse e Rider Técnico"
+                label="Editar texto"
+              />
+            </div>
             {nascenteShow?.content && nascenteShow.content.length > 0 ? (
               <CustomDocumentRenderer
                 document={nascenteShow.content}
@@ -1182,6 +1251,7 @@ export default async function EspetaculosPage() {
                 <div
                   key={show.id}
                   id={show.id}
+                  data-admin-section
                   className="painel-rustico p-7 sm:p-9 space-y-6 flex flex-col justify-between"
                 >
                   <div className="space-y-4">
@@ -1196,6 +1266,12 @@ export default async function EspetaculosPage() {
 
                     <h3 className="text-2xl font-black text-[#E91C47] uppercase">
                       {show.title}
+                      <AdminEditLink
+                        collection="espetaculos"
+                        slug={show.id}
+                        field="Título do Espetáculo"
+                        label="Editar"
+                      />
                     </h3>
                     {show.subtitle && (
                       <p className="text-sm font-bold text-[#532E5A] italic">

@@ -6,6 +6,7 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getAruContent } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -88,11 +89,13 @@ export default async function AruPage() {
           <div className="text-center space-y-5 max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
               <BookOpen className="w-4 h-4 text-[#FDBC2E]" /> {aruContent.tagline}
+              <AdminEditLink singleton="aru" field="Etiqueta / Categoria" label="Editar etiqueta" />
             </div>
             <div>
               <BrushBanner color="crimson" shape="wave">
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#FDBC2E]">
                   {aruContent.title}
+                  <AdminEditLink singleton="aru" field="Título da Obra" label="Editar título da obra" />
                 </h1>
               </BrushBanner>
             </div>
@@ -101,6 +104,9 @@ export default async function AruPage() {
           {/* Bloco 1: Parágrafos 1, 2 e 3 + Fotos ao Lado */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <div className="flex items-center justify-end">
+                <AdminEditLink singleton="aru" field="Apresentação e Sinopse da História" label="Editar apresentação e sinopse" />
+              </div>
               {aruContent.content && aruContent.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={aruContent.content}
@@ -228,6 +234,7 @@ export default async function AruPage() {
             <BrushBanner color="crimson" shape="wave">
               <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
                 Os 12 Princípios da Permacultura
+                <AdminEditLink singleton="aru" field="12 Princípios da Permacultura" label="Editar lista dos 12 princípios" />
               </h2>
             </BrushBanner>
             <p className="text-[#FDBC2E] text-sm sm:text-base font-bold block">
@@ -276,13 +283,14 @@ export default async function AruPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1: E-book */}
-            <div className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
+            <div data-admin-section className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-xl bg-[#E91C47] text-[#FDF6E4] flex items-center justify-center shadow-sm">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40] uppercase">
                   E-book Ilustrado
+                  <AdminEditLink singleton="aru" field="Link de Download do E-book Gratuito" label="Editar link do e-book" />
                 </h3>
                 <p className="text-xs sm:text-sm text-[#3A1D40]/90 leading-relaxed font-medium">
                   História completa em cordel com fotografias dos personagens e
@@ -300,13 +308,14 @@ export default async function AruPage() {
             </div>
 
             {/* Card 2: Cartilha / Materiais Pedagógicos */}
-            <div className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
+            <div data-admin-section className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-xl bg-[#532E5A] text-[#FDBC2E] flex items-center justify-center shadow-sm">
                   <FileCheck className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40] uppercase">
                   Materiais Pedagógicos
+                  <AdminEditLink singleton="aru" field="Link de Download da Cartilha Pedagógica" label="Editar link da cartilha" />
                 </h3>
                 <p className="text-xs sm:text-sm text-[#3A1D40]/90 leading-relaxed font-medium">
                   Cartilha de Permacultura com propostas práticas de atividades,

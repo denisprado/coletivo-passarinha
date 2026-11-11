@@ -4,6 +4,7 @@ import { Mail, MapPin, MessageCircle } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import ContatoForm from "@/components/ContatoForm";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getSiteConfig } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -61,7 +62,7 @@ export default async function ContatoPage() {
 
             <div className="space-y-4">
               {/* E-mail */}
-              <div className="painel-rustico p-5 flex items-center gap-4">
+              <div data-admin-section className="painel-rustico p-5 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-[#E91C47] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <Mail className="w-6 h-6" />
                 </div>
@@ -69,23 +70,29 @@ export default async function ContatoPage() {
                   <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider block">
                     E-mails Oficiais
                   </span>
-                  <a
-                    href={`mailto:${siteConfig.emailGeral}`}
-                    className="text-sm font-black text-[#3A1D40] hover:underline block"
-                  >
-                    {siteConfig.emailGeral}
-                  </a>
-                  <a
-                    href={`mailto:${siteConfig.emailGaratuja}`}
-                    className="text-xs font-bold text-[#3A1D40]/85 hover:underline block"
-                  >
-                    {siteConfig.emailGaratuja}
-                  </a>
+                  <div className="flex items-center gap-1">
+                    <a
+                      href={`mailto:${siteConfig.emailGeral}`}
+                      className="text-sm font-black text-[#3A1D40] hover:underline block"
+                    >
+                      {siteConfig.emailGeral}
+                    </a>
+                    <AdminEditLink singleton="configuracoes" field="E-mail Coletivo" label="Editar e-mail do Coletivo" />
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <a
+                      href={`mailto:${siteConfig.emailGaratuja}`}
+                      className="text-xs font-bold text-[#3A1D40]/85 hover:underline block"
+                    >
+                      {siteConfig.emailGaratuja}
+                    </a>
+                    <AdminEditLink singleton="configuracoes" field="E-mail Quintal Garatuja" label="Editar e-mail do Quintal" />
+                  </div>
                 </div>
               </div>
 
               {/* WhatsApp */}
-              <div className="painel-rustico p-5 flex items-center gap-4">
+              <div data-admin-section className="painel-rustico p-5 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-[#25D366] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <MessageCircle className="w-6 h-6" />
                 </div>
@@ -93,14 +100,17 @@ export default async function ContatoPage() {
                   <span className="text-xs font-black text-[#25D366] uppercase tracking-wider block">
                     WhatsApp Comercial
                   </span>
-                  <a
-                    href={`https://wa.me/${siteConfig.whatsappNumber}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-black text-[#3A1D40] hover:underline block"
-                  >
-                    {siteConfig.phone}
-                  </a>
+                  <div className="flex items-center gap-1">
+                    <a
+                      href={`https://wa.me/${siteConfig.whatsappNumber}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-black text-[#3A1D40] hover:underline block"
+                    >
+                      {siteConfig.phone}
+                    </a>
+                    <AdminEditLink singleton="configuracoes" field="Telefone Principal" label="Editar telefone e WhatsApp" />
+                  </div>
                   <span className="text-xs font-semibold text-[#3A1D40]/80">
                     Atendimento de seg a sex, 9h às 18h
                   </span>
@@ -108,7 +118,7 @@ export default async function ContatoPage() {
               </div>
 
               {/* Endereço */}
-              <div className="painel-rustico p-5 flex items-center gap-4">
+              <div data-admin-section className="painel-rustico p-5 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-[#3A1D40] text-[#FDBC2E] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6" />
                 </div>
@@ -118,6 +128,7 @@ export default async function ContatoPage() {
                   </span>
                   <p className="text-sm font-bold text-[#3A1D40]">
                     Rua São Miguel Arcanjo, 1520
+                    <AdminEditLink singleton="configuracoes" field="Endereço Quintal Garatuja" label="Editar endereço" />
                   </p>
                   <p className="text-xs text-[#3A1D40]/85 font-medium">
                     Jardim Nova Europa — Campinas/SP
@@ -127,9 +138,10 @@ export default async function ContatoPage() {
             </div>
 
             {/* Redes Sociais */}
-            <div className="painel-rustico p-6 space-y-3">
-              <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider block">
-                Siga e Conecte-se
+            <div data-admin-section className="painel-rustico p-6 space-y-3">
+              <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider flex items-center justify-between">
+                <span>Siga e Conecte-se</span>
+                <AdminEditLink singleton="configuracoes" field="Instagram Coletivo" label="Editar redes sociais" />
               </span>
               <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-black text-[#3A1D40]">
                 <a

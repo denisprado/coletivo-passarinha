@@ -16,6 +16,7 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getGaratujaContent, getGaratujaProjects } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -98,6 +99,7 @@ export default async function QuintalGaratujaPage() {
             <div className="lg:col-span-4 flex flex-col items-center lg:items-start space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
                 <Home className="w-4 h-4 text-[#FDBC2E]" /> {garatujaSite.tag}
+                <AdminEditLink singleton="quintalGaratuja" field="Etiqueta / Badge" label="Editar etiqueta" />
               </div>
 
               <div className="relative w-64 h-40 bg-[#FDF6E4] p-4 rounded-2xl border border-[#3A1D40]/25 shadow-xl">
@@ -117,11 +119,13 @@ export default async function QuintalGaratujaPage() {
                 <BrushBanner color="crimson" shape="wave" className="-ml-2">
                   <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                     {garatujaSite.title}
+                    <AdminEditLink singleton="quintalGaratuja" field="Título Principal" label="Editar título" />
                   </h1>
                 </BrushBanner>
               </div>
               <p className="text-base sm:text-xl text-[#3A1D40] font-bold leading-relaxed">
                 {garatujaSite.leadText}
+                <AdminEditLink singleton="quintalGaratuja" field="Texto Destaque / Apresentação" label="Editar texto de apresentação" />
               </p>
             </div>
           </div>
@@ -129,6 +133,9 @@ export default async function QuintalGaratujaPage() {
           {/* Bloco 1 de Texto Integral + Fotos Intercaladas à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <div className="flex items-center justify-end">
+                <AdminEditLink singleton="quintalGaratuja" field="História, Manifesto e Atuação Territorial" label="Editar história e manifesto" />
+              </div>
               {garatujaSite.content && garatujaSite.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={garatujaSite.content}
@@ -270,17 +277,20 @@ export default async function QuintalGaratujaPage() {
           <div className="space-y-4 max-w-4xl">
             <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#FDBC2E] text-[#3A1D40] text-xs font-black uppercase tracking-wider">
               <Theater className="w-4 h-4" /> {variedadesProject?.tag || "Saiba mais sobre alguns projetos de continuidade"}
+              <AdminEditLink collection="projetosGaratuja" slug="show-de-variedades" field="Tag / Etiqueta" label="Editar etiqueta" />
             </span>
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
                   {variedadesProject?.title || "Show de Variedades"}
+                  <AdminEditLink collection="projetosGaratuja" slug="show-de-variedades" field="Título do Projeto" label="Editar título" />
                 </h2>
               </BrushBanner>
             </div>
             <p className="text-base sm:text-xl text-[#FDBC2E] font-medium leading-relaxed">
               {variedadesProject?.shortDescription ||
                 "Nossa curadoria cuidadosa transforma o palco em um panorama cultural da cidade. Com mais de 10 edições, desde 2019, já recebemos mais de 40 artistas de todas as partes do município, de outros estados e também de outros países."}
+              <AdminEditLink collection="projetosGaratuja" slug="show-de-variedades" field="Apresentação e Descrição Completa" label="Editar descrição" />
             </p>
           </div>
 
@@ -324,17 +334,20 @@ export default async function QuintalGaratujaPage() {
             <div className="space-y-4 max-w-4xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#532E5A] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
                 <Music className="w-4 h-4" /> {nossoCantoProject?.tag || "Projeto de Continuidade"}
+                <AdminEditLink collection="projetosGaratuja" slug="nosso-canto" field="Tag / Etiqueta" label="Editar etiqueta" />
               </span>
               <div>
                 <BrushBanner color="yellow" shape="wave" className="-ml-2">
                   <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#532E5A]">
                     {nossoCantoProject?.title || "Nosso Canto"}
+                    <AdminEditLink collection="projetosGaratuja" slug="nosso-canto" field="Título do Projeto" label="Editar título" />
                   </h2>
                 </BrushBanner>
               </div>
               <p className="text-base sm:text-xl text-[#2A1230] font-semibold leading-relaxed">
                 {nossoCantoProject?.shortDescription ||
                   "Encontro de artistas da composição musical, com mais de 10 anos de história, Nosso Canto apresenta compositoras e compositores ao público, mas também favorece novas conexões. Além das apresentações ao vivo de canções, o coletivo promoveu a gravação do primeiro álbum Nosso Canto Volume 1, além de entrevistas em podcast, disponibilização de vídeos de canções autorais e difusão das composições da cidade através de playlist."}
+                <AdminEditLink collection="projetosGaratuja" slug="nosso-canto" field="Apresentação e Descrição Completa" label="Editar descrição" />
               </p>
             </div>
             <div className="bg-[#3A1D40] text-[#FDBC2E] px-5 py-3 rounded-xl text-xs sm:text-sm font-black shrink-0 shadow-md">
@@ -382,15 +395,20 @@ export default async function QuintalGaratujaPage() {
             <div className="space-y-4 max-w-4xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
                 <Sparkles className="w-4 h-4" /> {formativasProject?.tag || "Projeto de Continuidade"}
+                <AdminEditLink collection="projetosGaratuja" slug="acoes-formativas" field="Tag / Etiqueta" label="Editar etiqueta" />
               </span>
               <div>
                 <BrushBanner color="yellow" shape="tilted" className="-ml-2">
                   <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#532E5A]">
                     {formativasProject?.title || "Ações formativas"}
+                    <AdminEditLink collection="projetosGaratuja" slug="acoes-formativas" field="Título do Projeto" label="Editar título" />
                   </h2>
                 </BrushBanner>
               </div>
               <div className="space-y-3 text-base sm:text-xl text-[#FDF6E4] font-semibold leading-relaxed drop-shadow-[0_1px_2px_rgba(45,18,50,0.3)]">
+                <div className="flex items-center justify-end">
+                  <AdminEditLink collection="projetosGaratuja" slug="acoes-formativas" field="Apresentação e Descrição Completa" label="Editar descrição" />
+                </div>
                 {formativasProject?.paragraphs?.length ? (
                   formativasProject.paragraphs.map((p, pIdx) => <p key={pIdx}>{p}</p>)
                 ) : (
@@ -460,15 +478,20 @@ export default async function QuintalGaratujaPage() {
               <div className="space-y-4 max-w-4xl">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-widest">
                   <Trees className="w-4 h-4" /> {nucleoProject?.tag || "Projeto de Continuidade"}
+                  <AdminEditLink collection="projetosGaratuja" slug="nucleo-socioambiental" field="Tag / Etiqueta" label="Editar etiqueta" />
                 </span>
                 <div>
                   <BrushBanner color="crimson" shape="wave" className="-ml-2">
                     <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#FDBC2E]">
                       {nucleoProject?.title || "Núcleo Socioambiental do Nova Europa e Região"}
+                      <AdminEditLink collection="projetosGaratuja" slug="nucleo-socioambiental" field="Título do Projeto" label="Editar título" />
                     </h2>
                   </BrushBanner>
                 </div>
                 <div className="space-y-3 text-base sm:text-xl text-[#3A1D40] font-semibold leading-relaxed">
+                  <div className="flex items-center justify-end">
+                    <AdminEditLink collection="projetosGaratuja" slug="nucleo-socioambiental" field="Apresentação e Descrição Completa" label="Editar descrição" />
+                  </div>
                   {nucleoProject?.paragraphs?.length ? (
                     nucleoProject.paragraphs.map((p, pIdx) => <p key={pIdx}>{p}</p>)
                   ) : (
@@ -531,15 +554,18 @@ export default async function QuintalGaratujaPage() {
             <div
               key={extra.id}
               id={extra.id}
+              data-admin-section
               className="scroll-mt-24 space-y-6 text-[#3A1D40] pt-8 border-t-2 border-[#3A1D40]/20"
             >
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div className="space-y-2">
                   <span className="inline-block bg-[#3A1D40] text-[#FDBC2E] text-xs font-black uppercase tracking-wider px-3 py-1 rounded-md">
                     {extra.tag}
+                    <AdminEditLink collection="projetosGaratuja" slug={extra.id} field="Tag / Etiqueta" label="Editar etiqueta" />
                   </span>
                   <h3 className="text-2xl sm:text-4xl font-black text-[#532E5A] uppercase">
                     {extra.title}
+                    <AdminEditLink collection="projetosGaratuja" slug={extra.id} field="Título do Projeto" label="Editar título" />
                   </h3>
                 </div>
                 {extra.externalLink && (
@@ -555,11 +581,16 @@ export default async function QuintalGaratujaPage() {
                 )}
               </div>
               {extra.content && extra.content.length > 0 ? (
-                <CustomDocumentRenderer
-                  document={extra.content}
-                  theme="yellow"
-                  className="text-base sm:text-lg text-[#3A1D40] leading-relaxed"
-                />
+                <div>
+                  <div className="flex items-center justify-end mb-2">
+                    <AdminEditLink collection="projetosGaratuja" slug={extra.id} field="Apresentação e Descrição Completa" label="Editar descrição" />
+                  </div>
+                  <CustomDocumentRenderer
+                    document={extra.content}
+                    theme="yellow"
+                    className="text-base sm:text-lg text-[#3A1D40] leading-relaxed"
+                  />
+                </div>
               ) : (
                 <div className="space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed">
                   {extra.paragraphs.map((p, idx) => (
@@ -576,7 +607,7 @@ export default async function QuintalGaratujaPage() {
           ))}
 
           {/* Bloco de Endereço e Contato do Quintal */}
-          <div id="contato" className="scroll-mt-24 canvas-roxo text-[#FDBC2E] p-8 sm:p-11 rounded-2xl border border-[#3A1D40]/30 shadow-xl space-y-6">
+          <div id="contato" data-admin-section className="scroll-mt-24 canvas-roxo text-[#FDBC2E] p-8 sm:p-11 rounded-2xl border border-[#3A1D40]/30 shadow-xl space-y-6">
             <h3 className="text-2xl sm:text-3xl font-black text-[#FDBC2E] uppercase">
               Ponto de Cultura Quintal Garatuja
             </h3>
@@ -587,9 +618,11 @@ export default async function QuintalGaratujaPage() {
                   <div>
                     <strong className="block text-[#FDBC2E] text-lg">
                       {garatujaSite.street}
+                      <AdminEditLink singleton="quintalGaratuja" field="Rua e Número" label="Editar rua e número" />
                     </strong>
                     <span className="block text-sm text-[#FDF6E4]/90 font-semibold">
                       {garatujaSite.neighborhood}
+                      <AdminEditLink singleton="quintalGaratuja" field="Bairro e Cidade" label="Editar bairro e cidade" />
                     </span>
                   </div>
                 </div>
@@ -601,31 +634,38 @@ export default async function QuintalGaratujaPage() {
                   >
                     {garatujaSite.email}
                   </a>
+                  <AdminEditLink singleton="quintalGaratuja" field="E-mail de Contato" label="Editar e-mail" />
                 </div>
               </div>
 
               <div className="space-y-4 flex flex-col justify-between">
-                <a
-                  href={garatujaSite.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-[#FDF6E4] hover:text-[#FDBC2E] font-bold transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-sm">
-                    <InstagramIcon className="w-5 h-5" />
-                  </div>
-                  <span>Acompanhe as últimas postagens em @quintalgaratuja</span>
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={garatujaSite.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-[#FDF6E4] hover:text-[#FDBC2E] font-bold transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-sm">
+                      <InstagramIcon className="w-5 h-5" />
+                    </div>
+                    <span>Acompanhe as últimas postagens em @quintalgaratuja</span>
+                  </a>
+                  <AdminEditLink singleton="quintalGaratuja" field="Instagram do Quintal" label="Editar Instagram" />
+                </div>
 
-                <a
-                  href={garatujaSite.linktree}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#532E5A] text-xs sm:text-sm py-3 px-5 flex items-center justify-center gap-2"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Inscrições e Formulários (Linktree)
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={garatujaSite.linktree}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#532E5A] text-xs sm:text-sm py-3 px-5 flex-1 flex items-center justify-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Inscrições e Formulários (Linktree)
+                  </a>
+                  <AdminEditLink singleton="quintalGaratuja" field="Linktree de Cursos e Inscrições" label="Editar Linktree" />
+                </div>
               </div>
             </div>
           </div>

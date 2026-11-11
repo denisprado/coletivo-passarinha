@@ -5,6 +5,7 @@ import { Play, ExternalLink, Film } from "lucide-react";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getAudiovisualWorks } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
 
 export default async function AudiovisualPage() {
   const works = await getAudiovisualWorks();
+  const caixaMagicaWork = works.find((w) => w.id === "a-caixa-magica" || w.id === "caixa-magica");
   const foraDeOndeWork = works.find((w) => w.id === "fora-de-onde");
+  const formigueiroWork = works.find((w) => w.id === "o-que-se-passa-no-formigueiro");
   const extraWorks = works.filter(
     (w) =>
       ![
@@ -69,7 +72,13 @@ export default async function AudiovisualPage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
-                  A caixa mágica
+                  {caixaMagicaWork?.title || "A caixa mágica"}
+                  <AdminEditLink
+                    collection="audiovisual"
+                    slug="a-caixa-magica"
+                    field="Título da Obra"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -78,25 +87,43 @@ export default async function AudiovisualPage() {
           {/* Bloco 1: 3 Parágrafos Iniciais + Foto 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
-              <p className="text-[#FDBC2E] font-semibold">
-                Uma palhaça e um palhaço abrem sua caixa mágica e, com a ajuda
-                da Mãozinha, brincam com a ressignificação de objetos,
-                explorando criativamente suas infinitas possibilidades antes do
-                descartado.
-              </p>
-              <p>
-                Tudo começa quando Pirulita e Pouca Sombra percebem que estão
-                passando tanto tempo no celular que se esqueceram de brincar!
-                Assustados com essa descoberta, decidem encontrar uma solução
-                para que outras crianças não passem pelo mesmo. E qual é a ideia
-                da dupla? Usar o próprio celular para ajudar todo mundo a ficar
-                longe dele!
-              </p>
-              <p>
-                Um curta-metragem do Coletivo Passarinha que mistura humor,
-                brincadeira e reflexão sobre o uso das telas e as possibilidades
-                que os objetos guardam antes de serem descartados.
-              </p>
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="audiovisual"
+                  slug="a-caixa-magica"
+                  field="Sinopse, Contexto e Reflexões"
+                  label="Editar texto"
+                />
+              </div>
+              {caixaMagicaWork?.content && caixaMagicaWork.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={caixaMagicaWork.content}
+                  theme="purple"
+                  className="text-base sm:text-lg leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p className="text-[#FDBC2E] font-semibold">
+                    Uma palhaça e um palhaço abrem sua caixa mágica e, com a ajuda
+                    da Mãozinha, brincam com a ressignificação de objetos,
+                    explorando criativamente suas infinitas possibilidades antes do
+                    descartado.
+                  </p>
+                  <p>
+                    Tudo começa quando Pirulita e Pouca Sombra percebem que estão
+                    passando tanto tempo no celular que se esqueceram de brincar!
+                    Assustados com essa descoberta, decidem encontrar uma solução
+                    para que outras crianças não passem pelo mesmo. E qual é a ideia
+                    da dupla? Usar o próprio celular para ajudar todo mundo a ficar
+                    longe dele!
+                  </p>
+                  <p>
+                    Um curta-metragem do Coletivo Passarinha que mistura humor,
+                    brincadeira e reflexão sobre o uso das telas e as possibilidades
+                    que os objetos guardam antes de serem descartados.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-5">
@@ -166,6 +193,12 @@ export default async function AudiovisualPage() {
           <div className="pt-4 border-t-2 border-[#FDBC2E]/30 space-y-3">
             <h3 className="text-xs font-black uppercase tracking-widest text-[#FDBC2E]">
               Ficha Técnica & Elenco
+              <AdminEditLink
+                collection="audiovisual"
+                slug="a-caixa-magica"
+                field="Ficha Técnica"
+                label="Editar ficha"
+              />
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
               <div className="p-3.5 bg-[#241128]/80 rounded-lg border border-[#FDBC2E]/30 text-[#FDF6E4]">
@@ -220,7 +253,13 @@ export default async function AudiovisualPage() {
             <div>
               <BrushBanner color="yellow" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#532E5A]">
-                  Fora de onde?
+                  {foraDeOndeWork?.title || "Fora de onde?"}
+                  <AdminEditLink
+                    collection="audiovisual"
+                    slug="fora-de-onde"
+                    field="Título da Obra"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -242,6 +281,14 @@ export default async function AudiovisualPage() {
           {/* Texto Completo Intercalado com Cartaz Oficial e Foto de Cena */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-6 text-[#3A1D40]">
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="audiovisual"
+                  slug="fora-de-onde"
+                  field="Sinopse, Contexto e Reflexões"
+                  label="Editar texto"
+                />
+              </div>
               {foraDeOndeWork?.content && foraDeOndeWork.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={foraDeOndeWork.content}
@@ -280,6 +327,12 @@ export default async function AudiovisualPage() {
               <div className="pt-4 border-t-2 border-[#3A1D40]/20 space-y-3">
                 <h3 className="text-xs font-black uppercase tracking-widest text-[#3A1D40]">
                   Ficha Técnica
+                  <AdminEditLink
+                    collection="audiovisual"
+                    slug="fora-de-onde"
+                    field="Ficha Técnica"
+                    label="Editar ficha"
+                  />
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   <div className="p-3 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
@@ -368,7 +421,13 @@ export default async function AudiovisualPage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
-                  O que se passa no formigueiro?
+                  {formigueiroWork?.title || "O que se passa no formigueiro?"}
+                  <AdminEditLink
+                    collection="audiovisual"
+                    slug="o-que-se-passa-no-formigueiro"
+                    field="Título da Obra"
+                    label="Editar título"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -390,6 +449,14 @@ export default async function AudiovisualPage() {
           {/* Sinopse + Ficha Técnica + Fotos de Cena */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <div className="flex justify-end">
+                <AdminEditLink
+                  collection="audiovisual"
+                  slug="o-que-se-passa-no-formigueiro"
+                  field="Sinopse, Contexto e Reflexões"
+                  label="Editar texto"
+                />
+              </div>
               <p>
                 Um formigueiro de saúvas cortadeiras passa por momentos de
                 dificuldade: a terra está diferente, há mais seres vivendo
@@ -413,6 +480,12 @@ export default async function AudiovisualPage() {
               <div className="pt-2 space-y-3">
                 <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
                   Ficha técnica
+                  <AdminEditLink
+                    collection="audiovisual"
+                    slug="o-que-se-passa-no-formigueiro"
+                    field="Ficha Técnica"
+                    label="Editar ficha"
+                  />
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">

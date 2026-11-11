@@ -257,3 +257,26 @@ html {
   animation: vooFlutuantePassarinha 0.84s steps(1) infinite;
   will-change: transform;
 }
+
+/* ==========================================================================
+   ÍCONES DE EDIÇÃO CONTEXTUAL (MODO ADMIN LOGADO - SEÇÃO ATIVA)
+   ========================================================================== */
+.admin-edit-trigger {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(2px) scale(0.94);
+}
+
+section[data-admin-active="true"] .admin-edit-trigger,
+[data-admin-section][data-admin-active="true"] .admin-edit-trigger {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+section[data-admin-active="true"] [data-admin-section]:not([data-admin-active="true"]) .admin-edit-trigger {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(2px) scale(0.94);
+}
+

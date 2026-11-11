@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { AdminEditProvider } from "@/components/AdminEditSystem";
 
 const saira = Saira({
   variable: "--font-saira",
@@ -48,10 +49,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={saira.variable}>
       <body className="min-h-screen flex flex-col bg-[#FDF6E4] text-[#532E5A] antialiased">
-        <Header />
-        <div className="flex-1">{children}</div>
-        <Footer />
-        <WhatsAppFloat />
+        <AdminEditProvider>
+          <Header />
+          <div className="flex-1">{children}</div>
+          <Footer />
+          <WhatsAppFloat />
+        </AdminEditProvider>
       </body>
     </html>
   );

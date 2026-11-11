@@ -13,6 +13,7 @@ import {
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 
 export const metadata: Metadata = {
   title: "Quem Somos & Histórico | Coletivo Passarinha",
@@ -267,6 +268,11 @@ export default async function QuemSomosPage() {
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#FDBC2E]">
                   Coletivo Passarinha
+                  <AdminEditLink
+                    singleton="paginaInicial"
+                    field="Apresentação do Coletivo na Home"
+                    label="Editar apresentação"
+                  />
                 </h1>
               </BrushBanner>
             </div>
@@ -419,6 +425,7 @@ export default async function QuemSomosPage() {
               <div
                 key={member.id}
                 id={member.id}
+                data-admin-section
                 className="painel-rustico p-6 sm:p-8 flex flex-col justify-between space-y-6 scroll-mt-24"
               >
                 <div className="space-y-5">
@@ -444,23 +451,45 @@ export default async function QuemSomosPage() {
                       <span className="inline-block bg-[#E91C47] text-[#FDF6E4] text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md">
                         {member.role}
                       </span>
+                      <AdminEditLink
+                        collection="equipe"
+                        slug={member.id}
+                        field="Função / Atuação Principal"
+                        label="Função"
+                      />
                       <h3 className="text-2xl sm:text-3xl font-black text-[#3A1D40] uppercase tracking-tight">
                         {member.name}
+                        <AdminEditLink
+                          collection="equipe"
+                          slug={member.id}
+                          field="Nome"
+                          label="Nome"
+                        />
                       </h3>
                     </div>
                   </div>
 
-                  {member.bioDoc && member.bioDoc.length > 0 ? (
-                    <CustomDocumentRenderer
-                      document={member.bioDoc}
-                      theme="yellow"
-                      className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium"
-                    />
-                  ) : (
-                    <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed whitespace-pre-line font-medium">
-                      {member.bio}
-                    </p>
-                  )}
+                  <div>
+                    <div className="flex justify-end mb-1">
+                      <AdminEditLink
+                        collection="equipe"
+                        slug={member.id}
+                        field="Minibiografia Rica"
+                        label="Editar biografia"
+                      />
+                    </div>
+                    {member.bioDoc && member.bioDoc.length > 0 ? (
+                      <CustomDocumentRenderer
+                        document={member.bioDoc}
+                        theme="yellow"
+                        className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium"
+                      />
+                    ) : (
+                      <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed whitespace-pre-line font-medium">
+                        {member.bio}
+                      </p>
+                    )}
+                  </div>
                 </div>
 
                 {/* Links Sociais / Portfólio do Integrante */}
@@ -520,18 +549,44 @@ export default async function QuemSomosPage() {
               <div key={index} className="relative group">
                 <div className="absolute -left-[36px] sm:-left-[52px] top-5 w-6 h-6 rounded-lg bg-[#FDBC2E] border-2 border-[#3A1D40] shadow-md" />
 
-                <div className="painel-rustico p-6 sm:p-9 space-y-6">
+                <div data-admin-section className="painel-rustico p-6 sm:p-9 space-y-6">
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#3A1D40]/15 pb-4">
                     <span className="text-sm font-black text-[#FDBC2E] bg-[#3A1D40] px-3.5 py-1 rounded-lg">
                       {block.periodLabel || block.year || block.period}
+                      {block.year && (
+                        <AdminEditLink
+                          collection="historico"
+                          slug={block.year}
+                          field="Rótulo Exibido do Período"
+                          label="Período"
+                        />
+                      )}
                     </span>
                     <h3 className="text-lg sm:text-2xl font-black text-[#E91C47] uppercase">
                       {block.title}
+                      {block.year && (
+                        <AdminEditLink
+                          collection="historico"
+                          slug={block.year}
+                          field="Título do Marco"
+                          label="Editar título"
+                        />
+                      )}
                     </h3>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                      {block.year && (
+                        <div className="flex justify-end">
+                          <AdminEditLink
+                            collection="historico"
+                            slug={block.year}
+                            field="Relato Histórico e Memória Viva"
+                            label="Editar texto"
+                          />
+                        </div>
+                      )}
                       {block.content && block.content.length > 0 ? (
                         <CustomDocumentRenderer
                           document={block.content}

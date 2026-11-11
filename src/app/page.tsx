@@ -8,6 +8,7 @@ import IntroPassarinha from "@/components/IntroPassarinha";
 import PassarinhaAnimada from "@/components/PassarinhaAnimada";
 import ReplayIntroButton from "@/components/ReplayIntroButton";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
+import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getHomePageContent } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -40,9 +41,19 @@ export default async function HomePage() {
                 <div className="space-y-0.5">
                   <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight text-[#FDBC2E] leading-[1.05]">
                     {homeContent.heroTitle}
+                    <AdminEditLink
+                      singleton="paginaInicial"
+                      field="Título Principal do Hero"
+                      label="Editar título"
+                    />
                   </h1>
                   <p className="text-base sm:text-xl font-bold lowercase tracking-wide text-[#FDF6E4]">
                     {homeContent.heroSubtitle}
+                    <AdminEditLink
+                      singleton="paginaInicial"
+                      field="Subtítulo / Chamada"
+                      label="Editar subtítulo"
+                    />
                   </p>
                 </div>
               </BrushBanner>
@@ -53,27 +64,41 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {homeContent.content && homeContent.content.length > 0 ? (
-              <CustomDocumentRenderer
-                document={homeContent.content}
-                theme="purple"
-                className="text-base sm:text-lg font-medium leading-relaxed"
-              />
-            ) : (
-              <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] font-medium leading-relaxed">
-                {homeContent.introParagraphs.map((paragraph, pIdx) => (
-                  <p key={pIdx}>{paragraph}</p>
-                ))}
+            <div className="relative">
+              <div className="flex justify-end mb-1">
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Apresentação do Coletivo na Home"
+                  label="Editar texto"
+                />
               </div>
-            )}
+              {homeContent.content && homeContent.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={homeContent.content}
+                  theme="purple"
+                  className="text-base sm:text-lg font-medium leading-relaxed"
+                />
+              ) : (
+                <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] font-medium leading-relaxed">
+                  {homeContent.introParagraphs.map((paragraph, pIdx) => (
+                    <p key={pIdx}>{paragraph}</p>
+                  ))}
+                </div>
+              )}
+            </div>
 
-            <div className="flex justify-start pt-2">
+            <div className="flex items-center justify-start pt-2">
               <Link
                 href="/quem-somos"
                 className="cta-editorial text-[#FDBC2E] text-lg sm:text-xl tracking-wide hover:opacity-90 transition-opacity"
               >
                 {homeContent.ctaText}
               </Link>
+              <AdminEditLink
+                singleton="paginaInicial"
+                field="Texto do Botão de Chamada"
+                label="Editar botão"
+              />
             </div>
           </div>
 
@@ -184,6 +209,11 @@ export default async function HomePage() {
               <BrushBanner color="yellow" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#532E5A] leading-tight">
                   Ponto de Cultura Quintal Garatuja
+                  <AdminEditLink
+                    singleton="quintalGaratuja"
+                    field="Título Principal"
+                    label="Editar Garatuja"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -222,6 +252,11 @@ export default async function HomePage() {
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#FDBC2E] leading-tight">
                   A história de Aru
+                  <AdminEditLink
+                    singleton="aru"
+                    field="Título da Obra"
+                    label="Editar Aru"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -349,6 +384,11 @@ export default async function HomePage() {
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#FDBC2E] leading-tight">
                   Espetáculos
+                  <AdminEditLink
+                    collection="espetaculos"
+                    field="Espetáculos"
+                    label="Gerenciar espetáculos"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -384,6 +424,11 @@ export default async function HomePage() {
               <BrushBanner color="yellow" shape="tilted" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#532E5A] leading-tight">
                   Práticas Formativas
+                  <AdminEditLink
+                    collection="praticasFormativas"
+                    field="Práticas Formativas"
+                    label="Gerenciar práticas"
+                  />
                 </h2>
               </BrushBanner>
             </div>
@@ -483,6 +528,11 @@ export default async function HomePage() {
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#FDBC2E] leading-tight">
                   Audiovisual
+                  <AdminEditLink
+                    collection="audiovisual"
+                    field="Produções Audiovisuais"
+                    label="Gerenciar audiovisual"
+                  />
                 </h2>
               </BrushBanner>
             </div>
