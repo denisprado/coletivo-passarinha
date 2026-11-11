@@ -52,10 +52,30 @@ export default async function EspetaculosPage() {
       ].includes(s.id)
   );
 
+  const submenuItems = [
+    {
+      id: "historias-que-a-passarinha-me-contou",
+      label: passarinhaShow?.title || "Histórias que a Passarinha me contou",
+    },
+    {
+      id: "plastico-um-mito-contemporaneo",
+      label: plasticoShow?.title || "Plástico, um mito contemporâneo",
+    },
+    {
+      id: "historias-do-bosque-dos-guarantas",
+      label: guarantasShow?.title || "Histórias do Bosque dos Guarantãs",
+    },
+    {
+      id: "show-nascente",
+      label: nascenteShow?.title || "Show Nascente",
+    },
+    ...extraShows.map((s) => ({ id: s.id, label: s.title })),
+  ];
+
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-clip">
       {/* Header em Textura Roxa Acrílica */}
-      <section className="canvas-roxo pt-16 pb-12 sm:pt-20 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      <section className="canvas-roxo pt-16 pb-10 sm:pt-20 sm:pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#FDBC2E] text-xs font-black uppercase tracking-wider text-[#3A1D40]">
             <Theater className="w-4 h-4" /> Criações Cênico-Musicais
@@ -75,19 +95,17 @@ export default async function EspetaculosPage() {
             imaginação e as questões do nosso tempo.
           </p>
         </div>
-
-        {/* Barra Interativa de Filtro Rápido de Formatos Integrada ao Fundo Roxo */}
-        <div className="mt-8 sm:mt-10">
-          <EspetaculosFilterBar />
-        </div>
       </section>
+
+      {/* Submenu de Espetáculos Fixo na Rolagem */}
+      <EspetaculosFilterBar items={submenuItems} />
 
       {/* =====================================================================
           1. HISTÓRIAS QUE A PASSARINHA ME CONTOU (Amarelo Ipê Acrílico)
          ===================================================================== */}
       <section
         id="historias-que-a-passarinha-me-contou"
-        className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Cabeçalho */}
@@ -483,7 +501,7 @@ export default async function EspetaculosPage() {
          ===================================================================== */}
       <section
         id="plastico-um-mito-contemporaneo"
-        className="scroll-mt-24 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Cabeçalho */}
@@ -908,7 +926,7 @@ export default async function EspetaculosPage() {
          ===================================================================== */}
       <section
         id="historias-do-bosque-dos-guarantas"
-        className="scroll-mt-24 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Cabeçalho */}
@@ -1123,7 +1141,7 @@ export default async function EspetaculosPage() {
          ===================================================================== */}
       <section
         id="show-nascente"
-        className="scroll-mt-24 canvas-vermelho py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
+        className="scroll-mt-36 canvas-vermelho py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="flex flex-wrap items-center gap-5">

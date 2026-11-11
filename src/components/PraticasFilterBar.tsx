@@ -1,87 +1,99 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Hammer } from "lucide-react";
 
-interface FilterOption {
+export interface PraticaSubmenuItem {
   id: string;
   label: string;
-  targetId: string | null;
-  tag: string;
 }
 
-const OPTIONS: FilterOption[] = [
-  { id: "todas", label: "Todas as Práticas (3)", targetId: null, tag: "Geral" },
+const DEFAULT_ITEMS: PraticaSubmenuItem[] = [
   {
-    id: "jogar-dentro",
+    id: "atelie-jogar-dentro",
     label: "Ateliê Jogar Dentro",
-    targetId: "atelie-jogar-dentro",
-    tag: "Reaproveitamento",
   },
   {
-    id: "ecobrinquedoteca",
-    label: "Ecobrinquedoteca",
-    targetId: "ecobrinquedoteca-jogar-dentro",
-    tag: "Brincar Livre",
+    id: "ecobrinquedoteca-jogar-dentro",
+    label: "Ecobrinquedoteca Jogar Dentro",
   },
   {
-    id: "pandeiros",
+    id: "orquestra-de-pandeiros",
     label: "Orquestra de Pandeiros",
-    targetId: "orquestra-de-pandeiros",
-    tag: "Música Intergeracional",
   },
 ];
 
-export default function PraticasFilterBar() {
-  const [active, setActive] = useState("todas");
+export default function PraticasFilterBar({
+  items = DEFAULT_ITEMS,
+}: {
+  items?: PraticaSubmenuItem[];
+}) {
+  const [active, setActive] = useState<string>(items[0]?.id || "");
 
-  const handleSelect = (opt: FilterOption) => {
-    setActive(opt.id);
-    if (opt.targetId && typeof window !== "undefined") {
-      const el = document.getElementById(opt.targetId);
+  useEffect(() => {
+    if (typeof window === "undefined" || items.length === 0) return;
+
+    const handleScroll = () => {
+      const offset = 180; // Header (80px) + Submenu (~56px) + margin
+      let currentId = items[0].id;
+
+      for (const item of items) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= offset) {
+            currentId = item.id;
+          }
+        }
+      }
+      setActive(currentId);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [items]);
+
+  const handleSelect = (item: PraticaSubmenuItem) => {
+    setActive(item.id);
+    if (typeof window !== "undefined") {
+      const el = document.getElementById(item.id);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.replaceState(null, "", `#${item.id}`);
       }
     }
   };
 
   return (
-    <div className="w-full max-w-full mx-auto px-1 sm:px-2">
-      <div className="flex flex-col items-center justify-center gap-3">
-        <div className="flex items-center gap-2 text-xs font-black uppercase text-[#FDBC2E] tracking-wider">
-          <Hammer className="w-4 h-4 text-[#FDBC2E]" />
-          <span>Filtro de Ações Formativas:</span>
-        </div>
+    <nav
+      aria-label="Submenu de Oficinas e Práticas Formativas"
+      className="sticky top-20 z-40 w-full bg-[#241128]/95 backdrop-blur-md border-b-4 border-[#3A1D40] shadow-lg py-2.5 px-3 sm:px-6"
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar">
+        <span className="hidden lg:inline-flex items-center gap-1.5 text-[11px] font-black uppercase text-[#FDBC2E] tracking-wider mr-1 shrink-0">
+          <Hammer className="w-3.5 h-3.5 text-[#FDBC2E]" />
+          <span>Oficinas:</span>
+        </span>
 
-        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-          {OPTIONS.map((opt) => {
-            const isSelected = active === opt.id;
-            return (
-              <button
-                key={opt.id}
-                type="button"
-                onClick={() => handleSelect(opt)}
-                className={`text-[11px] sm:text-xs font-bold px-2.5 py-1.5 rounded-xl transition-all duration-200 border flex items-center gap-1.5 shrink-0 ${
-                  isSelected
-                    ? "bg-[#FDBC2E] text-[#3A1D40] border-[#FDBC2E] shadow-md scale-[1.02]"
-                    : "bg-[#241128]/70 hover:bg-[#FDBC2E]/20 text-[#FDF6E4] hover:text-[#FDBC2E] border-[#FDBC2E]/30 hover:border-[#FDBC2E]/70"
-                }`}
-              >
-                <span>{opt.label}</span>
-                <span
-                  className={`text-[9px] sm:text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-md transition-colors ${
-                    isSelected
-                      ? "bg-[#3A1D40] text-[#FDBC2E]"
-                      : "bg-[#FDBC2E]/20 text-[#FDBC2E]"
-                  }`}
-                >
-                  {opt.tag}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+        {items.map((item) => {
+          const isSelected = active === item.id;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => handleSelect(item)}
+              className={`text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-xl transition-all duration-200 border shrink-0 cursor-pointer whitespace-nowrap ${
+                isSelected
+                  ? "bg-[#FDBC2E] text-[#3A1D40] border-[#FDBC2E] shadow-md font-black"
+                  : "bg-[#3A1D40]/75 hover:bg-[#FDBC2E]/20 text-[#FDF6E4] hover:text-[#FDBC2E] border-[#FDBC2E]/30 hover:border-[#FDBC2E]/70"
+              }`}
+            >
+              {item.label}
+            </button>
+          );
+        })}
       </div>
-    </div>
+    </nav>
   );
 }

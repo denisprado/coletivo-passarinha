@@ -40,10 +40,26 @@ export default async function PraticasFormativasPage() {
       ].includes(w.id)
   );
 
+  const submenuItems = [
+    {
+      id: "atelie-jogar-dentro",
+      label: atelieWorkshop?.title || "Ateliê Jogar Dentro",
+    },
+    {
+      id: "ecobrinquedoteca-jogar-dentro",
+      label: ecobrinquedoWorkshop?.title || "Ecobrinquedoteca Jogar Dentro",
+    },
+    {
+      id: "orquestra-de-pandeiros",
+      label: pandeirosWorkshop?.title || "Orquestra de Pandeiros",
+    },
+    ...extraWorkshops.map((w) => ({ id: w.id, label: w.title })),
+  ];
+
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-clip">
       {/* Header em Textura Vermelha Acrílica + Pincelada Amarela Inclinada */}
-      <section className="canvas-vermelho pt-16 pb-12 sm:pt-20 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      <section className="canvas-vermelho pt-16 pb-10 sm:pt-20 sm:pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
             <Hammer className="w-4 h-4 text-[#FDBC2E]" /> Formação, Criação Coletiva & Aprendizagem
@@ -64,19 +80,17 @@ export default async function PraticasFormativasPage() {
             públicos e os contextos de cada espaço.
           </p>
         </div>
-
-        {/* Barra Interativa de Filtro Rápido de Ações Formativas Integrada ao Header */}
-        <div className="mt-8 sm:mt-10">
-          <PraticasFilterBar />
-        </div>
       </section>
+
+      {/* Submenu de Oficinas / Práticas Formativas Fixo na Rolagem */}
+      <PraticasFilterBar items={submenuItems} />
 
       {/* =====================================================================
           1. ATELIÊ JOGAR DENTRO (Amarelo Ipê Acrílico - TEXTO INTEGRAL DO DOC)
          ===================================================================== */}
       <section
         id="atelie-jogar-dentro"
-        className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           {/* Topo */}
@@ -291,7 +305,7 @@ export default async function PraticasFormativasPage() {
          ===================================================================== */}
       <section
         id="ecobrinquedoteca-jogar-dentro"
-        className="scroll-mt-24 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           {/* Topo */}
@@ -565,7 +579,7 @@ export default async function PraticasFormativasPage() {
          ===================================================================== */}
       <section
         id="orquestra-de-pandeiros"
-        className="scroll-mt-24 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
+        className="scroll-mt-36 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           {/* Topo com Logo na Pasta */}

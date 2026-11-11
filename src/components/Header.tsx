@@ -21,6 +21,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -32,6 +33,15 @@ export default function Header() {
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 180);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (pathname?.startsWith("/keystatic")) {
@@ -134,20 +144,20 @@ export default function Header() {
       )}
 
       {/* Barra de Navegação Fixa (Sticky em todas as páginas, usando 100% da largura da tela) */}
-      <header className="sticky top-0 z-50 bg-[#FDBC2E] border-b-3 border-[#3A1D40] shadow-xs w-full">
+      <header className="sticky top-0 z-50 bg-[#FDBC2E] border-b-3 border-[#3A1D40] shadow-md w-full transition-all">
         <div className="w-full px-4 sm:px-6 lg:px-6 xl:px-8 2xl:px-12" ref={navRef}>
           <div
-            className={`flex items-center w-full ${
-              isHome
+            className={`flex items-center w-full transition-all ${
+              isHome && !isScrolled
                 ? "justify-between lg:justify-center h-16"
                 : "justify-between h-20 gap-2 xl:gap-6"
             }`}
           >
-            {/* Logo Compacto (sempre visível no mobile e nas páginas internas) */}
+            {/* Logo Compacto (sempre visível no mobile, nas páginas internas e na Home ao rolar) */}
             <Link
               href="/"
               className={`flex items-center gap-2.5 group focus:outline-none shrink-0 ${
-                isHome ? "lg:hidden" : ""
+                isHome && !isScrolled ? "lg:hidden" : ""
               }`}
             >
               <div className="relative w-32 sm:w-40 xl:w-44 h-12 xl:h-14">

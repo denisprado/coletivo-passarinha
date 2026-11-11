@@ -36,7 +36,7 @@ export default async function AudiovisualPage() {
   );
 
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-clip">
       {/* Header em Textura Amarela Ipê Acrílica */}
       <section id="apresentacao" className="scroll-mt-24 canvas-amarelo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">

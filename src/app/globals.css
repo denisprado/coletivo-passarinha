@@ -22,21 +22,26 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-saira), system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: clip;
   letter-spacing: 0.015em;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
   overflow-y: auto;
 }
 
-/* Garante que o CSS global injetado pelo Keystatic (@keystar/ui / react-aria) nunca trave o scroll vertical nas páginas públicas do site */
-html:not(:has(#keystatic-app-split-view)),
-body:not(:has(#keystatic-app-split-view)) {
+/* Garante que o CSS global injetado pelo Keystatic (@keystar/ui / react-aria) nunca trave o scroll vertical nem quebre elementos sticky nas páginas públicas */
+html:not(:has(#keystatic-app-split-view)) {
   overflow-y: auto !important;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
+  height: auto !important;
+}
+
+body:not(:has(#keystatic-app-split-view)) {
+  overflow-y: visible !important;
+  overflow-x: clip !important;
   height: auto !important;
   position: static !important;
 }

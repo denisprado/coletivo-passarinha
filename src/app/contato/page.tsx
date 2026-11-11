@@ -23,7 +23,7 @@ export default async function ContatoPage() {
   const siteConfig = await getSiteConfig();
 
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-clip">
       {/* Header em Textura Roxa Acrílica */}
       <section className="canvas-roxo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">

@@ -79,7 +79,7 @@ export default async function AruPage() {
   ];
 
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-clip">
       {/* FAIXA 1 — TEXTO INTEGRAL DE A HISTÓRIA DE ARU COM FOTOS INTERCALADAS (Amarelo Ipê Acrílico) */}
       <section
         id="top"

@@ -27,7 +27,7 @@ export default async function HomePage() {
   const homeContent = await getHomePageContent();
 
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-clip">
       {/* ANIMAÇÃO INICIAL (Stop-Motion / Folheado de Cordel da Passarinha) */}
       <IntroPassarinha />
 

@@ -90,25 +90,25 @@ export default async function QuintalGaratujaPage() {
   ];
 
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-clip">
       {/* FAIXA 1 — TEXTO INTEGRAL (8 PARÁGRAFOS DO DOC) INTERCALADO COM FOTOS (Amarelo Ipê Acrílico conforme indicado "(fundo amarelo)" no Doc) */}
       <section id="sobre" className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Topo: Logo + Título */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-4 flex flex-col items-center lg:items-start space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div className="lg:col-span-4 flex flex-col items-stretch space-y-4">
+              <div className="self-center lg:self-start inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
                 <Home className="w-4 h-4 text-[#FDBC2E]" /> {garatujaSite.tag}
                 <AdminEditLink singleton="quintalGaratuja" field="Etiqueta / Badge" label="Editar etiqueta" />
               </div>
 
-              <div className="relative w-64 h-40 bg-[#FDF6E4] p-4 rounded-2xl border border-[#3A1D40]/25 shadow-xl">
+              <div className="relative w-full flex-1 min-h-[210px] sm:min-h-[240px] bg-[#FDF6E4] rounded-2xl border border-[#3A1D40]/25 shadow-xl overflow-hidden">
                 <Image
                   src="/images/garatuja/GARATUJA_logo_hor colorido.png"
                   alt="Logotipo Oficial Ponto de Cultura Quintal Garatuja"
                   fill
-                  sizes="256px"
-                  className="object-contain p-2"
+                  sizes="(max-width: 1024px) 100vw, 380px"
+                  className="object-contain p-3 sm:p-4"
                   priority
                 />
               </div>
