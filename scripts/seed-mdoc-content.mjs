@@ -99,13 +99,9 @@ writeMdoc(
   },
   `Uma série de espetáculos criada por **Pamella Villanova** e **Dudu Ferraz**, que unem contação de histórias, música, teatro e *sensibilização ambiental*.
 
-A **Passarinha** é uma viajante que espalha pelo vento contos e cantos. Ela voa e se transforma em contato com os lugares e pessoas que encontra pelo caminho. Com causos populares, brincadeiras tradicionais e canções autorais, o espetáculo dialoga com crianças de todas as idades, cultivando afeto, memória e respeito aos ciclos da natureza.
+A **Passarinha** é uma viajante que espalha pelo vento contos e cantos. Ela voa e se transforma em contato com os lugares e personagens que encontra pelo mundo e assim segue sua viagem, sempre buscando trocar sementes e conhecimentos por onde passa. Os objetos cênicos são feitos com aquilo que fora considerado sem utilidade, exercitando o repensar e a reutilização de forma lúdica e criativa.
 
-### Episódios do Repertório
-- **Episódio Terra:** causos sobre o solo fértil, o plantio e a sabedoria das árvores.
-- **Episódio Água:** histórias das nascentes, rios voadores e a pureza das águas.
-- **Episódio Fogo:** o calor do sol, a fogueira e a chama da imaginação.
-- **Episódio Ar:** o vento mensageiro e o voo das sementes.`
+São dois episódios, cada um com duração total de 40 a 50 minutos, que convidam crianças de zero a cem anos a imaginar a vida na água e a vida no solo.`
 );
 
 writeMdoc(
@@ -130,13 +126,9 @@ writeMdoc(
       { src: '/photos/espetaculos/plastico-cartaz.webp', alt: 'Cartaz Oficial de Plástico, um mito contemporâneo', caption: 'Cartaz Oficial da Obra' }
     ]
   },
-  `Em 2023, estreamos o espetáculo **Plástico, um mito contemporâneo**, uma palestra-performance que aborda com contundência poética a problemática da poluição plástica e da sociedade do descarte.
+  `Esse espetáculo propõe uma ginástica do imaginar, até culminar em um exercício coletivo de imaginação. Enquanto nos divertimos, vamos tentar olhar a tragédia nos olhos, perceber algo que sustenta nosso estilo de vida mas que é quase invisível.
 
-A obra é parte da pesquisa de doutorado de **Pamella Villanova** em Artes da Cena na Unicamp. Reúne tecnologias teatrais contemporâneas como *teatro científico*, *mediação teatral* e *acessibilidade comunicacional integrada à dramaturgia*.
-
-> "A descrição das imagens e ações principais faz parte da própria dramaturgia, convidando todas as pessoas a se demorar nos significados e nos sentidos do que criamos e descartamos no mundo."
-
-A peça já foi assistida por mais de **6 mil pessoas em 4 países**, circulando por festivais, teatros, universidades e fóruns socioambientais internacionais.`
+Vamos encontrar personagens humanas e não-humanas. Máscaras sociais e teatrais. Convites ao nosso imaginário, para viagens no tempo e na história dessa matéria tão abundante, comum e mágica: o **plástico**. O plástico que estrutura nossas ações cotidianas e a tragédia contemporânea do consumo: *serão superáveis?*`
 );
 
 writeMdoc(
@@ -159,11 +151,11 @@ writeMdoc(
       { src: '/photos/espetaculos/bosque-plantio-41.webp', alt: 'Ação comunitária no bosque', caption: 'Plantio e preservação das nascentes em Campinas/SP' }
     ]
   },
-  `Desde 2022, o **Coletivo Passarinha** realiza o passeio cênico e musical **Histórias do Bosque dos Guarantãs**, trazendo as memórias sociais, culturais e ecológicas de uma das últimas matas nativas de Campinas (SP).
+  `Criado por **Dudu Ferraz** e **Pamella Villanova**, integrantes do Ponto de Cultura Quintal Garatuja, localizado a 700 metros do Bosque dos Guarantãs, esse projeto nasce em 2022 com a intenção de valorizar as memórias de nossos territórios, mas também os espaços de preservação ambiental tão importantes e necessários nas áreas urbanas. Durante o período de isolamento social, ocasionado pela pandemia da Covid-19, a dupla constatou que os espaços verdes como parques e bosques se tornaram refúgios de calma e respiro para a população das cidades.
 
-Conduzido por artistas e moradores, o público caminha pelas trilhas do bosque ouvindo histórias, canções e participando de intervenções poéticas que celebram a biodiversidade e a preservação das *nascentes de água* em meio à cidade.
+O projeto começou com escutas de relatos da comunidade do bairro, junto de pesquisa histórica e documentos oficiais a respeito do Bosque dos Guarantãs. O propósito era reunir material para servir de base para a criação de uma intervenção artística naquele espaço comum e tão importante para a comunidade local.
 
-A ação resultou em conquistas concretas para o parque, como a instalação de placas informativas e bebedouros em diálogo facilitado pelo Garatuja entre a população e o poder público.`
+O resultado desse processo foi a realização do passeio turístico e cultural **“Histórias do Bosque dos Guarantãs”** com jogos, histórias, música e teatro em que são compartilhadas as memórias, curiosidades e contradições encontradas no processo de pesquisa.`
 );
 
 writeMdoc(
@@ -185,9 +177,7 @@ writeMdoc(
       { src: '/photos/espetaculos/nascente-2.webp', alt: 'Dudu Ferraz e Maria Thomé em cena musical', caption: 'Música popular brasileira e poesia autoral' }
     ]
   },
-  `**Show Nascente** é um encontro musical que passeia pelas canções autorais de **Dudu Ferraz** e releituras da *música popular brasileira*.
-
-Com sonoridades que remetem às águas, à terra e aos ritmos tradicionais como o baião, o samba e o xote, o show celebra a força da canção como instrumento de encontro, memória afetiva e consciência ecológica.`
+  `Espetáculo musical do **Coletivo Passarinha** com direção musical e composições de **Dudu Ferraz**, celebrando a *canção brasileira*, a poesia, os cursos d'água e a força dos encontros no palco.`
 );
 
 // 2. PRÁTICAS FORMATIVAS
@@ -201,7 +191,7 @@ writeMdoc(
     accentColor: '#FDBC2E',
     targetAudience: 'Crianças, educadores e famílias (a partir de 4 anos)',
     audienceLimit: 'Até 30 participantes por turma',
-    whatsappContact: '5519992510921',
+    whatsappContact: '5588981085939',
     highlights: [
       'Experimentação livre de texturas e volumes',
       'Descarte Zero e ressignificação de resíduos',
@@ -217,11 +207,11 @@ writeMdoc(
       { src: '/photos/oficinas/jogar-dentro-2.webp', alt: 'Criação de adereços', caption: 'Construção coletiva de brinquedos e alegorias' }
     ]
   },
-  `> "E se aquilo que seria descartado se transformasse em fantasia, figurino, adereço, instrumento musical ou brinquedo?"
+  `O **Ateliê Jogar Dentro** é um espaço de experimentação e criação artística que convida os participantes a explorar as possibilidades dos materiais reaproveitados, transformando-os em objetos para brincar, imaginar, inventar personagens, criar sons e contar histórias.
 
-O **Ateliê Jogar Dentro** convida crianças e pessoas adultas a mudar o olhar sobre os materiais que habitam nosso cotidiano. Em vez de "jogar fora" — entendendo que no planeta Terra não existe "fora" —, jogamos para dentro do jogo, da imaginação e da criação.
+O ateliê reúne materiais em diferentes estados e possibilidades de uso: alguns preservam suas características originais; outros já chegam ressignificados, recortados, combinados ou preparados para novas experimentações. Plásticos de diferentes cores e formatos, embalagens laminadas, retalhos de tecidos e outros materiais compõem um repertório aberto à investigação, no qual cada forma, textura, cor e característica pode despertar novas ideias.
 
-Com tampinhas, papelões, tecidos, sementes e embalagens limpas, os participantes aprendem a construir suas próprias criações artísticas, aliando diversão e sensibilização ambiental profunda.`
+A seleção dos materiais também faz parte da proposta. Damos preferência àqueles que apresentam maiores dificuldades de reciclagem, como determinados plásticos coloridos e embalagens laminadas, buscando explorar suas possibilidades de uso e criação antes que sejam descartados. Assim, o reaproveitamento se torna também uma oportunidade de refletir sobre os materiais que circulam em nosso cotidiano e sobre os destinos que damos a eles.`
 );
 
 writeMdoc(
@@ -232,7 +222,7 @@ writeMdoc(
     accentColor: '#EF5A3C',
     targetAudience: 'Bebês, primeira infância, crianças e famílias',
     audienceLimit: 'Espaço aberto e fluxo contínuo',
-    whatsappContact: '5519992510921',
+    whatsappContact: '5588981085939',
     highlights: [
       'Brinquedos construídos artesanalmente',
       'Ambiente acolhedor e estimulante',
@@ -248,9 +238,13 @@ writeMdoc(
       { src: '/photos/oficinas/ecobrinquedoteca-dobra-41.webp', alt: 'Famílias interagindo', caption: 'Brinquedos artesanais e convivência comunitária' }
     ]
   },
-  `A **Ecobrinquedoteca Jogar Dentro** formaliza uma pesquisa contínua desenvolvida desde 2015 pelo **Coletivo Passarinha** sobre a *cultura do brincar* e os materiais reaproveitados.
+  `A **Ecobrinquedoteca Jogar Dentro** nasceu dessa inquietação: o que acontece quando mudamos nosso olhar para aquilo que descartamos? O que pode surgir quando materiais que perderam sua função original encontram novas possibilidades nas mãos de quem brinca?
 
-Com apoio do PROMIC e da Política Nacional Aldir Blanc (PNAB), a ecobrinquedoteca circula por praças, escolas públicas, feiras de arte impressa e festivais, montando um território de encantamento onde o brinquedo não é um produto de plástico comprado pronto, mas uma invenção poética que estimula a imaginação e a partilha familiar.`
+Itinerante e aberta ao encontro, a Ecobrinquedoteca reúne brinquedos, jogos, materiais reaproveitados, elementos naturais e brincadeiras, convidando pessoas de diferentes idades a experimentar, imaginar, criar e descobrir outras formas de se relacionar com os objetos, com o ambiente e com as pessoas ao redor.
+
+**Mais do que reunir brinquedos, a Ecobrinquedoteca reúne possibilidades de brincar.**
+
+A proposta nasce do encontro entre a Cultura do Brincar e a Arte Educação Ambiental. Compreendemos o brincar como linguagem, experiência artística e patrimônio cultural vivo, que se transforma e se reinventa a cada encontro. Brincar é experimentar o mundo, construir relações, inventar regras, compartilhar descobertas e produzir sentidos coletivamente.`
 );
 
 writeMdoc(
@@ -261,7 +255,7 @@ writeMdoc(
     accentColor: '#532E5A',
     targetAudience: 'Jovens, adultos e pessoas idosas (intergeracional)',
     audienceLimit: 'Turmas de até 25 pessoas',
-    whatsappContact: '5519992510921',
+    whatsappContact: '5518996115002',
     highlights: [
       'Iniciação ao pandeiro brasileiro',
       'Pesquisa vinculada ao Mestrado em Música da Unicamp',
@@ -277,11 +271,7 @@ writeMdoc(
       { src: '/photos/oficinas/pandeiros-c2-1.webp', alt: 'Apresentação com pandeiros', caption: 'Prática de conjunto e ritmo coletivo' }
     ]
   },
-  `Criada em 2021 por **Maria Carolina Thomé**, a **Orquestra de Pandeiros** é uma ação artístico-pedagógica de educação musical por meio do pandeiro, de caráter intergeracional.
-
-A prática tornou-se objeto de dissertação no Mestrado em Música da **Unicamp**, integrando o Programa UniversIDADE (50+), onde investiga a afetividade e o envolvimento musical de pessoas idosas.
-
-Com circulação em festivais, universidades e encontros da Associação Brasileira de Educação Musical (ABEM), a Orquestra demonstra que qualquer pessoa pode tocar e fazer música em conjunto com alegria e precisão rítmica.`
+  `A **Orquestra de Pandeiros** é uma ação artístico-pedagógica de educação musical que tem como fundamento as manifestações percussivas da cultura popular brasileira e a prática musical coletiva. De caráter intergeracional, reúne pessoas com e sem experiência musical em processos de criação, escuta e aprendizagem compartilhada, tendo o pandeiro como instrumento de encontro, expressão e convivência. Idealizado em 2021, o projeto nasceu em Londrina/PR e, em 2023, tornou-se objeto de pesquisa no curso de Mestrado em Música da UNICAMP. Atualmente, desenvolve uma atuação itinerante por festivais, universidades e espaços culturais, difundindo a riqueza das tradições percussivas brasileiras e fortalecendo a música como experiência coletiva, inclusiva e transformadora.`
 );
 
 // 3. AUDIOVISUAL
@@ -307,11 +297,11 @@ writeMdoc(
       { src: '/photos/audiovisual/caixa-magica-2.webp', alt: 'Mãozinha e os brinquedos', caption: 'Criação lúdica e descarte zero' }
     ]
   },
-  `Uma palhaça e um palhaço abrem sua **caixa mágica** e, com a ajuda da Mãozinha, brincam com a ressignificação de objetos, explorando infinitas possibilidades antes do descartado!
+  `Uma palhaça e um palhaço abrem sua **caixa mágica** e, com a ajuda da Mãozinha, brincam com a ressignificação de objetos, explorando criativamente suas infinitas possibilidades antes do descartado.
 
-Tudo começa quando **Pirulita** e **Pouca Sombra** percebem que estão passando tanto tempo no celular que se esqueceram de brincar! Assustados com essa descoberta, decidem encontrar uma solução.
+Tudo começa quando **Pirulita** e **Pouca Sombra** percebem que estão passando tanto tempo no celular que se esqueceram de brincar! Assustados com essa descoberta, decidem encontrar uma solução para que outras crianças não passem pelo mesmo. E qual é a ideia da dupla? Usar o próprio celular para ajudar todo mundo a ficar longe dele!
 
-O curta integrou o **Brincando na Rede**, mostra cultural lançada durante o período de isolamento com recursos do Edital Ações em Rede da Prefeitura Municipal de Campinas, com atenção especial à *acessibilidade comunicacional em Libras*.`
+Um curta-metragem do **Coletivo Passarinha** que mistura humor, brincadeira e reflexão sobre o uso das telas e as possibilidades que os objetos guardam antes de serem descartados.`
 );
 
 writeMdoc(
@@ -333,11 +323,9 @@ writeMdoc(
       { src: '/photos/home/audiovisual-deusa.webp', alt: 'Deusa Reduza em cena', caption: 'Deusa Reduza — Foto: Mauro Machado' }
     ]
   },
-  `Quando eu jogo alguma coisa fora, eu jogo **fora de onde?** Em um convite poético ao pensamento, vamos dialogar com alguns pontos de vista sobre a problemática do lixo.
+  `Quando eu jogo alguma coisa fora, eu jogo **fora de onde?** Em um convite poético ao pensamento, vamos dialogar com alguns pontos de vista sobre a problemática do lixo. Como podemos perceber e lidar com esses rastros de consumo que fiz e sigo fazendo todos os dias? O que acontece com o saquinho de lixo depois que coloco na porta de casa? Qual o futuro dos descartados? Quantas histórias o lixo conta! Em interlocução com a Política Nacional de Resíduos Sólidos, lei 12.305/2010, este filme é tragédia, diversão e reflexão em uma palestra-performance.
 
-Como podemos perceber e lidar com esses rastros de consumo que deixamos diariamente? O que acontece com a sacola depois que colocamos na calçada?
-
-O longa-metragem faz parte da pesquisa de doutorado de **Pamella Villanova** no Instituto de Artes da Unicamp e foi indicado a melhor filme na categoria longa-metragem no X FESTCINE Pinhais. Foi transmitido com debate no 8º EDICC da Unicamp.`
+O longa metragem é parte da pesquisa de doutorado de **Pamella Villanova**, em Artes da Cena na Unicamp. Foi um primeiro rascunho para uma peça de teatro prevista para estrear em 2027. O filme foi feito durante a pandemia, quando os teatros estavam fechados. Participou de festivais de teatro, como o Inverno Cultural UFSJ, o festival de cinema ambiental SARANCINE e o 10º FESTCINE, no qual foi indicado a melhor filme na categoria longa metragem. A obra audiovisual também participou de diversos eventos, ligados a temáticas socioambientais, de extensão universitária e divulgação científica.`
 );
 
 writeMdoc(
@@ -373,61 +361,69 @@ writeMdoc(
   path.join(contentDir, 'projetos-garatuja', 'show-de-variedades.mdoc'),
   {
     title: 'Show de Variedades',
-    tag: 'Mostra Artística & Encontro Comunitário',
+    tag: 'Saiba mais sobre alguns projetos de continuidade',
     accentColor: '#532E5A',
     photos: [
-      { src: '/photos/garatuja/variedades-1.webp', alt: 'Show de Variedades no Quintal Garatuja', caption: 'Show de Variedades — Palco aberto para a comunidade' },
-      { src: '/photos/garatuja/principal-tc-silva.webp', alt: 'Artistas no palco', caption: 'Encontros culturais e celebração artística' }
+      { src: '/photos/garatuja/variedades-familia-burg.webp', alt: 'Família Burg no Show de Variedades do Quintal Garatuja', caption: 'Família Burg — Show de Variedades' },
+      { src: '/photos/garatuja/variedades-grupo-ja.webp', alt: 'Grupo Já no Show de Variedades', caption: 'Grupo Já — Cabaré e encontro cênico comunitário' },
+      { src: '/photos/garatuja/variedades-mestre-marquinhos.webp', alt: 'Mestre Marquinhos no Show de Variedades', caption: 'Mestre Marquinhos — Cultura popular no Quintal' },
+      { src: '/photos/garatuja/variedades-criso-dudu.webp', alt: 'Criso e Dudu no Show de Variedades (Foto: Zé Netto)', caption: 'Criso e Dudu — Foto: Zé Netto' },
+      { src: '/photos/garatuja/variedades-gabi-brasa.webp', alt: 'Gabi e Brasa no Show de Variedades', caption: 'Gabi e Brasa — Música e cena aberta' }
     ]
   },
-  `O **Show de Variedades** é a tradicional mostra artística do **Ponto de Cultura Quintal Garatuja**, que reúne números de circo, música, teatro, poesia e contação de histórias.
-
-Com entrada gratuita e acolhimento comunitário, o evento abre espaço tanto para artistas iniciantes quanto para mestres da cultura popular de Campinas e região, fortalecendo laços de vizinhança e pertencimento.`
+  `Nossa curadoria cuidadosa transforma o palco em um panorama cultural da cidade. Com mais de **10 edições, desde 2019**, já recebemos mais de **40 artistas** de todas as partes do município, de outros estados e também de outros países.`
 );
 
 writeMdoc(
   path.join(contentDir, 'projetos-garatuja', 'nosso-canto.mdoc'),
   {
     title: 'Nosso Canto',
-    tag: 'Música, Memória & Ancestralidade',
+    tag: 'Projeto de Continuidade',
     accentColor: '#E91C47',
     photos: [
-      { src: '/photos/garatuja/nosso-canto-1.webp', alt: 'Roda do Nosso Canto', caption: 'Nosso Canto — Vozes e canções tradicionais' }
+      { src: '/photos/garatuja/nossocanto-ori-okan.webp', alt: 'Ori Okan no projeto Nosso Canto', caption: 'Ori Okan — Projeto Nosso Canto' },
+      { src: '/photos/passarinhas/dudu-ferraz.webp', alt: 'Dudu Ferraz no Nosso Canto (Foto: @felandrade09)', caption: 'Dudu Ferraz — Foto: @felandrade09' },
+      { src: '/photos/garatuja/nossocanto-ferdi.webp', alt: 'Ferdi no projeto Nosso Canto', caption: 'Ferdi — Vozes e canções no Quintal Garatuja' },
+      { src: '/photos/garatuja/nossocanto-renan.webp', alt: 'Renan no Nosso Canto (Foto: Zé Neto)', caption: 'Renan — Foto: Zé Neto' },
+      { src: '/photos/garatuja/nossocanto-12.webp', alt: 'Encontro musical do projeto Nosso Canto', caption: 'Canto, memória e afetividade comunitária' }
     ]
   },
-  `**Nosso Canto** é um projeto de difusão musical e salvaguarda da memória que valoriza o cancioneiro popular, compositores locais e tradições orais.
-
-As apresentações e rodas de conversa convidam o público a cantar junto e a redescobrir as raízes da música brasileira em um ambiente intimista sob as árvores do Quintal.`
+  `Encontro de artistas da composição musical, com mais de **10 anos de história**, **Nosso Canto** apresenta compositoras e compositores ao público, mas também favorece novas conexões. Além das apresentações ao vivo de canções, o coletivo promoveu a gravação do primeiro álbum *Nosso Canto Volume 1*, além de entrevistas em podcast, disponibilização de vídeos de canções autorais e difusão das composições da cidade através de playlist.`
 );
 
 writeMdoc(
   path.join(contentDir, 'projetos-garatuja', 'acoes-formativas.mdoc'),
   {
-    title: 'Ações Formativas',
-    tag: 'Cursos Livres, Oficinas & Acessibilidade',
+    title: 'Ações formativas',
+    tag: 'Projeto de Continuidade',
     accentColor: '#FDBC2E',
     photos: [
-      { src: '/photos/garatuja/formativas-1.webp', alt: 'Ação formativa no Garatuja', caption: 'Cursos gratuitos de teatro e mediação cultural' }
+      { src: '/photos/garatuja/formativas-1.webp', alt: 'Ações Formativas no Ponto de Cultura Quintal Garatuja', caption: 'Cursos, oficinas e vivências cênicas no Quintal Garatuja' },
+      { src: '/photos/garatuja/formativas-2.webp', alt: 'Vivências de teatro e infância no Quintal Garatuja', caption: 'Formação artística para infâncias e juventudes' },
+      { src: '/photos/garatuja/formativas-8.webp', alt: 'Encontros formativos intergeracionais no Feverestival', caption: 'Rodas formativas e trocas de saberes no território' },
+      { src: '/photos/garatuja/formativas-5.webp', alt: 'Cartaz Oficina Orquestra de Pandeiros no Quintal Garatuja', caption: 'Oficina Orquestra de Pandeiros gratuita no Quintal' }
     ]
   },
-  `O programa de **Ações Formativas** do Quintal Garatuja promove cursos e laboratórios gratuitos de teatro, acessibilidade cultural, primeiros socorros em espaços comunitários e dança.
+  `Entre os cursos oferecidos pelo Garatuja, destacam-se as **oficinas de teatro**: cursos livres de longa duração, que conta com equipe experiente e sensível, com uma abordagem que foca em inclusão e pertencimento.
 
-Com apoio de leis de incentivo como o ProAC e a Política Nacional Cultura Viva, já formou centenas de educadores e jovens artistas.`
+Também promovemos oficinas de curta duração, oferecendo práticas de dança, música, formação de professoras, *acessibilidade cultural* e primeiros socorros voltados a eventos culturais.`
 );
 
 writeMdoc(
   path.join(contentDir, 'projetos-garatuja', 'nucleo-socioambiental.mdoc'),
   {
-    title: 'Núcleo Socioambiental',
-    tag: 'Horta, Compostagem & Permacultura Urbana',
+    title: 'Núcleo Socioambiental do Nova Europa e Região',
+    tag: 'Projeto de Continuidade',
     accentColor: '#EF5A3C',
     photos: [
-      { src: '/photos/garatuja/socioambiental-1.webp', alt: 'Horta do Quintal Garatuja', caption: 'Práticas permaculturais e agroecologia no Jardim Nova Europa' }
+      { src: '/photos/garatuja/nucleo-1.webp', alt: 'Núcleo Socioambiental do Nova Europa e Região', caption: 'Núcleo Socioambiental do Nova Europa e Região' },
+      { src: '/photos/garatuja/nucleo-2.webp', alt: 'Ações ambientais no Jardim Nova Europa', caption: 'Mapeamento e proteção de áreas verdes e cursos d’água' },
+      { src: '/photos/garatuja/nucleo-3.webp', alt: 'Encontro comunitário do Núcleo Socioambiental', caption: 'Articulação comunitária vinculada ao Fórum Socioambiental de Campinas' }
     ]
   },
-  `O **Núcleo Socioambiental** transforma a casa do Garatuja em uma estação viva de permacultura urbana.
+  `As urgências socioambientais atravessam todas as práticas do **Coletivo Passarinha**. No território do Garatuja, a vizinhança vem se organizando a fim de mapear e atuar na região sul da cidade de Campinas. Assim, em 2025, nasce o **Núcleo Socioambiental do Nova Europa e Região**.
 
-Conta com horta comunitária agroecológica, minhocário, compostagem de resíduos orgânicos e canteiros pedagógicos abertos a visitas de escolas e moradores do Jardim Nova Europa.`
+Trata-se de um coletivo formado por vizinhas e vizinhos da região do Jardim Nova Europa/Campinas, a fim de proteger as áreas verdes e cursos de água da região. Vinculado ao **Fórum Socioambiental de Campinas**, o grupo realiza ações de preservação e cultura. O Garatuja é co-fundador do núcleo.`
 );
 
 // 5. HISTÓRICO (Memória Viva)
@@ -445,11 +441,11 @@ const timelineBlocks = [
       { src: '/photos/historico/inicio-1.webp', alt: 'Kombi Safari na estrada', caption: 'Estação Permacultural Móvel — Kombi Safari 1980 na estrada' },
       { src: '/photos/historico/inicio-2.webp', alt: 'Início da jornada', caption: '2014–2015 — Intercâmbios artísticos e permaculturais pelo Brasil' }
     ],
-    content: `Somos o **Coletivo Interdisciplinar Passarinha**, artistas da cena, música, design e permacultura. Há anos, realizamos ações de *arte educação ambiental* em projetos itinerantes e também conservando relações com territórios. Trabalhamos com e para crianças de zero a cem anos.
+    content: `Somos o **Coletivo Interdisciplinar Passarinha**, artistas da cena, música, design e permacultura. Há anos, realizamos ações de *arte educação ambiental* em projetos itinerantes e também conservando relações com territórios. Trabalhamos com e para crianças de zero a cem anos. Também discutimos bastante sobre as problemáticas relacionadas ao lixo e essa sociedade do consumo e do descarte - que nos apavora.
 
-Fundado em 2014, o Coletivo promoveu sua primeira ação em Campinas/SP: o evento **“Grafite na praça”**, como preparação para a jornada artística que aconteceu no ano seguinte a bordo de uma Kombi grafitada.
+Fundado em 2014, o Coletivo Passarinha promoveu sua primeira ação em Campinas/SP: o evento **“Grafite na praça”**, uma intervenção artística como preparação para a jornada artística que aconteceu no ano seguinte a bordo de uma Kombi grafitada.
 
-Em 2015, a Passarinha colocou na estrada sua **Estação Permacultural Móvel**, uma Kombi Safari 1980 transformada em casa e laboratório itinerante equipada com energia solar, forno solar, minhocário e banheiro seco.`
+Em 2015, a Passarinha colocou na estrada sua **Estação Permacultural Móvel**, uma Kombi Safari 1980 transformada em casa e laboratório itinerante de experiências permaculturais. Equipada com tecnologias de baixo impacto, como energia solar, forno solar, minhocário, banheiro seco e sistemas de aproveitamento de recursos, a Kombi foi o ponto de partida para uma jornada de criação, aprendizado e compartilhamento de práticas voltadas a modos de vida mais harmônicos com o meio ambiente.`
   },
   {
     year: '2015',
@@ -457,13 +453,11 @@ Em 2015, a Passarinha colocou na estrada sua **Estação Permacultural Móvel**,
     title: 'Mais de 40 Ações na Estrada & Nascimento das Oficinas “Jogar Dentro”',
     location: 'Diversas cidades brasileiras',
     tag: 'Ações Itinerantes',
-    photoStacked: true,
+    photoStacked: false,
     photos: [
       { src: '/photos/historico/jogar-dentro-1.webp', alt: 'Oficinas Jogar Dentro', caption: '2015 — Oficinas Jogar Dentro pelas cidades do percurso' }
     ],
-    content: `De janeiro a novembro de 2015, foram realizadas mais de **quarenta ações artísticas e pedagógicas**, de forma independente, pelas cidades por onde a Passarinha passou.
-
-Práticas de palhaçaria, brincadeiras e reutilização de materiais foram estruturadas nas oficinas **“Jogar Dentro”**, promovendo reflexão lúdica acerca da cultura do consumo e do descarte.`
+    content: `De janeiro a novembro de 2015, foram realizadas mais de **quarenta ações artísticas e pedagógicas**, de forma independente, pelas cidades por onde a Passarinha passou. Práticas de palhaçaria, brincadeiras e reutilização de materiais foram estruturadas em oficinas chamadas **“Jogar Dentro”**, promovendo reflexão acerca da cultura do consumo e do descarte, brincando.`
   },
   {
     year: '2016',
@@ -471,27 +465,25 @@ Práticas de palhaçaria, brincadeiras e reutilização de materiais foram estru
     title: 'Projeto “Oficinas Cortejo” (Ceará, São Paulo e Paraná)',
     location: 'CE, SP e PR',
     tag: 'Circulação Nacional',
-    photoStacked: true,
+    photoStacked: false,
     photos: [
       { src: '/photos/historico/oficina-cortejo-4.webp', alt: 'Oficinas Cortejo', caption: 'Oficinas Cortejo — Instrumentos e alegorias com materiais reaproveitados' },
       { src: '/photos/historico/oficina-cortejo-6.webp', alt: 'Cortejo comunitário', caption: 'Apresentação coletiva nas comunidades (CE, SP e PR)' }
     ],
-    content: `O projeto **“Oficinas Cortejo”** aconteceu em 2016 com financiamento via Lei Rouanet pelos estados do Ceará, São Paulo e Paraná.
-
-Foram quatro oficinas na comunidade quilombola Córrego de Ubaranas (Aracati/CE), na comunidade Sussuí (Palmital/SP), em Porecatu (PR) e na Vila Cultural ALMA (Londrina/PR), construindo cortejos com alegorias e instrumentos de materiais reaproveitados.`
+    content: `O projeto **“Oficinas Cortejo”** aconteceu em 2016 com financiamento via Lei Rouanet, pelos estados do Ceará, São Paulo e Paraná. Foram quatro oficinas na comunidade quilombola Córrego de Ubaranas, em Aracati (CE), na comunidade Sussuí em Palmital (SP), em Porecatu (PR) e na Vila Cultural ALMA, em Londrina (PR). Cada grupo definiu, em parceria com as arte educadoras, os temas que queriam cortejar e assim foram criados os cortejos apresentados para as comunidades, utilizando material reaproveitado para construção de instrumentos musicais e alegorias.`
   },
   {
     year: '2017-2018',
     periodLabel: '2017 – 2018',
-    title: 'Arte-Educação Ambiental e Permacultura no Ceará',
+    title: 'Arte-Educação Ambiental e Permacultura no Ceará (CREDE 4 e IFCE Camocim)',
     location: 'Camocim e Região (CE)',
     tag: 'Educação Pública',
-    photoStacked: true,
+    photoStacked: false,
     photos: [
       { src: '/photos/historico/permacultura-1.webp', alt: 'Vivências de Permacultura no Ceará', caption: 'Permacultura e arte-educação ambiental no Ceará' },
       { src: '/photos/historico/permacultura-4.webp', alt: 'Ações educativas', caption: 'Práticas colaborativas junto a estudantes e educadores' }
     ],
-    content: `Durante 2017 e 2018, foram desenvolvidas diversas atividades de arte-educação ambiental voluntárias em parceria com a Coordenadoria Regional CREDE 4 e o **Instituto Federal do Ceará (IFCE)** – Campus de Camocim.`
+    content: `Durante 2017 e 2018, foram realizadas diversas atividades voluntárias de *arte educação ambiental* em parceria com a Coordenadoria Regional de Desenvolvimento Educação - **CREDE 4** da Secretaria da Educação do Governo Estadual do Ceará e **Instituto Federal do Ceará (IFCE)** – Campus de Camocim.`
   },
   {
     year: '2016-2019',
@@ -499,13 +491,13 @@ Foram quatro oficinas na comunidade quilombola Córrego de Ubaranas (Aracati/CE)
     title: 'Gestão do Ponto de Cultura Quintal Garatuja & Lei Cultura Viva',
     location: 'Campinas (SP)',
     tag: 'Território & Sede',
-    photoStacked: true,
+    photoStacked: false,
     photos: [
       { src: '/photos/garatuja/principal-primeiro-evento.webp', alt: 'Quintal Garatuja', caption: 'Quintal Garatuja — Encontros artísticos e comunitários desde 2016' }
     ],
-    content: `Desde 2016, a Passarinha faz a gestão do **Ponto de Cultura Quintal Garatuja** em Campinas/SP.
+    content: `Desde 2016, a Passarinha faz a gestão de um espaço cultural na cidade de Campinas/SP. Entre os focos das pesquisas-ações realizadas no **Ponto de Cultura Quintal Garatuja**, destacam-se: a formação teatral e mediação cultural, a educação ambiental, a difusão musical, a acessibilidade cultural, a construção e fortalecimento de redes de artistas, a valorização da cultura popular e o pertencimento à cidade de Campinas, com ações de identificação com os patrimônios naturais, materiais, imateriais e suas histórias.
 
-Em 2019, o espaço foi contemplado pela **Lei Cultura Viva**, promovendo mais de 30 ações de teatro, brincadeira livre e formação pedagógica no Jardim Nova Europa.`
+Em 2019, o Garatuja foi contemplado com um projeto via **Lei Cultura Viva**, pela Prefeitura de Campinas, na ocasião, foram promovidas mais de 30 ações envolvendo teatro e brincadeiras, articulando a rede com outros Pontos de Cultura, escolas municipais, artistas e coletivos parceiros, em diversos espaços. Apresentações teatrais, convites para o livre brincar, ações formativas para educadoras e eventos abertos à comunidade foram desenvolvidos fortalecendo a presença da arte educação no território vizinho do Ponto de Cultura.`
   },
   {
     year: 'desde-2018',
@@ -513,11 +505,11 @@ Em 2019, o espaço foi contemplado pela **Lei Cultura Viva**, promovendo mais de
     title: 'Circulação de “Histórias que a Passarinha me contou”',
     location: 'Nacional e Internacional',
     tag: 'Espetáculo em Circulação',
-    photoStacked: true,
+    photoStacked: false,
     photos: [
       { src: '/photos/espetaculos/passarinha-nina-197.webp', alt: 'Histórias que a Passarinha me contou', caption: 'Histórias que a Passarinha me contou — Circulação nacional e internacional' }
     ],
-    content: `Juntando contação de histórias, música autoral e convite ao brincar, o projeto circula desde 2018 por dezenas de unidades do SESC, escolas, festivais e viajou até **Cali, na Colômbia**.`
+    content: `O projeto **“Histórias que a Passarinha me contou”**, juntando contação de histórias, música autoral e convites para brincar, desde 2018 se apresenta em diversas escolas, espaços culturais, festivais e eventos em geral. A obra já circulou por diversos contextos, entre SESCs do interior de São Paulo, pelos estados do Ceará, Piauí e também na cidade de **Cali/Colômbia**.`
   },
   {
     year: '2020-2021',
@@ -530,21 +522,29 @@ Em 2019, o espaço foi contemplado pela **Lei Cultura Viva**, promovendo mais de
       { src: '/photos/historico/feverestival-2.webp', alt: 'Residência Passarinhas no Feverestival', caption: '2020 — Residência Passarinhas no Feverestival' },
       { src: '/photos/audiovisual/caixa-magica-1.webp', alt: 'Brincando na Rede', caption: '2021 — Plataforma digital Brincando na Rede com acessibilidade' }
     ],
-    content: `Em 2020, foi promovida a **Residência Passarinhas** no FEVERESTIVAL em parceria com a rede municipal de ensino infantil de Campinas.
+    content: `Em 2020, foi promovida a **Residência Passarinhas**, parte do FEVERESTIVAL, Festival Internacional de Teatro de Campinas, em parceria com escola de Ed. Infantil da rede Municipal de Ensino de Campinas, na qual foram desenvolvidas poéticas de reflexão sobre o descarte e reutilização de recicláveis. Tal ação resultou em um dia de evento na escola junto de crianças e famílias, além de planos para futuras formações.
 
-Em 2021, criou a plataforma digital **Brincando na Rede**, com residência voltada ao estudo transversal de *acessibilidade comunicacional* que se tornou pilar definitivo do coletivo.`
+Desde 2016, o Coletivo Passarinha faz a gestão do **Ponto de Cultura Quintal Garatuja**, na cidade de Campinas/SP. Desde sua inauguração, tem como missão a articulação de redes de artistas e públicos, a atenção ao território e inclusão de crianças, mulheres e pessoas com deficiências.
+
+Nos últimos anos, o Garatuja e o Coletivo Passarinha realizaram diversos projetos de continuidade em sua sede, em articulação com outros Pontos de Cultura e entidades relacionadas às artes e meio ambiente.
+
+Em 2021, produziu a plataforma digital **Brincando na rede**, que reuniu curta metragens criados por coletivos de arte e cultura, oferecendo programação de qualidade para crianças e famílias durante o isolamento na pandemia de COVID-19. As obras foram criadas em residência artística, tendo como provocação transversal o estudo em *acessibilidade comunicacional*.
+
+Desde então, estudos e práticas em acessibilidade fazem parte do trabalho em continuidade do Garatuja e do Coletivo Passarinha. São obras de arte e práticas formativas que promovem ampliação e aprofundamento de ferramentas poéticas de inclusão e acessibilidade.`
   },
   {
     year: '2022-2028',
     periodLabel: '2022 – 2028',
-    title: 'Formação Gratuita & Histórias do Bosque dos Guarantãs',
+    title: 'Formação Gratuita, Mostras Artísticas & Histórias do Bosque dos Guarantãs',
     location: 'Campinas (SP)',
     tag: 'Patrimônio Ambiental',
-    photoStacked: true,
+    photoStacked: false,
     photos: [
       { src: '/photos/espetaculos/bosque-dalton-029.webp', alt: 'Histórias do Bosque dos Guarantãs', caption: 'Histórias do Bosque dos Guarantãs — Memória e preservação desde 2022' }
     ],
-    content: `Cursos teatrais gratuitos, formações em mediação cultural e o passeio cênico **Histórias do Bosque dos Guarantãs**, aproximando comunidade, arte e preservação da mata nativa.`
+    content: `Entre 2022 e 2028, o Garatuja oferece cursos de teatro gratuitos, além de formações de curta duração em Acessibilidade Cultural, práticas em dança, música e primeiros socorros. Além de promover mostras artísticas como **Show de Variedades**, **Nosso Canto** e apresentações de teatro e música em sua sede e também em parceria com outros espaços como a rede municipal de ensino de Campinas, o Bosque dos Guarantãs e outros Pontos de Cultura do país.
+
+Desde 2022, promovemos o passeio artístico-cultural **Histórias do Bosque dos Guarantãs**, que traz memórias sociais e de preservação de uma mata nativa em meio à cidade. A obra surgiu de uma profunda pesquisa com a comunidade e em meios oficiais. Ao longo dos anos, as sessões do passeio foram trazendo melhorias estruturais para o próprio bosque, em diálogo facilitado pelo Garatuja entre a população que frequenta o parque e a prefeitura, como a instalação de placas turísticas e de bebedouros de água gelada.`
   },
   {
     year: '2021-hoje',
@@ -557,7 +557,11 @@ Em 2021, criou a plataforma digital **Brincando na Rede**, com residência volta
       { src: '/photos/oficinas/pandeiros-c1-1.webp', alt: 'Orquestra de Pandeiros', caption: 'Orquestra de Pandeiros — Educação musical intergeracional' },
       { src: '/photos/oficinas/pandeiros-c2-1.webp', alt: 'Apresentação musical', caption: 'Circulação por festivais, universidades e congressos' }
     ],
-    content: `Criação da **Orquestra de Pandeiros**, ação pedagógica intergeracional desenvolvida por **Maria Carolina Thomé** com pesquisa vinculada ao Mestrado em Música da **Unicamp** e ao Programa UniversIDADE (50+).`
+    content: `Idealizado em 2021 e com duas realizações em 2022 por meio do Programa Municipal de Incentivo à Cultura (PROMIC – Londrina/PR), criamos o projeto **Orquestra de Pandeiros**. Como uma ação artístico-pedagógica de educação musical por meio do pandeiro, a proposta, de caráter intergeracional, surgiu como uma forma de retomada do fazer musical e da experiência coletiva após a pandemia de COVID-19.
+
+Em 2023, o projeto tornou-se objeto de investigação no curso de Mestrado em Música da **UNICAMP**, em Campinas/SP, passando a integrar o Programa UniversIDADE (50+), onde investiga a afetividade e o envolvimento musical de pessoas adultas e idosas.
+
+Atualmente, a Orquestra de Pandeiros desenvolve-se de forma itinerante, circulando por festivais, pontos de cultura, universidades e congressos de música. Entre suas participações destacam-se: CultSP, em Itararé/SP (E. E. Tomé Teixeira); Ponto de Cultura Quintal Garatuja, em Campinas/SP; Festival Obaxirê, em Maringá/PR; Congresso Regional Sul da ABEM (Associação Brasileira de Educação Musical), em Maringá/PR; aula para a graduação em Licenciatura em Música da UEL (Universidade Estadual de Londrina); aula para o Grupo deCanta, em Campinas/SP; e Congresso Internacional da ABEM, em Ouro Preto/MG.`
   },
   {
     year: '2023-2026',
@@ -571,7 +575,13 @@ Em 2021, criou a plataforma digital **Brincando na Rede**, com residência volta
       { src: '/photos/historico/reciclarnaval-1.webp', alt: 'Reciclarnaval no SESC Campinas', caption: '2024 — Reciclarnaval no SESC Campinas (+800 peças criadas)' },
       { src: '/photos/historico/ecobrinquedoteca-3.webp', alt: 'Ecobrinquedoteca Jogar Dentro', caption: '2024–2025 — Ecobrinquedoteca Jogar Dentro (PROMIC e PNAB)' }
     ],
-    content: `Estreia internacional de **Plástico, um mito contemporâneo**, realização do ateliê **Reciclarnaval** no SESC Campinas (mais de 800 fantasias criadas) e consolidação da **Ecobrinquedoteca Jogar Dentro** via editais PROMIC e PNAB.`
+    content: `Em 2023, estreamos o espetáculo **Plástico, um mito contemporâneo**, uma palestra-performance que aborda a problemática da poluição plástica. A obra é parte da pesquisa de doutorado de Pâmella Villanova em Artes da Cena na Unicamp. Reúne tecnologias teatrais como teatro científico, mediação teatral e acessibilidade comunicacional. A peça já foi assistida por mais de 6 mil pessoas em 4 países diferentes.
+
+Durante o Carnaval de 2024, foi realizado o **Reciclarnaval – Ateliê de Fantasias de Material Reaproveitado**, no SESC Campinas (SP), oferecendo um ateliê de criação de fantasias e alegorias com material reaproveitado. A proposta promoveu um ateliê colaborativo no qual crianças e famílias participaram da criação de fantasias e adereços a partir de materiais reaproveitados. Ao longo da ação, foram produzidas mais de 800 peças, estimulando a experimentação artística, a criatividade e a reflexão sobre a cultura do consumo e do descarte por meio da criação e da brincadeira.
+
+A **Ecobrinquedoteca Jogar Dentro** se formaliza em 2024, a partir do projeto contemplado pelo PROMIC, em Londrina (PR), reunindo experiências que o Coletivo Passarinha vinha desenvolvendo desde 2015 com as oficinas Jogar Dentro, a criação de brinquedos a partir de materiais reaproveitados e as investigações sobre a cultura do brincar e do descarte. Em 2024, o projeto foi realizado na Escola Municipal Carlos Kraemer, envolvendo a construção coletiva de brinquedos para uso pessoal das crianças e para o acervo da escola.
+
+Em 2025, a Ecobrinquedoteca foi contemplada pela Política Nacional Aldir Blanc (PNAB), possibilitando sua circulação por diferentes eventos abertos ao público de Londrina, como o ECOH, a Dobra de Arte Impressa e o Festerê do MARL, além de espaços de convivência de Londrina. Essa trajetória consolidou a Ecobrinquedoteca como uma proposta de *arte-educação ambiental* que aproxima a Cultura do Brincar da experimentação artística, da ressignificação de materiais e da reflexão sobre o consumo e o descarte, ampliando as possibilidades de criação, convivência e aprendizagem.`
   },
   {
     year: '2027',
@@ -579,11 +589,13 @@ Em 2021, criou a plataforma digital **Brincando na Rede**, com residência volta
     title: 'Próxima Estreia Teatral: “Fora de onde?”',
     location: 'Campinas (SP)',
     tag: 'Futuras Criações',
-    photoStacked: true,
+    photoStacked: false,
     photos: [
       { src: '/photos/audiovisual/fora-de-onde-cena.webp', alt: 'Fora de onde?', caption: 'Fora de onde? — Nova montagem teatral prevista para 2027' }
     ],
-    content: `Preparação da estreia teatral de **Fora de onde?**, abordando a problemática dos resíduos sólidos na cidade de Campinas, complementando a pesquisa de doutorado em Artes da Cena na Unicamp.`
+    content: `Para 2027, preparamos a estreia de nosso mais novo espetáculo, **Fora de onde?**, que aborda a problemática do lixo na cidade de Campinas, no Brasil e no mundo. A obra já estreou como longa metragem em 2022, com participação em festivais de cinema e indicação como melhor longa metragem no X FESTCINE Pinhais. Também faz parte da pesquisa de doutorado em Artes da Cena pela Unicamp de Pâmella Villanova e terá uma breve temporada a ser realizada na cidade de Campinas em 2027.
+
+O Coletivo Passarinha trabalha em várias frentes e em diferentes territórios. Somos uma plataforma de criação e circulação, que tem a inclusão e atenção às urgências socioambientais como temáticas transversais. Temos interesse em costurar nossas práticas de arte e cultura com os lugares e pessoas que cruzamos. **Fazemos arte educação ambiental desde 2014.**`
   }
 ];
 
@@ -610,48 +622,54 @@ writeMdoc(
   path.join(contentDir, 'equipe', 'sarah-gregorio.mdoc'),
   {
     name: 'Sarah Gregorio',
-    role: 'Co-fundadora, Designer, Produtora & Arte-educadora',
-    avatarColor: '#FDBC2E',
+    role: 'Designer, Produtora & Arte-educadora Ambiental',
+    avatarColor: '#E91C47',
     photoUrl: '/photos/passarinhas/sarah-avatar.webp',
     instagramUrl: 'https://instagram.com/coletivopassarinha'
   },
-  `Designer, produtora cultural e arte-educadora. Co-fundadora do **Coletivo Passarinha**, pesquisa linguagens visuais, design gráfico sustentável, permacultura e reutilização poética de materiais.`
+  `Sarah Gregorio é designer de formação, produtora e gestora cultural por vocação e *arte-educadora ambiental* por paixão, gosta de misturar linguagens, inventar possibilidades e encontrar arte onde muita gente só vê materiais descartados. É especialista em Gestão Estratégica do Design e Gestão da Inovação, e atualmente pesquisa as relações entre arte, cultura e práticas de baixo impacto socioambiental no Mestrado Profissional em Artes da UFC e IFCE.
+
+Co-fundadora do **Coletivo Interdisciplinar Passarinha**, vive entre projetos culturais, oficinas, brinquedos, histórias e experiências que aproximam arte, educação e meio ambiente. Gosta de colocar ideias em movimento, conectar pessoas e transformar inquietações em projetos — de preferência, com espaço para experimentar e um pouco de bagunça criativa.`
 );
 
 writeMdoc(
   path.join(contentDir, 'equipe', 'pamella-villanova.mdoc'),
   {
     name: 'Pâmella Villanova',
-    role: 'Artista da Cena, Pesquisadora & Gestora Cultural',
-    avatarColor: '#E91C47',
+    role: 'Artista da Cena & Pesquisadora Acadêmica',
+    avatarColor: '#FDBC2E',
     photoUrl: '/photos/passarinhas/pamella-avatar.webp',
-    instagramUrl: 'https://instagram.com/coletivopassarinha'
+    instagramUrl: 'https://www.instagram.com/pam.villanova'
   },
-  `Atriz, diretora, pesquisadora e doutoranda em Artes da Cena pela **Unicamp**. Atua na gestão do **Ponto de Cultura Quintal Garatuja** e lidera projetos com foco em acessibilidade e teatro científico.`
+  `Pâmella Villanova é artista da cena, da fazeção do teatro em suas múltiplas necessidades e também pesquisadora acadêmica. Entre a academia e o encontro com plateias diversas, vem desenvolvendo metodologias de criação teatral em diálogo com urgências socioambientais, às vezes invisíveis.
+
+É gestora do **Ponto de Cultura Quintal Garatuja** em Campinas, doutora em Artes da Cena pela **Unicamp**, com estágio doutoral na Faculdade de Filosofia da UNIZAR, na Espanha. É professora colaboradora do Instituto de Física da Unicamp, ministrando disciplina de teatro científico junto a estudantes de física.
+
+Já dirigiu espetáculos de teatro, palhaçaria, contação de histórias e música. Sua obra **“Plástico: um mito contemporâneo”** já se apresentou em 4 países (Espanha, Brasil, Colômbia e Portugal) para mais de 6 mil pessoas. Também atua como contadora de histórias na série **"Histórias que a Passarinha me contou"**, que já circulou por festivais e SESCs do interior de São Paulo.`
 );
 
 writeMdoc(
   path.join(contentDir, 'equipe', 'maria-thome.mdoc'),
   {
-    name: 'Maria Carolina Thomé',
-    role: 'Musicista, Educadora Musical & Percussionista',
+    name: 'Maria Thomé',
+    role: 'Musicista, Pesquisadora & Percussionista',
     avatarColor: '#532E5A',
     photoUrl: '/photos/passarinhas/maria-avatar.webp',
-    instagramUrl: 'https://instagram.com/coletivopassarinha'
+    instagramUrl: 'https://www.instagram.com/orquestra.pandeiros'
   },
-  `Musicista, percussionista e mestranda em Música na **Unicamp**. Idealizadora da **Orquestra de Pandeiros**, desenvolve pesquisas sobre educação musical comunitária e intergeracionalidade.`
+  `Maria Carolina Thomé é musicista interiorana que encontrou nos ritmos populares brasileiros uma forma de se encantar pela vida. Se formou professora de música pela Universidade Estadual de Londrina (UEL), especializou-se em percussão popular pela Faculdade Santa Marcelina (FASM), investigou aspectos da afetividade no fazer musical com pessoas adultas e idosas se tornando mestra pela **Universidade Estadual de Campinas (UNICAMP)**. Agora na sua pesquisa de doutorado investiga a relação humana com a música, especialmente no ensino da percussão popular na formação de educadores musicais. Atua como percussionista e com o ensino de percussão popular brasileira, ministrando a oficina **Orquestra de Pandeiros** e aulas de percussão em diversos espaços educativos.`
 );
 
 writeMdoc(
   path.join(contentDir, 'equipe', 'dudu-ferraz.mdoc'),
   {
     name: 'Dudu Ferraz',
-    role: 'Gestor Cultural, Compositor & Artista Interdisciplinar',
+    role: 'Gestor Cultural, Compositor, Músico & Artista Interdisciplinar',
     avatarColor: '#F79335',
     photoUrl: '/photos/passarinhas/dudu-avatar.webp',
-    instagramUrl: 'https://instagram.com/coletivopassarinha'
+    spotifyUrl: 'https://open.spotify.com/search/Dudu%20Ferraz'
   },
-  `Cantautor, compositor, produtor e gestor cultural. Atua na articulação de redes e na criação de trilhas e espetáculos que conectam arte e patrimônio socioambiental.`
+  `Dudu Ferraz é gestor cultural, compositor, músico, cantautor, curador de teatro e artista interdisciplinar, bacharel em Sociologia pela **Unicamp**. Sua trajetória articula arte, cultura, política, educação e meio ambiente, com atuação na criação artística, na formação, na sensibilização socioambiental e na gestão de projetos culturais. Integra o **Coletivo Interdisciplinar Passarinha**, desenvolvendo trabalhos que conectam arte e educação ambiental. É gestor do **Ponto de Cultura Quintal Garatuja**, em Campinas, coordenador geral do Feverestival (Festival Internacional de Teatro de Campinas/SP) e fundador do **Nosso Canto**, projeto dedicado à valorização da música autoral campineira. Também atua na articulação de políticas públicas de cultura, contribuindo para o fortalecimento de redes, iniciativas e espaços de participação cultural.`
 );
 
 // 7. SINGLETONS
@@ -698,9 +716,7 @@ writeMdoc(
 
 Nossa atuação parte do território. Desenvolvemos projetos que dialogam com a memória, a paisagem, os saberes populares e as histórias da comunidade, compreendendo o bairro como um espaço de aprendizagem, criação e pertencimento.
 
-A pesquisa é um dos pilares do Quintal Garatuja. Investigamos as relações entre **arte, ecologia, território e sociedade**, desenvolvendo processos que resultam em espetáculos, performances, intervenções urbanas, publicações, exposições e ações educativas.
-
-O espaço também abriga uma programação contínua de formação. Oferecemos oficinas, cursos, laboratórios, residências artísticas, vivências, encontros e intercâmbios que estimulam práticas colaborativas e o desenvolvimento de artistas, educadoras e agentes culturais.`
+A pesquisa é um dos pilares do Quintal Garatuja. Investigamos as relações entre **arte, ecologia, território e sociedade**, desenvolvendo processos que resultam em espetáculos, performances, intervenções urbanas, publicações, exposições e ações educativas.`
 );
 
 writeMdoc(
@@ -735,13 +751,11 @@ writeMdoc(
       { src: '/photos/aru/aru-2.webp', alt: 'Máscara artesanal com búzio', caption: 'Arte, educação e sabedoria da Permacultura', fit: 'contain' }
     ]
   },
-  `**A História de Aru** é um projeto de *arte-educação ambiental* que apresenta os **12 princípios da Permacultura** por meio de uma emocionante história em cordel, escrita por **Paulo Roberto Amaral Lencioni** e adaptada para cordel por **Mari Rebelo** e **Sarah Gregorio**.
+  `**A História de Aru** é um projeto de *arte-educação ambiental* que apresenta os **12 princípios da Permacultura** por meio de uma história em cordel, escrita por **Paulo Roberto Amaral Lencioni** e adaptada para cordel por **Mari Rebelo** e **Sarah Gregorio**.
 
-O projeto nasceu da vontade de experimentar possibilidades de criação artística com materiais naturais e objetos que seriam descartados. A partir desses materiais, foram criados personagens, cenários e elementos que dão forma visual à história de Aru, explorando texturas, cores e volumes.
+O projeto nasceu da vontade de experimentar possibilidades de criação artística com materiais naturais e objetos que seriam descartados. A partir desses materiais, foram criados personagens, cenários e elementos que dão forma visual à história de Aru, explorando texturas, cores, volumes e outras possibilidades estéticas.
 
-Aru é uma jovem que aprende observando o mundo ao seu redor. Ao longo de sua jornada, encontra diferentes povoados, conhece outros modos de viver e descobre formas de lidar com a água, a produção de alimentos e a vida em comunidade.
-
-O cordel, com suas rimas e métricas populares, aproxima esses conceitos do público de maneira acessível, lúdica e poética para todas as idades.`
+Aru é uma jovem que aprende observando o mundo ao seu redor. Ao longo de sua jornada, encontra diferentes povoados, conhece outros modos de viver e descobre formas de lidar com questões como o uso da água, a produção de alimentos, o aproveitamento dos recursos, a diversidade e a vida em comunidade. Cada experiência apresenta um dos 12 princípios da Permacultura, sistematizados por David Holmgren.`
 );
 
 console.log('Seed completed successfully!');

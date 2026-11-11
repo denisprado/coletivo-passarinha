@@ -797,7 +797,7 @@ export default async function EspetaculosPage() {
                 na Escola Internacional de Microplásticos da UFSCAR, Unicamp e
                 FAPESP.
               </p>
-              <p className="font-bold text-[#E91C47]">
+              <p className="font-bold text-white">
                 O espetáculo &ldquo;Plástico: um mito contemporâneo&rdquo; busca
                 circular nos mais diferentes espaços como centros culturais,
                 teatros, escolas e instituições com o objetivo de comunicar com
@@ -1095,15 +1095,15 @@ export default async function EspetaculosPage() {
             </div>
           </div>
 
-          <div className="space-y-4 max-w-4xl text-[#3A1D40]">
+          <div className="space-y-4 max-w-4xl text-[#FDF6E4]">
             {nascenteShow?.content && nascenteShow.content.length > 0 ? (
               <CustomDocumentRenderer
                 document={nascenteShow.content}
-                theme="orange"
-                className="text-base sm:text-xl leading-relaxed font-bold"
+                theme="crimson"
+                className="text-base sm:text-xl leading-relaxed font-semibold"
               />
             ) : (
-              <p className="text-base sm:text-xl text-[#3A1D40] leading-relaxed font-bold">
+              <p className="text-base sm:text-xl text-[#FDF6E4] leading-relaxed font-semibold">
                 Espetáculo musical do Coletivo Passarinha com direção musical e
                 composições de Dudu Ferraz, celebrando a canção brasileira, a
                 poesia, os cursos d&apos;água e a força dos encontros no palco.

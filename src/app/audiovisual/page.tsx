@@ -77,8 +77,8 @@ export default async function AudiovisualPage() {
 
           {/* Bloco 1: 3 Parágrafos Iniciais + Foto 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
+              <p className="text-[#FDBC2E] font-semibold">
                 Uma palhaça e um palhaço abrem sua caixa mágica e, com a ajuda
                 da Mãozinha, brincam com a ressignificação de objetos,
                 explorando criativamente suas infinitas possibilidades antes do
@@ -135,10 +135,10 @@ export default async function AudiovisualPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
               <p>
                 A Caixa Mágica integrou o{" "}
-                <strong className="font-bold">Brincando na Rede</strong>, uma
+                <strong className="font-black text-[#FDBC2E]">Brincando na Rede</strong>, uma
                 mostra cultural on-line lançada em 2021, que reuniu nove grupos
                 artísticos de Campinas em uma plataforma virtual gratuita, com
                 conteúdos voltados especialmente a crianças, famílias e escolas
@@ -153,7 +153,7 @@ export default async function AudiovisualPage() {
                 culturais, construídas de forma colaborativa entre os grupos
                 participantes, com atenção à acessibilidade.
               </p>
-              <p>
+              <p className="text-[#FDBC2E] font-semibold">
                 Nesse contexto, o Coletivo Passarinha criou A Caixa Mágica, um
                 curta-metragem que convida as crianças a redescobrir o brincar,
                 explorar as possibilidades dos objetos e refletir, com humor e
@@ -163,44 +163,44 @@ export default async function AudiovisualPage() {
           </div>
 
           {/* Ficha Técnica Completa */}
-          <div className="pt-4 border-t-2 border-[#3A1D40]/20 space-y-3">
-            <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+          <div className="pt-4 border-t-2 border-[#FDBC2E]/30 space-y-3">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#FDBC2E]">
               Ficha Técnica & Elenco
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
-              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+              <div className="p-3.5 bg-[#241128]/80 rounded-lg border border-[#FDBC2E]/30 text-[#FDF6E4]">
+                <span className="font-black text-[#FDBC2E] block uppercase text-[11px]">
                   Texto, direção, produção e edição
                 </span>
-                <span className="text-[#3A1D40] font-bold">
+                <span className="text-[#FDF6E4] font-bold">
                   Coletivo Passarinha
                 </span>
               </div>
-              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+              <div className="p-3.5 bg-[#241128]/80 rounded-lg border border-[#FDBC2E]/30 text-[#FDF6E4]">
+                <span className="font-black text-[#FDBC2E] block uppercase text-[11px]">
                   Elenco — Mãozinha
                 </span>
-                <span className="text-[#3A1D40] font-bold">Sarah Gregorio</span>
+                <span className="text-[#FDF6E4] font-bold">Sarah Gregorio</span>
               </div>
-              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+              <div className="p-3.5 bg-[#241128]/80 rounded-lg border border-[#FDBC2E]/30 text-[#FDF6E4]">
+                <span className="font-black text-[#FDBC2E] block uppercase text-[11px]">
                   Elenco — Pirulita
                 </span>
-                <span className="text-[#3A1D40] font-bold">
+                <span className="text-[#FDF6E4] font-bold">
                   Maria Carolina Thomé
                 </span>
               </div>
-              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+              <div className="p-3.5 bg-[#241128]/80 rounded-lg border border-[#FDBC2E]/30 text-[#FDF6E4]">
+                <span className="font-black text-[#FDBC2E] block uppercase text-[11px]">
                   Elenco — Pouca Sombra
                 </span>
-                <span className="text-[#3A1D40] font-bold">Miguel Matoso</span>
+                <span className="text-[#FDF6E4] font-bold">Miguel Matoso</span>
               </div>
-              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+              <div className="p-3.5 bg-[#241128]/80 rounded-lg border border-[#FDBC2E]/30 text-[#FDF6E4]">
+                <span className="font-black text-[#FDBC2E] block uppercase text-[11px]">
                   Intérprete de Libras
                 </span>
-                <span className="text-[#3A1D40] font-bold">Karina Zonzini</span>
+                <span className="text-[#FDF6E4] font-bold">Karina Zonzini</span>
               </div>
             </div>
           </div>

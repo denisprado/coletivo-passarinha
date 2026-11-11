@@ -268,7 +268,7 @@ export default async function QuintalGaratujaPage() {
       <section id="show-de-variedades" className="scroll-mt-24 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="space-y-4 max-w-4xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#E91C47] text-[#FDBC2E] text-xs font-black uppercase tracking-widest border border-[#FDBC2E]/40">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#FDBC2E] text-[#3A1D40] text-xs font-black uppercase tracking-wider">
               <Theater className="w-4 h-4" /> {variedadesProject?.tag || "Saiba mais sobre alguns projetos de continuidade"}
             </span>
             <div>
