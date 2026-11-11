@@ -1,3 +1,7 @@
+import type { DocumentRendererProps } from "@keystatic/core/renderer";
+
+export type KeystaticDocument = DocumentRendererProps["document"];
+
 export interface SlideItem {
   src: string;
   alt: string;
@@ -10,6 +14,7 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  bioDoc?: KeystaticDocument;
   instagramUrl?: string;
   spotifyUrl?: string;
   portfolioUrl?: string;
@@ -23,6 +28,7 @@ export interface Show {
   subtitle?: string;
   synopsis: string;
   releaseText: string;
+  content?: KeystaticDocument;
   logoUrl?: string;
   photos: SlideItem[];
   episodes?: {
@@ -58,6 +64,7 @@ export interface Workshop {
   subtitle: string;
   concept: string;
   fullDescription: string[];
+  content?: KeystaticDocument;
   highlights?: string[];
   targetAudience: string;
   audienceLimit?: string;
@@ -76,6 +83,7 @@ export interface AudiovisualWork {
   title: string;
   synopsis: string;
   context: string;
+  content?: KeystaticDocument;
   technicalSheet: {
     label: string;
     value: string;
@@ -88,11 +96,15 @@ export interface AudiovisualWork {
 
 export interface HistoryMilestone {
   year: string;
+  periodLabel?: string;
   title: string;
   description: string;
+  content?: KeystaticDocument;
   location?: string;
   tag?: string;
   photoUrl?: string;
+  photos?: SlideItem[];
+  photoVariant?: "grid" | "stacked";
 }
 
 export const TEAM_MEMBERS: TeamMember[] = [

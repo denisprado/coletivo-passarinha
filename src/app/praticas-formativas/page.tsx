@@ -6,6 +6,7 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import PraticasFilterBar from "@/components/PraticasFilterBar";
+import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { getWorkshops } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -101,33 +102,43 @@ export default async function PraticasFormativasPage() {
           {/* Bloco 1: Parágrafos 1, 2 e 3 + Fotos 1 e 2 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
-                O Ateliê Jogar Dentro é um espaço de experimentação e criação
-                artística que convida os participantes a explorar as
-                possibilidades dos materiais reaproveitados, transformando-os em
-                objetos para brincar, imaginar, inventar personagens, criar sons
-                e contar histórias.
-              </p>
-              <p>
-                O ateliê reúne materiais em diferentes estados e possibilidades
-                de uso: alguns preservam suas características originais; outros
-                já chegam ressignificados, recortados, combinados ou preparados
-                para novas experimentações. Plásticos de diferentes cores e
-                formatos, embalagens laminadas, retalhos de tecidos e outros
-                materiais compõem um repertório aberto à investigação, no qual
-                cada forma, textura, cor e característica pode despertar novas
-                ideias.
-              </p>
-              <p>
-                A seleção dos materiais também faz parte da proposta. Damos
-                preferência àqueles que apresentam maiores dificuldades de
-                reciclagem, como determinados plásticos coloridos e embalagens
-                laminadas, buscando explorar suas possibilidades de uso e
-                criação antes que sejam descartados. Assim, o reaproveitamento
-                se torna também uma oportunidade de refletir sobre os materiais
-                que circulam em nosso cotidiano e sobre os destinos que damos a
-                eles.
-              </p>
+              {atelieWorkshop?.content && atelieWorkshop.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={atelieWorkshop.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p>
+                    O Ateliê Jogar Dentro é um espaço de experimentação e criação
+                    artística que convida os participantes a explorar as
+                    possibilidades dos materiais reaproveitados, transformando-os em
+                    objetos para brincar, imaginar, inventar personagens, criar sons
+                    e contar histórias.
+                  </p>
+                  <p>
+                    O ateliê reúne materiais em diferentes estados e possibilidades
+                    de uso: alguns preservam suas características originais; outros
+                    já chegam ressignificados, recortados, combinados ou preparados
+                    para novas experimentações. Plásticos de diferentes cores e
+                    formatos, embalagens laminadas, retalhos de tecidos e outros
+                    materiais compõem um repertório aberto à investigação, no qual
+                    cada forma, textura, cor e característica pode despertar novas
+                    ideias.
+                  </p>
+                  <p>
+                    A seleção dos materiais também faz parte da proposta. Damos
+                    preferência àqueles que apresentam maiores dificuldades de
+                    reciclagem, como determinados plásticos coloridos e embalagens
+                    laminadas, buscando explorar suas possibilidades de uso e
+                    criação antes que sejam descartados. Assim, o reaproveitamento
+                    se torna também uma oportunidade de refletir sobre os materiais
+                    que circulam em nosso cotidiano e sobre os destinos que damos a
+                    eles.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
@@ -784,9 +795,17 @@ export default async function PraticasFormativasPage() {
                         {workshop.subtitle}
                       </p>
                     )}
-                    <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed">
-                      {workshop.concept}
-                    </p>
+                    {workshop.content && workshop.content.length > 0 ? (
+                      <CustomDocumentRenderer
+                        document={workshop.content}
+                        theme="yellow"
+                        className="text-sm sm:text-base leading-relaxed"
+                      />
+                    ) : (
+                      <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed">
+                        {workshop.concept}
+                      </p>
+                    )}
                   </div>
 
                   {workshop.photos && workshop.photos.length > 0 && (

@@ -7,6 +7,7 @@ import PhotoCarouselFrame from "@/components/PhotoCarouselFrame";
 import IntroPassarinha from "@/components/IntroPassarinha";
 import PassarinhaAnimada from "@/components/PassarinhaAnimada";
 import ReplayIntroButton from "@/components/ReplayIntroButton";
+import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { getHomePageContent } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -52,11 +53,19 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] font-medium leading-relaxed">
-              {homeContent.introParagraphs.map((paragraph, pIdx) => (
-                <p key={pIdx}>{paragraph}</p>
-              ))}
-            </div>
+            {homeContent.content && homeContent.content.length > 0 ? (
+              <CustomDocumentRenderer
+                document={homeContent.content}
+                theme="purple"
+                className="text-base sm:text-lg font-medium leading-relaxed"
+              />
+            ) : (
+              <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] font-medium leading-relaxed">
+                {homeContent.introParagraphs.map((paragraph, pIdx) => (
+                  <p key={pIdx}>{paragraph}</p>
+                ))}
+              </div>
+            )}
 
             <div className="flex justify-start pt-2">
               <Link

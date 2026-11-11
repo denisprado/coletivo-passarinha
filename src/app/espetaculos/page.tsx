@@ -16,6 +16,7 @@ import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
 import EspetaculosFilterBar from "@/components/EspetaculosFilterBar";
+import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { getShows } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -116,27 +117,37 @@ export default async function EspetaculosPage() {
           {/* Texto Geral Integral + 2 Fotos Intercaladas */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
-                Uma série de espetáculos criada por{" "}
-                <strong className="font-bold">Pamella Villanova</strong> e{" "}
-                <strong className="font-bold">Dudu Ferraz</strong>, que unem
-                contação de histórias, música, teatro e sensibilização
-                ambiental.
-              </p>
-              <p>
-                A Passarinha é uma viajante que espalha pelo vento contos e
-                cantos. Ela voa e se transforma em contato com os lugares e
-                personagens que encontra pelo mundo e assim segue sua viagem,
-                sempre buscando trocar sementes e conhecimentos por onde passa.
-                Os objetos cênicos são feitos com aquilo que fora considerado
-                sem utilidade, exercitando o repensar e a reutilização de forma
-                lúdica e criativa.
-              </p>
-              <p>
-                São dois episódios, cada um com duração total de 40 a 50
-                minutos, que convidam crianças de zero a cem anos a imaginar a
-                vida na água e a vida no solo.
-              </p>
+              {passarinhaShow?.content && passarinhaShow.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={passarinhaShow.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg font-medium leading-relaxed"
+                />
+              ) : (
+                <>
+                  <p>
+                    Uma série de espetáculos criada por{" "}
+                    <strong className="font-bold">Pamella Villanova</strong> e{" "}
+                    <strong className="font-bold">Dudu Ferraz</strong>, que unem
+                    contação de histórias, música, teatro e sensibilização
+                    ambiental.
+                  </p>
+                  <p>
+                    A Passarinha é uma viajante que espalha pelo vento contos e
+                    cantos. Ela voa e se transforma em contato com os lugares e
+                    personagens que encontra pelo mundo e assim segue sua viagem,
+                    sempre buscando trocar sementes e conhecimentos por onde passa.
+                    Os objetos cênicos são feitos com aquilo que fora considerado
+                    sem utilidade, exercitando o repensar e a reutilização de forma
+                    lúdica e criativa.
+                  </p>
+                  <p>
+                    São dois episódios, cada um com duração total de 40 a 50
+                    minutos, que convidam crianças de zero a cem anos a imaginar a
+                    vida na água e a vida no solo.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
@@ -483,17 +494,25 @@ export default async function EspetaculosPage() {
           {/* Sinopse + Ficha Técnica + Foto Principal */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5">
-              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
-                Esse espetáculo propõe uma ginástica do imaginar, até culminar
-                em um exercício coletivo de imaginação. Enquanto nos divertimos,
-                vamos tentar olhar a tragédia nos olhos, perceber algo que
-                sustenta nosso estilo de vida mas que é quase invisível. Vamos
-                encontrar personagens humanas e não-humanas. Máscaras sociais e
-                teatrais. Convites ao nosso imaginário, para viagens no tempo e
-                na história dessa matéria tão abundante, comum e mágica: o
-                plástico. O plástico que estrutura nossas ações cotidianas e a
-                tragédia contemporânea do consumo: serão superáveis?
-              </p>
+              {plasticoShow?.content && plasticoShow.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={plasticoShow.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg leading-relaxed font-medium"
+                />
+              ) : (
+                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
+                  Esse espetáculo propõe uma ginástica do imaginar, até culminar
+                  em um exercício coletivo de imaginação. Enquanto nos divertimos,
+                  vamos tentar olhar a tragédia nos olhos, perceber algo que
+                  sustenta nosso estilo de vida mas que é quase invisível. Vamos
+                  encontrar personagens humanas e não-humanas. Máscaras sociais e
+                  teatrais. Convites ao nosso imaginário, para viagens no tempo e
+                  na história dessa matéria tão abundante, comum e mágica: o
+                  plástico. O plástico que estrutura nossas ações cotidianas e a
+                  tragédia contemporânea do consumo: serão superáveis?
+                </p>
+              )}
 
               {/* Ficha Técnica */}
               <div className="pt-3 border-t border-[#3A1D40]/15 space-y-3">
@@ -888,33 +907,43 @@ export default async function EspetaculosPage() {
           {/* Bloco 1: 3 Parágrafos Iniciais + Fotos de Interações */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
-                Criado por <strong className="font-bold">Dudu Ferraz</strong> e{" "}
-                <strong className="font-bold">Pamella Villanova</strong>,
-                integrantes do Ponto de Cultura Quintal Garatuja, localizado à
-                700 metros do Bosque dos Guarantãs, esse projeto nasce em 2022
-                com a intenção de valorizar as memórias de nossos territórios,
-                mas também os espaços de preservação ambiental tão importantes e
-                necessários nas áreas urbanas. Durante o período de isolamento
-                social, ocasionado pela pandemia da Covid19 a dupla constatou
-                que os espaços verdes como parques e bosques se tornaram
-                refúgios de calma e respiro para a população das cidades.
-              </p>
-              <p>
-                O projeto começou com escutas de relatos da comunidade do
-                bairro, junto de pesquisa histórica e documentos oficiais a
-                respeito do Bosque dos Guarantãs. O propósito era reunir
-                material para servir de base para a criação de uma intervenção
-                artística naquele espaço comum e tão importante para a
-                comunidade local.
-              </p>
-              <p>
-                O resultado desse processo foi a realização do passeio turístico
-                e cultural &ldquo;Histórias do Bosque dos Guarantãs&rdquo; com
-                jogos, histórias, música e teatro em que são compartilhadas as
-                memórias, curiosidades e contradições encontradas no processo de
-                pesquisa.
-              </p>
+              {guarantasShow?.content && guarantasShow.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={guarantasShow.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p>
+                    Criado por <strong className="font-bold">Dudu Ferraz</strong> e{" "}
+                    <strong className="font-bold">Pamella Villanova</strong>,
+                    integrantes do Ponto de Cultura Quintal Garatuja, localizado à
+                    700 metros do Bosque dos Guarantãs, esse projeto nasce em 2022
+                    com a intenção de valorizar as memórias de nossos territórios,
+                    mas também os espaços de preservação ambiental tão importantes e
+                    necessários nas áreas urbanas. Durante o período de isolamento
+                    social, ocasionado pela pandemia da Covid19 a dupla constatou
+                    que os espaços verdes como parques e bosques se tornaram
+                    refúgios de calma e respiro para a população das cidades.
+                  </p>
+                  <p>
+                    O projeto começou com escutas de relatos da comunidade do
+                    bairro, junto de pesquisa histórica e documentos oficiais a
+                    respeito do Bosque dos Guarantãs. O propósito era reunir
+                    material para servir de base para a criação de uma intervenção
+                    artística naquele espaço comum e tão importante para a
+                    comunidade local.
+                  </p>
+                  <p>
+                    O resultado desse processo foi a realização do passeio turístico
+                    e cultural &ldquo;Histórias do Bosque dos Guarantãs&rdquo; com
+                    jogos, histórias, música e teatro em que são compartilhadas as
+                    memórias, curiosidades e contradições encontradas no processo de
+                    pesquisa.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
@@ -1067,11 +1096,19 @@ export default async function EspetaculosPage() {
           </div>
 
           <div className="painel-rustico p-7 sm:p-9 space-y-4">
-            <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
-              Espetáculo musical do Coletivo Passarinha com direção musical e
-              composições de Dudu Ferraz, celebrando a canção brasileira, a
-              poesia, os cursos d&apos;água e a força dos encontros no palco.
-            </p>
+            {nascenteShow?.content && nascenteShow.content.length > 0 ? (
+              <CustomDocumentRenderer
+                document={nascenteShow.content}
+                theme="yellow"
+                className="text-base sm:text-lg leading-relaxed font-medium"
+              />
+            ) : (
+              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
+                Espetáculo musical do Coletivo Passarinha com direção musical e
+                composições de Dudu Ferraz, celebrando a canção brasileira, a
+                poesia, os cursos d&apos;água e a força dos encontros no palco.
+              </p>
+            )}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="https://wa.me/5519996842051?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20o%20Show%20Nascente."
@@ -1165,9 +1202,17 @@ export default async function EspetaculosPage() {
                         {show.subtitle}
                       </p>
                     )}
-                    <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed">
-                      {show.synopsis}
-                    </p>
+                    {show.content && show.content.length > 0 ? (
+                      <CustomDocumentRenderer
+                        document={show.content}
+                        theme="yellow"
+                        className="text-sm sm:text-base leading-relaxed"
+                      />
+                    ) : (
+                      <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed">
+                        {show.synopsis}
+                      </p>
+                    )}
                   </div>
 
                   {show.photos && show.photos.length > 0 && (

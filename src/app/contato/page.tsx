@@ -4,6 +4,7 @@ import { Mail, MapPin, MessageCircle } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import ContatoForm from "@/components/ContatoForm";
+import { getSiteConfig } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
   title: "Contato & Contratação | Coletivo Passarinha",
@@ -17,7 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContatoPage() {
+export default async function ContatoPage() {
+  const siteConfig = await getSiteConfig();
+
   return (
     <main className="w-full overflow-x-hidden">
       {/* Header em Textura Roxa Acrílica */}
@@ -67,16 +70,16 @@ export default function ContatoPage() {
                     E-mails Oficiais
                   </span>
                   <a
-                    href="mailto:coletivopassarinha@gmail.com"
+                    href={`mailto:${siteConfig.emailGeral}`}
                     className="text-sm font-black text-[#3A1D40] hover:underline block"
                   >
-                    coletivopassarinha@gmail.com
+                    {siteConfig.emailGeral}
                   </a>
                   <a
-                    href="mailto:garatuja.decultura@gmail.com"
+                    href={`mailto:${siteConfig.emailGaratuja}`}
                     className="text-xs font-bold text-[#3A1D40]/85 hover:underline block"
                   >
-                    garatuja.decultura@gmail.com
+                    {siteConfig.emailGaratuja}
                   </a>
                 </div>
               </div>
@@ -91,12 +94,12 @@ export default function ContatoPage() {
                     WhatsApp Comercial
                   </span>
                   <a
-                    href="https://wa.me/5519992510921"
+                    href={`https://wa.me/${siteConfig.whatsappNumber}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm font-black text-[#3A1D40] hover:underline block"
                   >
-                    (19) 99251-0921
+                    {siteConfig.phone}
                   </a>
                   <span className="text-xs font-semibold text-[#3A1D40]/80">
                     Atendimento de seg a sex, 9h às 18h

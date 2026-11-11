@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Play, ExternalLink, Film } from "lucide-react";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { getAudiovisualWorks } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 
 export default async function AudiovisualPage() {
   const works = await getAudiovisualWorks();
+  const foraDeOndeWork = works.find((w) => w.id === "fora-de-onde");
   const extraWorks = works.filter(
     (w) =>
       ![
@@ -240,29 +242,39 @@ export default async function AudiovisualPage() {
           {/* Texto Completo Intercalado com Cartaz Oficial e Foto de Cena */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
-                Quando eu jogo alguma coisa fora, eu jogo fora de onde? Em um
-                convite poético ao pensamento, vamos dialogar com alguns pontos
-                de vista sobre a problemática do lixo. Como podemos perceber e
-                lidar com esses rastros de consumo que fiz e sigo fazendo todos
-                os dias? O que acontece com o saquinho de lixo depois que coloco
-                na porta de casa? Qual o futuro dos descartados? Quantas
-                histórias o lixo conta! Em interlocução com a Política Nacional
-                de Resíduos Sólidos, lei 12.305/2010, este filme é tragédia,
-                diversão e reflexão em uma palestra-performance.
-              </p>
-              <p>
-                O longa metragem é parte da pesquisa de doutorado de Pamella
-                Villanova, em Artes da Cena na Unicamp. Foi um primeiro rascunho
-                para uma peça de teatro prevista para estrear em 2027. O filme
-                foi feito durante a pandemia, quando os teatros estavam
-                fechados. Participou de festivais de teatro, como o Inverno
-                Cultural UFSJ, o festival de cinema ambiental SARANCINE e o 10º
-                FESTCINE, no qual foi indicado a melhor filme na categoria longa
-                metragem. A obra audiovisual também participou de diversos
-                eventos, ligados a temáticas socioambientais, de extensão
-                universitária e divulgação científica.
-              </p>
+              {foraDeOndeWork?.content && foraDeOndeWork.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={foraDeOndeWork.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p>
+                    Quando eu jogo alguma coisa fora, eu jogo fora de onde? Em um
+                    convite poético ao pensamento, vamos dialogar com alguns pontos
+                    de vista sobre a problemática do lixo. Como podemos perceber e
+                    lidar com esses rastros de consumo que fiz e sigo fazendo todos
+                    os dias? O que acontece com o saquinho de lixo depois que coloco
+                    na porta de casa? Qual o futuro dos descartados? Quantas
+                    histórias o lixo conta! Em interlocução com a Política Nacional
+                    de Resíduos Sólidos, lei 12.305/2010, este filme é tragédia,
+                    diversão e reflexão em uma palestra-performance.
+                  </p>
+                  <p>
+                    O longa metragem é parte da pesquisa de doutorado de Pamella
+                    Villanova, em Artes da Cena na Unicamp. Foi um primeiro rascunho
+                    para uma peça de teatro prevista para estrear em 2027. O filme
+                    foi feito durante a pandemia, quando os teatros estavam
+                    fechados. Participou de festivais de teatro, como o Inverno
+                    Cultural UFSJ, o festival de cinema ambiental SARANCINE e o 10º
+                    FESTCINE, no qual foi indicado a melhor filme na categoria longa
+                    metragem. A obra audiovisual também participou de diversos
+                    eventos, ligados a temáticas socioambientais, de extensão
+                    universitária e divulgação científica.
+                  </p>
+                </>
+              )}
 
               {/* Ficha Técnica */}
               <div className="pt-4 border-t-2 border-[#3A1D40]/15 space-y-3">
@@ -629,8 +641,18 @@ export default async function AudiovisualPage() {
             )}
 
             <div className="painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed">
-              <p>{work.synopsis}</p>
-              {work.context && <p>{work.context}</p>}
+              {work.content && work.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={work.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p>{work.synopsis}</p>
+                  {work.context && <p>{work.context}</p>}
+                </>
+              )}
 
               {work.videoUrl && (
                 <div className="pt-3">

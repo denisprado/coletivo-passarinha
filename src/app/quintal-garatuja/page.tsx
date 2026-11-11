@@ -15,6 +15,7 @@ import {
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { getGaratujaContent, getGaratujaProjects } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -128,35 +129,45 @@ export default async function QuintalGaratujaPage() {
           {/* Bloco 1 de Texto Integral + Fotos Intercaladas à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
-                Mais do que um espaço físico, o Quintal Garatuja é um
-                laboratório permanente de experimentação artística e cidadã.
-                Aqui, artistas, pesquisadoras, educadoras, moradoras, crianças,
-                jovens e pessoas adultas compartilham processos criativos,
-                investigações e experiências que aproximam arte e vida
-                cotidiana.
-              </p>
-              <p>
-                Nossa atuação parte do território. Desenvolvemos projetos que
-                dialogam com a memória, a paisagem, os saberes populares e as
-                histórias da comunidade, compreendendo o bairro como um espaço
-                de aprendizagem, criação e pertencimento. Caminhadas, pesquisas
-                de campo, cartografias afetivas, rodas de conversa e ações
-                comunitárias fazem parte da metodologia que construímos ao longo
-                dos anos, fortalecendo vínculos entre cultura, natureza e
-                participação social.
-              </p>
-              <p>
-                A pesquisa é um dos pilares do Quintal Garatuja. Investigamos as
-                relações entre arte, ecologia, território e sociedade,
-                desenvolvendo processos que resultam em espetáculos,
-                performances, intervenções urbanas, publicações, exposições e
-                ações educativas. Temas como a crise ambiental, os resíduos, a
-                biodiversidade, a memória dos lugares e as formas de convivência
-                aparecem como questões centrais de nossas criações, entendendo a
-                arte como estratégia de sensibilização, reflexão e
-                transformação.
-              </p>
+              {garatujaSite.content && garatujaSite.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={garatujaSite.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p>
+                    Mais do que um espaço físico, o Quintal Garatuja é um
+                    laboratório permanente de experimentação artística e cidadã.
+                    Aqui, artistas, pesquisadoras, educadoras, moradoras, crianças,
+                    jovens e pessoas adultas compartilham processos criativos,
+                    investigações e experiências que aproximam arte e vida
+                    cotidiana.
+                  </p>
+                  <p>
+                    Nossa atuação parte do território. Desenvolvemos projetos que
+                    dialogam com a memória, a paisagem, os saberes populares e as
+                    histórias da comunidade, compreendendo o bairro como um espaço
+                    de aprendizagem, criação e pertencimento. Caminhadas, pesquisas
+                    de campo, cartografias afetivas, rodas de conversa e ações
+                    comunitárias fazem parte da metodologia que construímos ao longo
+                    dos anos, fortalecendo vínculos entre cultura, natureza e
+                    participação social.
+                  </p>
+                  <p>
+                    A pesquisa é um dos pilares do Quintal Garatuja. Investigamos as
+                    relações entre arte, ecologia, território e sociedade,
+                    desenvolvendo processos que resultam em espetáculos,
+                    performances, intervenções urbanas, publicações, exposições e
+                    ações educativas. Temas como a crise ambiental, os resíduos, a
+                    biodiversidade, a memória dos lugares e as formas de convivência
+                    aparecem como questões centrais de nossas criações, entendendo a
+                    arte como estratégia de sensibilização, reflexão e
+                    transformação.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
@@ -543,11 +554,19 @@ export default async function QuintalGaratujaPage() {
                   </a>
                 )}
               </div>
-              <div className="space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed">
-                {extra.paragraphs.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
+              {extra.content && extra.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={extra.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg text-[#3A1D40] leading-relaxed"
+                />
+              ) : (
+                <div className="space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed">
+                  {extra.paragraphs.map((p, idx) => (
+                    <p key={idx}>{p}</p>
+                  ))}
+                </div>
+              )}
               {extra.photos.length > 0 && (
                 <div className="pt-4">
                   <PhotoMosaic photos={extra.photos} variant="grid" />

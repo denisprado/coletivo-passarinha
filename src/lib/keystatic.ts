@@ -1,4 +1,5 @@
 import { createReader } from '@keystatic/core/reader';
+import type { DocumentRendererProps } from '@keystatic/core/renderer';
 import config from '../../keystatic.config';
 import {
   SHOWS,
@@ -13,6 +14,8 @@ import {
   type AudiovisualWork,
   type SlideItem,
 } from '@/data/siteData';
+
+export type KeystaticDocument = DocumentRendererProps['document'];
 
 export interface SiteConfig {
   phone: string;
@@ -30,36 +33,41 @@ export interface GaratujaProject {
   id: string;
   title: string;
   tag: string;
-  shortDescription: string;
+  shortDescription?: string;
   paragraphs: string[];
   accentColor: string;
   externalLink?: string;
   externalLinkLabel?: string;
   photos: SlideItem[];
+  content?: KeystaticDocument;
 }
 
 export interface GaratujaSiteContent {
   title: string;
   tag: string;
   leadText: string;
-  paragraphs: string[];
+  paragraphs?: string[];
   street: string;
   neighborhood: string;
   email: string;
   instagram: string;
   linktree: string;
   whatsappGroup: string;
+  photos?: SlideItem[];
+  content?: KeystaticDocument;
 }
 
 export interface AruContent {
   title: string;
   tagline: string;
-  paragraphs: string[];
+  paragraphs?: string[];
   originalAuthor: string;
   cordelAdaptation: string;
   ebookUrl?: string;
   cartilhaUrl?: string;
   principles: string[];
+  photos?: SlideItem[];
+  content?: KeystaticDocument;
 }
 
 export interface HomePageContent {
@@ -67,6 +75,7 @@ export interface HomePageContent {
   heroSubtitle: string;
   introParagraphs: string[];
   ctaText: string;
+  content?: KeystaticDocument;
 }
 
 export const DEFAULT_SITE_CONFIG: SiteConfig = {
@@ -149,32 +158,74 @@ export const DEFAULT_ARU_CONTENT: AruContent = {
 
 export const reader = createReader(process.cwd(), config);
 
+interface DocChildNode {
+  type?: string;
+  text?: string;
+  children?: DocChildNode[];
+}
+
+export function extractParagraphsFromDocument(doc: unknown): string[] {
+  if (!doc || !Array.isArray(doc)) return [];
+  const paragraphs: string[] = [];
+  for (const node of doc as DocChildNode[]) {
+    if (node?.type === 'paragraph' && Array.isArray(node.children)) {
+      const text = node.children
+        .map((c) => c.text || '')
+        .join('')
+        .trim();
+      if (text) paragraphs.push(text);
+    }
+  }
+  return paragraphs;
+}
+
+export function extractTextFromDocument(doc: unknown): string {
+  if (!doc || !Array.isArray(doc)) return '';
+  function walk(node: DocChildNode): string {
+    if (typeof node?.text === 'string') return node.text;
+    if (Array.isArray(node?.children)) {
+      return node.children.map(walk).join('');
+    }
+    return '';
+  }
+  return (doc as DocChildNode[]).map(walk).filter(Boolean).join('\n\n');
+}
+
 export async function getShows(): Promise<Show[]> {
   try {
     const entries = await reader.collections.espetaculos.all();
     if (!entries || entries.length === 0) return SHOWS;
 
-    return entries.map(({ slug, entry }) => ({
-      id: slug,
-      title: entry.title,
-      subtitle: entry.subtitle || undefined,
-      synopsis: entry.synopsis,
-      releaseText: entry.releaseText,
-      category: entry.category,
-      accentColor: entry.accentColor || '#F95922',
-      ageRating: entry.ageRating || 'Livre',
-      duration: entry.duration || '50 min',
-      videoUrl: entry.videoUrl || undefined,
-      technicalSheet: (entry.technicalSheet || []).map((item) => ({
-        label: item.label,
-        value: item.value,
-      })),
-      photos: (entry.photos || []).map((photo) => ({
-        src: photo.src || '/brand/passarinha-ave.webp',
-        alt: photo.alt || entry.title,
-        caption: photo.caption || undefined,
-      })),
-    }));
+    const shows = await Promise.all(
+      entries.map(async ({ slug, entry }) => {
+        const content = await entry.content();
+        const plainText = extractTextFromDocument(content);
+        return {
+          id: slug,
+          title: entry.title,
+          subtitle: entry.subtitle || undefined,
+          synopsis: plainText || entry.title,
+          releaseText: plainText || entry.title,
+          category: entry.category,
+          accentColor: entry.accentColor || '#F95922',
+          ageRating: entry.ageRating || 'Livre',
+          duration: entry.duration || '50 min',
+          videoUrl: entry.videoUrl || undefined,
+          technicalSheet: (entry.technicalSheet || []).map((item) => ({
+            label: item.label,
+            value: item.value,
+          })),
+          photos: (entry.photos || []).map((photo) => ({
+            src: photo.src || '/brand/passarinha-ave.webp',
+            alt: photo.alt || entry.title,
+            caption: photo.caption || undefined,
+          })),
+          content,
+        };
+      })
+    );
+
+    return shows;
   } catch (error) {
     console.error('Error reading Keystatic shows, falling back to static data:', error);
     return SHOWS;
@@ -186,24 +237,33 @@ export async function getWorkshops(): Promise<Workshop[]> {
     const entries = await reader.collections.praticasFormativas.all();
     if (!entries || entries.length === 0) return WORKSHOPS;
 
-    return entries.map(({ slug, entry }) => ({
-      id: slug,
-      title: entry.title,
-      subtitle: entry.subtitle || '',
-      concept: entry.concept,
-      accentColor: entry.accentColor || '#FDBC2E',
-      targetAudience: entry.targetAudience,
-      audienceLimit: entry.audienceLimit || undefined,
-      whatsappContact: entry.whatsappContact || '5519992510921',
-      fullDescription: (entry.fullDescription || []) as string[],
-      highlights: entry.highlights?.length ? (entry.highlights as string[]) : undefined,
-      principles: entry.principles?.length ? (entry.principles as string[]) : undefined,
-      photos: (entry.photos || []).map((photo) => ({
-        src: photo.src || '/brand/passarinha-ave.webp',
-        alt: photo.alt || entry.title,
-        caption: photo.caption || undefined,
-      })),
-    }));
+    const workshops = await Promise.all(
+      entries.map(async ({ slug, entry }) => {
+        const content = await entry.content();
+        const paragraphs = extractParagraphsFromDocument(content);
+        return {
+          id: slug,
+          title: entry.title,
+          subtitle: entry.subtitle || '',
+          concept: paragraphs[0] || entry.title,
+          accentColor: entry.accentColor || '#FDBC2E',
+          targetAudience: entry.targetAudience,
+          audienceLimit: entry.audienceLimit || undefined,
+          whatsappContact: entry.whatsappContact || '5519992510921',
+          fullDescription: paragraphs.length > 0 ? paragraphs : [entry.title],
+          highlights: entry.highlights?.length ? (entry.highlights as string[]) : undefined,
+          principles: entry.principles?.length ? (entry.principles as string[]) : undefined,
+          photos: (entry.photos || []).map((photo) => ({
+            src: photo.src || '/brand/passarinha-ave.webp',
+            alt: photo.alt || entry.title,
+            caption: photo.caption || undefined,
+          })),
+          content,
+        };
+      })
+    );
+
+    return workshops;
   } catch (error) {
     console.error('Error reading Keystatic workshops, falling back to static data:', error);
     return WORKSHOPS;
@@ -215,17 +275,26 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
     const entries = await reader.collections.equipe.all();
     if (!entries || entries.length === 0) return TEAM_MEMBERS;
 
-    return entries.map(({ slug, entry }) => ({
-      id: slug,
-      name: entry.name,
-      role: entry.role,
-      bio: entry.bio,
-      avatarColor: entry.avatarColor || '#FDBC2E',
-      photoUrl: entry.photoUrl || undefined,
-      instagramUrl: entry.instagramUrl || undefined,
-      spotifyUrl: entry.spotifyUrl || undefined,
-      portfolioUrl: entry.portfolioUrl || undefined,
-    }));
+    const members = await Promise.all(
+      entries.map(async ({ slug, entry }) => {
+        const bioDoc = await entry.bio();
+        const bioText = extractTextFromDocument(bioDoc);
+        return {
+          id: slug,
+          name: entry.name,
+          role: entry.role,
+          bio: bioText,
+          bioDoc,
+          avatarColor: entry.avatarColor || '#FDBC2E',
+          photoUrl: entry.photoUrl || undefined,
+          instagramUrl: entry.instagramUrl || undefined,
+          spotifyUrl: entry.spotifyUrl || undefined,
+          portfolioUrl: entry.portfolioUrl || undefined,
+        };
+      })
+    );
+
+    return members;
   } catch (error) {
     console.error('Error reading Keystatic team, falling back to static data:', error);
     return TEAM_MEMBERS;
@@ -237,14 +306,30 @@ export async function getTimeline(): Promise<HistoryMilestone[]> {
     const entries = await reader.collections.historico.all();
     if (!entries || entries.length === 0) return TIMELINE;
 
-    return entries.map(({ entry }) => ({
-      year: entry.year,
-      title: entry.title,
-      description: entry.description,
-      location: entry.location || undefined,
-      tag: entry.tag || undefined,
-      photoUrl: entry.photoUrl || undefined,
-    }));
+    const milestones = await Promise.all(
+      entries.map(async ({ entry }) => {
+        const content = await entry.content();
+        const description = extractTextFromDocument(content);
+        return {
+          year: entry.year,
+          periodLabel: entry.periodLabel || entry.year,
+          title: entry.title,
+          description,
+          location: entry.location || undefined,
+          tag: entry.tag || undefined,
+          photoUrl: entry.photos?.[0]?.src || undefined,
+          photos: (entry.photos || []).map((p) => ({
+            src: p.src || '/photos/historico/inicio-1.webp',
+            alt: p.alt || entry.title,
+            caption: p.caption || undefined,
+          })),
+          photoVariant: (entry.photoStacked ? 'stacked' : 'grid') as 'stacked' | 'grid',
+          content,
+        };
+      })
+    );
+
+    return milestones;
   } catch (error) {
     console.error('Error reading Keystatic timeline, falling back to static data:', error);
     return TIMELINE;
@@ -279,24 +364,33 @@ export async function getAudiovisualWorks(): Promise<AudiovisualWork[]> {
     const entries = await reader.collections.audiovisual.all();
     if (!entries || entries.length === 0) return AUDIOVISUAL_WORKS;
 
-    return entries.map(({ slug, entry }) => ({
-      id: slug,
-      title: entry.title,
-      synopsis: entry.synopsis,
-      context: entry.context,
-      videoUrl: entry.videoUrl || undefined,
-      youtubeId: entry.youtubeId || undefined,
-      accentColor: entry.accentColor || '#E91C47',
-      technicalSheet: (entry.technicalSheet || []).map((item) => ({
-        label: item.label,
-        value: item.value,
-      })),
-      photos: (entry.photos || []).map((photo) => ({
-        src: photo.src || '/photos/audiovisual/caixa-magica-cartaz.webp',
-        alt: photo.alt || entry.title,
-        caption: photo.caption || undefined,
-      })),
-    }));
+    const works = await Promise.all(
+      entries.map(async ({ slug, entry }) => {
+        const content = await entry.content();
+        const paragraphs = extractParagraphsFromDocument(content);
+        return {
+          id: slug,
+          title: entry.title,
+          synopsis: paragraphs[0] || entry.title,
+          context: paragraphs.slice(1).join('\n\n'),
+          videoUrl: entry.videoUrl || undefined,
+          youtubeId: entry.youtubeId || undefined,
+          accentColor: entry.accentColor || '#E91C47',
+          technicalSheet: (entry.technicalSheet || []).map((item) => ({
+            label: item.label,
+            value: item.value,
+          })),
+          photos: (entry.photos || []).map((photo) => ({
+            src: photo.src || '/photos/audiovisual/caixa-magica-cartaz.webp',
+            alt: photo.alt || entry.title,
+            caption: photo.caption || undefined,
+          })),
+          content,
+        };
+      })
+    );
+
+    return works;
   } catch (error) {
     console.error('Error reading Keystatic audiovisual, falling back to static data:', error);
     return AUDIOVISUAL_WORKS;
@@ -308,21 +402,30 @@ export async function getGaratujaProjects(): Promise<GaratujaProject[]> {
     const entries = await reader.collections.projetosGaratuja.all();
     if (!entries || entries.length === 0) return [];
 
-    return entries.map(({ slug, entry }) => ({
-      id: slug,
-      title: entry.title,
-      tag: entry.tag || 'Projeto de Continuidade',
-      shortDescription: entry.shortDescription || '',
-      paragraphs: (entry.paragraphs || []) as string[],
-      accentColor: entry.accentColor || '#FDBC2E',
-      externalLink: entry.externalLink || undefined,
-      externalLinkLabel: entry.externalLinkLabel || undefined,
-      photos: (entry.photos || []).map((photo) => ({
-        src: photo.src || '/brand/passarinha-ave.webp',
-        alt: photo.alt || entry.title,
-        caption: photo.caption || undefined,
-      })),
-    }));
+    const projects = await Promise.all(
+      entries.map(async ({ slug, entry }) => {
+        const content = await entry.content();
+        const paragraphs = extractParagraphsFromDocument(content);
+        return {
+          id: slug,
+          title: entry.title,
+          tag: entry.tag || 'Projeto de Continuidade',
+          shortDescription: paragraphs[0] || '',
+          paragraphs,
+          accentColor: entry.accentColor || '#FDBC2E',
+          externalLink: entry.externalLink || undefined,
+          externalLinkLabel: entry.externalLinkLabel || undefined,
+          photos: (entry.photos || []).map((photo) => ({
+            src: photo.src || '/brand/passarinha-ave.webp',
+            alt: photo.alt || entry.title,
+            caption: photo.caption || undefined,
+          })),
+          content,
+        };
+      })
+    );
+
+    return projects;
   } catch (error) {
     console.error('Error reading Keystatic Garatuja projects, falling back to empty list:', error);
     return [];
@@ -334,17 +437,26 @@ export async function getGaratujaContent(): Promise<GaratujaSiteContent> {
     const data = await reader.singletons.quintalGaratuja.read();
     if (!data) return DEFAULT_GARATUJA_SITE;
 
+    const content = await data.content();
+    const paragraphs = extractParagraphsFromDocument(content);
+
     return {
       title: data.title || DEFAULT_GARATUJA_SITE.title,
       tag: data.tag || DEFAULT_GARATUJA_SITE.tag,
       leadText: data.leadText || DEFAULT_GARATUJA_SITE.leadText,
-      paragraphs: (data.paragraphs?.length ? data.paragraphs : DEFAULT_GARATUJA_SITE.paragraphs) as string[],
       street: data.street || DEFAULT_GARATUJA_SITE.street,
       neighborhood: data.neighborhood || DEFAULT_GARATUJA_SITE.neighborhood,
       email: data.email || DEFAULT_GARATUJA_SITE.email,
       instagram: data.instagram || DEFAULT_GARATUJA_SITE.instagram,
       linktree: data.linktree || DEFAULT_GARATUJA_SITE.linktree,
       whatsappGroup: data.whatsappGroup || DEFAULT_GARATUJA_SITE.whatsappGroup,
+      photos: (data.photos || []).map((p) => ({
+        src: p.src || '/brand/passarinha-ave.webp',
+        alt: p.alt || data.title || 'Quintal Garatuja',
+        caption: p.caption || undefined,
+      })),
+      paragraphs: paragraphs.length > 0 ? paragraphs : DEFAULT_GARATUJA_SITE.paragraphs,
+      content,
     };
   } catch (error) {
     console.error('Error reading Keystatic Quintal Garatuja, falling back to static data:', error);
@@ -357,15 +469,24 @@ export async function getAruContent(): Promise<AruContent> {
     const data = await reader.singletons.aru.read();
     if (!data) return DEFAULT_ARU_CONTENT;
 
+    const content = await data.content();
+    const paragraphs = extractParagraphsFromDocument(content);
+
     return {
       title: data.title || DEFAULT_ARU_CONTENT.title,
       tagline: data.tagline || DEFAULT_ARU_CONTENT.tagline,
-      paragraphs: (data.paragraphs?.length ? data.paragraphs : DEFAULT_ARU_CONTENT.paragraphs) as string[],
       originalAuthor: data.originalAuthor || DEFAULT_ARU_CONTENT.originalAuthor,
       cordelAdaptation: data.cordelAdaptation || DEFAULT_ARU_CONTENT.cordelAdaptation,
       ebookUrl: data.ebookUrl || DEFAULT_ARU_CONTENT.ebookUrl,
       cartilhaUrl: data.cartilhaUrl || DEFAULT_ARU_CONTENT.cartilhaUrl,
       principles: (data.principles?.length ? data.principles : DEFAULT_ARU_CONTENT.principles) as string[],
+      photos: (data.photos || []).map((p) => ({
+        src: p.src || '/brand/passarinha-ave.webp',
+        alt: p.alt || data.title || 'A História de Aru',
+        caption: p.caption || undefined,
+      })),
+      paragraphs: paragraphs.length > 0 ? paragraphs : DEFAULT_ARU_CONTENT.paragraphs,
+      content,
     };
   } catch (error) {
     console.error('Error reading Keystatic Aru, falling back to static data:', error);
@@ -378,11 +499,16 @@ export async function getHomePageContent(): Promise<HomePageContent> {
     const data = await reader.singletons.paginaInicial.read();
     if (!data) return DEFAULT_HOME_CONTENT;
 
+    const content = await data.content();
+    const introParagraphs = extractParagraphsFromDocument(content);
+
     return {
       heroTitle: data.heroTitle || DEFAULT_HOME_CONTENT.heroTitle,
       heroSubtitle: data.heroSubtitle || DEFAULT_HOME_CONTENT.heroSubtitle,
-      introParagraphs: (data.introParagraphs?.length ? data.introParagraphs : DEFAULT_HOME_CONTENT.introParagraphs) as string[],
       ctaText: data.ctaText || DEFAULT_HOME_CONTENT.ctaText,
+      introParagraphs:
+        introParagraphs.length > 0 ? introParagraphs : DEFAULT_HOME_CONTENT.introParagraphs,
+      content,
     };
   } catch (error) {
     console.error('Error reading Keystatic home page content, falling back to static data:', error);

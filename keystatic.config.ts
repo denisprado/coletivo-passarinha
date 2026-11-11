@@ -66,7 +66,7 @@ export default config({
       label: "Espetáculos",
       slugField: "title",
       path: "src/content/espetaculos/*",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/espetaculos#{slug}",
       columns: ["category", "duration", "ageRating"],
       schema: {
@@ -105,11 +105,6 @@ export default config({
           label: "Duração (ex: 50 min)",
           defaultValue: "50 min",
         }),
-        synopsis: fields.text({ label: "Sinopse", multiline: true }),
-        releaseText: fields.text({
-          label: "Texto de Apresentação / Release",
-          multiline: true,
-        }),
         videoUrl: fields.url({ label: "Link de Vídeo (YouTube/Vimeo)" }),
         technicalSheet: fields.array(
           fields.object({
@@ -131,6 +126,14 @@ export default config({
             }),
             alt: fields.text({ label: "Descrição da Foto (Acessibilidade)" }),
             caption: fields.text({ label: "Legenda" }),
+            fit: fields.select({
+              label: "Enquadramento da foto",
+              options: [
+                { label: "Cobrir (cover - padrão horizontal)", value: "cover" },
+                { label: "Conter inteiro (contain - cartaz vertical)", value: "contain" },
+              ],
+              defaultValue: "cover",
+            }),
           }),
           {
             label: "Galeria de Fotos",
@@ -138,6 +141,12 @@ export default config({
               props.fields.caption.value || props.fields.alt.value || "Foto",
           },
         ),
+        content: fields.document({
+          label: "Apresentação, Sinopse e Rider Técnico (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
+        }),
       },
     }),
 
@@ -145,13 +154,12 @@ export default config({
       label: "Práticas Formativas & Oficinas",
       slugField: "title",
       path: "src/content/praticas-formativas/*",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/praticas-formativas#{slug}",
       columns: ["targetAudience", "audienceLimit"],
       schema: {
         title: fields.slug({ name: { label: "Título da Prática / Oficina" } }),
         subtitle: fields.text({ label: "Subtítulo" }),
-        concept: fields.text({ label: "Conceito / Proposta", multiline: true }),
         accentColor: fields.text({
           label: "Cor de Destaque (Hex)",
           defaultValue: "#FDBC2E",
@@ -168,15 +176,8 @@ export default config({
           label: "WhatsApp para Contratação",
           defaultValue: "5519992510921",
         }),
-        fullDescription: fields.array(
-          fields.text({ label: "Parágrafo", multiline: true }),
-          {
-            label: "Descrição Completa (Parágrafos)",
-            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
-          },
-        ),
         highlights: fields.array(fields.text({ label: "Destaque" }), {
-          label: "Pontos de Destaque",
+          label: "Pontos de Destaque / Pilares",
           itemLabel: (props) => props.value || "Destaque",
         }),
         principles: fields.array(fields.text({ label: "Princípio" }), {
@@ -196,9 +197,15 @@ export default config({
           {
             label: "Galeria de Fotos",
             itemLabel: (props) =>
-               props.fields.caption.value || props.fields.alt.value || "Foto",
+              props.fields.caption.value || props.fields.alt.value || "Foto",
           },
         ),
+        content: fields.document({
+          label: "Conceito, Metodologia e Apresentação (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
+        }),
       },
     }),
 
@@ -206,7 +213,7 @@ export default config({
       label: "Produções Audiovisuais",
       slugField: "title",
       path: "src/content/audiovisual/*",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/audiovisual#{slug}",
       columns: ["category", "youtubeId"],
       schema: {
@@ -214,11 +221,6 @@ export default config({
         category: fields.text({
           label: "Formato / Categoria (ex: Curta-metragem, Longa-metragem)",
           defaultValue: "Curta-metragem",
-        }),
-        synopsis: fields.text({ label: "Sinopse", multiline: true }),
-        context: fields.text({
-          label: "Contexto / Apresentação",
-          multiline: true,
         }),
         videoUrl: fields.url({ label: "Link do Vídeo (YouTube/Vimeo)" }),
         youtubeId: fields.text({
@@ -248,6 +250,14 @@ export default config({
             }),
             alt: fields.text({ label: "Descrição da Foto (Acessibilidade)" }),
             caption: fields.text({ label: "Legenda" }),
+            fit: fields.select({
+              label: "Enquadramento da foto",
+              options: [
+                { label: "Cobrir (cover - padrão horizontal)", value: "cover" },
+                { label: "Conter inteiro (contain - cartaz vertical)", value: "contain" },
+              ],
+              defaultValue: "cover",
+            }),
           }),
           {
             label: "Galeria de Fotos",
@@ -255,6 +265,12 @@ export default config({
               props.fields.caption.value || props.fields.alt.value || "Foto",
           },
         ),
+        content: fields.document({
+          label: "Sinopse, Contexto e Reflexões (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
+        }),
       },
     }),
 
@@ -262,7 +278,7 @@ export default config({
       label: "Projetos do Quintal Garatuja",
       slugField: "title",
       path: "src/content/projetos-garatuja/*",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/quintal-garatuja#{slug}",
       columns: ["tag"],
       schema: {
@@ -271,17 +287,6 @@ export default config({
           label: "Tag / Etiqueta",
           defaultValue: "Projeto de Continuidade",
         }),
-        shortDescription: fields.text({
-          label: "Chamada / Resumo Inicial",
-          multiline: true,
-        }),
-        paragraphs: fields.array(
-          fields.text({ label: "Parágrafo", multiline: true }),
-          {
-            label: "Descrição Completa (Parágrafos)",
-            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
-          },
-        ),
         accentColor: fields.text({
           label: "Cor de Destaque (Hex)",
           defaultValue: "#532E5A",
@@ -306,6 +311,12 @@ export default config({
               props.fields.caption.value || props.fields.alt.value || "Foto",
           },
         ),
+        content: fields.document({
+          label: "Apresentação e Descrição Completa (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
+        }),
       },
     }),
 
@@ -313,13 +324,12 @@ export default config({
       label: "Equipe e Artistas",
       slugField: "name",
       path: "src/content/equipe/*",
-      format: { data: "json" },
+      format: { contentField: "bio" },
       previewUrl: "/quem-somos#{slug}",
       columns: ["role"],
       schema: {
         name: fields.slug({ name: { label: "Nome" } }),
         role: fields.text({ label: "Função / Atuação Principal" }),
-        bio: fields.text({ label: "Minibiografia", multiline: true }),
         avatarColor: fields.text({
           label: "Cor de Fundo do Avatar (Hex)",
           defaultValue: "#FDBC2E",
@@ -332,31 +342,57 @@ export default config({
         instagramUrl: fields.url({ label: "Instagram" }),
         spotifyUrl: fields.url({ label: "Spotify" }),
         portfolioUrl: fields.url({ label: "Portfólio / Site Pessoal" }),
+        bio: fields.document({
+          label: "Minibiografia Rica (Negrito, Itálico, Links)",
+          formatting: true,
+          links: true,
+        }),
       },
     }),
 
     historico: collection({
-      label: "Histórico e Marcos",
+      label: "Histórico e Marcos (Memória Viva)",
       slugField: "year",
       path: "src/content/historico/*",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/quem-somos#historico",
-      columns: ["title", "location", "tag"],
+      columns: ["title", "periodLabel", "location"],
       schema: {
         year: fields.slug({
-          name: { label: "Ano / Período (ex: 2014, 2018-2020)" },
+          name: { label: "Identificador / Slug do Período (ex: 2014-2015)" },
+        }),
+        periodLabel: fields.text({
+          label: "Rótulo Exibido do Período (ex: 2014 – 2015)",
+          defaultValue: "2014 – 2015",
         }),
         title: fields.text({ label: "Título do Marco" }),
-        description: fields.text({
-          label: "Descrição da Conquista / Acontecimento",
-          multiline: true,
-        }),
         location: fields.text({ label: "Local / Cidade" }),
         tag: fields.text({ label: "Tag / Categoria" }),
-        photoUrl: fields.image({
-          label: "Foto do Registro",
-          directory: "public/photos/cms",
-          publicPath: "/photos/cms/",
+        photoStacked: fields.checkbox({
+          label: "Fotos em Coluna Única (Empilhadas verticalmente)",
+          defaultValue: true,
+        }),
+        photos: fields.array(
+          fields.object({
+            src: fields.image({
+              label: "Foto",
+              directory: "public/photos/cms",
+              publicPath: "/photos/cms/",
+            }),
+            alt: fields.text({ label: "Descrição da Foto" }),
+            caption: fields.text({ label: "Legenda" }),
+          }),
+          {
+            label: "Fotos do Registro",
+            itemLabel: (props) =>
+              props.fields.caption.value || props.fields.alt.value || "Foto",
+          },
+        ),
+        content: fields.document({
+          label: "Relato Histórico e Memória Viva (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
         }),
       },
     }),
@@ -366,7 +402,7 @@ export default config({
     paginaInicial: singleton({
       label: "Página Inicial (Home)",
       path: "src/content/pagina-inicial",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/",
       schema: {
         heroTitle: fields.text({
@@ -377,16 +413,15 @@ export default config({
           label: "Subtítulo / Chamada",
           defaultValue: "arte educação ambiental",
         }),
-        introParagraphs: fields.array(
-          fields.text({ label: "Parágrafo", multiline: true }),
-          {
-            label: "Apresentação do Coletivo (Parágrafos)",
-            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
-          },
-        ),
         ctaText: fields.text({
           label: "Texto do Botão de Chamada",
           defaultValue: "Conheça quem somos →",
+        }),
+        content: fields.document({
+          label: "Apresentação do Coletivo na Home (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
         }),
       },
     }),
@@ -394,7 +429,7 @@ export default config({
     quintalGaratuja: singleton({
       label: "Ponto de Cultura Quintal Garatuja (Sede)",
       path: "src/content/quintal-garatuja",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/quintal-garatuja#sobre",
       schema: {
         title: fields.text({
@@ -409,13 +444,6 @@ export default config({
           label: "Texto Destaque / Apresentação",
           multiline: true,
         }),
-        paragraphs: fields.array(
-          fields.text({ label: "Parágrafo", multiline: true }),
-          {
-            label: "História e Manifesto (Parágrafos)",
-            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
-          },
-        ),
         street: fields.text({
           label: "Rua e Número",
           defaultValue: "Rua São Miguel Arcanjo, 1520",
@@ -440,13 +468,35 @@ export default config({
           label: "Linha de Transmissão / Grupo no WhatsApp",
           defaultValue: "https://chat.whatsapp.com/IE2FV0vXBLeAcPFULcxjfK",
         }),
+        photos: fields.array(
+          fields.object({
+            src: fields.image({
+              label: "Foto",
+              directory: "public/photos/cms",
+              publicPath: "/photos/cms/",
+            }),
+            alt: fields.text({ label: "Descrição da Foto" }),
+            caption: fields.text({ label: "Legenda" }),
+          }),
+          {
+            label: "Galeria Principal de Fotos do Quintal",
+            itemLabel: (props) =>
+              props.fields.caption.value || props.fields.alt.value || "Foto",
+          },
+        ),
+        content: fields.document({
+          label: "História, Manifesto e Atuação Territorial (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
+        }),
       },
     }),
 
     aru: singleton({
       label: "A História de Aru (Livro & Cordel)",
       path: "src/content/aru",
-      format: { data: "json" },
+      format: { contentField: "content" },
       previewUrl: "/aru",
       schema: {
         title: fields.text({
@@ -457,13 +507,6 @@ export default config({
           label: "Etiqueta / Categoria",
           defaultValue: "Arte-Educação Ambiental & Cordel",
         }),
-        paragraphs: fields.array(
-          fields.text({ label: "Parágrafo", multiline: true }),
-          {
-            label: "Apresentação e Sinopse (Parágrafos)",
-            itemLabel: (props) => props.value?.slice(0, 45) || "Parágrafo",
-          },
-        ),
         originalAuthor: fields.text({
           label: "Autor da História Original",
           defaultValue: "Paulo Roberto Amaral Lencioni",
@@ -478,13 +521,40 @@ export default config({
         cartilhaUrl: fields.url({
           label: "Link de Download da Cartilha Pedagógica",
         }),
-        principles: fields.array(
-          fields.text({ label: "Princípio" }),
+        principles: fields.array(fields.text({ label: "Princípio" }), {
+          label: "12 Princípios da Permacultura",
+          itemLabel: (props) => props.value || "Princípio",
+        }),
+        photos: fields.array(
+          fields.object({
+            src: fields.image({
+              label: "Foto",
+              directory: "public/photos/cms",
+              publicPath: "/photos/cms/",
+            }),
+            alt: fields.text({ label: "Descrição da Foto" }),
+            caption: fields.text({ label: "Legenda" }),
+            fit: fields.select({
+              label: "Ajuste da Imagem",
+              options: [
+                { label: "Cobrir (Cover)", value: "cover" },
+                { label: "Conter (Contain)", value: "contain" },
+              ],
+              defaultValue: "cover",
+            }),
+          }),
           {
-            label: "12 Princípios da Permacultura",
-            itemLabel: (props) => props.value || "Princípio",
+            label: "Galeria de Fotos dos Personagens e Cenários",
+            itemLabel: (props) =>
+              props.fields.caption.value || props.fields.alt.value || "Foto",
           },
         ),
+        content: fields.document({
+          label: "Apresentação e Sinopse da História (Texto Rico)",
+          formatting: true,
+          links: true,
+          dividers: true,
+        }),
       },
     }),
 

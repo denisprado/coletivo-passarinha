@@ -5,6 +5,7 @@ import { BookOpen, Download, FileCheck } from "lucide-react";
 import InstagramIcon from "@/components/InstagramIcon";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { getAruContent } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
@@ -100,35 +101,45 @@ export default async function AruPage() {
           {/* Bloco 1: Parágrafos 1, 2 e 3 + Fotos ao Lado */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
-                <strong className="font-black">A História de Aru</strong> é um
-                projeto de arte-educação ambiental que apresenta os 12
-                princípios da Permacultura por meio de uma história em cordel,
-                escrita por{" "}
-                <strong className="font-bold">
-                  Paulo Roberto Amaral Lencioni
-                </strong>{" "}
-                e adaptada para cordel por{" "}
-                <strong className="font-bold">Mari Rebelo</strong> e{" "}
-                <strong className="font-bold">Sarah Gregorio</strong>.
-              </p>
-              <p>
-                O projeto nasceu da vontade de experimentar possibilidades de
-                criação artística com materiais naturais e objetos que seriam
-                descartados. A partir desses materiais, foram criados
-                personagens, cenários e elementos que dão forma visual à
-                história de Aru, explorando texturas, cores, volumes e outras
-                possibilidades estéticas.
-              </p>
-              <p>
-                Aru é uma jovem que aprende observando o mundo ao seu redor. Ao
-                longo de sua jornada, encontra diferentes povoados, conhece
-                outros modos de viver e descobre formas de lidar com questões
-                como o uso da água, a produção de alimentos, o aproveitamento
-                dos recursos, a diversidade e a vida em comunidade. Cada
-                experiência apresenta um dos 12 princípios da Permacultura,
-                sistematizados por David Holmgren.
-              </p>
+              {aruContent.content && aruContent.content.length > 0 ? (
+                <CustomDocumentRenderer
+                  document={aruContent.content}
+                  theme="yellow"
+                  className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium"
+                />
+              ) : (
+                <>
+                  <p>
+                    <strong className="font-black">A História de Aru</strong> é um
+                    projeto de arte-educação ambiental que apresenta os 12
+                    princípios da Permacultura por meio de uma história em cordel,
+                    escrita por{" "}
+                    <strong className="font-bold">
+                      Paulo Roberto Amaral Lencioni
+                    </strong>{" "}
+                    e adaptada para cordel por{" "}
+                    <strong className="font-bold">Mari Rebelo</strong> e{" "}
+                    <strong className="font-bold">Sarah Gregorio</strong>.
+                  </p>
+                  <p>
+                    O projeto nasceu da vontade de experimentar possibilidades de
+                    criação artística com materiais naturais e objetos que seriam
+                    descartados. A partir desses materiais, foram criados
+                    personagens, cenários e elementos que dão forma visual à
+                    história de Aru, explorando texturas, cores, volumes e outras
+                    possibilidades estéticas.
+                  </p>
+                  <p>
+                    Aru é uma jovem que aprende observando o mundo ao seu redor. Ao
+                    longo de sua jornada, encontra diferentes povoados, conhece
+                    outros modos de viver e descobre formas de lidar com questões
+                    como o uso da água, a produção de alimentos, o aproveitamento
+                    dos recursos, a diversidade e a vida em comunidade. Cada
+                    experiência apresenta um dos 12 princípios da Permacultura,
+                    sistematizados por David Holmgren.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">

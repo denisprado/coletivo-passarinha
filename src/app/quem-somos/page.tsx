@@ -1,7 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getTeamMembers } from "@/lib/keystatic";
+import { getTeamMembers, getTimeline } from "@/lib/keystatic";
+import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
+import type { DocumentRendererProps } from "@keystatic/core/renderer";
 import {
   Users,
   Sparkles,
@@ -25,11 +27,16 @@ export const metadata: Metadata = {
 };
 
 interface HistoricalBlock {
-  period: string;
+  period?: string;
+  periodLabel?: string;
+  year?: string;
   title: string;
-  paragraphs: string[];
-  photos: { src: string; alt: string; caption?: string }[];
+  paragraphs?: string[];
+  description?: string;
+  photos: { src: string; alt: string; caption?: string; fit?: "cover" | "contain" }[];
   photoVariant?: "editorial" | "grid" | "triptych" | "stacked";
+  photoStacked?: boolean;
+  content?: DocumentRendererProps["document"];
 }
 
 const FULL_HISTORY_BLOCKS: HistoricalBlock[] = [
@@ -244,6 +251,7 @@ const FULL_HISTORY_BLOCKS: HistoricalBlock[] = [
 
 export default async function QuemSomosPage() {
   const teamMembers = await getTeamMembers();
+  const timeline = await getTimeline();
 
   return (
     <main className="w-full overflow-x-hidden">
@@ -442,9 +450,17 @@ export default async function QuemSomosPage() {
                     </div>
                   </div>
 
-                  <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed whitespace-pre-line font-medium">
-                    {member.bio}
-                  </p>
+                  {member.bioDoc && member.bioDoc.length > 0 ? (
+                    <CustomDocumentRenderer
+                      document={member.bioDoc}
+                      theme="yellow"
+                      className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium"
+                    />
+                  ) : (
+                    <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed whitespace-pre-line font-medium">
+                      {member.bio}
+                    </p>
+                  )}
                 </div>
 
                 {/* Links Sociais / Portfólio do Integrante */}
@@ -500,14 +516,14 @@ export default async function QuemSomosPage() {
           </div>
 
           <div className="relative border-l-4 border-[#3A1D40] ml-3 sm:ml-6 pl-6 sm:pl-10 space-y-10">
-            {FULL_HISTORY_BLOCKS.map((block, index) => (
+            {((timeline && timeline.length > 0 ? timeline : FULL_HISTORY_BLOCKS) as unknown as HistoricalBlock[]).map((block, index) => (
               <div key={index} className="relative group">
                 <div className="absolute -left-[36px] sm:-left-[52px] top-5 w-6 h-6 rounded-lg bg-[#FDBC2E] border-2 border-[#3A1D40] shadow-md" />
 
                 <div className="painel-rustico p-6 sm:p-9 space-y-6">
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#3A1D40]/15 pb-4">
                     <span className="text-sm font-black text-[#FDBC2E] bg-[#3A1D40] px-3.5 py-1 rounded-lg">
-                      {block.period}
+                      {block.periodLabel || block.year || block.period}
                     </span>
                     <h3 className="text-lg sm:text-2xl font-black text-[#E91C47] uppercase">
                       {block.title}
@@ -516,15 +532,23 @@ export default async function QuemSomosPage() {
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
-                      {block.paragraphs.map((p, pIdx) => (
-                        <p key={pIdx}>{p}</p>
-                      ))}
+                      {block.content && block.content.length > 0 ? (
+                        <CustomDocumentRenderer
+                          document={block.content}
+                          theme="orange"
+                          className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium"
+                        />
+                      ) : (
+                        (block.paragraphs || [block.description || ""]).map((p: string, pIdx: number) => (
+                          <p key={pIdx}>{p}</p>
+                        ))
+                      )}
                     </div>
 
                     <div className="lg:col-span-5">
                       <PhotoMosaic
-                        photos={block.photos}
-                        variant={block.photoVariant || "grid"}
+                        photos={block.photos || []}
+                        variant={block.photoVariant || (block.photoStacked ? "stacked" : "grid")}
                       />
                     </div>
                   </div>
