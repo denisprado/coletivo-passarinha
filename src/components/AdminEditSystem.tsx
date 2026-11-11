@@ -1,7 +1,8 @@
 "use client";
+/* eslint-disable @next/next/no-html-link-for-pages */
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Pencil, Eye, EyeOff, LayoutDashboard, LogOut } from "lucide-react";
 
 interface AdminEditContextValue {
@@ -34,6 +35,41 @@ function hasKeystaticAuthCookie(): boolean {
 export function AdminEditProvider({ children }: { children: React.ReactNode }) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [showIcons, setShowIcons] = useState(true);
+  const pathname = usePathname();
+  const isKeystaticRoute = pathname?.startsWith("/keystatic") ?? false;
+
+  // Ensure public site pages never inherit scroll-lock styles from Keystatic (@keystar/ui / react-aria)
+  useEffect(() => {
+    if (typeof document === "undefined" || isKeystaticRoute) return;
+
+    const unlockScroll = () => {
+      const htmlEl = document.documentElement;
+      const bodyEl = document.body;
+
+      htmlEl.style.removeProperty("overflow");
+      htmlEl.style.removeProperty("overflow-y");
+      htmlEl.style.removeProperty("height");
+      htmlEl.style.removeProperty("position");
+      htmlEl.style.removeProperty("padding-right");
+
+      bodyEl.style.removeProperty("overflow");
+      bodyEl.style.removeProperty("overflow-y");
+      bodyEl.style.removeProperty("height");
+      bodyEl.style.removeProperty("position");
+      bodyEl.style.removeProperty("padding-right");
+
+      // Remove Keystatic theme classes if left behind by client navigation
+      Array.from(htmlEl.classList).forEach((cls) => {
+        if (cls.startsWith("kui-")) {
+          htmlEl.classList.remove(cls);
+        }
+      });
+    };
+
+    unlockScroll();
+    const timer = window.setTimeout(unlockScroll, 100);
+    return () => window.clearTimeout(timer);
+  }, [pathname, isKeystaticRoute]);
 
   useEffect(() => {
     const checkAdminStatus = async () => {
@@ -75,11 +111,11 @@ export function AdminEditProvider({ children }: { children: React.ReactNode }) {
     };
 
     checkAdminStatus();
-  }, []);
+  }, [pathname]);
 
   // Track which section or card is currently active (hovered, focused, or tapped)
   useEffect(() => {
-    if (!isAdmin || !showIcons) {
+    if (!isAdmin || !showIcons || isKeystaticRoute) {
       document
         .querySelectorAll("[data-admin-active]")
         .forEach((el) => el.removeAttribute("data-admin-active"));
@@ -123,7 +159,7 @@ export function AdminEditProvider({ children }: { children: React.ReactNode }) {
         currentActive.removeAttribute("data-admin-active");
       }
     };
-  }, [isAdmin, showIcons]);
+  }, [isAdmin, showIcons, isKeystaticRoute]);
 
   const logoutAdminPreview = () => {
     if (typeof window !== "undefined") {
@@ -139,7 +175,7 @@ export function AdminEditProvider({ children }: { children: React.ReactNode }) {
     >
       {children}
 
-      {isAdmin && (
+      {isAdmin && !isKeystaticRoute && (
         <div className="fixed bottom-4 left-4 z-50 flex items-center gap-1.5 rounded-full bg-[#241128]/95 border-2 border-[#FDBC2E] px-3 py-1.5 text-xs font-bold text-[#FDF6E4] shadow-[0_6px_20px_rgba(0,0,0,0.45)] backdrop-blur-md">
           <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="hidden sm:inline text-[#FDBC2E] font-black uppercase tracking-wider mr-1">
@@ -169,14 +205,14 @@ export function AdminEditProvider({ children }: { children: React.ReactNode }) {
             )}
           </button>
 
-          <Link
+          <a
             href="/keystatic"
-            className="inline-flex items-center gap-1 rounded-full bg-[#FDBC2E] hover:bg-[#f79335] px-2.5 py-1 text-[11px] font-black text-[#241128] transition-colors"
+            className="inline-flex items-center gap-1 rounded-full bg-[#FDBC2E] hover:bg-[#f79335] px-2.5 py-1 text-[11px] font-black text-[#241128] transition-colors no-underline"
             title="Abrir Painel Keystatic"
           >
             <LayoutDashboard className="w-3.5 h-3.5" />
             <span>Painel</span>
-          </Link>
+          </a>
 
           <button
             type="button"
@@ -228,7 +264,7 @@ export function AdminEditLink({
   const href = `${targetPath}?field=${encodeURIComponent(field)}`;
 
   return (
-    <Link
+    <a
       href={href}
       title={`Editar "${field}" no Painel Admin`}
       aria-label={`Editar ${field} no Painel Admin`}
@@ -236,6 +272,6 @@ export function AdminEditLink({
     >
       <Pencil className="w-3 h-3 stroke-[2.5]" />
       <span>{label}</span>
-    </Link>
+    </a>
   );
 }

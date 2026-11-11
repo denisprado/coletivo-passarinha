@@ -208,36 +208,41 @@ export default async function HomePage() {
             <div>
               <BrushBanner color="yellow" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#532E5A] leading-tight">
-                  Ponto de Cultura Quintal Garatuja
+                  {homeContent.garatujaTitle}
                   <AdminEditLink
-                    singleton="quintalGaratuja"
-                    field="Título Principal"
-                    label="Editar Garatuja"
+                    singleton="paginaInicial"
+                    field="Título da Seção Quintal Garatuja"
+                    label="Editar título"
                   />
                 </h2>
               </BrushBanner>
             </div>
 
-            <p className="text-base sm:text-xl text-[#3A1D40] font-semibold leading-relaxed">
-              Desde 2016, a Passarinha faz a gestão do{" "}
-              <strong className="font-black">
-                Ponto de Cultura Quintal Garatuja
-              </strong>
-              , em Campinas/SP, um espaço de criação artística, formação e
-              convivência. Em diálogo com a comunidade e o território,
-              desenvolve cursos, oficinas, apresentações e projetos que
-              aproximam teatro, música, cultura popular e educação ambiental,
-              fortalecendo os encontros entre artistas, público e histórias
-              locais.
-            </p>
+            <div className="relative">
+              <div className="flex justify-end mb-1">
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Texto da Seção Quintal Garatuja"
+                  label="Editar texto"
+                />
+              </div>
+              <p className="text-base sm:text-xl text-[#3A1D40] font-semibold leading-relaxed whitespace-pre-line">
+                {homeContent.garatujaText}
+              </p>
+            </div>
 
-            <div className="flex justify-end pt-2">
+            <div className="flex items-center justify-end pt-2">
               <Link
                 href="/quintal-garatuja"
                 className="cta-editorial text-[#3A1D40] text-lg sm:text-xl tracking-wide hover:opacity-80 transition-opacity"
               >
-                Conheça o Quintal Garatuja →
+                {homeContent.garatujaCta}
               </Link>
+              <AdminEditLink
+                singleton="paginaInicial"
+                field="Botão da Seção Quintal Garatuja"
+                label="Editar botão"
+              />
             </div>
           </div>
         </div>
@@ -251,35 +256,39 @@ export default async function HomePage() {
             <div>
               <BrushBanner color="crimson" shape="wave" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#FDBC2E] leading-tight">
-                  A história de Aru
+                  {homeContent.aruTitle}
                   <AdminEditLink
-                    singleton="aru"
-                    field="Título da Obra"
-                    label="Editar Aru"
+                    singleton="paginaInicial"
+                    field="Título da Seção Aru"
+                    label="Editar título"
                   />
                 </h2>
               </BrushBanner>
             </div>
 
             <div className="space-y-4 text-base sm:text-xl text-[#532E5A] font-semibold leading-relaxed">
-              <p>
-                Os 12 princípios da Permacultura contados por Aru! Uma história
-                em cordel que ganha vida por meio de ilustrações criadas
-                artesanalmente com materiais naturais e objetos descartados,
-                explorando cores, texturas e formas para construir personagens e
-                cenários. Um projeto artístico que entrelaça literatura, música
-                e arte-educação ambiental, convidando a imaginar outras formas
-                de se relacionar com o mundo.
-              </p>
+              <div className="flex justify-end mb-1">
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Texto da Seção Aru"
+                  label="Editar texto"
+                />
+              </div>
+              <p className="whitespace-pre-line">{homeContent.aruText}</p>
             </div>
 
-            <div className="flex justify-end pt-2">
+            <div className="flex items-center justify-end pt-2">
               <Link
                 href="/aru"
                 className="cta-editorial text-[#532E5A] text-lg sm:text-xl tracking-wide hover:opacity-80 transition-opacity"
               >
-                Conheça a História de Aru →
+                {homeContent.aruCta}
               </Link>
+              <AdminEditLink
+                singleton="paginaInicial"
+                field="Botão da Seção Aru"
+                label="Editar botão"
+              />
             </div>
           </div>
 
@@ -383,33 +392,39 @@ export default async function HomePage() {
                 className="-ml-2 lg:-ml-20 lg:pl-20"
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#FDBC2E] leading-tight">
-                  Espetáculos
+                  {homeContent.espetaculosTitle}
                   <AdminEditLink
-                    collection="espetaculos"
-                    field="Espetáculos"
-                    label="Gerenciar espetáculos"
+                    singleton="paginaInicial"
+                    field="Título da Seção Espetáculos"
+                    label="Editar título"
                   />
                 </h2>
               </BrushBanner>
             </div>
 
             <div className="space-y-4 text-base sm:text-xl text-[#FDBC2E] font-medium leading-relaxed">
-              <p>
-                Teatro, música, histórias e experimentações artísticas que
-                ganham vida em diferentes formatos e linguagens. A Passarinha
-                cria e apresenta espetáculos para públicos diversos, de crianças
-                a adultos, convidando cada pessoa a vivenciar o encontro com a
-                arte, a imaginação e as questões do nosso tempo.
-              </p>
+              <div className="flex justify-end mb-1">
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Texto da Seção Espetáculos"
+                  label="Editar texto"
+                />
+              </div>
+              <p className="whitespace-pre-line">{homeContent.espetaculosText}</p>
             </div>
 
-            <div className="flex justify-end pt-2">
+            <div className="flex items-center justify-end pt-2">
               <Link
                 href="/espetaculos"
                 className="cta-editorial text-[#FDBC2E] text-lg sm:text-xl tracking-wide hover:opacity-90 transition-opacity"
               >
-                Conheça nossos espetáculos →
+                {homeContent.espetaculosCta}
               </Link>
+              <AdminEditLink
+                singleton="paginaInicial"
+                field="Botão da Seção Espetáculos"
+                label="Editar botão"
+              />
             </div>
           </div>
         </div>
@@ -423,40 +438,39 @@ export default async function HomePage() {
             <div>
               <BrushBanner color="yellow" shape="tilted" className="-ml-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#532E5A] leading-tight">
-                  Práticas Formativas
+                  {homeContent.formativasTitle}
                   <AdminEditLink
-                    collection="praticasFormativas"
-                    field="Práticas Formativas"
-                    label="Gerenciar práticas"
+                    singleton="paginaInicial"
+                    field="Título da Seção Práticas Formativas"
+                    label="Editar título"
                   />
                 </h2>
               </BrushBanner>
             </div>
 
             <div className="space-y-4 text-base sm:text-xl text-[#FDF6E4] font-semibold leading-relaxed drop-shadow-[0_1px_2px_rgba(45,18,50,0.28)]">
-              <p>
-                A Passarinha desenvolve oficinas que aproximam arte, educação e
-                meio ambiente, criando experiências de experimentação, criação
-                coletiva e aprendizagem. Temos propostas já estruturadas, como o{" "}
-                <strong className="text-[#FDBC2E]">Ateliê Jogar Dentro</strong>,
-                a{" "}
-                <strong className="text-[#FDBC2E]">
-                  Ecobrinquedoteca Jogar Dentro
-                </strong>{" "}
-                e a{" "}
-                <strong className="text-[#FDBC2E]">Orquestra de Pandeiros</strong>
-                , e também criamos e adaptamos oficinas de acordo com as
-                demandas, os públicos e os contextos de cada espaço.
-              </p>
+              <div className="flex justify-end mb-1">
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Texto da Seção Práticas Formativas"
+                  label="Editar texto"
+                />
+              </div>
+              <p className="whitespace-pre-line">{homeContent.formativasText}</p>
             </div>
 
-            <div className="flex justify-end pt-2">
+            <div className="flex items-center justify-end pt-2">
               <Link
                 href="/praticas-formativas"
                 className="cta-editorial text-[#FDBC2E] text-lg sm:text-xl tracking-wide hover:opacity-90 transition-opacity"
               >
-                Conheça nossas práticas formativas →
+                {homeContent.formativasCta}
               </Link>
+              <AdminEditLink
+                singleton="paginaInicial"
+                field="Botão da Seção Práticas Formativas"
+                label="Editar botão"
+              />
             </div>
           </div>
 
@@ -527,36 +541,39 @@ export default async function HomePage() {
                 className="-ml-2 lg:-ml-20 lg:pl-20"
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#FDBC2E] leading-tight">
-                  Audiovisual
+                  {homeContent.audiovisualTitle}
                   <AdminEditLink
-                    collection="audiovisual"
-                    field="Produções Audiovisuais"
-                    label="Gerenciar audiovisual"
+                    singleton="paginaInicial"
+                    field="Título da Seção Audiovisual"
+                    label="Editar título"
                   />
                 </h2>
               </BrushBanner>
             </div>
 
             <div className="space-y-4 text-base sm:text-xl text-[#532E5A] font-semibold leading-relaxed">
-              <p>
-                A Passarinha também já experimentou o audiovisual como linguagem
-                de criação artística. Entre essas experiências estão{" "}
-                <strong className="font-black">Caixa Mágica</strong>,{" "}
-                <strong className="font-black">Fora de onde?</strong> e{" "}
-                <strong className="font-black">
-                  O que se passa no formigueiro?
-                </strong>
-                , trabalhos que integram a trajetória do coletivo.
-              </p>
+              <div className="flex justify-end mb-1">
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Texto da Seção Audiovisual"
+                  label="Editar texto"
+                />
+              </div>
+              <p className="whitespace-pre-line">{homeContent.audiovisualText}</p>
             </div>
 
-            <div className="flex justify-end pt-2">
+            <div className="flex items-center justify-end pt-2">
               <Link
                 href="/audiovisual"
                 className="cta-editorial text-[#532E5A] text-lg sm:text-xl tracking-wide hover:opacity-80 transition-opacity"
               >
-                Conheça nossas produções →
+                {homeContent.audiovisualCta}
               </Link>
+              <AdminEditLink
+                singleton="paginaInicial"
+                field="Botão da Seção Audiovisual"
+                label="Editar botão"
+              />
             </div>
           </div>
         </div>
@@ -571,23 +588,39 @@ export default async function HomePage() {
             </div>
             <div className="space-y-1">
               <h3 className="text-lg sm:text-xl font-black uppercase text-[#FDBC2E]">
-                Quer levar a Passarinha para sua escola, evento ou festival?
+                {homeContent.footerBannerTitle}
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Título da Chamada Final (Rodapé)"
+                  label="Editar chamada"
+                />
               </h3>
               <p className="text-sm text-[#FDF6E4] font-semibold">
-                Circulamos com espetáculos, oficinas e vivências socioambientais
-                por todo o Brasil.
+                {homeContent.footerBannerSubtitle}
+                <AdminEditLink
+                  singleton="paginaInicial"
+                  field="Subtítulo da Chamada Final (Rodapé)"
+                  label="Editar subtítulo"
+                />
               </p>
               <div className="pt-1">
                 <ReplayIntroButton />
               </div>
             </div>
           </div>
-          <Link
-            href="/contato"
-            className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#3A1D40] text-sm px-7 py-3.5 shrink-0"
-          >
-            Solicitar Proposta
-          </Link>
+          <div className="flex items-center shrink-0">
+            <Link
+              href="/contato"
+              className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#3A1D40] text-sm px-7 py-3.5 shrink-0"
+            >
+              {homeContent.footerBannerCta}
+            </Link>
+            <AdminEditLink
+              singleton="paginaInicial"
+              field="Botão da Chamada Final (Rodapé)"
+              label="Editar botão"
+            />
+          </div>
         </div>
       </section>
     </main>

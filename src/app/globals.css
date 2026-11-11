@@ -23,11 +23,22 @@ body {
   color: var(--foreground);
   font-family: var(--font-saira), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  overflow-y: auto;
   letter-spacing: 0.015em;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
+/* Garante que o CSS global injetado pelo Keystatic (@keystar/ui / react-aria) nunca trave o scroll vertical nas páginas públicas do site */
+html:not(:has(#keystatic-app-split-view)),
+body:not(:has(#keystatic-app-split-view)) {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+  position: static !important;
 }
 
 /* Texturas Acrílicas Pintadas (Identidade Visual Passarinha) */

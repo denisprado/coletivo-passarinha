@@ -76,6 +76,24 @@ export interface HomePageContent {
   introParagraphs: string[];
   ctaText: string;
   content?: KeystaticDocument;
+  garatujaTitle: string;
+  garatujaText: string;
+  garatujaCta: string;
+  aruTitle: string;
+  aruText: string;
+  aruCta: string;
+  espetaculosTitle: string;
+  espetaculosText: string;
+  espetaculosCta: string;
+  formativasTitle: string;
+  formativasText: string;
+  formativasCta: string;
+  audiovisualTitle: string;
+  audiovisualText: string;
+  audiovisualCta: string;
+  footerBannerTitle: string;
+  footerBannerSubtitle: string;
+  footerBannerCta: string;
 }
 
 export const DEFAULT_SITE_CONFIG: SiteConfig = {
@@ -100,6 +118,30 @@ export const DEFAULT_HOME_CONTENT: HomePageContent = {
     'Trabalhamos em parceria com instituições públicas e particulares, com Pontos de Cultura e outros espaços culturais. Já realizamos projetos com apoio de esferas federais, estaduais, municipais e de alianças internacionais, sempre entregando excelência em todas as ações realizadas.',
   ],
   ctaText: 'Conheça quem somos →',
+  garatujaTitle: 'Ponto de Cultura Quintal Garatuja',
+  garatujaText:
+    'Desde 2016, a Passarinha faz a gestão do Ponto de Cultura Quintal Garatuja, em Campinas/SP, um espaço de criação artística, formação e convivência. Em diálogo com a comunidade e o território, desenvolve cursos, oficinas, apresentações e projetos que aproximam teatro, música, cultura popular e educação ambiental, fortalecendo os encontros entre artistas, público e histórias locais.',
+  garatujaCta: 'Conheça o Quintal Garatuja →',
+  aruTitle: 'A história de Aru',
+  aruText:
+    'Os 12 princípios da Permacultura contados por Aru! Uma história em cordel que ganha vida por meio de ilustrações criadas artesanalmente com materiais naturais e objetos descartados, explorando cores, texturas e formas para construir personagens e cenários. Um projeto artístico que entrelaça literatura, música e arte-educação ambiental, convidando a imaginar outras formas de se relacionar com o mundo.',
+  aruCta: 'Conheça a História de Aru →',
+  espetaculosTitle: 'Espetáculos',
+  espetaculosText:
+    'Teatro, música, histórias e experimentações artísticas que ganham vida em diferentes formatos e linguagens. A Passarinha cria e apresenta espetáculos para públicos diversos, de crianças a adultos, convidando cada pessoa a vivenciar o encontro com a arte, a imaginação e as questões do nosso tempo.',
+  espetaculosCta: 'Conheça nossos espetáculos →',
+  formativasTitle: 'Práticas Formativas',
+  formativasText:
+    'A Passarinha desenvolve oficinas que aproximam arte, educação e meio ambiente, criando experiências de experimentação, criação coletiva e aprendizagem. Temos propostas já estruturadas, como o Ateliê Jogar Dentro, a Ecobrinquedoteca Jogar Dentro e a Orquestra de Pandeiros, e também criamos e adaptamos oficinas de acordo com as demandas, os públicos e os contextos de cada espaço.',
+  formativasCta: 'Conheça nossas práticas formativas →',
+  audiovisualTitle: 'Audiovisual',
+  audiovisualText:
+    'A Passarinha também já experimentou o audiovisual como linguagem de criação artística. Entre essas experiências estão Caixa Mágica, Fora de onde? e O que se passa no formigueiro?, trabalhos que integram a trajetória do coletivo.',
+  audiovisualCta: 'Conheça nossas produções →',
+  footerBannerTitle: 'Quer levar a Passarinha para sua escola, evento ou festival?',
+  footerBannerSubtitle:
+    'Circulamos com espetáculos, oficinas e vivências socioambientais por todo o Brasil.',
+  footerBannerCta: 'Solicitar Proposta',
 };
 
 export const DEFAULT_GARATUJA_SITE: GaratujaSiteContent = {
@@ -509,6 +551,25 @@ export async function getHomePageContent(): Promise<HomePageContent> {
       introParagraphs:
         introParagraphs.length > 0 ? introParagraphs : DEFAULT_HOME_CONTENT.introParagraphs,
       content,
+      garatujaTitle: data.garatujaTitle || DEFAULT_HOME_CONTENT.garatujaTitle,
+      garatujaText: data.garatujaText || DEFAULT_HOME_CONTENT.garatujaText,
+      garatujaCta: data.garatujaCta || DEFAULT_HOME_CONTENT.garatujaCta,
+      aruTitle: data.aruTitle || DEFAULT_HOME_CONTENT.aruTitle,
+      aruText: data.aruText || DEFAULT_HOME_CONTENT.aruText,
+      aruCta: data.aruCta || DEFAULT_HOME_CONTENT.aruCta,
+      espetaculosTitle: data.espetaculosTitle || DEFAULT_HOME_CONTENT.espetaculosTitle,
+      espetaculosText: data.espetaculosText || DEFAULT_HOME_CONTENT.espetaculosText,
+      espetaculosCta: data.espetaculosCta || DEFAULT_HOME_CONTENT.espetaculosCta,
+      formativasTitle: data.formativasTitle || DEFAULT_HOME_CONTENT.formativasTitle,
+      formativasText: data.formativasText || DEFAULT_HOME_CONTENT.formativasText,
+      formativasCta: data.formativasCta || DEFAULT_HOME_CONTENT.formativasCta,
+      audiovisualTitle: data.audiovisualTitle || DEFAULT_HOME_CONTENT.audiovisualTitle,
+      audiovisualText: data.audiovisualText || DEFAULT_HOME_CONTENT.audiovisualText,
+      audiovisualCta: data.audiovisualCta || DEFAULT_HOME_CONTENT.audiovisualCta,
+      footerBannerTitle: data.footerBannerTitle || DEFAULT_HOME_CONTENT.footerBannerTitle,
+      footerBannerSubtitle:
+        data.footerBannerSubtitle || DEFAULT_HOME_CONTENT.footerBannerSubtitle,
+      footerBannerCta: data.footerBannerCta || DEFAULT_HOME_CONTENT.footerBannerCta,
     };
   } catch (error) {
     console.error('Error reading Keystatic home page content, falling back to static data:', error);

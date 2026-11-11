@@ -423,6 +423,89 @@ export default config({
           links: true,
           dividers: true,
         }),
+        garatujaTitle: fields.text({
+          label: "Título da Seção Quintal Garatuja",
+          defaultValue: "Ponto de Cultura Quintal Garatuja",
+        }),
+        garatujaText: fields.text({
+          label: "Texto da Seção Quintal Garatuja",
+          multiline: true,
+          defaultValue:
+            "Desde 2016, a Passarinha faz a gestão do Ponto de Cultura Quintal Garatuja, em Campinas/SP, um espaço de criação artística, formação e convivência. Em diálogo com a comunidade e o território, desenvolve cursos, oficinas, apresentações e projetos que aproximam teatro, música, cultura popular e educação ambiental, fortalecendo os encontros entre artistas, público e histórias locais.",
+        }),
+        garatujaCta: fields.text({
+          label: "Botão da Seção Quintal Garatuja",
+          defaultValue: "Conheça o Quintal Garatuja →",
+        }),
+        aruTitle: fields.text({
+          label: "Título da Seção Aru",
+          defaultValue: "A história de Aru",
+        }),
+        aruText: fields.text({
+          label: "Texto da Seção Aru",
+          multiline: true,
+          defaultValue:
+            "Os 12 princípios da Permacultura contados por Aru! Uma história em cordel que ganha vida por meio de ilustrações criadas artesanalmente com materiais naturais e objetos descartados, explorando cores, texturas e formas para construir personagens e cenários. Um projeto artístico que entrelaça literatura, música e arte-educação ambiental, convidando a imaginar outras formas de se relacionar com o mundo.",
+        }),
+        aruCta: fields.text({
+          label: "Botão da Seção Aru",
+          defaultValue: "Conheça a História de Aru →",
+        }),
+        espetaculosTitle: fields.text({
+          label: "Título da Seção Espetáculos",
+          defaultValue: "Espetáculos",
+        }),
+        espetaculosText: fields.text({
+          label: "Texto da Seção Espetáculos",
+          multiline: true,
+          defaultValue:
+            "Teatro, música, histórias e experimentações artísticas que ganham vida em diferentes formatos e linguagens. A Passarinha cria e apresenta espetáculos para públicos diversos, de crianças a adultos, convidando cada pessoa a vivenciar o encontro com a arte, a imaginação e as questões do nosso tempo.",
+        }),
+        espetaculosCta: fields.text({
+          label: "Botão da Seção Espetáculos",
+          defaultValue: "Conheça nossos espetáculos →",
+        }),
+        formativasTitle: fields.text({
+          label: "Título da Seção Práticas Formativas",
+          defaultValue: "Práticas Formativas",
+        }),
+        formativasText: fields.text({
+          label: "Texto da Seção Práticas Formativas",
+          multiline: true,
+          defaultValue:
+            "A Passarinha desenvolve oficinas que aproximam arte, educação e meio ambiente, criando experiências de experimentação, criação coletiva e aprendizagem. Temos propostas já estruturadas, como o Ateliê Jogar Dentro, a Ecobrinquedoteca Jogar Dentro e a Orquestra de Pandeiros, e também criamos e adaptamos oficinas de acordo com as demandas, os públicos e os contextos de cada espaço.",
+        }),
+        formativasCta: fields.text({
+          label: "Botão da Seção Práticas Formativas",
+          defaultValue: "Conheça nossas práticas formativas →",
+        }),
+        audiovisualTitle: fields.text({
+          label: "Título da Seção Audiovisual",
+          defaultValue: "Audiovisual",
+        }),
+        audiovisualText: fields.text({
+          label: "Texto da Seção Audiovisual",
+          multiline: true,
+          defaultValue:
+            "A Passarinha também já experimentou o audiovisual como linguagem de criação artística. Entre essas experiências estão Caixa Mágica, Fora de onde? e O que se passa no formigueiro?, trabalhos que integram a trajetória do coletivo.",
+        }),
+        audiovisualCta: fields.text({
+          label: "Botão da Seção Audiovisual",
+          defaultValue: "Conheça nossas produções →",
+        }),
+        footerBannerTitle: fields.text({
+          label: "Título da Chamada Final (Rodapé)",
+          defaultValue: "Quer levar a Passarinha para sua escola, evento ou festival?",
+        }),
+        footerBannerSubtitle: fields.text({
+          label: "Subtítulo da Chamada Final (Rodapé)",
+          defaultValue:
+            "Circulamos com espetáculos, oficinas e vivências socioambientais por todo o Brasil.",
+        }),
+        footerBannerCta: fields.text({
+          label: "Botão da Chamada Final (Rodapé)",
+          defaultValue: "Solicitar Proposta",
+        }),
       },
     }),
 
