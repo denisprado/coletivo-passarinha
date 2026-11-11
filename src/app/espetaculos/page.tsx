@@ -116,7 +116,7 @@ export default async function EspetaculosPage() {
 
           {/* Texto Geral Integral + 2 Fotos Intercaladas */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               {passarinhaShow?.content && passarinhaShow.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={passarinhaShow.content}
@@ -493,15 +493,15 @@ export default async function EspetaculosPage() {
 
           {/* Sinopse + Ficha Técnica + Foto Principal */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5">
+            <div className="lg:col-span-7 space-y-6 text-[#FDBC2E]">
               {plasticoShow?.content && plasticoShow.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={plasticoShow.content}
-                  theme="yellow"
+                  theme="purple"
                   className="text-base sm:text-lg leading-relaxed font-medium"
                 />
               ) : (
-                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
+                <p className="text-base sm:text-lg text-[#FDBC2E] leading-relaxed font-semibold">
                   Esse espetáculo propõe uma ginástica do imaginar, até culminar
                   em um exercício coletivo de imaginação. Enquanto nos divertimos,
                   vamos tentar olhar a tragédia nos olhos, perceber algo que
@@ -515,8 +515,8 @@ export default async function EspetaculosPage() {
               )}
 
               {/* Ficha Técnica */}
-              <div className="pt-3 border-t border-[#3A1D40]/15 space-y-3">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+              <div className="pt-4 border-t-2 border-[#FDBC2E]/30 space-y-3">
+                <h3 className="text-xs font-black uppercase tracking-widest text-[#FDBC2E]">
                   Ficha Técnica
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -543,12 +543,12 @@ export default async function EspetaculosPage() {
                   ].map((it, idx) => (
                     <div
                       key={idx}
-                      className="bg-[#FDBC2E]/25 p-3 rounded-lg border border-[#3A1D40]/20"
+                      className="bg-[#241128]/80 p-3 rounded-lg border border-[#FDBC2E]/30 text-[#FDF6E4]"
                     >
-                      <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                      <span className="font-black text-[#FDBC2E] block uppercase text-[11px]">
                         {it.label}
                       </span>
-                      <span className="font-bold text-[#3A1D40]">
+                      <span className="font-bold text-[#FDF6E4]">
                         {it.value}
                       </span>
                     </div>
@@ -561,7 +561,7 @@ export default async function EspetaculosPage() {
                   href="https://www.instagram.com/p/DYkglu_DTpk/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-black text-[#E91C47] hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-black text-[#FDBC2E] hover:text-white hover:underline transition-colors"
                 >
                   <InstagramIcon className="w-4 h-4" />
                   <span>Assistir matéria da TV Unicamp no Instagram</span>
@@ -598,25 +598,25 @@ export default async function EspetaculosPage() {
               Sobre a obra
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               {/* Encenação */}
-              <div className="painel-rustico p-6 sm:p-8 space-y-3">
-                <h4 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+              <div className="space-y-3">
+                <h4 className="text-xl sm:text-2xl font-black uppercase text-[#FDBC2E]">
                   Encenação
                 </h4>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   A concepção geral do projeto envolve reduzir a geração de
                   resíduos ao longo do processo de criação, ensaios e
                   apresentações.
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   Os objetos cênicos do espetáculo estão compostos por materiais
                   reutilizados ou de segunda mão e são explorados em cena de
                   modo a adquirir muitos significados durante os jogos cênicos.
                   São utilizados, ainda, alguns objetos encontrados no local ou
                   nas proximidades do espaço de apresentação.
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   Também se considera o transporte dos materiais, por isso os
                   objetos do espetáculo podem ser levados em uma mochila,
                   técnica que se mostra potente quando se considera a ocupação
@@ -627,11 +627,11 @@ export default async function EspetaculosPage() {
 
               {/* Interpretação + Teatro fórum */}
               <div className="space-y-6">
-                <div className="painel-rustico p-6 sm:p-8 space-y-3">
-                  <h4 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+                <div className="space-y-3">
+                  <h4 className="text-xl sm:text-2xl font-black uppercase text-[#FDBC2E]">
                     Interpretação
                   </h4>
-                  <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                  <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                     A interpretação está baseada no comprometimento com a
                     comunicação com a plateia. Mais do que defender uma ideia ou
                     se apresentar como uma especialista, a atuação está
@@ -643,11 +643,11 @@ export default async function EspetaculosPage() {
                   </p>
                 </div>
 
-                <div className="painel-rustico p-6 sm:p-8 space-y-3">
-                  <h4 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+                <div className="space-y-3">
+                  <h4 className="text-xl sm:text-2xl font-black uppercase text-[#FDBC2E]">
                     Teatro fórum
                   </h4>
-                  <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                  <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                     Durante todo o espetáculo o público é convidado a imaginar.
                     Pamella faz isso de maneira sutil, engraçada e respeitosa.
                     Aos poucos vai aumentando a complexidade dos convites para a
@@ -661,37 +661,37 @@ export default async function EspetaculosPage() {
               </div>
 
               {/* Necessidades Técnicas */}
-              <div className="painel-rustico p-6 sm:p-8 space-y-3">
-                <h4 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+              <div className="space-y-3">
+                <h4 className="text-xl sm:text-2xl font-black uppercase text-[#FDBC2E]">
                   Necessidades Técnicas
                 </h4>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   O espetáculo foi criado para circular por diversos contextos
                   possíveis, desde teatros, caixas pretas até espaços
                   alternativos como auditórios ou salas, desde que seja um
                   espaço fechado.
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   Para a cenografia, será necessário: uma mesa, uma cadeira e
                   uma tomada 110V ou 220V. Além dos elementos que a atriz
                   carrega em uma mala.
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   Para a sonorização, será necessário ligar o notebook do palco,
                   via cabo p2 ou bluetooth.
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   Se houver iluminação cênica disponível, entrar em contato com
                   a produção para envio do mapa de luz.
                 </p>
               </div>
 
               {/* Acessibilidade */}
-              <div className="painel-rustico p-6 sm:p-8 space-y-3">
-                <h4 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+              <div className="space-y-3">
+                <h4 className="text-xl sm:text-2xl font-black uppercase text-[#FDBC2E]">
                   Acessibilidade
                 </h4>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#FDF6E4] leading-relaxed font-medium">
                   A descrição das imagens e ações principais do espetáculo fazem
                   parte da dramaturgia, estão integradas ao texto enunciado pela
                   atriz. Assim, um recurso inicialmente voltado para incluir
@@ -737,11 +737,11 @@ export default async function EspetaculosPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
-              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
+            <div className="lg:col-span-7 space-y-5 text-sm sm:text-base text-[#FDBC2E] leading-relaxed font-medium">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#FDBC2E]">
                 Histórico
               </h3>
-              <p className="font-bold text-base sm:text-lg text-[#3A1D40]">
+              <p className="font-bold text-base sm:text-lg text-white">
                 Desde sua estreia em 2023, mais de 6 mil pessoas já assistiram
                 ao espetáculo.
               </p>
@@ -906,7 +906,7 @@ export default async function EspetaculosPage() {
 
           {/* Bloco 1: 3 Parágrafos Iniciais + Fotos de Interações */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               {guarantasShow?.content && guarantasShow.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={guarantasShow.content}
@@ -991,7 +991,7 @@ export default async function EspetaculosPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 O ponto de Cultura Quintal Garatuja também produziu e instalou
                 07 placas informativas no local, com a ideia de compor o
@@ -1095,15 +1095,15 @@ export default async function EspetaculosPage() {
             </div>
           </div>
 
-          <div className="painel-rustico p-7 sm:p-9 space-y-4">
+          <div className="space-y-4 max-w-4xl text-[#3A1D40]">
             {nascenteShow?.content && nascenteShow.content.length > 0 ? (
               <CustomDocumentRenderer
                 document={nascenteShow.content}
-                theme="yellow"
-                className="text-base sm:text-lg leading-relaxed font-medium"
+                theme="orange"
+                className="text-base sm:text-xl leading-relaxed font-bold"
               />
             ) : (
-              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
+              <p className="text-base sm:text-xl text-[#3A1D40] leading-relaxed font-bold">
                 Espetáculo musical do Coletivo Passarinha com direção musical e
                 composições de Dudu Ferraz, celebrando a canção brasileira, a
                 poesia, os cursos d&apos;água e a força dos encontros no palco.

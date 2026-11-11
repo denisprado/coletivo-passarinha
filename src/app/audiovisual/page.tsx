@@ -77,7 +77,7 @@ export default async function AudiovisualPage() {
 
           {/* Bloco 1: 3 Parágrafos Iniciais + Foto 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 Uma palhaça e um palhaço abrem sua caixa mágica e, com a ajuda
                 da Mãozinha, brincam com a ressignificação de objetos,
@@ -135,7 +135,7 @@ export default async function AudiovisualPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 A Caixa Mágica integrou o{" "}
                 <strong className="font-bold">Brincando na Rede</strong>, uma
@@ -163,12 +163,12 @@ export default async function AudiovisualPage() {
           </div>
 
           {/* Ficha Técnica Completa */}
-          <div className="painel-rustico p-6 sm:p-8 space-y-4">
+          <div className="pt-4 border-t-2 border-[#3A1D40]/20 space-y-3">
             <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
               Ficha Técnica & Elenco
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
-              <div className="p-3.5 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                 <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                   Texto, direção, produção e edição
                 </span>
@@ -176,13 +176,13 @@ export default async function AudiovisualPage() {
                   Coletivo Passarinha
                 </span>
               </div>
-              <div className="p-3.5 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                 <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                   Elenco — Mãozinha
                 </span>
                 <span className="text-[#3A1D40] font-bold">Sarah Gregorio</span>
               </div>
-              <div className="p-3.5 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                 <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                   Elenco — Pirulita
                 </span>
@@ -190,13 +190,13 @@ export default async function AudiovisualPage() {
                   Maria Carolina Thomé
                 </span>
               </div>
-              <div className="p-3.5 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                 <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                   Elenco — Pouca Sombra
                 </span>
                 <span className="text-[#3A1D40] font-bold">Miguel Matoso</span>
               </div>
-              <div className="p-3.5 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+              <div className="p-3.5 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                 <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                   Intérprete de Libras
                 </span>
@@ -241,15 +241,15 @@ export default async function AudiovisualPage() {
 
           {/* Texto Completo Intercalado com Cartaz Oficial e Foto de Cena */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-6 text-[#3A1D40]">
               {foraDeOndeWork?.content && foraDeOndeWork.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={foraDeOndeWork.content}
-                  theme="yellow"
+                  theme="orange"
                   className="text-base sm:text-lg leading-relaxed font-medium"
                 />
               ) : (
-                <>
+                <div className="space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                   <p>
                     Quando eu jogo alguma coisa fora, eu jogo fora de onde? Em um
                     convite poético ao pensamento, vamos dialogar com alguns pontos
@@ -273,16 +273,16 @@ export default async function AudiovisualPage() {
                     eventos, ligados a temáticas socioambientais, de extensão
                     universitária e divulgação científica.
                   </p>
-                </>
+                </div>
               )}
 
               {/* Ficha Técnica */}
-              <div className="pt-4 border-t-2 border-[#3A1D40]/15 space-y-3">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+              <div className="pt-4 border-t-2 border-[#3A1D40]/20 space-y-3">
+                <h3 className="text-xs font-black uppercase tracking-widest text-[#3A1D40]">
                   Ficha Técnica
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                  <div className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+                  <div className="p-3 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                     <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                       Criação, direção e edição
                     </span>
@@ -290,7 +290,7 @@ export default async function AudiovisualPage() {
                       Pamella Villanova
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+                  <div className="p-3 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                     <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                       Assistência de direção e de roteiro
                     </span>
@@ -298,7 +298,7 @@ export default async function AudiovisualPage() {
                       Dudu Ferraz
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+                  <div className="p-3 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                     <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                       Fotografia
                     </span>
@@ -309,7 +309,7 @@ export default async function AudiovisualPage() {
                 </div>
               </div>
 
-              <div className="bg-[#FDBC2E]/35 p-4 rounded-xl border-l-4 border-[#E91C47] space-y-3">
+              <div className="bg-[#FDF6E4]/90 p-5 rounded-xl border-l-4 border-[#3A1D40] space-y-3 shadow-md">
                 <p className="text-sm text-[#3A1D40] font-semibold">
                   No link abaixo, é possível acessar a transmissão do filme,
                   realizada no 8º EDICC - Encontro de Divulgação Científica e
@@ -319,7 +319,7 @@ export default async function AudiovisualPage() {
                   href="https://www.youtube.com/watch?v=mnlxnn_4HPg&t=2411s"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-xs py-2.5 px-5"
+                  className="btn-foca bg-[#3A1D40] hover:bg-[#241128] text-[#FDBC2E] text-xs py-2.5 px-5"
                 >
                   <Play className="w-4 h-4 fill-current" />
                   <span>Assistir Transmissão no 8º EDICC (YouTube)</span>
@@ -389,7 +389,7 @@ export default async function AudiovisualPage() {
 
           {/* Sinopse + Ficha Técnica + Fotos de Cena */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 Um formigueiro de saúvas cortadeiras passa por momentos de
                 dificuldade: a terra está diferente, há mais seres vivendo
@@ -399,7 +399,7 @@ export default async function AudiovisualPage() {
                 ver, ou ouvir e ver ao mesmo tempo.
               </p>
 
-              <div className="bg-[#FDBC2E]/30 p-5 rounded-xl border-l-4 border-[#E91C47] space-y-1.5">
+              <div className="bg-[#FDF6E4]/80 p-5 rounded-xl border-l-4 border-[#E91C47] space-y-1.5 shadow-sm">
                 <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
                   Um pouco mais:
                 </h3>
@@ -415,7 +415,7 @@ export default async function AudiovisualPage() {
                   Ficha técnica
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <div className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                     <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                       Concepção e realização
                     </span>
@@ -423,7 +423,7 @@ export default async function AudiovisualPage() {
                       Pamella Villanova e Dudu Ferraz
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                     <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                       Inspiração
                     </span>
@@ -431,7 +431,7 @@ export default async function AudiovisualPage() {
                       &ldquo;Rainha Maximilliana Atta&rdquo;, de Ana Primavesi
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                     <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                       Intérprete de Libras
                     </span>
@@ -439,7 +439,7 @@ export default async function AudiovisualPage() {
                       Karina Zonzini
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDBC2E]/25 rounded-lg border border-[#3A1D40]/20">
+                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
                     <span className="font-black text-[#E91C47] block uppercase text-[11px]">
                       Captação de imagens
                     </span>
@@ -470,14 +470,14 @@ export default async function AudiovisualPage() {
             </div>
           </div>
 
-          {/* Cards com todas as subseções integrais do Doc: Acessibilidade, Agroecologia, O ponto de vista da praga e Como fizemos esse vídeo? */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Subseções integrais do Doc: Acessibilidade, Agroecologia, O ponto de vista da praga e Como fizemos esse vídeo? */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Acessibilidade */}
-            <div className="painel-rustico p-6 sm:p-8 space-y-3">
-              <h3 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+            <div className="space-y-3">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
                 Acessibilidade
               </h3>
-              <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                 Nossa proposta é que a obra seja acessível para pessoas com
                 deficiência visual e auditiva, desde sua concepção inicial.
                 Assim, criamos uma forma de contar essa história considerando o
@@ -488,11 +488,11 @@ export default async function AudiovisualPage() {
             </div>
 
             {/* O ponto de vista da praga */}
-            <div className="painel-rustico p-6 sm:p-8 space-y-3">
-              <h3 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+            <div className="space-y-3">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
                 O ponto de vista da praga
               </h3>
-              <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                 As formigas cortadeiras são uma grande ameaça à agricultura,
                 porque em pouco tempo conseguem ceifar um pasto inteiro ou uma
                 plantação inteira! Com a inspiração e base científica de
@@ -501,14 +501,14 @@ export default async function AudiovisualPage() {
                 cortadeiras decidem partir. Quais estratégias, além de venenos,
                 podem proteger os campos das pragas?
               </p>
-              <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                 São estratégias da agricultura agroecológica que nutrem o solo,
                 em contraposição à monocultura que elimina a diversidade. Por
                 isso, agora as formigas não estão mais sozinhas com as plantas
                 naquele solo. A diversidade é benéfica para a produção de
                 alimentos, pois mantém a saúde da terra e afasta as pragas.
               </p>
-              <p className="text-xs sm:text-sm text-[#3A1D40] font-bold pt-1">
+              <p className="text-sm sm:text-base text-[#3A1D40] font-bold pt-1">
                 Para saber mais, sugerimos conhecer a história &ldquo;Rainha
                 Maximiliana Atta&rdquo; do livro &ldquo;A convenção dos
                 ventos&rdquo;.
@@ -516,16 +516,16 @@ export default async function AudiovisualPage() {
             </div>
 
             {/* Agroecologia */}
-            <div className="painel-rustico p-6 sm:p-8 space-y-4">
-              <h3 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+            <div className="space-y-4">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
                 Agroecologia
               </h3>
-              <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                 A autora da história que nos inspirou a escrever o roteiro é Ana
                 Primavesi, uma grande mestra da Agroecologia - que é, segundo
                 ela, uma das 3 formas de agricultura que existem atualmente.
               </p>
-              <blockquote className="bg-[#FDBC2E]/30 p-4 rounded-xl border-l-4 border-[#3A1D40] italic text-sm sm:text-base text-[#3A1D40] font-semibold">
+              <blockquote className="bg-[#FDF6E4]/70 p-4 sm:p-5 rounded-xl border-l-4 border-[#3A1D40] italic text-base text-[#3A1D40] font-semibold shadow-sm">
                 &ldquo;Na Agroecologia, ecológico refere-se ao sistema natural
                 de um lugar. Quer dizer: ao solo, a água, ao clima, todos seres
                 vivos. Dos micróbios às plantas e até os animais que aqui
@@ -536,7 +536,7 @@ export default async function AudiovisualPage() {
                 interligados e trabalhar ecologicamente é trabalhar com esta
                 teia de vida.&rdquo; (fonte: site da autora)
               </blockquote>
-              <p className="text-xs sm:text-sm text-[#3A1D40] font-semibold">
+              <p className="text-sm sm:text-base text-[#3A1D40] font-semibold">
                 Para acessar livros, desenhos, biografia e muito mais dessa
                 grande mestra, acesse:{" "}
                 <strong className="font-black">anamariaprimavesi.com.br</strong>{" "}
@@ -549,30 +549,30 @@ export default async function AudiovisualPage() {
             </div>
 
             {/* Como fizemos esse vídeo? */}
-            <div className="painel-rustico p-6 sm:p-8 space-y-3 flex flex-col justify-between">
+            <div className="space-y-3 flex flex-col justify-between">
               <div className="space-y-3">
-                <h3 className="text-lg sm:text-xl font-black uppercase text-[#E91C47]">
+                <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
                   Como fizemos esse vídeo?
                 </h3>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                   Somos artistas interdisciplinares, com paixão por teatro,
                   música e contação de histórias. Desde que a pandemia
                   impossibilitou que frequentássemos as escolas, passamos a
                   produzir daqui do nosso quintal, obras audiovisuais com os
                   recursos disponíveis.
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                   Todas as imagens foram gravadas ao redor do Quintal Garatuja,
                   entre os bairros Jardim Nova Europa e Parque Jambeiro, em
                   Campinas/SP.
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                   A trilha sonora é de criação totalmente nossa, original,
                   gravada e finalizada por nós. Assim como a edição, o roteiro,
                   o figurino, a captação de som e imagens (para esta última
                   contamos também com a ajuda de amigos).
                 </p>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
                   Uma curiosidade sobre nosso figurino de bumbum de formiga, é
                   que ele tem mais de 20 anos! Foi produzido para uma peça
                   escolar no final dos anos 1990 e continua sendo formiga até
@@ -584,7 +584,7 @@ export default async function AudiovisualPage() {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#3A1D40]/15 space-y-2">
+              <div className="pt-3 border-t border-[#3A1D40]/20 space-y-2">
                 <p className="text-xs sm:text-sm font-bold text-[#3A1D40]">
                   No link, pode-se assistir à transmissão realizada no XIV
                   Ciência em Cena - encontro nacional de teatro científico:
@@ -640,11 +640,11 @@ export default async function AudiovisualPage() {
               </div>
             )}
 
-            <div className="painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed">
+            <div className="space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               {work.content && work.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={work.content}
-                  theme="yellow"
+                  theme="orange"
                   className="text-base sm:text-lg leading-relaxed font-medium"
                 />
               ) : (

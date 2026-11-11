@@ -274,15 +274,15 @@ export default async function QuemSomosPage() {
 
           {/* Bloco 1: Parágrafos 1 a 4 do Doc + Fotos Iniciais */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#FDBC2E] leading-relaxed font-medium">
               <p>
                 Desde 2014, o{" "}
-                <strong className="font-black">Coletivo Passarinha</strong> atua
+                <strong className="font-black text-white">Coletivo Passarinha</strong> atua
                 como uma plataforma de criação, articulação e circulação
                 artística, conectando linguagens, saberes, pessoas e
                 territórios.
               </p>
-              <p>
+              <p className="text-[#FDF6E4]">
                 Teatro, música, design, reutilização de materiais, contação de
                 histórias, ações formativas e ambientais, brinquedos,
                 artesanato, festivais e mostras culturais integram seu
@@ -296,7 +296,7 @@ export default async function QuemSomosPage() {
                 campo estratégico para a experimentação, a troca de
                 conhecimentos e a construção de novas formas de interação.
               </p>
-              <p>
+              <p className="text-[#FDF6E4]">
                 De origem itinerante, o Coletivo Passarinha iniciou sua
                 trajetória em 2014, quando suas fundadoras partiram de
                 Campinas/SP em direção ao Nordeste, viajando de kombi e
@@ -356,17 +356,17 @@ export default async function QuemSomosPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#FDBC2E] leading-relaxed font-medium">
               <p>
                 Somos o{" "}
-                <strong className="font-black">
+                <strong className="font-black text-white">
                   Coletivo Interdisciplinar Passarinha
                 </strong>
                 , artistas da cena, música, design e permacultura. Há anos,
                 realizamos ações de arte educação ambiental em projetos
                 itinerantes e também conservando relações com territórios.
               </p>
-              <p>
+              <p className="text-[#FDF6E4]">
                 Promovemos práticas artísticas e discutimos urgências
                 socioambientais relacionadas a essa sociedade do consumo e do
                 descarte - que nos apavora.
@@ -379,7 +379,7 @@ export default async function QuemSomosPage() {
                 práticas de arte e cultura com os lugares e pessoas que
                 cruzamos. Fazemos arte educação ambiental desde 2014.
               </p>
-              <p className="bg-[#FDBC2E]/35 p-4 rounded-xl border-l-4 border-[#E91C47] font-bold">
+              <p className="bg-[#241128]/80 text-[#FDBC2E] p-5 rounded-xl border-l-4 border-[#FDBC2E] font-bold shadow-md">
                 Trabalhamos em parceria com instituições públicas e particulares,
                 com Pontos de Cultura e outros espaços culturais. Já realizamos
                 projetos com apoio de esferas federais, estaduais, municipais e

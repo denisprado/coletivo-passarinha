@@ -100,7 +100,7 @@ export default async function AruPage() {
 
           {/* Bloco 1: Parágrafos 1, 2 e 3 + Fotos ao Lado */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               {aruContent.content && aruContent.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={aruContent.content}
@@ -187,7 +187,7 @@ export default async function AruPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 A história é o ponto de partida para a criação de diferentes
                 materiais que ajudam a explorar esses conhecimentos. O projeto

@@ -92,7 +92,7 @@ export default async function PraticasFormativasPage() {
               </p>
             </div>
 
-            <div className="painel-rustico p-5 text-base sm:text-xl font-black text-[#E91C47] italic border-l-8 border-l-[#E91C47]">
+            <div className="bg-[#FDF6E4]/50 p-5 rounded-r-xl text-base sm:text-xl font-black text-[#E91C47] italic border-l-8 border-l-[#E91C47] shadow-sm">
               &ldquo;E se aquilo que seria descartado se transformasse em
               fantasia, figurino, adereço, instrumento musical ou
               brinquedo?&rdquo;
@@ -101,7 +101,7 @@ export default async function PraticasFormativasPage() {
 
           {/* Bloco 1: Parágrafos 1, 2 e 3 + Fotos 1 e 2 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               {atelieWorkshop?.content && atelieWorkshop.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={atelieWorkshop.content}
@@ -186,7 +186,7 @@ export default async function PraticasFormativasPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 No Ateliê Jogar Dentro, não existe uma única maneira de criar.
                 Os materiais podem se transformar em fantasias, figurinos,
@@ -287,14 +287,14 @@ export default async function PraticasFormativasPage() {
               </p>
             </div>
 
-            <div className="painel-rustico p-5 text-base sm:text-xl font-black text-[#E91C47] italic border-l-8 border-l-[#E91C47]">
+            <div className="bg-[#FDF6E4]/50 p-5 rounded-r-xl text-base sm:text-xl font-black text-[#E91C47] italic border-l-8 border-l-[#E91C47] shadow-sm">
               &ldquo;Existe lixo de fato? Fora de onde?&rdquo;
             </div>
           </div>
 
           {/* Bloco 1: Parágrafos 1 a 4 + 2 Fotos */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 A Ecobrinquedoteca Jogar Dentro nasceu dessa inquietação: o que
                 acontece quando mudamos nosso olhar para aquilo que descartamos?
@@ -368,7 +368,7 @@ export default async function PraticasFormativasPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 Na Ecobrinquedoteca, os materiais descartados deixam de ser
                 apenas sobras e passam a integrar novas experiências estéticas,
@@ -410,7 +410,7 @@ export default async function PraticasFormativasPage() {
 
           {/* Bloco 3: Parágrafos 9, 10 e 11 + 2 Fotos */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 A experiência também se constrói na diversidade de pessoas e de
                 maneiras de brincar. Diferentes idades, corpos, repertórios,
@@ -542,12 +542,12 @@ export default async function PraticasFormativasPage() {
 
           {/* Sinopse + Cards de Perguntas do Doc */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5">
+            <div className="lg:col-span-7 space-y-6 text-[#FDBC2E]">
               <div className="space-y-2">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                <h3 className="text-xs font-black uppercase tracking-widest text-[#FDBC2E]">
                   Sinopse
                 </h3>
-                <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-semibold">
+                <p className="text-base sm:text-lg text-[#FDBC2E] leading-relaxed font-semibold">
                   A Orquestra de Pandeiros é uma ação artístico-pedagógica de
                   educação musical que tem como fundamento as manifestações
                   percussivas da cultura popular brasileira e a prática musical
@@ -564,11 +564,11 @@ export default async function PraticasFormativasPage() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#3A1D40]/15 space-y-2">
-                <h3 className="text-sm font-black uppercase tracking-wider text-[#E91C47]">
+              <div className="pt-4 border-t-2 border-[#FDBC2E]/30 space-y-2">
+                <h3 className="text-sm font-black uppercase tracking-wider text-[#FDBC2E]">
                   Princípios
                 </h3>
-                <p className="text-sm sm:text-base text-[#3A1D40] leading-relaxed font-medium">
+                <p className="text-sm sm:text-base text-[#FDF6E4] leading-relaxed font-medium">
                   A Orquestra de Pandeiros fundamenta-se nas manifestações
                   percussivas da cultura popular brasileira e no fazer musical
                   coletivo, compreendendo a música como uma experiência
@@ -646,11 +646,11 @@ export default async function PraticasFormativasPage() {
 
           {/* HISTÓRICO + GALERIA 1 (CARROSSEL 1) + GALERIA 2 (CARROSSEL 2) INTERCALADAS EXATAMENTE COMO NO DOC */}
           <div className="space-y-8">
-            <div className="painel-rustico p-7 sm:p-9 space-y-4">
-              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
+            <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] leading-relaxed font-medium">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#FDBC2E]">
                 Histórico
               </h3>
-              <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-white font-bold leading-relaxed">
                 Idealizada em 2021, a iniciativa realizou suas primeiras edições
                 em 2022 por meio do Programa Municipal de Incentivo à Cultura
                 (PROMIC), de Londrina/PR, surgindo como uma resposta ao desejo
@@ -691,8 +691,8 @@ export default async function PraticasFormativasPage() {
               ]}
             />
 
-            <div className="painel-rustico p-7 sm:p-9 space-y-4 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
-              <p>
+            <div className="space-y-4 text-base sm:text-lg text-[#FDBC2E] leading-relaxed font-medium">
+              <p className="text-[#FDF6E4]">
                 Em 2023, a Orquestra de Pandeiros ampliou sua atuação ao
                 tornar-se objeto de pesquisa no curso de Mestrado em Música da
                 UNICAMP, integrando o Programa UniversIDADE (50+). A

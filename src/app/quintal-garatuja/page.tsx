@@ -128,7 +128,7 @@ export default async function QuintalGaratujaPage() {
 
           {/* Bloco 1 de Texto Integral + Fotos Intercaladas à Direita */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               {garatujaSite.content && garatujaSite.content.length > 0 ? (
                 <CustomDocumentRenderer
                   document={garatujaSite.content}
@@ -215,7 +215,7 @@ export default async function QuintalGaratujaPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2 painel-rustico p-7 sm:p-9 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
+            <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
               <p>
                 O espaço também abriga uma programação contínua de formação.
                 Oferecemos oficinas, cursos, laboratórios, residências
@@ -337,7 +337,7 @@ export default async function QuintalGaratujaPage() {
                   "Encontro de artistas da composição musical, com mais de 10 anos de história, Nosso Canto apresenta compositoras e compositores ao público, mas também favorece novas conexões. Além das apresentações ao vivo de canções, o coletivo promoveu a gravação do primeiro álbum Nosso Canto Volume 1, além de entrevistas em podcast, disponibilização de vídeos de canções autorais e difusão das composições da cidade através de playlist."}
               </p>
             </div>
-            <div className="painel-rustico px-5 py-3 text-xs sm:text-sm font-black text-[#532E5A] shrink-0">
+            <div className="bg-[#3A1D40] text-[#FDBC2E] px-5 py-3 rounded-xl text-xs sm:text-sm font-black shrink-0 shadow-md">
               Para saber mais: www.coletivopassarinha.com/nossocanto
             </div>
           </div>
@@ -531,7 +531,7 @@ export default async function QuintalGaratujaPage() {
             <div
               key={extra.id}
               id={extra.id}
-              className="scroll-mt-24 painel-rustico p-8 sm:p-12 space-y-6"
+              className="scroll-mt-24 space-y-6 text-[#3A1D40] pt-8 border-t-2 border-[#3A1D40]/20"
             >
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div className="space-y-2">
