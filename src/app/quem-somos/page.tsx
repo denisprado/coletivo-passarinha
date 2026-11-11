@@ -29,12 +29,14 @@ interface HistoricalBlock {
   title: string;
   paragraphs: string[];
   photos: { src: string; alt: string; caption?: string }[];
+  photoVariant?: "editorial" | "grid" | "triptych" | "stacked";
 }
 
 const FULL_HISTORY_BLOCKS: HistoricalBlock[] = [
   {
     period: "2014 – 2015",
     title: "Fundação, Grafite na Praça & Estação Permacultural Móvel (Kombi Safari)",
+    photoVariant: "stacked",
     paragraphs: [
       "Somos o Coletivo Interdisciplinar Passarinha, artistas da cena, música, design e permacultura. Há anos, realizamos ações de arte educação ambiental em projetos itinerantes e também conservando relações com territórios. Trabalhamos com e para crianças de zero a cem anos. Também discutimos bastante sobre as problemáticas relacionadas ao lixo e essa sociedade do consumo e do descarte - que nos apavora.",
       "Fundado em 2014, Coletivo Passarinha promoveu sua primeira ação em Campinas/SP: o evento “Grafite na praça”, uma intervenção artística como preparação para a jornada artística que aconteceu no ano seguinte a bordo de uma Kombi grafitada.",
@@ -137,6 +139,7 @@ const FULL_HISTORY_BLOCKS: HistoricalBlock[] = [
   {
     period: "2020 – 2021",
     title: "Residência Passarinhas (Feverestival) & Mostra Brincando na Rede",
+    photoVariant: "stacked",
     paragraphs: [
       "Em 2020, foi promovida a Residência Passarinhas, parte do FEVERESTIVAL, Festival Internacional de Teatro de Campinas, em parceria com escola de Ed. Infantil da rede Municipal de Ensino de Campinas, na qual foram desenvolvidas poéticas de reflexão sobre o descarte e reutilização de recicláveis. Tal ação resultou em um dia de evento na escola junto de crianças e famílias, além de planos para futuras formações.",
       "Desde 2016, o Coletivo Passarinha faz a gestão do Ponto de Cultura Quintal Garatuja, na cidade de Campinas/SP. Desde sua inauguração, tem como missão a articulação de redes de artistas e públicos, a atenção ao território e inclusão de crianças, mulheres e pessoas com deficiências.",
@@ -175,6 +178,7 @@ const FULL_HISTORY_BLOCKS: HistoricalBlock[] = [
   {
     period: "2021 – Hoje",
     title: "Orquestra de Pandeiros & Pesquisa em Educação Musical",
+    photoVariant: "stacked",
     paragraphs: [
       "Idealizado em 2021 e com duas realizações em 2022 por meio do Programa Municipal de Incentivo à Cultura (PROMIC – Londrina/PR), criamos o projeto Orquestra de Pandeiros. Como uma ação artístico-pedagógica de educação musical por meio do pandeiro, a proposta, de caráter intergeracional, surgiu como uma forma de retomada do fazer musical e da experiência coletiva após a pandemia de COVID-19.",
       "Em 2023, o projeto tornou-se objeto de investigação no curso de Mestrado em Música da UNICAMP, em Campinas/SP, passando a integrar o Programa UniversIDADE (50+), onde investiga a afetividade e o envolvimento musical de pessoas adultas e idosas.",
@@ -196,6 +200,7 @@ const FULL_HISTORY_BLOCKS: HistoricalBlock[] = [
   {
     period: "2023 – 2026",
     title: "Plástico, um mito contemporâneo, Reciclarnaval & Ecobrinquedoteca",
+    photoVariant: "stacked",
     paragraphs: [
       "Em 2023, estreamos o espetáculo Plástico, um mito contemporâneo, uma palestra-performance que aborda a problemática da poluição plástica. A obra é parte da pesquisa de doutorado de Pamella Villanova em Artes da Cena na Unicamp. Reune tecnologias teatrais como teatro científico, mediação teatral e acessibilidade comunicacional. A peça já foi assistida por mais de 6 mil pessoas em 4 países diferentes.",
       "Durante o Carnaval de 2024, foi realizado o Reciclarnaval – Ateliê de Fantasias de Material Reaproveitado, no SESC Campinas (SP), oferecendo um ateliê de criação de fantasias e alegorias com material reaproveitado. A proposta promoveu um ateliê colaborativo no qual crianças e famílias participaram da criação de fantasias e adereços a partir de materiais reaproveitados. Ao longo da ação, foram produzidas mais de 800 peças, estimulando a experimentação artística, a criatividade e a reflexão sobre a cultura do consumo e do descarte por meio da criação e da brincadeira.",
@@ -517,7 +522,10 @@ export default async function QuemSomosPage() {
                     </div>
 
                     <div className="lg:col-span-5">
-                      <PhotoMosaic photos={block.photos} variant="grid" />
+                      <PhotoMosaic
+                        photos={block.photos}
+                        variant={block.photoVariant || "grid"}
+                      />
                     </div>
                   </div>
                 </div>
