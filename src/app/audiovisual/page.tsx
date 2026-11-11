@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Play, ExternalLink, Film } from "lucide-react";
 import BrushBanner from "@/components/BrushBanner";
 import PhotoMosaic from "@/components/PhotoMosaic";
+import AudiovisualFilterBar from "@/components/AudiovisualFilterBar";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { AdminEditLink } from "@/components/AdminEditSystem";
 import { getAudiovisualWorks } from "@/lib/keystatic";
@@ -35,10 +36,26 @@ export default async function AudiovisualPage() {
       ].includes(w.id),
   );
 
+  const submenuItems = [
+    {
+      id: "a-caixa-magica",
+      label: caixaMagicaWork?.title || "A Caixa Mágica",
+    },
+    {
+      id: "fora-de-onde",
+      label: foraDeOndeWork?.title || "Fora de onde?",
+    },
+    {
+      id: "o-que-se-passa-no-formigueiro",
+      label: formigueiroWork?.title || "O que se passa no formigueiro?",
+    },
+    ...extraWorks.map((w) => ({ id: w.id, label: w.title })),
+  ];
+
   return (
     <main className="w-full overflow-x-clip">
       {/* Header em Textura Amarela Ipê Acrílica */}
-      <section id="apresentacao" className="scroll-mt-24 canvas-amarelo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
+      <section id="apresentacao" className="scroll-mt-36 canvas-amarelo pt-16 pb-10 sm:pt-20 sm:pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-[#3A1D40] text-xs font-black uppercase tracking-wider text-[#FDBC2E]">
             <Film className="w-4 h-4 text-[#FDBC2E]" /> Cinema, Vídeo-arte & Infâncias
@@ -59,10 +76,13 @@ export default async function AudiovisualPage() {
         </div>
       </section>
 
+      {/* Submenu de Produções Audiovisuais Fixo na Rolagem */}
+      <AudiovisualFilterBar items={submenuItems} />
+
       {/* PRODUÇÃO 1 — A CAIXA MÁGICA (Roxo Acrílico - Texto Integral do Doc + Fotos Intercaladas) */}
       <section
         id="a-caixa-magica"
-        className="scroll-mt-24 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="space-y-3">
@@ -243,7 +263,7 @@ export default async function AudiovisualPage() {
       {/* PRODUÇÃO 2 — FORA DE ONDE? (Laranja Acrílico - Texto Integral do Doc + Fotos Intercaladas) */}
       <section
         id="fora-de-onde"
-        className="scroll-mt-24 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="space-y-3">
@@ -411,7 +431,7 @@ export default async function AudiovisualPage() {
       {/* PRODUÇÃO 3 — O QUE SE PASSA NO FORMIGUEIRO? (Amarelo Ipê Acrílico - TODAS AS SEÇÕES INTEGRAIS DO DOC!) */}
       <section
         id="o-que-se-passa-no-formigueiro"
-        className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+        className="scroll-mt-36 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
       >
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="space-y-3">
@@ -683,7 +703,7 @@ export default async function AudiovisualPage() {
         <section
           key={work.id}
           id={work.id}
-          className="scroll-mt-24 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
+          className="scroll-mt-36 canvas-laranja py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]"
         >
           <div className="max-w-6xl mx-auto space-y-8">
             <div className="space-y-3">
