@@ -1,16 +1,29 @@
 import React from "react";
 import { config, fields, collection, singleton } from "@keystatic/core";
 
+const cloudProject = process.env.NEXT_PUBLIC_KEYSTATIC_CLOUD_PROJECT;
+
 export default config({
   storage:
     process.env.NODE_ENV === "production"
-      ? {
-          kind: "github",
-          repo: "denisprado/coletivo-passarinha",
-        }
+      ? cloudProject
+        ? {
+            kind: "cloud",
+          }
+        : {
+            kind: "github",
+            repo: "denisprado/coletivo-passarinha",
+          }
       : {
           kind: "local",
         },
+  ...(cloudProject
+    ? {
+        cloud: {
+          project: cloudProject,
+        },
+      }
+    : {}),
   ui: {
     brand: {
       name: "Coletivo Passarinha",
@@ -555,8 +568,8 @@ export default config({
           fields.object({
             src: fields.image({
               label: "Foto",
-              directory: "public/photos/cms",
-              publicPath: "/photos/cms/",
+              directory: "public/photos/cms/quintal-garatuja",
+              publicPath: "/photos/cms/quintal-garatuja/",
             }),
             alt: fields.text({ label: "Descrição da Foto" }),
             caption: fields.text({ label: "Legenda" }),
@@ -612,8 +625,8 @@ export default config({
           fields.object({
             src: fields.image({
               label: "Foto",
-              directory: "public/photos/cms",
-              publicPath: "/photos/cms/",
+              directory: "public/photos/cms/aru",
+              publicPath: "/photos/cms/aru/",
             }),
             alt: fields.text({ label: "Descrição da Foto" }),
             caption: fields.text({ label: "Legenda" }),

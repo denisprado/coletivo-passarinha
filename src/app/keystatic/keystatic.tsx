@@ -13,8 +13,9 @@ export default function KeystaticApp() {
     // 1. Mark admin session as active when inside Keystatic dashboard
     const markAdminLoggedIn = () => {
       const hasGhToken = document.cookie.includes("keystatic-gh-access-token=");
+      const hasCloudToken = !!localStorage.getItem("keystatic-cloud-access-token");
       const isLocal = process.env.NODE_ENV !== "production";
-      if (hasGhToken || isLocal) {
+      if (hasGhToken || hasCloudToken || isLocal) {
         localStorage.setItem("passarinha_admin_logged_in", "true");
         document.cookie =
           "passarinha_admin=1; path=/; max-age=604800; SameSite=Lax";

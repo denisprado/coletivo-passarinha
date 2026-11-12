@@ -55,7 +55,39 @@ function yamlStringify(val, indent = 0) {
   return String(val);
 }
 
+function syncCmsImage(sourcePublicPath, slugFolder, relativeDestWithoutExt) {
+  if (!sourcePublicPath || typeof sourcePublicPath !== 'string') return sourcePublicPath;
+  const cleanRel = sourcePublicPath.replace(/^\//, '');
+  const srcAbs = path.resolve('public', cleanRel);
+  const ext = path.extname(srcAbs) || '.webp';
+  const destRel = `${relativeDestWithoutExt}${ext}`;
+  const destAbs = path.resolve('public/photos/cms', slugFolder, destRel);
+  if (fs.existsSync(srcAbs)) {
+    ensureDir(path.dirname(destAbs));
+    fs.copyFileSync(srcAbs, destAbs);
+  }
+  return `/photos/cms/${slugFolder}/${destRel}`;
+}
+
 function writeMdoc(filePath, frontmatter, content) {
+  const slug = path.basename(filePath, '.mdoc');
+
+  if (typeof frontmatter.photoUrl === 'string' && !frontmatter.photoUrl.startsWith('/photos/cms/')) {
+    frontmatter.photoUrl = syncCmsImage(frontmatter.photoUrl, slug, 'photoUrl');
+  }
+
+  if (Array.isArray(frontmatter.photos)) {
+    frontmatter.photos = frontmatter.photos.map((photo, idx) => {
+      if (photo && typeof photo.src === 'string' && !photo.src.startsWith('/photos/cms/')) {
+        return {
+          ...photo,
+          src: syncCmsImage(photo.src, slug, `photos/${idx}/src`),
+        };
+      }
+      return photo;
+    });
+  }
+
   let fm = '---\n';
   for (const [k, v] of Object.entries(frontmatter)) {
     if (v === undefined) continue;

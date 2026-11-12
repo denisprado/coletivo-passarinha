@@ -87,11 +87,12 @@ export function AdminEditProvider({ children }: { children: React.ReactNode }) {
         return;
       }
 
-      // 2. Check Keystatic GitHub cookie or localStorage flag set when visiting /keystatic
+      // 2. Check Keystatic GitHub cookie, Keystatic Cloud token, or localStorage flag set when visiting /keystatic
       const fromCookie = hasKeystaticAuthCookie();
+      const fromCloudToken = !!localStorage.getItem("keystatic-cloud-access-token");
       const fromStorage = localStorage.getItem("passarinha_admin_logged_in") === "true";
 
-      if (fromCookie || fromStorage) {
+      if (fromCookie || fromCloudToken || fromStorage) {
         setIsAdmin(true);
         return;
       }
