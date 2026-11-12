@@ -1,29 +1,22 @@
 import React from "react";
 import { config, fields, collection, singleton } from "@keystatic/core";
 
-const cloudProject = process.env.NEXT_PUBLIC_KEYSTATIC_CLOUD_PROJECT;
+const cloudProject =
+  process.env.NEXT_PUBLIC_KEYSTATIC_CLOUD_PROJECT ||
+  "coletivo-passarinhas/coletivo-passarinhas";
 
 export default config({
   storage:
     process.env.NODE_ENV === "production"
-      ? cloudProject
-        ? {
-            kind: "cloud",
-          }
-        : {
-            kind: "github",
-            repo: "denisprado/coletivo-passarinha",
-          }
+      ? {
+          kind: "cloud",
+        }
       : {
           kind: "local",
         },
-  ...(cloudProject
-    ? {
-        cloud: {
-          project: cloudProject,
-        },
-      }
-    : {}),
+  cloud: {
+    project: cloudProject,
+  },
   ui: {
     brand: {
       name: "Coletivo Passarinha",
