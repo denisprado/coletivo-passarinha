@@ -29,10 +29,6 @@ export const metadata: Metadata = {
     "Música Brasileira",
   ],
   authors: [{ name: "Coletivo Interdisciplinar Passarinha" }],
-  icons: {
-    icon: "/brand/passarinha-ave.png",
-    apple: "/logo-passarinha.jpg",
-  },
   openGraph: {
     title: "Coletivo Interdisciplinar Passarinha | Arte Educação Ambiental",
     description:
