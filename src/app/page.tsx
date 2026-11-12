@@ -9,7 +9,7 @@ import PassarinhaAnimada from "@/components/PassarinhaAnimada";
 import ReplayIntroButton from "@/components/ReplayIntroButton";
 import CustomDocumentRenderer from "@/components/CustomDocumentRenderer";
 import { AdminEditLink } from "@/components/AdminEditSystem";
-import { getHomePageContent } from "@/lib/keystatic";
+import { getHomePageContent, getTeamMembers } from "@/lib/keystatic";
 
 export const metadata: Metadata = {
   title: "Coletivo Interdisciplinar Passarinha | Arte Educação Ambiental",
@@ -24,7 +24,19 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const homeContent = await getHomePageContent();
+  const [homeContent, teamMembers] = await Promise.all([
+    getHomePageContent(),
+    getTeamMembers(),
+  ]);
+
+  const teamCarouselPhotos = teamMembers
+    .filter((member) => Boolean(member.photoUrl))
+    .map((member) => ({
+      src: member.photoUrl as string,
+      alt: `${member.name} — ${member.role}`,
+      caption: `${member.name} — ${member.role}`,
+      position: "object-[center_20%]",
+    }));
 
   return (
     <main className="w-full overflow-x-clip">
@@ -111,32 +123,7 @@ export default async function HomePage() {
                 aspectClass="aspect-[16/11]"
                 showThumbnails={false}
                 intervalMs={3500}
-                photos={[
-                  {
-                    src: "/photos/passarinhas/sarah-avatar.webp",
-                    alt: "Sarah Gregorio — Co-fundadora, Designer & Arte-educadora",
-                    caption: "Sarah Gregorio — Designer, Produtora & Arte-educadora",
-                    position: "object-[center_20%]",
-                  },
-                  {
-                    src: "/photos/passarinhas/pamella-avatar.webp",
-                    alt: "Pâmella Villanova — Artista da Cena, Pesquisadora & Gestora",
-                    caption: "Pâmella Villanova — Artista da Cena, Pesquisadora & Gestora",
-                    position: "object-[center_20%]",
-                  },
-                  {
-                    src: "/photos/passarinhas/maria-avatar.webp",
-                    alt: "Maria Carolina Thomé — Musicista, Educadora Musical & Percussionista",
-                    caption: "Maria Carolina Thomé — Musicista & Educadora Musical",
-                    position: "object-[center_20%]",
-                  },
-                  {
-                    src: "/photos/passarinhas/dudu-avatar.webp",
-                    alt: "Dudu Ferraz — Gestor Cultural, Compositor, Músico & Cantautor",
-                    caption: "Dudu Ferraz — Gestor Cultural, Compositor & Artista Interdisciplinar",
-                    position: "object-[center_20%]",
-                  },
-                ]}
+                photos={teamCarouselPhotos}
               />
             </div>
 
