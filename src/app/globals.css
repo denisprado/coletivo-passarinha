@@ -296,3 +296,141 @@ section[data-admin-active="true"] [data-admin-section]:not([data-admin-active="t
   transform: translateY(2px) scale(0.94);
 }
 
+/* ==========================================================================
+   ACESSIBILIDADE GLOBAL (WCAG 2.1 AA / eMAG & MODOS DA BARRA ASSISTIVA)
+   ========================================================================== */
+
+/* Skip Link (Pular para o conteúdo principal) */
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 1rem;
+  z-index: 9999;
+  background-color: #3A1D40;
+  color: #FDBC2E;
+  font-weight: 900;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 2px solid #FDBC2E;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* Anel de foco de alto contraste visível em fundos claros e escuros */
+:focus-visible {
+  outline: 3px solid #FDBC2E !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px #3A1D40 !important;
+}
+
+main#conteudo-principal:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Respeito nativo a prefers-reduced-motion e ao modo "Pausar Animações" */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .anim-asa-cordel,
+  .anim-asa-fantasma,
+  .anim-voo-passarinha,
+  .animate-ping {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+html[data-a11y-motion="reduced"] {
+  scroll-behavior: auto !important;
+}
+
+html[data-a11y-motion="reduced"] .anim-asa-cordel,
+html[data-a11y-motion="reduced"] .anim-asa-fantasma,
+html[data-a11y-motion="reduced"] .anim-voo-passarinha,
+html[data-a11y-motion="reduced"] .animate-ping,
+html[data-a11y-motion="reduced"] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* Modo Alto Contraste */
+html[data-a11y-contrast="high"] body,
+html[data-a11y-contrast="high"] .canvas-roxo,
+html[data-a11y-contrast="high"] .canvas-amarelo,
+html[data-a11y-contrast="high"] .canvas-laranja,
+html[data-a11y-contrast="high"] .canvas-vermelho,
+html[data-a11y-contrast="high"] header,
+html[data-a11y-contrast="high"] footer {
+  background-image: none !important;
+  background-color: #0D060F !important;
+  color: #FFFFFF !important;
+  border-color: #FDBC2E !important;
+}
+
+html[data-a11y-contrast="high"] .painel-rustico,
+html[data-a11y-contrast="high"] .painel-rustico-roxo {
+  background-color: #160A1A !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FDBC2E !important;
+  box-shadow: none !important;
+}
+
+html[data-a11y-contrast="high"] h1,
+html[data-a11y-contrast="high"] h2,
+html[data-a11y-contrast="high"] h3,
+html[data-a11y-contrast="high"] h4,
+html[data-a11y-contrast="high"] a {
+  color: #FDBC2E !important;
+}
+
+html[data-a11y-contrast="high"] p,
+html[data-a11y-contrast="high"] li,
+html[data-a11y-contrast="high"] span,
+html[data-a11y-contrast="high"] label {
+  color: #FFFFFF !important;
+}
+
+html[data-a11y-contrast="high"] .btn-foca,
+html[data-a11y-contrast="high"] button {
+  background-color: #000000 !important;
+  color: #FDBC2E !important;
+  border: 2px solid #FDBC2E !important;
+}
+
+/* Modo Fonte Legível / Dislexia */
+html[data-a11y-font="dyslexic"] body,
+html[data-a11y-font="dyslexic"] p,
+html[data-a11y-font="dyslexic"] li,
+html[data-a11y-font="dyslexic"] a,
+html[data-a11y-font="dyslexic"] span,
+html[data-a11y-font="dyslexic"] button,
+html[data-a11y-font="dyslexic"] input,
+html[data-a11y-font="dyslexic"] textarea,
+html[data-a11y-font="dyslexic"] select {
+  font-family: Verdana, Tahoma, "Trebuchet MS", system-ui, sans-serif !important;
+  letter-spacing: 0.06em !important;
+  word-spacing: 0.14em !important;
+  line-height: 1.8 !important;
+}
+
+/* Modo Destacar Links e Botões */
+html[data-a11y-links="highlight"] a:not(.skip-link),
+html[data-a11y-links="highlight"] button {
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  outline: 2px dashed #FDBC2E !important;
+  outline-offset: 2px !important;
+}
+
+

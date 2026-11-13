@@ -23,7 +23,7 @@ export default async function ContatoPage() {
   const siteConfig = await getSiteConfig();
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* Header em Textura Roxa Acrílica */}
       <section className="canvas-roxo py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-5xl mx-auto text-center space-y-5">
@@ -93,11 +93,11 @@ export default async function ContatoPage() {
 
               {/* WhatsApp */}
               <div data-admin-section className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-[#25D366] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-lg bg-[#128C47] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
+                  <MessageCircle aria-hidden="true" className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-black text-[#25D366] uppercase tracking-wider block">
+                  <span className="text-xs font-black text-[#128C47] uppercase tracking-wider block">
                     WhatsApp Comercial
                   </span>
                   <div className="flex items-center gap-1">

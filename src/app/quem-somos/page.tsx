@@ -255,7 +255,7 @@ export default async function QuemSomosPage() {
   const timeline = await getTimeline();
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* FAIXA 1 — TEXTO INTEGRAL DE APRESENTAÇÃO DO COLETIVO (Roxo Acrílico + Fotos Intercaladas) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">

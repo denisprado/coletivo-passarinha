@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
 export interface SlidePhoto {
   src: string;
@@ -46,14 +46,25 @@ export default function PhotoCarouselFrame({
   radiusVariant = 1,
 }: PhotoCarouselFrameProps) {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
 
   useEffect(() => {
-    if (photos.length <= 1) return;
+    if (photos.length <= 1 || isPaused || isInteracting) return;
+
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        document.documentElement.dataset.a11yMotion === "reduced");
+
+    if (prefersReduced) return;
+
     const timer = setInterval(() => {
+      if (document.documentElement.dataset.a11yMotion === "reduced") return;
       setCurrent((prev) => (prev + 1) % photos.length);
     }, intervalMs);
     return () => clearInterval(timer);
-  }, [photos.length, intervalMs]);
+  }, [photos.length, intervalMs, isPaused, isInteracting]);
 
   if (!photos.length) return null;
 
@@ -61,7 +72,20 @@ export default function PhotoCarouselFrame({
   const next = () => setCurrent((c) => (c + 1) % photos.length);
 
   return (
-    <div className="w-full space-y-3">
+    <div
+      role="region"
+      aria-roledescription="carrossel"
+      aria-label="Galeria de fotos em destaque"
+      className="w-full space-y-3"
+      onMouseEnter={() => setIsInteracting(true)}
+      onMouseLeave={() => setIsInteracting(false)}
+      onFocusCapture={() => setIsInteracting(true)}
+      onBlurCapture={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          setIsInteracting(false);
+        }
+      }}
+    >
       {/* Imagem sem borda, com border-radius orgânico assimétrico estilo Figma */}
       <div
         className={`relative w-full ${aspectClass} ${ORGANIC_CLASSES[radiusVariant]} bg-[#241128] group`}
@@ -69,6 +93,7 @@ export default function PhotoCarouselFrame({
         {photos.map((photo, idx) => (
           <div
             key={photo.src + idx}
+            aria-hidden={idx !== current}
             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
               idx === current
                 ? "opacity-100 z-10"
@@ -87,7 +112,7 @@ export default function PhotoCarouselFrame({
               } transition-transform duration-700 group-hover:scale-[1.03]`}
             />
             {photo.caption && (
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/60 to-transparent pt-11 pb-3.5 pl-6 pr-6 sm:pl-7 sm:pr-7 sm:pb-4">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B0B1E]/95 via-[#1B0B1E]/60 to-transparent pt-11 pb-3.5 pl-6 pr-14 sm:pl-7 sm:pr-14 sm:pb-4">
                 <p className="text-xs sm:text-sm font-bold text-[#FDF6E4] tracking-wide drop-shadow line-clamp-2">
                   {photo.caption}
                 </p>
@@ -111,24 +136,37 @@ export default function PhotoCarouselFrame({
           </div>
         )}
 
-        {/* Setas discretas */}
+        {/* Setas e botão de Pausar/Reproduzir acessíveis */}
         {photos.length > 1 && (
           <>
             <button
               type="button"
               onClick={prev}
               aria-label="Foto anterior"
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-lg bg-[#FDF6E4]/90 hover:bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-xl bg-[#FDF6E4]/95 hover:bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 focus-visible:opacity-100 transition-all cursor-pointer"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft aria-hidden="true" className="w-5 h-5" />
             </button>
             <button
               type="button"
               onClick={next}
               aria-label="Próxima foto"
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-lg bg-[#FDF6E4]/90 hover:bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-xl bg-[#FDF6E4]/95 hover:bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center shadow-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 focus-visible:opacity-100 transition-all cursor-pointer"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight aria-hidden="true" className="w-5 h-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsPaused((p) => !p)}
+              aria-label={isPaused ? "Reproduzir carrossel" : "Pausar carrossel"}
+              aria-pressed={isPaused}
+              className="absolute bottom-3 right-3 z-20 w-8 h-8 rounded-lg bg-[#3A1D40]/90 hover:bg-[#FDBC2E] text-[#FDF6E4] hover:text-[#3A1D40] border border-[#FDBC2E]/40 flex items-center justify-center shadow-md opacity-85 hover:opacity-100 focus-visible:opacity-100 transition-all cursor-pointer"
+            >
+              {isPaused ? (
+                <Play aria-hidden="true" className="w-3.5 h-3.5" />
+              ) : (
+                <Pause aria-hidden="true" className="w-3.5 h-3.5" />
+              )}
             </button>
           </>
         )}
@@ -142,12 +180,13 @@ export default function PhotoCarouselFrame({
               key={thumb.src + idx}
               type="button"
               onClick={() => setCurrent(idx)}
-              aria-label={`Ver foto: ${thumb.alt}`}
+              aria-label={`Ver foto ${idx + 1}: ${thumb.alt}`}
+              aria-current={idx === current ? "true" : undefined}
               className={`relative aspect-[4/3] ${
                 THUMB_RADII[idx % THUMB_RADII.length]
               } overflow-hidden transition-all shadow-md ${
                 idx === current
-                  ? "scale-[1.05] opacity-100 z-10 shadow-lg"
+                  ? "scale-[1.05] opacity-100 z-10 shadow-lg ring-2 ring-[#FDBC2E]"
                   : "opacity-65 hover:opacity-100"
               }`}
             >

@@ -90,7 +90,7 @@ export default async function QuintalGaratujaPage() {
   ];
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* FAIXA 1 — TEXTO INTEGRAL (8 PARÁGRAFOS DO DOC) INTERCALADO COM FOTOS (Amarelo Ipê Acrílico conforme indicado "(fundo amarelo)" no Doc) */}
       <section id="sobre" className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">

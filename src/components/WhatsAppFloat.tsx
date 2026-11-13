@@ -16,11 +16,11 @@ export default function WhatsAppFloat() {
         href="https://wa.me/5519992510921?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Coletivo%20Passarinha."
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Fale conosco no WhatsApp (19) 992510921"
-        className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 border border-white/30"
+        aria-label="Fale conosco no WhatsApp (19) 99251-0921"
+        className="flex items-center gap-2.5 bg-[#128C47] hover:bg-[#0E6F38] text-white px-4 py-3 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 border border-white/30"
       >
         <div className="relative">
-          <MessageCircle className="w-6 h-6 fill-white stroke-[#25D366]" />
+          <MessageCircle aria-hidden="true" className="w-6 h-6 fill-white stroke-[#128C47]" />
           <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>

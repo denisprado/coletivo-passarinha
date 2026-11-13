@@ -79,7 +79,7 @@ export default async function AruPage() {
   ];
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* FAIXA 1 — TEXTO INTEGRAL DE A HISTÓRIA DE ARU COM FOTOS INTERCALADAS (Amarelo Ipê Acrílico) */}
       <section
         id="top"
@@ -243,21 +243,25 @@ export default async function AruPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 list-none p-0 m-0">
             {permaculturePrinciples.map((principle, idx) => (
-              <div
+              <li
                 key={idx}
                 className="bg-[#3A1D40] p-4 rounded-xl border border-[#FDBC2E]/45 shadow-md text-sm font-bold flex items-center gap-3"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center font-black text-sm shrink-0">
+                <div
+                  aria-hidden="true"
+                  className="w-9 h-9 rounded-lg bg-[#FDBC2E] text-[#3A1D40] flex items-center justify-center font-black text-sm shrink-0"
+                >
                   {idx + 1}
                 </div>
                 <span className="text-[#FDF6E4]">
+                  <span className="sr-only">{idx + 1}. </span>
                   {principle.replace(/^\d+\.\s*/, "")}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 

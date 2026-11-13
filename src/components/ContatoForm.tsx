@@ -27,6 +27,7 @@ export default function ContatoForm() {
 
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [lastChannel, setLastChannel] = useState<"whatsapp" | "email">("whatsapp");
 
   const buildMessageText = () => {
@@ -50,14 +51,17 @@ export default function ContatoForm() {
   const handleSendWhatsApp = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!formData.nome || !formData.email || !formData.mensagem) {
-      alert("Por favor, preencha os campos obrigatórios (Nome, E-mail e Mensagem).");
+      setErrorMessage(
+        "Por favor, preencha todos os campos obrigatórios marcados com asterisco (Nome, E-mail e Mensagem)."
+      );
       return;
     }
 
+    setErrorMessage(null);
     const message = buildMessageText();
     const encoded = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5519992510921?text=${encoded}`;
-    
+
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setLastChannel("whatsapp");
     setSubmitted(true);
@@ -66,10 +70,13 @@ export default function ContatoForm() {
   const handleSendEmail = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!formData.nome || !formData.email || !formData.mensagem) {
-      alert("Por favor, preencha os campos obrigatórios (Nome, E-mail e Mensagem).");
+      setErrorMessage(
+        "Por favor, preencha todos os campos obrigatórios marcados com asterisco (Nome, E-mail e Mensagem)."
+      );
       return;
     }
 
+    setErrorMessage(null);
     const subject = encodeURIComponent(
       `[Proposta Site] ${formData.interesse} - ${formData.nome}`
     );
@@ -77,7 +84,7 @@ export default function ContatoForm() {
       `Olá Coletivo Passarinha!\n\nNome: ${formData.nome}\nE-mail: ${formData.email}\nTelefone: ${formData.telefone}\nCidade: ${formData.cidade}\nInteresse: ${formData.interesse}\n\nMensagem:\n${formData.mensagem}`
     );
     const mailtoUrl = `mailto:coletivopassarinha@gmail.com?subject=${subject}&body=${body}`;
-    
+
     window.location.href = mailtoUrl;
     setLastChannel("email");
     setSubmitted(true);
@@ -93,9 +100,13 @@ export default function ContatoForm() {
   return (
     <div className="lg:col-span-7 painel-rustico p-7 sm:p-10">
       {submitted ? (
-        <div className="text-center py-8 sm:py-12 space-y-6">
+        <div
+          role="status"
+          aria-live="polite"
+          className="text-center py-8 sm:py-12 space-y-6"
+        >
           <div className="w-16 h-16 mx-auto rounded-xl bg-[#3A1D40] text-[#FDBC2E] border border-[#3A1D40]/25 flex items-center justify-center shadow-md">
-            <CheckCircle2 className="w-9 h-9" />
+            <CheckCircle2 aria-hidden="true" className="w-9 h-9" />
           </div>
 
           <div className="space-y-2">
@@ -116,9 +127,9 @@ export default function ContatoForm() {
             <button
               type="button"
               onClick={() => handleSendWhatsApp()}
-              className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm py-3 px-6 shadow-md"
+              className="btn-foca bg-[#128C47] hover:bg-[#0E6F38] text-white text-xs sm:text-sm py-3 px-6 shadow-md"
             >
-              <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+              <MessageCircle aria-hidden="true" className="w-4 h-4 fill-white stroke-[#128C47]" />
               Abrir no WhatsApp Novamente
             </button>
 
@@ -129,12 +140,12 @@ export default function ContatoForm() {
             >
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 text-green-700" />
+                  <Check aria-hidden="true" className="w-4 h-4 text-green-800" />
                   Copiado para Área de Transferência!
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4" />
+                  <Copy aria-hidden="true" className="w-4 h-4" />
                   Copiar Texto da Mensagem
                 </>
               )}
@@ -152,7 +163,7 @@ export default function ContatoForm() {
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSendWhatsApp} className="space-y-6">
+        <form onSubmit={handleSendWhatsApp} noValidate className="space-y-6">
           <div>
             <span className="inline-block text-xs font-black uppercase px-3 py-1 rounded-md tracking-wider bg-[#E91C47] text-white mb-2">
               Proposta & Contratação
@@ -165,82 +176,126 @@ export default function ContatoForm() {
             </p>
           </div>
 
+          {errorMessage && (
+            <div
+              role="alert"
+              aria-live="assertive"
+              className="p-4 rounded-xl bg-[#E91C47] text-white text-xs sm:text-sm font-bold shadow-md"
+            >
+              {errorMessage}
+            </div>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
+              <label
+                htmlFor="contato-nome"
+                className="text-xs font-black uppercase text-[#3A1D40] block"
+              >
                 Seu Nome ou Instituição *
               </label>
               <input
+                id="contato-nome"
+                name="nome"
                 type="text"
                 required
+                aria-required="true"
+                autoComplete="name"
                 placeholder="Ex: Maria / SESC / Escola..."
                 value={formData.nome}
-                onChange={(e) =>
-                  setFormData({ ...formData, nome: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+                onChange={(e) => {
+                  setFormData({ ...formData, nome: e.target.value });
+                  if (errorMessage) setErrorMessage(null);
+                }}
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
+              <label
+                htmlFor="contato-email"
+                className="text-xs font-black uppercase text-[#3A1D40] block"
+              >
                 E-mail para Retorno *
               </label>
               <input
+                id="contato-email"
+                name="email"
                 type="email"
                 required
+                aria-required="true"
+                autoComplete="email"
                 placeholder="seuemail@exemplo.com"
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                  if (errorMessage) setErrorMessage(null);
+                }}
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
+              <label
+                htmlFor="contato-telefone"
+                className="text-xs font-black uppercase text-[#3A1D40] block"
+              >
                 Telefone / WhatsApp
               </label>
               <input
+                id="contato-telefone"
+                name="telefone"
                 type="tel"
+                autoComplete="tel"
                 placeholder="(DDD) 99999-9999"
                 value={formData.telefone}
                 onChange={(e) =>
                   setFormData({ ...formData, telefone: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-black uppercase text-[#3A1D40]">
+              <label
+                htmlFor="contato-cidade"
+                className="text-xs font-black uppercase text-[#3A1D40] block"
+              >
                 Cidade / Estado do Evento
               </label>
               <input
+                id="contato-cidade"
+                name="cidade"
                 type="text"
+                autoComplete="address-level2"
                 placeholder="Ex: Campinas / SP"
                 value={formData.cidade}
                 onChange={(e) =>
                   setFormData({ ...formData, cidade: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:border-[#E91C47] text-sm text-[#3A1D40] font-semibold"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-black uppercase text-[#3A1D40]">
+            <label
+              htmlFor="contato-interesse"
+              className="text-xs font-black uppercase text-[#3A1D40] block"
+            >
               Área de Interesse ou Espetáculo *
             </label>
             <select
+              id="contato-interesse"
+              name="interesse"
+              aria-required="true"
               value={formData.interesse}
               onChange={(e) =>
                 setFormData({ ...formData, interesse: e.target.value })
               }
-              className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-bold"
+              className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:border-[#E91C47] text-sm text-[#3A1D40] font-bold"
             >
               <optgroup label="Espetáculos Teatrais & Cênicos">
                 <option value="Espetáculo: Histórias que a Passarinha me contou">
@@ -280,18 +335,25 @@ export default function ContatoForm() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-black uppercase text-[#3A1D40]">
+            <label
+              htmlFor="contato-mensagem"
+              className="text-xs font-black uppercase text-[#3A1D40] block"
+            >
               Conte-nos sobre a proposta ou evento *
             </label>
             <textarea
+              id="contato-mensagem"
+              name="mensagem"
               required
+              aria-required="true"
               rows={5}
               placeholder="Descreva detalhes como público estimado, espaço pretendido, datas de interesse ou qualquer dúvida..."
               value={formData.mensagem}
-              onChange={(e) =>
-                setFormData({ ...formData, mensagem: e.target.value })
-              }
-              className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:outline-none focus:border-[#E91C47] text-sm text-[#3A1D40] font-medium resize-y"
+              onChange={(e) => {
+                setFormData({ ...formData, mensagem: e.target.value });
+                if (errorMessage) setErrorMessage(null);
+              }}
+              className="w-full px-4 py-3 rounded-lg bg-white border border-[#3A1D40]/25 focus:border-[#E91C47] text-sm text-[#3A1D40] font-medium resize-y"
             ></textarea>
           </div>
 
@@ -299,9 +361,9 @@ export default function ContatoForm() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
             <button
               type="submit"
-              className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm py-3.5 px-6 flex-1 shadow-md"
+              className="btn-foca bg-[#128C47] hover:bg-[#0E6F38] text-white text-xs sm:text-sm py-3.5 px-6 flex-1 shadow-md"
             >
-              <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+              <MessageCircle aria-hidden="true" className="w-4 h-4 fill-white stroke-[#128C47]" />
               Enviar Proposta via WhatsApp
             </button>
 
@@ -310,7 +372,7 @@ export default function ContatoForm() {
               onClick={handleSendEmail}
               className="btn-foca bg-[#3A1D40] hover:bg-[#532E5A] text-[#FDBC2E] text-xs sm:text-sm py-3.5 px-6 flex-1 shadow-md"
             >
-              <Mail className="w-4 h-4" />
+              <Mail aria-hidden="true" className="w-4 h-4" />
               Enviar por E-mail
             </button>
           </div>
