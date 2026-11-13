@@ -63,11 +63,11 @@ export default async function ContatoPage() {
             <div className="space-y-4">
               {/* E-mail */}
               <div data-admin-section className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-[#E91C47] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#A60F31] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider block">
+                  <span className="text-xs font-black text-[#8C0A26] uppercase tracking-wider block">
                     E-mails Oficiais
                   </span>
                   <div className="flex items-center gap-1">
@@ -93,11 +93,11 @@ export default async function ContatoPage() {
 
               {/* WhatsApp */}
               <div data-admin-section className="painel-rustico p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-[#128C47] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#0E7339] text-[#FDF6E4] border border-[#3A1D40]/25 flex items-center justify-center shrink-0">
                   <MessageCircle aria-hidden="true" className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-black text-[#128C47] uppercase tracking-wider block">
+                  <span className="text-xs font-black text-[#0E7339] uppercase tracking-wider block">
                     WhatsApp Comercial
                   </span>
                   <div className="flex items-center gap-1">
@@ -123,7 +123,7 @@ export default async function ContatoPage() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider block">
+                  <span className="text-xs font-black text-[#8C0A26] uppercase tracking-wider block">
                     Ponto de Cultura Quintal Garatuja
                   </span>
                   <p className="text-sm font-bold text-[#3A1D40]">
@@ -139,7 +139,7 @@ export default async function ContatoPage() {
 
             {/* Redes Sociais */}
             <div data-admin-section className="painel-rustico p-6 space-y-3">
-              <span className="text-xs font-black text-[#E91C47] uppercase tracking-wider flex items-center justify-between">
+              <span className="text-xs font-black text-[#8C0A26] uppercase tracking-wider flex items-center justify-between">
                 <span>Siga e Conecte-se</span>
                 <AdminEditLink singleton="configuracoes" field="Instagram Coletivo" label="Editar redes sociais" />
               </span>

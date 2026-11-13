@@ -204,7 +204,7 @@ export default function PhotoMosaic({
               triggerBtnRef.current?.focus();
             }}
             aria-label="Fechar imagem (Esc)"
-            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-xl bg-[#E91C47] text-[#FDF6E4] flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
+            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-xl bg-[#A60F31] text-[#FDF6E4] flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
           >
             <X aria-hidden="true" className="w-6 h-6" />
           </button>

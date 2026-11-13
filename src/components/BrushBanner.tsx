@@ -8,7 +8,7 @@ interface BrushBannerProps {
 }
 
 const FILL_COLORS = {
-  crimson: "#E91C47",
+  crimson: "#A60F31",
   yellow: "#FDBC2E",
   purple: "#532E5A",
 };

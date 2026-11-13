@@ -113,7 +113,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Sarah Gregorio",
     role: "Designer, Produtora & Arte-educadora Ambiental",
     bio: "Sarah Gregorio é designer de formação, produtora e gestora cultural por vocação e arte-educadora ambiental por paixão, gosta de misturar linguagens, inventar possibilidades e encontrar arte onde muita gente só vê materiais descartados. É especialista em Gestão Estratégica do Design e Gestão da Inovação, e atualmente pesquisa as relações entre arte, cultura e práticas de baixo impacto socioambiental no Mestrado Profissional em Artes da UFC e IFCE.\n\nCo-fundadora do Coletivo Interdisciplinar Passarinha, vive entre projetos culturais, oficinas, brinquedos, histórias e experiências que aproximam arte, educação e meio ambiente. Gosta de colocar ideias em movimento, conectar pessoas e transformar inquietações em projetos — de preferência, com espaço para experimentar e um pouco de bagunça criativa.",
-    avatarColor: "bg-[#E91C47]",
+    avatarColor: "bg-[#A60F31]",
     photoUrl: "/photos/passarinhas/sarah-avatar.webp",
   },
   {
@@ -122,7 +122,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Artista da Cena & Pesquisadora Acadêmica",
     bio: "Pamella Villanova é artista da cena, da fazeção do teatro em suas múltiplas necessidades e também pesquisadora acadêmica. Entre a academia e o encontro com plateias diversas, vem desenvolvendo metodologias de criação teatral em diálogo com urgências socioambientais, às vezes invisíveis.\n\nÉ gestora do Ponto de Cultura Quintal Garatuja em Campinas, doutora em Artes da Cena pela Unicamp, com estágio doutoral na Faculdade de Filosofia da UNIZAR, na Espanha. É professora colaboradora do Instituto de Física da Unicamp, ministrando disciplina de teatro científico junto a estudantes de física.\n\nJá dirigiu espetáculos de teatro, palhaçaria, contação de histórias e música. Sua obra “Plástico: um mito contemporâneo” já se apresentou em 4 países (Espanha, Brasil, Colômbia e Portugal) para mais de 6 mil pessoas. Também atua como contadora de histórias na série \"Histórias que a Passarinha me contou\", que já circulou por festivais e SESCs do interior de São Paulo.",
     instagramUrl: "https://www.instagram.com/pam.villanova",
-    avatarColor: "bg-[#FDBC2E]",
+    avatarColor: "bg-[#3A1D40]",
     photoUrl: "/photos/passarinhas/pamella-avatar.webp",
   },
   {
@@ -140,7 +140,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Gestor Cultural, Compositor, Músico & Artista Interdisciplinar",
     bio: "Dudu Ferraz é gestor cultural, compositor, músico, cantautor, curador de teatro e artista interdisciplinar, bacharel em Sociologia pela Unicamp. Sua trajetória articula arte, cultura, política, educação e meio ambiente, com atuação na criação artística, na formação, na sensibilização socioambiental e na gestão de projetos culturais. Integra o Coletivo Interdisciplinar Passarinha, desenvolvendo trabalhos que conectam arte e educação ambiental. É gestor do Ponto de Cultura Quintal Garatuja, em Campinas, coordenador geral do Feverestival (Festival Internacional de Teatro de Campinas/SP) e fundador do Nosso Canto, projeto dedicado à valorização da música autoral campineira. Também atua na articulação de políticas públicas de cultura, contribuindo para o fortalecimento de redes, iniciativas e espaços de participação cultural.",
     spotifyUrl: "https://open.spotify.com/search/Dudu%20Ferraz",
-    avatarColor: "bg-[#F79335]",
+    avatarColor: "bg-[#8C0A26]",
     photoUrl: "/photos/passarinhas/dudu-avatar.webp",
   },
 ];

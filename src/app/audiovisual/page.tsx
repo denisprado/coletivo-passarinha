@@ -356,7 +356,7 @@ export default async function AudiovisualPage() {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   <div className="p-3 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                    <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                    <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                       Criação, direção e edição
                     </span>
                     <span className="text-[#3A1D40] font-bold">
@@ -364,7 +364,7 @@ export default async function AudiovisualPage() {
                     </span>
                   </div>
                   <div className="p-3 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                    <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                    <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                       Assistência de direção e de roteiro
                     </span>
                     <span className="text-[#3A1D40] font-bold">
@@ -372,7 +372,7 @@ export default async function AudiovisualPage() {
                     </span>
                   </div>
                   <div className="p-3 bg-[#FDF6E4]/85 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                    <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                    <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                       Fotografia
                     </span>
                     <span className="text-[#3A1D40] font-bold">
@@ -486,8 +486,8 @@ export default async function AudiovisualPage() {
                 ver, ou ouvir e ver ao mesmo tempo.
               </p>
 
-              <div className="bg-[#FDF6E4]/80 p-5 rounded-xl border-l-4 border-[#E91C47] space-y-1.5 shadow-sm">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+              <div className="bg-[#FDF6E4]/90 p-5 rounded-xl border-l-4 border-[#8C0A26] space-y-1.5 shadow-sm">
+                <h3 className="text-xs font-black uppercase tracking-widest text-[#8C0A26]">
                   Um pouco mais:
                 </h3>
                 <p className="text-sm sm:text-base text-[#3A1D40] font-semibold">
@@ -498,7 +498,7 @@ export default async function AudiovisualPage() {
               </div>
 
               <div className="pt-2 space-y-3">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                <h3 className="text-xs font-black uppercase tracking-widest text-[#6B071C]">
                   Ficha técnica
                   <AdminEditLink
                     collection="audiovisual"
@@ -508,32 +508,32 @@ export default async function AudiovisualPage() {
                   />
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                    <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                  <div className="p-3 bg-[#FDF6E4]/90 rounded-lg border border-[#3A1D40]/20 shadow-sm">
+                    <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                       Concepção e realização
                     </span>
                     <span className="text-[#3A1D40] font-bold">
                       Pamella Villanova e Dudu Ferraz
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                    <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                  <div className="p-3 bg-[#FDF6E4]/90 rounded-lg border border-[#3A1D40]/20 shadow-sm">
+                    <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                       Inspiração
                     </span>
                     <span className="text-[#3A1D40] font-bold">
                       &ldquo;Rainha Maximilliana Atta&rdquo;, de Ana Primavesi
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                    <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                  <div className="p-3 bg-[#FDF6E4]/90 rounded-lg border border-[#3A1D40]/20 shadow-sm">
+                    <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                       Intérprete de Libras
                     </span>
                     <span className="text-[#3A1D40] font-bold">
                       Karina Zonzini
                     </span>
                   </div>
-                  <div className="p-3 bg-[#FDF6E4]/80 rounded-lg border border-[#3A1D40]/20 shadow-sm">
-                    <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                  <div className="p-3 bg-[#FDF6E4]/90 rounded-lg border border-[#3A1D40]/20 shadow-sm">
+                    <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                       Captação de imagens
                     </span>
                     <span className="text-[#3A1D40] font-bold">
@@ -567,7 +567,7 @@ export default async function AudiovisualPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Acessibilidade */}
             <div className="space-y-3">
-              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#6B071C]">
                 Acessibilidade
               </h3>
               <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
@@ -582,7 +582,7 @@ export default async function AudiovisualPage() {
 
             {/* O ponto de vista da praga */}
             <div className="space-y-3">
-              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#6B071C]">
                 O ponto de vista da praga
               </h3>
               <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
@@ -610,7 +610,7 @@ export default async function AudiovisualPage() {
 
             {/* Agroecologia */}
             <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-[#6B071C]">
                 Agroecologia
               </h3>
               <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
@@ -644,7 +644,7 @@ export default async function AudiovisualPage() {
             {/* Como fizemos esse vídeo? */}
             <div className="space-y-3 flex flex-col justify-between">
               <div className="space-y-3">
-                <h3 className="text-xl sm:text-2xl font-black uppercase text-[#E91C47]">
+                <h3 className="text-xl sm:text-2xl font-black uppercase text-[#6B071C]">
                   Como fizemos esse vídeo?
                 </h3>
                 <p className="text-base sm:text-lg text-[#3A1D40] leading-relaxed font-medium">
@@ -686,7 +686,7 @@ export default async function AudiovisualPage() {
                   href="https://www.youtube.com/watch?v=FkMBMPGgpHw"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-[#FDF6E4] text-xs py-2.5 px-5"
+                  className="btn-foca bg-[#A60F31] hover:bg-[#8C0A26] text-[#FDF6E4] text-xs py-2.5 px-5"
                 >
                   <Play className="w-4 h-4 fill-current" />
                   <span>Assistir no XIV Ciência em Cena (YouTube)</span>
@@ -753,7 +753,7 @@ export default async function AudiovisualPage() {
                     href={work.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-foca bg-[#E91C47] text-[#FDF6E4] text-xs py-2.5 px-5 inline-flex items-center gap-2"
+                    className="btn-foca bg-[#A60F31] hover:bg-[#8C0A26] text-[#FDF6E4] text-xs py-2.5 px-5 inline-flex items-center gap-2"
                   >
                     <Play className="w-4 h-4 fill-current" />
                     <span>Assistir Vídeo</span>

@@ -209,7 +209,7 @@ export default function Header() {
                         className={`inline-flex items-center rounded-lg transition-all ${
                           active
                             ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
-                            : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
+                            : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#6B071C]"
                         }`}
                       >
                         <Link
@@ -260,7 +260,7 @@ export default function Header() {
                                 role="menuitem"
                                 href={sub.href}
                                 onClick={() => setOpenDropdown(null)}
-                                className="block px-4 py-2.5 text-sm font-semibold text-[#FDF6E4] hover:bg-[#E91C47] hover:text-white transition-colors"
+                                className="block px-4 py-2.5 text-sm font-semibold text-[#FDF6E4] hover:bg-[#A60F31] hover:text-white transition-colors"
                               >
                                 {sub.name}
                               </Link>
@@ -280,7 +280,7 @@ export default function Header() {
                     className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-[13.5px] xl:text-[14.5px] 2xl:text-[15.5px] tracking-wide whitespace-nowrap shrink-0 transition-all ${
                       active
                         ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
-                        : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
+                        : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#6B071C]"
                     }`}
                   >
                     {item.name}

@@ -165,7 +165,7 @@ export default function AccessibilityToolbar() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Fechar painel de acessibilidade"
-                className="p-1.5 rounded-lg bg-[#3A1D40] text-[#FDBC2E] hover:bg-[#E91C47] hover:text-white transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg bg-[#3A1D40] text-[#FDBC2E] hover:bg-[#A60F31] hover:text-white transition-colors cursor-pointer"
               >
                 <X aria-hidden="true" className="w-4 h-4" />
               </button>

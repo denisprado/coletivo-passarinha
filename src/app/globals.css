@@ -46,31 +46,33 @@ body:not(:has(#keystatic-app-split-view)) {
   position: static !important;
 }
 
-/* Texturas Acrílicas Pintadas (Identidade Visual Passarinha) */
+/* Texturas Acrílicas Pintadas (Identidade Visual Passarinha)
+   Camadas translúcidas (glazes) garantem contraste >= 4.5:1 (WCAG 2.1 AA)
+   sobre todas as pinceladas preservando a textura artística original. */
 .canvas-roxo {
-  background-color: #532E5A;
-  background-image: url("/brand/tex-roxo.webp");
+  background-color: #3A1D40;
+  background-image: linear-gradient(rgba(58, 29, 64, 0.35), rgba(58, 29, 64, 0.35)), url("/brand/tex-roxo.webp");
   background-size: cover;
   background-position: center;
 }
 
 .canvas-laranja {
-  background-color: #EF5A3C;
-  background-image: url("/brand/tex-laranja.webp");
+  background-color: #FFA848;
+  background-image: linear-gradient(rgba(255, 168, 72, 0.65), rgba(255, 168, 72, 0.65)), url("/brand/tex-laranja.webp");
   background-size: cover;
   background-position: center;
 }
 
 .canvas-vermelho {
-  background-color: #E91C47;
-  background-image: url("/brand/tex-vermelho.webp");
+  background-color: #5E0A22;
+  background-image: linear-gradient(rgba(58, 6, 22, 0.65), rgba(58, 6, 22, 0.65)), url("/brand/tex-vermelho.webp");
   background-size: cover;
   background-position: center;
 }
 
 .canvas-amarelo {
   background-color: #FDBC2E;
-  background-image: url("/brand/tex-amarelo.webp");
+  background-image: linear-gradient(rgba(253, 200, 64, 0.45), rgba(253, 200, 64, 0.45)), url("/brand/tex-amarelo.webp");
   background-size: cover;
   background-position: center;
 }
@@ -365,47 +367,112 @@ html[data-a11y-motion="reduced"] * {
 }
 
 /* Modo Alto Contraste */
+html[data-a11y-contrast="high"] {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
 html[data-a11y-contrast="high"] body,
+html[data-a11y-contrast="high"] main,
+html[data-a11y-contrast="high"] section,
+html[data-a11y-contrast="high"] article,
+html[data-a11y-contrast="high"] aside:not([vw] *),
+html[data-a11y-contrast="high"] nav,
+html[data-a11y-contrast="high"] header,
+html[data-a11y-contrast="high"] footer,
 html[data-a11y-contrast="high"] .canvas-roxo,
 html[data-a11y-contrast="high"] .canvas-amarelo,
 html[data-a11y-contrast="high"] .canvas-laranja,
-html[data-a11y-contrast="high"] .canvas-vermelho,
-html[data-a11y-contrast="high"] header,
-html[data-a11y-contrast="high"] footer {
+html[data-a11y-contrast="high"] .canvas-vermelho {
   background-image: none !important;
-  background-color: #0D060F !important;
+  background-color: #000000 !important;
   color: #FFFFFF !important;
-  border-color: #FDBC2E !important;
+  border-color: #FFE042 !important;
 }
 
-html[data-a11y-contrast="high"] .painel-rustico,
-html[data-a11y-contrast="high"] .painel-rustico-roxo {
-  background-color: #160A1A !important;
+html[data-a11y-contrast="high"] :is(div, blockquote, ul, ol, dl, figure, figcaption, table, thead, tbody, tr, th, td, [role="dialog"], [role="menu"]):not([vw]):not([vw] *):not([class*="foto-organica"]) {
+  background-image: none !important;
+  border-color: #FFE042 !important;
+}
+
+html[data-a11y-contrast="high"] :is(div, blockquote, [role="dialog"], [role="menu"]):is([class*="bg-"], .painel-rustico, .painel-rustico-roxo):not([vw]):not([vw] *):not(.animate-ping):not([aria-hidden="true"]):not([class*="foto-organica"]) {
+  background-color: #121212 !important;
   color: #FFFFFF !important;
-  border: 2px solid #FDBC2E !important;
+  border-color: #FFE042 !important;
   box-shadow: none !important;
 }
 
-html[data-a11y-contrast="high"] h1,
-html[data-a11y-contrast="high"] h2,
-html[data-a11y-contrast="high"] h3,
-html[data-a11y-contrast="high"] h4,
-html[data-a11y-contrast="high"] a {
-  color: #FDBC2E !important;
+html[data-a11y-contrast="high"] .painel-rustico,
+html[data-a11y-contrast="high"] .painel-rustico-roxo,
+html[data-a11y-contrast="high"] [role="dialog"],
+html[data-a11y-contrast="high"] [role="menu"] {
+  background-color: #121212 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFE042 !important;
+  box-shadow: none !important;
 }
 
-html[data-a11y-contrast="high"] p,
-html[data-a11y-contrast="high"] li,
-html[data-a11y-contrast="high"] span,
-html[data-a11y-contrast="high"] label {
+html[data-a11y-contrast="high"] :is(p, li, dt, dd, span, small, label, blockquote, figcaption, td, th, div):not([vw]):not([vw] *) {
   color: #FFFFFF !important;
 }
 
-html[data-a11y-contrast="high"] .btn-foca,
-html[data-a11y-contrast="high"] button {
+html[data-a11y-contrast="high"] :is(h1, h2, h3, h4, h5, h6, strong, b, em, a):not([vw]):not([vw] *),
+html[data-a11y-contrast="high"] :is(h1, h2, h3, h4, h5, h6, a) :is(span, strong, b, em):not([vw]):not([vw] *) {
+  color: #FFE042 !important;
+}
+
+html[data-a11y-contrast="high"] a:not([vw]):not([vw] *):not(.btn-foca) {
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+
+html[data-a11y-contrast="high"] :is(span, p)[class*="bg-"]:not([vw]):not([vw] *):not(.animate-ping):not([aria-hidden="true"]) {
+  background-color: #121212 !important;
+  color: #FFE042 !important;
+  border: 1.5px solid #FFE042 !important;
+}
+
+html[data-a11y-contrast="high"] :is(input, textarea, select):not([vw]):not([vw] *) {
   background-color: #000000 !important;
-  color: #FDBC2E !important;
-  border: 2px solid #FDBC2E !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFE042 !important;
+}
+
+html[data-a11y-contrast="high"] ::placeholder {
+  color: #E0E0E0 !important;
+  opacity: 1 !important;
+}
+
+html[data-a11y-contrast="high"] svg[aria-hidden="true"] path:is([fill="#A60F31"], [fill="#E91C47"], [fill="#FDBC2E"], [fill="#532E5A"]) {
+  fill: #121212 !important;
+  stroke: #FFE042 !important;
+  stroke-width: 3px !important;
+}
+
+html[data-a11y-contrast="high"] :is(.btn-foca, button):not([vw]):not([vw] *) {
+  background-color: #000000 !important;
+  color: #FFE042 !important;
+  border: 2px solid #FFE042 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+html[data-a11y-contrast="high"] :is(.btn-foca, button) :is(span, strong, b, em, svg):not([vw]):not([vw] *) {
+  background-color: transparent !important;
+  color: #FFE042 !important;
+  border-color: transparent !important;
+}
+
+html[data-a11y-contrast="high"] :is(button[aria-pressed="true"], a[aria-current], button[aria-current]):not([vw]):not([vw] *) {
+  background-color: #FFE042 !important;
+  color: #000000 !important;
+  border-color: #FFE042 !important;
+}
+
+html[data-a11y-contrast="high"] :is(button[aria-pressed="true"], a[aria-current], button[aria-current]) :is(span, strong, b, em, svg):not([vw]):not([vw] *) {
+  background-color: transparent !important;
+  color: #000000 !important;
+  border-color: transparent !important;
 }
 
 /* Modo Fonte Legível / Dislexia */

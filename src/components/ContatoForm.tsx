@@ -127,9 +127,9 @@ export default function ContatoForm() {
             <button
               type="button"
               onClick={() => handleSendWhatsApp()}
-              className="btn-foca bg-[#128C47] hover:bg-[#0E6F38] text-white text-xs sm:text-sm py-3 px-6 shadow-md"
+              className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs sm:text-sm py-3 px-6 shadow-md"
             >
-              <MessageCircle aria-hidden="true" className="w-4 h-4 fill-white stroke-[#128C47]" />
+              <MessageCircle aria-hidden="true" className="w-4 h-4 fill-white stroke-[#0E7339]" />
               Abrir no WhatsApp Novamente
             </button>
 
@@ -156,7 +156,7 @@ export default function ContatoForm() {
             <button
               type="button"
               onClick={() => setSubmitted(false)}
-              className="text-xs sm:text-sm font-bold text-[#E91C47] hover:underline"
+              className="text-xs sm:text-sm font-bold text-[#8C0A26] hover:underline"
             >
               ← Voltar e preencher outro formulário
             </button>
@@ -165,7 +165,7 @@ export default function ContatoForm() {
       ) : (
         <form onSubmit={handleSendWhatsApp} noValidate className="space-y-6">
           <div>
-            <span className="inline-block text-xs font-black uppercase px-3 py-1 rounded-md tracking-wider bg-[#E91C47] text-white mb-2">
+            <span className="inline-block text-xs font-black uppercase px-3 py-1 rounded-md tracking-wider bg-[#A60F31] text-white mb-2">
               Proposta & Contratação
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-[#3A1D40] uppercase">
@@ -180,7 +180,7 @@ export default function ContatoForm() {
             <div
               role="alert"
               aria-live="assertive"
-              className="p-4 rounded-xl bg-[#E91C47] text-white text-xs sm:text-sm font-bold shadow-md"
+              className="p-4 rounded-xl bg-[#A60F31] text-white text-xs sm:text-sm font-bold shadow-md"
             >
               {errorMessage}
             </div>
@@ -361,9 +361,9 @@ export default function ContatoForm() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
             <button
               type="submit"
-              className="btn-foca bg-[#128C47] hover:bg-[#0E6F38] text-white text-xs sm:text-sm py-3.5 px-6 flex-1 shadow-md"
+              className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs sm:text-sm py-3.5 px-6 flex-1 shadow-md"
             >
-              <MessageCircle aria-hidden="true" className="w-4 h-4 fill-white stroke-[#128C47]" />
+              <MessageCircle aria-hidden="true" className="w-4 h-4 fill-white stroke-[#0E7339]" />
               Enviar Proposta via WhatsApp
             </button>
 

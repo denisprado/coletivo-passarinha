@@ -31,6 +31,9 @@ assertMatch("src/app/globals.css", globalsCss, /\.skip-link\b/, "Missing .skip-l
 assertMatch("src/app/globals.css", globalsCss, /:focus-visible\b/, "Missing global :focus-visible style");
 assertMatch("src/app/globals.css", globalsCss, /prefers-reduced-motion:\s*reduce/, "Missing @media (prefers-reduced-motion: reduce)");
 assertMatch("src/app/globals.css", globalsCss, /data-a11y-contrast="high"/, "Missing high contrast mode styles");
+assertMatch("src/app/globals.css", globalsCss, /html\[data-a11y-contrast="high"\][\s\S]*strong,\s*b,\s*em/, "High contrast mode must override strong/b/em emphasis tags");
+assertMatch("src/app/globals.css", globalsCss, /\.canvas-vermelho[\s\S]*linear-gradient/, ".canvas-vermelho must include contrast wash overlay");
+assertMatch("src/app/globals.css", globalsCss, /\.canvas-laranja[\s\S]*linear-gradient/, ".canvas-laranja must include contrast wash overlay");
 assertMatch("src/app/globals.css", globalsCss, /data-a11y-font="dyslexic"/, "Missing dyslexic/readable font mode styles");
 assertMatch("src/app/globals.css", globalsCss, /data-a11y-links="highlight"/, "Missing highlight links mode styles");
 assertMatch("src/app/globals.css", globalsCss, /data-a11y-motion="reduced"/, "Missing reduced motion attribute styles");
@@ -83,20 +86,41 @@ for (const barPath of [
   assertMatch(barPath, barContent, /aria-current=/, "Missing aria-current on active submenu button");
 }
 
-// 6. Check ContatoForm.tsx & contato/page.tsx & WhatsAppFloat.tsx
+// 6. Check Color Contrast Across Pages & Components
+function walkTsxFiles(dir) {
+  let results = [];
+  for (const entry of fs.readdirSync(path.join(rootDir, dir), { withFileTypes: true })) {
+    const rel = `${dir}/${entry.name}`;
+    if (entry.isDirectory()) {
+      results = results.concat(walkTsxFiles(rel));
+    } else if (/\.tsx?$/.test(entry.name)) {
+      results.push(rel);
+    }
+  }
+  return results;
+}
+
+for (const file of walkTsxFiles("src")) {
+  const content = readFile(file);
+  assertNotMatch(file, content, /#25D366/i, "Low-contrast WhatsApp green #25D366 must be replaced with accessible #0E7339");
+  assertNotMatch(file, content, /#128C47/i, "#128C47 fails normal-text AA on white/cream; upgrade to #0E7339");
+}
+
+const aruPageTsx = readFile("src/app/aru/page.tsx");
+assertNotMatch("src/app/aru/page.tsx", aruPageTsx, /bg-\[#F79335\][^"]*text-white/, "bg-[#F79335] with text-white fails contrast (2.29:1); use dark text-[#241128]");
+
+const brushBannerTsx = readFile("src/components/BrushBanner.tsx");
+assertNotMatch("src/components/BrushBanner.tsx", brushBannerTsx, /crimson:\s*["']#E91C47["']/i, "BrushBanner crimson fill must be darkened (#A60F31) for AA contrast with #FDBC2E");
+
+const docRendererTsx = readFile("src/components/CustomDocumentRenderer.tsx");
+assertNotMatch("src/components/CustomDocumentRenderer.tsx", docRendererTsx, /text-\[#E91C47\]/i, "CustomDocumentRenderer must use high-contrast crimson (#8C0A26 / #6B071C) on light/yellow themes");
+
 const contatoFormTsx = readFile("src/components/ContatoForm.tsx");
 assertNotMatch("src/components/ContatoForm.tsx", contatoFormTsx, /<label\s+className=/, "Found orphaned <label> without htmlFor");
 assertMatch("src/components/ContatoForm.tsx", contatoFormTsx, /htmlFor="contato-nome"/, "Missing htmlFor='contato-nome'");
 assertMatch("src/components/ContatoForm.tsx", contatoFormTsx, /role="alert"/, "Missing role='alert' for validation errors");
 assertMatch("src/components/ContatoForm.tsx", contatoFormTsx, /role="status"/, "Missing role='status' for submission confirmation");
 assertNotMatch("src/components/ContatoForm.tsx", contatoFormTsx, /\balert\s*\(/, "Should not use blocking window.alert()");
-assertNotMatch("src/components/ContatoForm.tsx", contatoFormTsx, /#25D366/i, "Low-contrast #25D366 should be replaced with accessible #128C47");
-
-const contatoPageTsx = readFile("src/app/contato/page.tsx");
-assertNotMatch("src/app/contato/page.tsx", contatoPageTsx, /#25D366/i, "Low-contrast #25D366 on contato/page.tsx should be #128C47");
-
-const whatsappFloatTsx = readFile("src/components/WhatsAppFloat.tsx");
-assertNotMatch("src/components/WhatsAppFloat.tsx", whatsappFloatTsx, /#25D366/i, "Low-contrast #25D366 on WhatsAppFloat.tsx should be #128C47");
 
 // 7. Check PhotoCarouselFrame, PhotoMosaic, IntroPassarinha
 const carouselTsx = readFile("src/components/PhotoCarouselFrame.tsx");

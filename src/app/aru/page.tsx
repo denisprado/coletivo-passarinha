@@ -218,7 +218,7 @@ export default async function AruPage() {
               <h3 className="text-lg sm:text-2xl font-black uppercase text-[#3A1D40]">
                 Galeria Completa de Personagens e Cenários de Aru
               </h3>
-              <span className="text-xs font-extrabold uppercase text-[#E91C47]">
+              <span className="text-xs font-extrabold uppercase text-[#6B071C]">
                 Clique em qualquer obra para ver em tela cheia
               </span>
             </div>
@@ -289,7 +289,7 @@ export default async function AruPage() {
             {/* Card 1: E-book */}
             <div data-admin-section className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-[#E91C47] text-[#FDF6E4] flex items-center justify-center shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-[#A60F31] text-[#FDF6E4] flex items-center justify-center shadow-sm">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40] uppercase">
@@ -305,7 +305,7 @@ export default async function AruPage() {
                 href={aruContent.ebookUrl || "https://drive.google.com/file/d/14QS_XRK87fBe8qX9wpp363YbcdZMDP3a/view?usp=sharing"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#E91C47] hover:bg-[#c8153b] text-white text-xs w-full py-3"
+                className="btn-foca bg-[#A60F31] hover:bg-[#8C0A26] text-white text-xs w-full py-3"
               >
                 <Download className="w-4 h-4" /> Baixar E-book (PDF)
               </a>
@@ -339,7 +339,7 @@ export default async function AruPage() {
             {/* Card 3: Animações & Instagram */}
             <div className="painel-rustico p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-[#F79335] text-white flex items-center justify-center shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-[#F79335] text-[#241128] flex items-center justify-center shadow-sm">
                   <InstagramIcon className="w-6 h-6" />
                 </div>
                 <h3 className="font-black text-xl text-[#3A1D40]">
@@ -354,7 +354,7 @@ export default async function AruPage() {
                 href="https://www.instagram.com/aru.permacultura"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#F79335] hover:bg-[#e07d1f] text-white text-xs w-full py-3"
+                className="btn-foca bg-[#F79335] hover:bg-[#e88524] text-[#241128] text-xs w-full py-3"
               >
                 <InstagramIcon className="w-4 h-4" /> Acessar Instagram
               </a>

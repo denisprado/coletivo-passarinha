@@ -116,7 +116,7 @@ export default async function EspetaculosPage() {
               </span>
               <div className="flex flex-wrap items-center gap-2 text-xs text-[#3A1D40] font-black">
                 <span className="flex items-center gap-1 bg-[#FDF6E4] px-3 py-1 rounded-lg border border-[#3A1D40]/25 shadow-sm">
-                  <Clock className="w-3.5 h-3.5 text-[#E91C47]" /> 40 a 50 minutos por episódio
+                  <Clock className="w-3.5 h-3.5 text-[#8C0A26]" /> 40 a 50 minutos por episódio
                 </span>
                 <span className="bg-[#FDF6E4] px-3 py-1 rounded-lg border border-[#3A1D40]/25 shadow-sm">
                   Classificação: Livre (0 a 100 anos)
@@ -208,14 +208,14 @@ export default async function EspetaculosPage() {
           {/* Episódios Completos (Episódio Terra & Episódio Água) */}
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-black uppercase flex items-center gap-2 text-[#3A1D40]">
-              <Sparkles className="w-5 h-5 text-[#E91C47]" />
+              <Sparkles className="w-5 h-5 text-[#6B071C]" />
               Episódios Disponíveis para Circulação
             </h3>
 
             {/* EPISÓDIO TERRA (Texto Integral + Fotos + Tabelas) */}
             <div className="painel-rustico p-7 sm:p-10 space-y-6">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#3A1D40]/15 pb-4">
-                <h4 className="text-2xl sm:text-3xl font-black text-[#E91C47] uppercase">
+                <h4 className="text-2xl sm:text-3xl font-black text-[#8C0A26] uppercase">
                   Episódio Terra
                 </h4>
                 <div className="flex flex-wrap gap-2 text-xs font-black text-[#3A1D40]">
@@ -267,7 +267,7 @@ export default async function EspetaculosPage() {
 
               {/* Ficha Técnica Episódio Terra */}
               <div className="space-y-3 pt-2">
-                <h5 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                <h5 className="text-xs font-black uppercase tracking-widest text-[#8C0A26]">
                   Ficha Técnica — Episódio Terra
                 </h5>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
@@ -300,7 +300,7 @@ export default async function EspetaculosPage() {
                       key={idx}
                       className="bg-[#FDBC2E]/25 p-3 rounded-lg border border-[#3A1D40]/20"
                     >
-                      <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                      <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                         {it.label}
                       </span>
                       <span className="font-bold text-[#3A1D40]">
@@ -312,8 +312,8 @@ export default async function EspetaculosPage() {
               </div>
 
               {/* Necessidades Técnicas Episódio Terra */}
-              <div className="bg-[#FDBC2E]/30 p-5 rounded-xl border-l-4 border-[#E91C47] space-y-2 text-sm text-[#3A1D40]">
-                <strong className="text-xs font-black uppercase tracking-wider text-[#E91C47] block">
+              <div className="bg-[#FDBC2E]/30 p-5 rounded-xl border-l-4 border-[#8C0A26] space-y-2 text-sm text-[#3A1D40]">
+                <strong className="text-xs font-black uppercase tracking-wider text-[#8C0A26] block">
                   Necessidades Técnicas — Episódio Terra:
                 </strong>
                 <p className="font-medium leading-relaxed">
@@ -333,7 +333,7 @@ export default async function EspetaculosPage() {
             {/* EPISÓDIO ÁGUA (Texto Integral + Fotos + Tabelas) */}
             <div className="painel-rustico p-7 sm:p-10 space-y-6">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#3A1D40]/15 pb-4">
-                <h4 className="text-2xl sm:text-3xl font-black text-[#E91C47] uppercase">
+                <h4 className="text-2xl sm:text-3xl font-black text-[#8C0A26] uppercase">
                   Episódio Água
                 </h4>
                 <div className="flex flex-wrap gap-2 text-xs font-black text-[#3A1D40]">
@@ -385,7 +385,7 @@ export default async function EspetaculosPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 <div className="space-y-3">
-                  <h5 className="text-xs font-black uppercase tracking-widest text-[#E91C47]">
+                  <h5 className="text-xs font-black uppercase tracking-widest text-[#8C0A26]">
                     Ficha Técnica — Episódio Água
                   </h5>
                   <div className="grid grid-cols-1 gap-2.5 text-xs">
@@ -404,7 +404,7 @@ export default async function EspetaculosPage() {
                         key={idx}
                         className="bg-[#FDBC2E]/25 p-3 rounded-lg border border-[#3A1D40]/20"
                       >
-                        <span className="font-black text-[#E91C47] block uppercase text-[11px]">
+                        <span className="font-black text-[#8C0A26] block uppercase text-[11px]">
                           {it.label}
                         </span>
                         <span className="font-bold text-[#3A1D40]">
@@ -415,8 +415,8 @@ export default async function EspetaculosPage() {
                   </div>
                 </div>
 
-                <div className="bg-[#FDBC2E]/30 p-5 rounded-xl border-l-4 border-[#E91C47] space-y-2.5">
-                  <strong className="text-xs font-black uppercase tracking-wider text-[#E91C47] block">
+                <div className="bg-[#FDBC2E]/30 p-5 rounded-xl border-l-4 border-[#8C0A26] space-y-2.5">
+                  <strong className="text-xs font-black uppercase tracking-wider text-[#8C0A26] block">
                     Necessidades Técnicas — Episódio Água:
                   </strong>
                   <ul className="text-xs sm:text-sm text-[#3A1D40] space-y-1.5 font-semibold">
@@ -428,7 +428,7 @@ export default async function EspetaculosPage() {
                       "Não necessita de estrutura de iluminação.",
                     ].map((req, rIdx) => (
                       <li key={rIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#E91C47] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#8C0A26] shrink-0 mt-0.5" />
                         <span>{req}</span>
                       </li>
                     ))}
@@ -481,9 +481,9 @@ export default async function EspetaculosPage() {
               href="https://wa.me/5519992510921?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20o%20espet%C3%A1culo%20Hist%C3%B3rias%20que%20a%20Passarinha%20me%20contou."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm px-6 py-3"
+              className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs sm:text-sm px-6 py-3"
             >
-              <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+              <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
               Contratar via WhatsApp
             </a>
             <Link
@@ -937,7 +937,7 @@ export default async function EspetaculosPage() {
               </span>
               <div className="flex flex-wrap items-center gap-2 text-xs text-[#3A1D40] font-black">
                 <span className="flex items-center gap-1 bg-[#FDF6E4] px-3 py-1 rounded-lg border border-[#3A1D40]/25 shadow-sm">
-                  <Clock className="w-3.5 h-3.5 text-[#E91C47]" /> Aprox. 1h30
+                  <Clock className="w-3.5 h-3.5 text-[#8C0A26]" /> Aprox. 1h30
                 </span>
                 <span className="bg-[#FDF6E4] px-3 py-1 rounded-lg border border-[#3A1D40]/25 shadow-sm">
                   Para pessoas de todas as idades
@@ -1073,7 +1073,7 @@ export default async function EspetaculosPage() {
                 conquistamos a instalação de placas turísticas oficiais por
                 parte da Prefeitura Municipal de Campinas.
               </p>
-              <p className="font-bold text-[#E91C47]">
+              <p className="font-bold text-[#241128] bg-[#FDF6E4]/85 px-4 py-3 rounded-xl border-l-4 border-[#8C0A26] shadow-sm">
                 A história do Bosque está marcada, de forma perene, para todas
                 as pessoas que visitam o lugar.
               </p>
@@ -1201,9 +1201,9 @@ export default async function EspetaculosPage() {
                 href="https://wa.me/5519996842051?text=Ol%C3%A1!%20Gostaria%20de%20informações%20sobre%20o%20Show%20Nascente."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm px-6 py-3"
+                className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs sm:text-sm px-6 py-3"
               >
-                <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
                 Contratar Show Nascente via WhatsApp
               </a>
             </div>
@@ -1282,7 +1282,7 @@ export default async function EspetaculosPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-2xl font-black text-[#E91C47] uppercase">
+                    <h3 className="text-2xl font-black text-[#8C0A26] uppercase">
                       {show.title}
                       <AdminEditLink
                         collection="espetaculos"
@@ -1320,9 +1320,9 @@ export default async function EspetaculosPage() {
                       )}.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs px-5 py-2.5 inline-flex items-center gap-2"
+                      className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs px-5 py-2.5 inline-flex items-center gap-2"
                     >
-                      <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                      <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
                       Solicitar via WhatsApp
                     </a>
                   </div>
