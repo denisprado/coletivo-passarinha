@@ -86,6 +86,7 @@ export default function EspetaculosFilterBar({
             <button
               key={item.id}
               type="button"
+              aria-current={isSelected ? "location" : undefined}
               onClick={() => handleSelect(item)}
               className={`text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-xl transition-all duration-200 border shrink-0 cursor-pointer whitespace-nowrap ${
                 isSelected

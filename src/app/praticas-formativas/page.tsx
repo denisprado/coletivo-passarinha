@@ -57,7 +57,7 @@ export default async function PraticasFormativasPage() {
   ];
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* Header em Textura Vermelha Acrílica + Pincelada Amarela Inclinada */}
       <section className="canvas-vermelho pt-16 pb-10 sm:pt-20 sm:pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center space-y-5">
@@ -121,7 +121,7 @@ export default async function PraticasFormativasPage() {
               </p>
             </div>
 
-            <div className="bg-[#FDF6E4]/50 p-5 rounded-r-xl text-base sm:text-xl font-black text-[#E91C47] italic border-l-8 border-l-[#E91C47] shadow-sm">
+            <div className="bg-[#FDF6E4]/90 p-5 rounded-r-xl text-base sm:text-xl font-black text-[#6B071C] italic border-l-8 border-l-[#6B071C] shadow-sm">
               &ldquo;E se aquilo que seria descartado se transformasse em
               fantasia, figurino, adereço, instrumento musical ou
               brinquedo?&rdquo;
@@ -240,7 +240,7 @@ export default async function PraticasFormativasPage() {
                 para experimentar, combinar, transformar e descobrir que a
                 criação artística pode começar com aquilo que já temos à mão.
               </p>
-              <p className="font-black text-[#E91C47] text-lg sm:text-xl pt-1">
+              <p className="font-black text-[#6B071C] text-lg sm:text-xl pt-1">
                 Jogar dentro é mergulhar nas possibilidades dos materiais e
                 deixar a imaginação encontrar novos caminhos.
               </p>
@@ -290,9 +290,9 @@ export default async function PraticasFormativasPage() {
                 href="https://wa.me/5588981085939?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Ateli%C3%AA%20Jogar%20Dentro."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm px-6 py-3"
+                className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs sm:text-sm px-6 py-3"
               >
-                <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
                 Contratar via WhatsApp (88) 98108-5939
               </a>
             </div>
@@ -564,9 +564,9 @@ export default async function PraticasFormativasPage() {
                 href="https://wa.me/5588981085939?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Ecobrinquedoteca%20Jogar%20Dentro."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm px-6 py-3"
+                className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs sm:text-sm px-6 py-3"
               >
-                <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
                 Contratar via WhatsApp (88) 98108-5939
               </a>
             </div>
@@ -679,7 +679,7 @@ export default async function PraticasFormativasPage() {
 
             <div className="lg:col-span-5 space-y-5">
               <div className="painel-rustico p-6 space-y-2">
-                <h3 className="text-xs font-black uppercase tracking-wider text-[#E91C47]">
+                <h3 className="text-xs font-black uppercase tracking-wider text-[#8C0A26]">
                   Para quem é a Oficina Orquestra de Pandeiros?
                   <AdminEditLink
                     collection="praticasFormativas"
@@ -695,7 +695,7 @@ export default async function PraticasFormativasPage() {
               </div>
 
               <div className="painel-rustico p-6 space-y-2.5 text-sm sm:text-base text-[#3A1D40] font-medium">
-                <h3 className="text-xs font-black uppercase tracking-wider text-[#E91C47]">
+                <h3 className="text-xs font-black uppercase tracking-wider text-[#8C0A26]">
                   Qual o limite de público da Oficina Orquestra de Pandeiros?
                   <AdminEditLink
                     collection="praticasFormativas"
@@ -732,9 +732,9 @@ export default async function PraticasFormativasPage() {
                     href="https://wa.me/5518996115002?text=Ol%C3%A1%20Maria!%20Gostaria%20de%20informações%20sobre%20a%20Oficina%20Orquestra%20de%20Pandeiros."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs py-2.5 px-4"
+                    className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs py-2.5 px-4"
                   >
-                    <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                    <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
                     WhatsApp (18) 99611-5002
                   </a>
                   <a
@@ -743,7 +743,7 @@ export default async function PraticasFormativasPage() {
                     rel="noopener noreferrer"
                     className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#3A1D40] text-xs py-2.5 px-4"
                   >
-                    <InstagramIcon className="w-4 h-4 text-[#E91C47]" />
+                    <InstagramIcon className="w-4 h-4 text-[#6B071C]" />
                     @orquestra.pandeiros
                   </a>
                 </div>
@@ -894,7 +894,7 @@ export default async function PraticasFormativasPage() {
                       )}
                     </div>
 
-                    <h3 className="text-2xl font-black text-[#E91C47] uppercase">
+                    <h3 className="text-2xl font-black text-[#8C0A26] uppercase">
                       {workshop.title}
                     </h3>
                     {workshop.subtitle && (
@@ -926,9 +926,9 @@ export default async function PraticasFormativasPage() {
                       )}.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs px-5 py-2.5 inline-flex items-center gap-2"
+                      className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs px-5 py-2.5 inline-flex items-center gap-2"
                     >
-                      <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                      <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
                       Contratar via WhatsApp
                     </a>
                   </div>

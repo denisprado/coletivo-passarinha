@@ -39,7 +39,7 @@ export default async function HomePage() {
     }));
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* ANIMAÇÃO INICIAL (Stop-Motion / Folheado de Cordel da Passarinha) */}
       <IntroPassarinha />
 

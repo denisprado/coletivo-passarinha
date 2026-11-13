@@ -218,7 +218,7 @@ export function AdminEditProvider({ children }: { children: React.ReactNode }) {
           <button
             type="button"
             onClick={logoutAdminPreview}
-            className="inline-flex items-center justify-center rounded-full p-1 text-[#FDF6E4]/70 hover:text-[#E91C47] transition-colors cursor-pointer"
+            className="inline-flex items-center justify-center rounded-full p-1 text-[#FDF6E4]/85 hover:text-[#FDBC2E] transition-colors cursor-pointer"
             title="Sair do modo de edição no site"
           >
             <LogOut className="w-3.5 h-3.5" />
@@ -269,7 +269,7 @@ export function AdminEditLink({
       href={href}
       title={`Editar "${field}" no Painel Admin`}
       aria-label={`Editar ${field} no Painel Admin`}
-      className={`admin-edit-trigger inline-flex items-center gap-1 rounded-full bg-[#241128]/90 hover:bg-[#E91C47] text-[#FDBC2E] hover:text-white border border-[#FDBC2E]/80 px-2.5 py-0.5 text-[11px] font-extrabold uppercase tracking-wider shadow-md transition-all duration-200 align-middle ml-2 shrink-0 no-underline ${className}`}
+      className={`admin-edit-trigger inline-flex items-center gap-1 rounded-full bg-[#241128]/95 hover:bg-[#A60F31] text-[#FDBC2E] hover:text-white border border-[#FDBC2E]/80 px-2.5 py-0.5 text-[11px] font-extrabold uppercase tracking-wider shadow-md transition-all duration-200 align-middle ml-2 shrink-0 no-underline ${className}`}
     >
       <Pencil className="w-3 h-3 stroke-[2.5]" />
       <span>{label}</span>

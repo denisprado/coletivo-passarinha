@@ -85,7 +85,10 @@ export default function Footer() {
         </div>
 
         {/* Navegação secundária discreta */}
-        <div className="pt-6 border-t border-[#FDBC2E]/20 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs sm:text-sm font-semibold text-[#FDBC2E]/80">
+        <nav
+          aria-label="Navegação do rodapé"
+          className="pt-6 border-t border-[#FDBC2E]/25 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs sm:text-sm font-semibold text-[#FDBC2E]/90"
+        >
           <Link href="/" className="hover:text-white transition-colors">
             Início
           </Link>
@@ -110,9 +113,9 @@ export default function Footer() {
           <Link href="/contato" className="hover:text-white transition-colors">
             Contato
           </Link>
-        </div>
+        </nav>
 
-        <p className="text-xs text-[#FDBC2E]/60 pt-1">
+        <p className="text-xs text-[#FDBC2E]/85 pt-1">
           © 2026 Coletivo Interdisciplinar Passarinha • Sede: Ponto de Cultura Quintal Garatuja — Campinas/SP
         </p>
       </div>

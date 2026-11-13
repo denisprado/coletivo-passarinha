@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import AccessibilityToolbar from "@/components/AccessibilityToolbar";
+import VLibrasWidget from "@/components/VLibrasWidget";
 import { AdminEditProvider } from "@/components/AdminEditSystem";
 
 const saira = Saira({
@@ -45,11 +47,16 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={saira.variable}>
       <body className="min-h-screen flex flex-col bg-[#FDF6E4] text-[#532E5A] antialiased">
+        <a href="#conteudo-principal" className="skip-link">
+          Pular para o conteúdo principal
+        </a>
         <AdminEditProvider>
           <Header />
           <div className="flex-1">{children}</div>
           <Footer />
           <WhatsAppFloat />
+          <AccessibilityToolbar />
+          <VLibrasWidget />
         </AdminEditProvider>
       </body>
     </html>

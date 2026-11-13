@@ -90,7 +90,7 @@ export default async function QuintalGaratujaPage() {
   ];
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* FAIXA 1 — TEXTO INTEGRAL (8 PARÁGRAFOS DO DOC) INTERCALADO COM FOTOS (Amarelo Ipê Acrílico conforme indicado "(fundo amarelo)" no Doc) */}
       <section id="sobre" className="scroll-mt-24 canvas-amarelo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">
@@ -519,9 +519,9 @@ export default async function QuintalGaratujaPage() {
                 href={nucleoProject?.externalLink || garatujaSite.whatsappGroup}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-foca bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm shrink-0"
+                className="btn-foca bg-[#0E7339] hover:bg-[#0B5A2D] text-white text-xs sm:text-sm shrink-0"
               >
-                <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                <MessageCircle className="w-4 h-4 fill-white stroke-[#0E7339]" />
                 {nucleoProject?.externalLinkLabel || "Linha de Transmissão no WhatsApp"}
               </a>
             </div>

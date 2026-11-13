@@ -39,7 +39,7 @@ export default function CategoryFilter({
       className={`w-full max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-4 py-3.5 rounded-2xl bg-[#FDF6E4] border-2 border-[#3A1D40]/25 shadow-md ${className}`}
     >
       {title && (
-        <span className="text-xs font-black uppercase tracking-wider text-[#E91C47] shrink-0">
+        <span className="text-xs font-black uppercase tracking-wider text-[#8C0A26] shrink-0">
           {title}
         </span>
       )}

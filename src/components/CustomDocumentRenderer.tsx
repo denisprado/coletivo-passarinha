@@ -48,7 +48,7 @@ export default function CustomDocumentRenderer({
           text: "text-[#3A1D40]",
           bold: "font-black text-[#3A1D40]",
           italic: "italic text-[#532E5A]",
-          link: "text-[#3A1D40] underline underline-offset-4 decoration-[#3A1D40]/60 hover:text-[#E91C47] font-bold transition-colors",
+          link: "text-[#241128] underline underline-offset-4 decoration-[#241128]/70 hover:text-[#6B071C] font-bold transition-colors",
           blockquote: "border-l-4 border-[#3A1D40] bg-[#FDF6E4]/90 p-4 sm:p-5 rounded-r-xl text-[#3A1D40] my-4 italic shadow-md",
           h2: "text-2xl sm:text-3xl font-black uppercase text-[#3A1D40] tracking-tight mt-6 mb-3",
           h3: "text-xl sm:text-2xl font-black uppercase text-[#532E5A] tracking-tight mt-5 mb-2",
@@ -59,11 +59,11 @@ export default function CustomDocumentRenderer({
           text: "text-[#3A1D40]",
           bold: "font-black text-[#3A1D40]",
           italic: "italic text-[#532E5A]",
-          link: "text-[#E91C47] underline underline-offset-4 decoration-[#E91C47]/60 hover:text-[#3A1D40] font-bold transition-colors",
-          blockquote: "border-l-4 border-[#E91C47] bg-[#FDBC2E]/20 p-4 sm:p-5 rounded-r-xl text-[#3A1D40] my-4 italic shadow-sm",
-          h2: "text-2xl sm:text-3xl font-black uppercase text-[#E91C47] tracking-tight mt-6 mb-3",
+          link: "text-[#8C0A26] underline underline-offset-4 decoration-[#8C0A26]/70 hover:text-[#3A1D40] font-bold transition-colors",
+          blockquote: "border-l-4 border-[#8C0A26] bg-[#FDBC2E]/20 p-4 sm:p-5 rounded-r-xl text-[#3A1D40] my-4 italic shadow-sm",
+          h2: "text-2xl sm:text-3xl font-black uppercase text-[#8C0A26] tracking-tight mt-6 mb-3",
           h3: "text-xl sm:text-2xl font-black uppercase text-[#3A1D40] tracking-tight mt-5 mb-2",
-          h4: "text-lg sm:text-xl font-bold uppercase text-[#E91C47] tracking-tight mt-4 mb-2",
+          h4: "text-lg sm:text-xl font-bold uppercase text-[#8C0A26] tracking-tight mt-4 mb-2",
         };
       case "yellow":
       default:
@@ -71,10 +71,10 @@ export default function CustomDocumentRenderer({
           text: "text-[#3A1D40]",
           bold: "font-black text-[#3A1D40]",
           italic: "italic text-[#532E5A]",
-          link: "text-[#E91C47] underline underline-offset-4 decoration-[#E91C47]/60 hover:text-[#3A1D40] font-bold transition-colors",
-          blockquote: "border-l-4 border-[#E91C47] bg-[#FDF6E4]/90 p-4 sm:p-5 rounded-r-xl text-[#3A1D40] my-4 italic shadow-md",
-          h2: "text-2xl sm:text-3xl font-black uppercase text-[#532E5A] tracking-tight mt-6 mb-3",
-          h3: "text-xl sm:text-2xl font-black uppercase text-[#E91C47] tracking-tight mt-5 mb-2",
+          link: "text-[#6B071C] underline underline-offset-4 decoration-[#6B071C]/70 hover:text-[#3A1D40] font-bold transition-colors",
+          blockquote: "border-l-4 border-[#6B071C] bg-[#FDF6E4]/95 p-4 sm:p-5 rounded-r-xl text-[#3A1D40] my-4 italic shadow-md",
+          h2: "text-2xl sm:text-3xl font-black uppercase text-[#3A1D40] tracking-tight mt-6 mb-3",
+          h3: "text-xl sm:text-2xl font-black uppercase text-[#6B071C] tracking-tight mt-5 mb-2",
           h4: "text-lg sm:text-xl font-bold uppercase text-[#3A1D40] tracking-tight mt-4 mb-2",
         };
     }

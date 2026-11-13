@@ -255,7 +255,7 @@ export default async function QuemSomosPage() {
   const timeline = await getTimeline();
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main id="conteudo-principal" tabIndex={-1} className="w-full overflow-x-clip">
       {/* FAIXA 1 — TEXTO INTEGRAL DE APRESENTAÇÃO DO COLETIVO (Roxo Acrílico + Fotos Intercaladas) */}
       <section className="canvas-roxo py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-[#3A1D40]">
         <div className="max-w-6xl mx-auto space-y-12">
@@ -448,7 +448,7 @@ export default async function QuemSomosPage() {
                       </div>
                     )}
                     <div className="space-y-1.5">
-                      <span className="inline-block bg-[#E91C47] text-[#FDF6E4] text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md">
+                      <span className="inline-block bg-[#A60F31] text-[#FDF6E4] text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md">
                         {member.role}
                       </span>
                       <AdminEditLink
@@ -502,7 +502,7 @@ export default async function QuemSomosPage() {
                         rel="noopener noreferrer"
                         className="btn-foca bg-[#FDBC2E] hover:bg-[#f79335] text-[#3A1D40] text-xs py-2 px-4"
                       >
-                        <InstagramIcon className="w-3.5 h-3.5 text-[#E91C47]" />
+                        <InstagramIcon className="w-3.5 h-3.5 text-[#6B071C]" />
                         <span>Instagram</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
@@ -562,7 +562,7 @@ export default async function QuemSomosPage() {
                         />
                       )}
                     </span>
-                    <h3 className="text-lg sm:text-2xl font-black text-[#E91C47] uppercase">
+                    <h3 className="text-lg sm:text-2xl font-black text-[#8C0A26] uppercase">
                       {block.title}
                       {block.year && (
                         <AdminEditLink

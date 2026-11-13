@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import type { SlidePhoto } from "./PhotoCarouselFrame";
@@ -25,11 +25,18 @@ export default function PhotoMosaic({
   columns,
 }: PhotoMosaicProps) {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const triggerBtnRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (lightboxIdx === null) return;
+    closeBtnRef.current?.focus();
+
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightboxIdx(null);
+      if (e.key === "Escape") {
+        setLightboxIdx(null);
+        triggerBtnRef.current?.focus();
+      }
       if (e.key === "ArrowRight")
         setLightboxIdx((i) => (i !== null ? (i + 1) % photos.length : null));
       if (e.key === "ArrowLeft")
@@ -56,7 +63,11 @@ export default function PhotoMosaic({
       <button
         key={photo.src + idx}
         type="button"
-        onClick={() => setLightboxIdx(idx)}
+        aria-label={`Ampliar foto ${idx + 1} de ${photos.length}: ${photo.alt}`}
+        onClick={(e) => {
+          triggerBtnRef.current = e.currentTarget;
+          setLightboxIdx(idx);
+        }}
         className={`group relative block w-full text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${radiusClass} ${extraClass}`}
       >
         <div
@@ -180,15 +191,22 @@ export default function PhotoMosaic({
           aria-modal="true"
           aria-label="Visualizador de fotos em tela cheia"
           className="fixed inset-0 z-50 bg-[#1B0B1E]/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
-          onClick={() => setLightboxIdx(null)}
+          onClick={() => {
+            setLightboxIdx(null);
+            triggerBtnRef.current?.focus();
+          }}
         >
           <button
+            ref={closeBtnRef}
             type="button"
-            onClick={() => setLightboxIdx(null)}
-            aria-label="Fechar imagem"
-            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-xl bg-[#E91C47] text-[#FDF6E4] flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
+            onClick={() => {
+              setLightboxIdx(null);
+              triggerBtnRef.current?.focus();
+            }}
+            aria-label="Fechar imagem (Esc)"
+            className="fixed top-4 right-4 z-50 w-11 h-11 rounded-xl bg-[#A60F31] text-[#FDF6E4] flex items-center justify-center shadow-lg hover:bg-[#FDBC2E] hover:text-[#3A1D40] transition-colors"
           >
-            <X className="w-6 h-6" />
+            <X aria-hidden="true" className="w-6 h-6" />
           </button>
 
           {photos.length > 1 && (

@@ -31,8 +31,18 @@ export default function Header() {
         setOpenDropdown(null);
       }
     }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpenDropdown(null);
+        setMobileOpen(false);
+      }
+    }
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   useEffect(() => {
@@ -128,11 +138,11 @@ export default function Header() {
       {/* Topo da Marca Amarelo Ipê (#FDBC2E) em destaque na Home (fiel ao layout da designer) */}
       {isHome && (
         <div className="bg-[#FDBC2E] pt-6 pb-2 px-4 hidden lg:flex justify-center">
-          <Link href="/" className="group focus:outline-none">
+          <Link href="/" className="group rounded-xl">
             <div className="relative w-[340px] h-[180px] transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
                 src="/brand/logo-horizontal-amarelo.webp"
-                alt="Coletivo Passarinha"
+                alt="Coletivo Passarinha — Página Inicial"
                 fill
                 sizes="340px"
                 className="object-contain"
@@ -156,14 +166,14 @@ export default function Header() {
             {/* Logo Compacto (sempre visível no mobile, nas páginas internas e na Home ao rolar) */}
             <Link
               href="/"
-              className={`flex items-center gap-2.5 group focus:outline-none shrink-0 ${
+              className={`flex items-center gap-2.5 group rounded-xl shrink-0 ${
                 isHome && !isScrolled ? "lg:hidden" : ""
               }`}
             >
               <div className="relative w-32 sm:w-40 xl:w-44 h-12 xl:h-14">
                 <Image
                   src="/brand/logo-horizontal-amarelo.webp"
-                  alt="Coletivo Passarinha"
+                  alt="Coletivo Passarinha — Ir para o início"
                   fill
                   sizes="176px"
                   className="object-contain object-left"
@@ -173,7 +183,10 @@ export default function Header() {
             </Link>
 
             {/* Menu Desktop Editorial em toda a extensão da tela (#532E5A sobre #FDBC2E) */}
-            <nav className="hidden lg:flex items-center flex-nowrap justify-center gap-x-1 xl:gap-x-2 2xl:gap-x-3 text-center">
+            <nav
+              aria-label="Navegação principal"
+              className="hidden lg:flex items-center flex-nowrap justify-center gap-x-1 xl:gap-x-2 2xl:gap-x-3 text-center"
+            >
               {navItems.map((item) => {
                 const active = isActive(item.href);
                 const hasSub = !!item.subItems;
@@ -183,38 +196,71 @@ export default function Header() {
                   return (
                     <div
                       key={item.name}
-                      className="relative shrink-0"
+                      className="relative shrink-0 inline-flex items-center"
                       onMouseEnter={() => setOpenDropdown(item.name)}
                       onMouseLeave={() => setOpenDropdown(null)}
+                      onBlur={(e) => {
+                        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                          setOpenDropdown(null);
+                        }
+                      }}
                     >
-                      <Link
-                        href={item.href}
-                        className={`inline-flex items-center gap-1 px-2.5 xl:px-3 py-1.5 rounded-lg text-[13.5px] xl:text-[14.5px] 2xl:text-[15.5px] tracking-wide whitespace-nowrap transition-all ${
+                      <div
+                        className={`inline-flex items-center rounded-lg transition-all ${
                           active
                             ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
-                            : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
+                            : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#6B071C]"
                         }`}
                       >
-                        <span>{item.name}</span>
-                        <ChevronDown
-                          className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                            isDropOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </Link>
+                        <Link
+                          href={item.href}
+                          aria-current={active ? "page" : undefined}
+                          className="pl-2.5 xl:pl-3 pr-1 py-1.5 text-[13.5px] xl:text-[14.5px] 2xl:text-[15.5px] tracking-wide whitespace-nowrap rounded-l-lg"
+                        >
+                          <span>{item.name}</span>
+                        </Link>
+                        <button
+                          type="button"
+                          aria-label={`Submenu de ${item.name}`}
+                          aria-haspopup="true"
+                          aria-expanded={isDropOpen}
+                          onClick={() =>
+                            setOpenDropdown(isDropOpen ? null : item.name)
+                          }
+                          onKeyDown={(e) => {
+                            if (e.key === "ArrowDown") {
+                              e.preventDefault();
+                              setOpenDropdown(item.name);
+                            }
+                          }}
+                          className="pr-2 xl:pr-2.5 pl-0.5 py-1.5 rounded-r-lg cursor-pointer"
+                        >
+                          <ChevronDown
+                            aria-hidden="true"
+                            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                              isDropOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
 
                       {isDropOpen && (
-                        <div className="absolute left-0 pt-1.5 w-72 z-50">
-                          <div className="rounded-xl bg-[#532E5A] text-[#FDF6E4] shadow-xl border border-[#3A1D40]/40 py-2 overflow-hidden text-left">
+                        <div className="absolute left-0 top-full pt-1.5 w-72 z-50">
+                          <div
+                            role="menu"
+                            aria-label={`Seções de ${item.name}`}
+                            className="rounded-xl bg-[#532E5A] text-[#FDF6E4] shadow-xl border border-[#3A1D40]/40 py-2 overflow-hidden text-left"
+                          >
                             <div className="px-4 py-1.5 border-b border-[#FDF6E4]/20 text-[11px] font-bold uppercase tracking-widest text-[#FDBC2E]">
                               {item.name}
                             </div>
                             {item.subItems!.map((sub) => (
                               <Link
                                 key={sub.name}
+                                role="menuitem"
                                 href={sub.href}
                                 onClick={() => setOpenDropdown(null)}
-                                className="block px-4 py-2.5 text-sm font-semibold text-[#FDF6E4] hover:bg-[#E91C47] hover:text-white transition-colors"
+                                className="block px-4 py-2.5 text-sm font-semibold text-[#FDF6E4] hover:bg-[#A60F31] hover:text-white transition-colors"
                               >
                                 {sub.name}
                               </Link>
@@ -230,10 +276,11 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
+                    aria-current={active ? "page" : undefined}
                     className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-[13.5px] xl:text-[14.5px] 2xl:text-[15.5px] tracking-wide whitespace-nowrap shrink-0 transition-all ${
                       active
                         ? "bg-[#532E5A] text-[#FDBC2E] font-bold shadow-sm"
-                        : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#E91C47]"
+                        : "text-[#532E5A] font-bold hover:bg-[#532E5A]/15 hover:text-[#6B071C]"
                     }`}
                   >
                     {item.name}
@@ -247,10 +294,16 @@ export default function Header() {
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 type="button"
-                className="p-2 rounded-xl text-[#532E5A] hover:bg-[#532E5A]/10 focus:outline-none"
-                aria-label="Abrir menu"
+                className="p-2 rounded-xl text-[#532E5A] hover:bg-[#532E5A]/10"
+                aria-label={mobileOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+                aria-expanded={mobileOpen}
+                aria-controls="menu-mobile-drawer"
               >
-                {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+                {mobileOpen ? (
+                  <X aria-hidden="true" className="w-7 h-7" />
+                ) : (
+                  <Menu aria-hidden="true" className="w-7 h-7" />
+                )}
               </button>
             </div>
           </div>
@@ -258,7 +311,11 @@ export default function Header() {
 
         {/* Menu Mobile Drawer */}
         {mobileOpen && (
-          <div className="lg:hidden bg-[#FDBC2E] border-t border-[#532E5A]/20 px-4 pt-3 pb-6 space-y-1.5 shadow-xl max-h-[85vh] overflow-y-auto">
+          <nav
+            id="menu-mobile-drawer"
+            aria-label="Menu de navegação móvel"
+            className="lg:hidden bg-[#FDBC2E] border-t border-[#532E5A]/20 px-4 pt-3 pb-6 space-y-1.5 shadow-xl max-h-[85vh] overflow-y-auto"
+          >
             {navItems.map((item) => {
               const active = isActive(item.href);
               const hasSub = !!item.subItems;
@@ -270,6 +327,7 @@ export default function Header() {
                     <div className="flex items-center justify-between gap-1">
                       <Link
                         href={item.href}
+                        aria-current={active ? "page" : undefined}
                         onClick={() => setMobileOpen(false)}
                         className={`flex-1 px-4 py-2.5 rounded-xl text-base font-bold transition-colors ${
                           active
@@ -283,9 +341,11 @@ export default function Header() {
                         type="button"
                         onClick={() => setMobileSubmenu(isSubOpen ? null : item.name)}
                         className="p-2.5 rounded-xl text-[#532E5A] bg-[#532E5A]/10"
-                        aria-label={`Expandir ${item.name}`}
+                        aria-label={`Expandir submenu de ${item.name}`}
+                        aria-expanded={isSubOpen}
                       >
                         <ChevronDown
+                          aria-hidden="true"
                           className={`w-5 h-5 transition-transform ${
                             isSubOpen ? "rotate-180" : ""
                           }`}
@@ -315,6 +375,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={active ? "page" : undefined}
                   onClick={() => setMobileOpen(false)}
                   className={`block px-4 py-2.5 rounded-xl text-base font-bold transition-colors ${
                     active
@@ -326,7 +387,7 @@ export default function Header() {
                 </Link>
               );
             })}
-          </div>
+          </nav>
         )}
       </header>
     </>
